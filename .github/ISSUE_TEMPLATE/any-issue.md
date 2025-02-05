@@ -1,7 +1,7 @@
 ---
 name: any-issue
 about: 아무거나 이슈 템플릿입니다
-title: ''
+title: "`PROJECTS` Add Scroll Interaction"
 labels: ''
 assignees: ''
 
