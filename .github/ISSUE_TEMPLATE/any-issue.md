@@ -1,6 +1,6 @@
 ---
-name: 커스텀 템플릿
-about: 커스텀 이슈 템플릿입니다
+name: any-issue
+about: 아무거나 이슈 템플릿입니다
 title: ''
 labels: ''
 assignees: ''
