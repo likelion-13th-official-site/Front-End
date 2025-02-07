@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/*🚨여기에 색, 폰트 지정🚨*/
+@theme {
+  --color-common-white: #ffffff;
+  --color-primary-normal: #288dff;
+  --color-secondary-normal: #b9d5e6;
+  --color-neutal-30: #39393b;
+  --color-neutal-20: #232325;
+  --font-d2: D2Coding;
+}
+
+@font-face {
+  font-family: 'D2Coding';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

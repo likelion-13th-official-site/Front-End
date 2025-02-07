@@ -9,17 +9,19 @@
 커밋 메시지는 **"기능: 기능설명"** 형식으로 작성합니다.
 
 ### ✅ 커밋 유형
-| 유형 | 설명 |
-|------|---------------------------------------------|
-| `feat` | 새로운 기능 추가 또는 기존 기능 수정 |
-| `fix` | 기능에 대한 버그 수정 |
-| `build` | 빌드 관련 수정 |
-| `chore` | 패키지 매니저 수정 및 기타 수정 (예: `.gitignore`) |
-| `docs` | 문서(주석) 수정 |
-| `style` | 코드 스타일 및 포맷팅 수정 (기능 변경 없음) |
-| `refactor` | 기능 변경 없이 코드 리팩터링 (예: 변수명 변경) |
+
+| 유형       | 설명                                               |
+| ---------- | -------------------------------------------------- |
+| `feat`     | 새로운 기능 추가 또는 기존 기능 수정               |
+| `fix`      | 기능에 대한 버그 수정                              |
+| `build`    | 빌드 관련 수정                                     |
+| `chore`    | 패키지 매니저 수정 및 기타 수정 (예: `.gitignore`) |
+| `docs`     | 문서(주석) 수정                                    |
+| `style`    | 코드 스타일 및 포맷팅 수정 (기능 변경 없음)        |
+| `refactor` | 기능 변경 없이 코드 리팩터링 (예: 변수명 변경)     |
 
 ### 📝 커밋 메시지 예시
+
 ```bash
 feat: Add user authentication
 fix: Resolve login button bug
@@ -33,6 +35,7 @@ fix: Resolve login button bug
 - 페이지명은 대문자로 작성합니다.
 
 ### 📌 브랜치명 예시
+
 ```bash
 PROJECTS/UI-markup
 AUTH/Login-feature
@@ -46,6 +49,7 @@ AUTH/Login-feature
 - 페이지명은 대문자로 작성하여 가독성을 높입니다.
 
 ### 📌 이슈 제목 예시
+
 ```bash
 `PROJECTS` Add Scroll Interaction
 `AUTH` Fix Login Button Alignment
@@ -56,6 +60,7 @@ AUTH/Login-feature
 ---
 
 ## 🚀 개발 환경 및 기술 스택
+
 - **React.js** (프레임워크)
 - **Tailwind CSS** (스타일링)
 - **TypeScript** (정적 타입 체크)
@@ -65,4 +70,3 @@ AUTH/Login-feature
 ---
 
 ### 🎯 ㅎㅇㅌㅎㅇㅌ! 🦁
-
