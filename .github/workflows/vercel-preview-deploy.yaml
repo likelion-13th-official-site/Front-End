@@ -35,3 +35,4 @@ jobs:
           message: |
             🎉 **Vercel Preview 배포 완료!**  
             🔗 [Preview URL](${{ steps.deploy.outputs.preview_url }})
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
