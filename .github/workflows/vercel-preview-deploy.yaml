@@ -8,6 +8,10 @@ on:
     branches:
       - "develop"
 
+permissions:  
+  pull-requests: write
+  contents: read
+
 jobs:
   Deploy-Preview:
     runs-on: ubuntu-latest
