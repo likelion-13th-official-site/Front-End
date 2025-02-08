@@ -1,0 +1,53 @@
+name: Vercel Production Deployment
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+on:
+  pull_request:
+    branches:
+      - "main"
+    types:
+      - closed # PR이 merge되어 닫힐 때 실행됨
+
+jobs:
+  Deploy-Production:
+    if: github.event.pull_request.merged == true # PR이 merge된 경우에만 실행
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Build
+        run: npm run build
+
+      - name: Run Lint (Optional)
+        run: npm run lint
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        id: deploy
+        run: |
+          DEPLOY_URL=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})
+          if [[ -z "$DEPLOY_URL" ]]; then
+            echo "Error: Deployment failed!"
+            exit 1
+          fi
+          echo "🚀 Deployment successful: $DEPLOY_URL"
+          echo "deploy_url=$DEPLOY_URL" >> $GITHUB_ENV
+          echo "::set-output name=deploy_url::$DEPLOY_URL"
+
+      - name: Notify Deployment
+        run: |
+          echo "✅ Production deployment completed: ${{ steps.deploy.outputs.deploy_url }}"
