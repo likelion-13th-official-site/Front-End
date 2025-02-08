@@ -1,12 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
-
-const Router = createBrowserRouter([
+import TrackPage from './pages/TrackPage';
+const router = createBrowserRouter([
   {
     path: '/',
+    element: <AboutPage />
     // errorElement:,
-    children: [{ path: '', element: <AboutPage /> }]
+  },
+  {
+    path: 'track',
+    element: <TrackPage />
+    // errorElement:,
   }
 ]);
 
-export default Router;
+export default router;
