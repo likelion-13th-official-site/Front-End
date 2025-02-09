@@ -10,7 +10,7 @@ const StackItem = ({ imageName, name, description }: StackItemProps) => {
   const imagePath = new URL(`../../assets/image/${imageName}`, import.meta.url)
     .href;
   return (
-    <div className="w-full border-t-[0.1rem] border-solid border-(--color-primary-normal) pt-[0.8rem]">
+    <div className="w-full border-t-[0.1rem] border-solid border-primary pt-[0.8rem]">
       <div className="flex items-start">
         <img
           src={imagePath}
@@ -20,10 +20,9 @@ const StackItem = ({ imageName, name, description }: StackItemProps) => {
           {name}
         </p>
         <p className="grow-1 shrink-1 basis-0 text-[1.4rem] font-normal leading-[1.96rem]">
-        {description}
-      </p>
+          {description}
+        </p>
       </div>
-
     </div>
   );
 };

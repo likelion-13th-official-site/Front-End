@@ -76,15 +76,16 @@ const TrackPage = () => {
       }
     }
   };
+  document.documentElement.classList.add('dark');
   return (
     <>
-      <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-(--color-common-white)">
+      <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-primary text-primary">
         <section className="grow-1 shrink-1 basis-0">
-          <span className="text-[102.4rem] font-[D2Coding] text-(--color-primary-normal) italic opacity-[0.1] leading-[143rem] text-center">
+          <span className="text-[102.4rem] font-[D2Coding]  italic opacity-[0.1] leading-[143rem] text-center">
             {trackLetters[trackType]}
           </span>
         </section>
-        <section className="grow-1 shrink-1 basis-0 w-full flex items-center font-[D2Coding] text-(--color-primary-normal) text-[1.4rem] font-bold leading-[1.96rem]">
+        <section className="grow-1 shrink-1 basis-0 w-full flex items-center font-[D2Coding] text-[1.4rem] font-bold leading-[1.96rem]">
           <div className="w-full pr-[13.2rem]">
             <div className="w-full px-[1.2rem] flex flex-col gap-[1.6rem]">
               <p className="w-full ">{trackNames[trackType]}</p>
@@ -103,13 +104,13 @@ const TrackPage = () => {
         </section>
       </div>
       <div
-        className="absolute top-[50%] left-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-(--color-primary-normal) italic cursor-pointer"
+        className="absolute top-[50%] left-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-primary italic cursor-pointer"
         onClick={() => handleArrowClick('left')}
       >
         ←
       </div>
       <div
-        className="absolute top-[50%] right-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-(--color-primary-normal) italic cursor-pointer"
+        className="absolute top-[50%] right-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-primary italic cursor-pointer"
         onClick={() => handleArrowClick('right')}
       >
         →
