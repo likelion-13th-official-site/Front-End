@@ -1,16 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import TrackPage from './pages/TrackPage';
+import ApplyPage from './pages/ApplyPage';
 const router = createBrowserRouter([
   {
     path: '/',
     element: <AboutPage />
-    // errorElement:,
   },
   {
     path: 'track',
     element: <TrackPage />
-    // errorElement:,
+  },
+  {
+    path: 'apply',
+    element: <ApplyPage />
   }
 ]);
 
