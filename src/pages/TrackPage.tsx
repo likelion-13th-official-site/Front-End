@@ -76,7 +76,7 @@ const TrackPage = () => {
       }
     }
   };
-  document.documentElement.classList.add('dark');
+  // document.documentElement.classList.add('dark');
   return (
     <>
       <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-primary text-primary">

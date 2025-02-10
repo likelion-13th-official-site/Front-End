@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface SquareBtnProps {
   content: string;
@@ -7,12 +7,34 @@ interface SquareBtnProps {
 }
 
 const SquareBtn = ({ content, handleClick, status }: SquareBtnProps) => {
+  const [curStatus, setCurStatus] = useState(status);
   return (
     <button
-      className={`${status === 'default' ? 'bg-secondary border-0' : 'bg-white border'} flex justify-center items-center p-[1.2rem] cursor-pointer`}
+      className={
+        (() => {
+          switch (curStatus) {
+            case 'default':
+              return 'cursor-pointer border-surface-secondary border bg-secondary text-primary';
+            case 'default2':
+              return 'bg-transparent border-primary text-primary border cursor-pointer';
+            case 'hovered':
+              return 'cursor-pointer text-invert bg-text-primary border border-primary';
+            case 'disabled':
+              return 'cursor-not-allowed border border-secondary text-secondary bg-transparent ';
+            default:
+              return '';
+          }
+        })() + 'flex justify-center items-center p-[1.2rem]'
+      }
       onClick={() => {
-        handleClick();
+        if (status !== 'disabled') {
+          handleClick();
+        }
       }}
+      onMouseEnter={() => {
+        if (status !== 'disabled') setCurStatus('hovered');
+      }}
+      onMouseLeave={() => setCurStatus(status)}
     >
       {content}
     </button>

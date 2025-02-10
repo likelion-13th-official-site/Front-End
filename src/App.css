@@ -48,6 +48,14 @@ body {
   background-color: var(--color-surface-primary-dark);
 }
 
+.bg-text-primary {
+  background-color: var(--color-text-primary-light);
+}
+
+.dark .bg-text-primary {
+  background-color: var(--color-text-primary-dark);
+}
+
 .bg-secondary {
   background-color: var(--color-surface-secondary-light);
 }
@@ -78,6 +86,14 @@ body {
 
 .dark .border-secondary {
   border-color: var(--color-text-secondary-dark);
+}
+
+.border-surface-secondary {
+  border-color: var(--color-surface-secondary-light);
+}
+
+.dark .border-surface-secondary {
+  border-color: var(--color-surface-secondary-dark);
 }
 
 .border-tertiary {
@@ -113,9 +129,13 @@ body {
 }
 
 .text-negative {
-  color: var(--color-status-negative-light);
+  color: var(--color-status-negative);
 }
 
 .bg-negative {
-  color: var(--color-status-negative-light);
+  color: var(--color-status-negative);
+}
+
+.border-negative {
+  border-color: var(--color-status-negative);
 }
