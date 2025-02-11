@@ -3,14 +3,25 @@ import AboutPage from './pages/AboutPage';
 import TrackPage from './pages/TrackPage';
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <AboutPage />
-    // errorElement:,
+    element: <></>,
+    errorElement: <></>,
+    children: [
+      {
+        path: '/',
+        element: <AboutPage />
+        // errorElement:,
+      },
+      {
+        path: 'track',
+        element: <TrackPage />
+        // errorElement:,
+      }
+    ]
   },
   {
-    path: 'track',
-    element: <TrackPage />
-    // errorElement:,
+    element: <></>,
+    errorElement: <></>,
+    children: []
   }
 ]);
 
