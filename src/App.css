@@ -16,7 +16,11 @@ body {
 
 /*🚨여기에 색, 폰트 지정🚨*/
 @theme {
+  --breakpoint-md: 70rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 151.2rem;
   --font-d2: D2Coding;
+  --font-pp: PP Lettra Mono;
   --color-surface-primary-light: #ffffff;
   --color-surface-primary-dark: #232325;
   --color-surface-secondary-light: #e9f4ff;
@@ -40,82 +44,9 @@ body {
   font-style: normal;
 }
 
-.bg-primary {
-  background-color: var(--color-surface-primary-light);
-}
-
-.dark .bg-primary {
-  background-color: var(--color-surface-primary-dark);
-}
-
-.bg-secondary {
-  background-color: var(--color-surface-secondary-light);
-}
-
-.dark .bg-secondary {
-  background-color: var(--color-surface-secondary-dark);
-}
-
-.bg-tertiary {
-  background-color: var(--color-surface-tertiary-light);
-}
-
-.dark .bg-tertiary {
-  background-color: var(--color-surface-tertiary-dark);
-}
-
-.border-primary {
-  border-color: var(--color-text-primary-light);
-}
-
-.dark .border-primary {
-  border-color: var(--color-text-primary-dark);
-}
-
-.border-secondary {
-  border-color: var(--color-text-secondary-light);
-}
-
-.dark .border-secondary {
-  border-color: var(--color-text-secondary-dark);
-}
-
-.border-tertiary {
-  border-color: var(--color-text-tertiary-light);
-}
-
-.dark .border-tertiary {
-  border-color: var(--color-text-tertiary-dark);
-}
-
-.text-primary {
-  color: var(--color-text-primary-light);
-}
-
-.dark .text-primary {
-  color: var(--color-text-primary-dark);
-}
-
-.text-secondary {
-  color: var(--color-text-secondary-light);
-}
-
-.dark .text-secondary {
-  color: var(--color-text-secondary-dark);
-}
-
-.text-invert {
-  color: var(--color-text-invert-light);
-}
-
-.dark .text-invert {
-  color: var(--color-text-invert-dark);
-}
-
-.text-negative {
-  color: var(--color-status-negative-light);
-}
-
-.bg-negative {
-  color: var(--color-status-negative-light);
+@font-face {
+  font-family: 'PP Lettra Mono';
+  src: url('./assets/font/pp_lettra_mono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
