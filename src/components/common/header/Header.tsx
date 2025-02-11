@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header
       id="header"
-      className="h-[4.7rem] px-[0.8rem] py-[1.2rem] flex gap-[2.4rem] justify-between items-center text-[var(--color-primary-normal)] font-['PP Lettra Mono']"
+      className="fixed top-0 left-0 font-pp w-screen h-[4.7rem] px-[0.8rem] py-[1.2rem] flex gap-[2.4rem] justify-between items-center"
     >
       <div id="header-left" className="flex-1">
         <div
@@ -20,7 +20,7 @@ export default function Header() {
         >
           <span>Likelion</span>
           <i className="italic">Sogang</i>
-          <sup className="tracking-[-4.8px]">13</sup>
+          <sup className="">13</sup>
         </div>
       </div>
       <div
@@ -42,7 +42,7 @@ export default function Header() {
         >
           <button
             id="header-right__apply"
-            className="rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-[var(--color-primary-normal)] text-[1.6rem] italic"
+            className="flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
           >
             Apply Now →
           </button>
