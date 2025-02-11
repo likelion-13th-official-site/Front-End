@@ -4,6 +4,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: var(--font-pp);
 }
 
 body {
@@ -18,12 +19,20 @@ body {
   --color-neutal-30: #39393b;
   --color-neutal-20: #232325;
   --font-d2: D2Coding;
+  --font-pp: PP Lettra Mono;
 }
 
 @font-face {
   font-family: 'D2Coding';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff')
     format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Lettra Mono';
+  src: url('../src/assets/font/pp-lettra-mono.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
