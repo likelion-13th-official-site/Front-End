@@ -1,5 +1,5 @@
-import React from 'react';
+// import React from 'react';
 
 export default function AboutPage() {
-  return <div>AboutPage</div>;
+  return <div className="w-screen h-[200vh]">AboutPage</div>;
 }
