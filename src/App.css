@@ -6,24 +6,47 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   min-height: 100vh;
 }
 
 /*🚨여기에 색, 폰트 지정🚨*/
 @theme {
-  --color-common-white: #ffffff;
-  --color-primary-normal: #288dff;
-  --color-secondary-normal: #b9d5e6;
-  --color-neutal-30: #39393b;
-  --color-neutal-20: #232325;
+  --breakpoint-md: 70rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 151.2rem;
   --font-d2: D2Coding;
+  --font-pp: PP Lettra Mono;
+  --color-surface-primary-light: #ffffff;
+  --color-surface-primary-dark: #232325;
+  --color-surface-secondary-light: #e9f4ff;
+  --color-surface-secondary-dark: #303034;
+  --color-surface-tertiary-light: #8dc2ff;
+  --color-surface-tertiary-dark: #39393b;
+  --color-text-primary-light: #288dff;
+  --color-text-primary-dark: #b9d5e6;
+  --color-text-secondary-light: #8dc2ff;
+  --color-text-secondary-dark: #d2e6f2;
+  --color-text-invert-light: #ffffff;
+  --color-text-invert-dark: #232325;
+  --color-status-negative: #ff8b8b;
 }
 
 @font-face {
   font-family: 'D2Coding';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff')
     format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Lettra Mono';
+  src: url('./assets/font/pp_lettra_mono.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
