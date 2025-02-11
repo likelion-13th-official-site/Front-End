@@ -3,7 +3,7 @@ import Header from './header/Header';
 
 export default function HeaderLayout() {
   return (
-    <div>
+    <div className="w-screen">
       <Header />
       <Outlet />
     </div>

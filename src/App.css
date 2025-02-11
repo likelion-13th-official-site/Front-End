@@ -12,6 +12,7 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /*🚨여기에 색, 폰트 지정🚨*/
