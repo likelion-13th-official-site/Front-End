@@ -1,14 +1,14 @@
 import ApplyFirst from '@/components/ApplyPage/ApplyFirst';
 import ApplySecond from '@/components/ApplyPage/ApplySecond';
 import ApplyThird from '@/components/ApplyPage/ApplyThird';
-import Checkbox from '@/components/ApplyPage/Checkbox';
 import FindPWAuth from '@/components/ApplyPage/FindPWAuth';
 import FindPWEmail from '@/components/ApplyPage/FindPWEmail';
 import FindPWReset from '@/components/ApplyPage/FindPWReset';
 import Home from '@/components/ApplyPage/Home';
-import Instruction from '@/components/ApplyPage/Instruction';
+import ApplyFourth from '@/components/ApplyPage/ApplyFourth';
+import Instruction from '@/components/ApplyPage/ApplyFourth';
 import RoundBtn from '@/components/ApplyPage/RoundBtn';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export enum Page {
@@ -16,10 +16,10 @@ export enum Page {
   FIND_PW_EMAIL,
   FIND_PW_AUTH,
   FIND_PW_RESET,
-  INSTRUCTION,
   APPLY_FIRST,
   APPLY_SECOND,
-  APPLY_THIRD
+  APPLY_THIRD,
+  APPLY_FOURTH
 }
 
 const ApplyPage = () => {
@@ -34,9 +34,9 @@ const ApplyPage = () => {
     nav('/');
   };
 
-  const handleApplyPageClick = () => {
-    setCurrentPage(Page.HOME);
-  };
+  // const handleApplyPageClick = () => {
+  //   setCurrentPage(Page.HOME);
+  // };
 
   const handlePageChange = (page: Page) => {
     setCurrentPage(page);
@@ -46,7 +46,7 @@ const ApplyPage = () => {
 
   return (
     <div className="bg-secondary w-screen min-h-screen flex justify-center font-[D2Coding] text-primary text-[1.6rem] font-normal leading-normal">
-      <div className="bg-primary flex flex-col w-[68rem] px-[2.4rem] pt-[1.2rem] pb-[2.4rem] gap-[8rem] min-h-screen">
+      <div className="bg-primary border flex flex-col w-[68rem] px-[2.4rem] pt-[1.2rem] pb-[2.4rem] gap-[8rem] min-h-screen">
         <section className="w-full flex justify-between items-center">
           <p>
             Likelion <span className="italic">Sogang</span>¹³ — — —{' '}
@@ -76,10 +76,18 @@ const ApplyPage = () => {
         {currentPage === Page.FIND_PW_RESET && (
           <FindPWReset handlePageChange={handlePageChange} />
         )}
-        {currentPage === Page.INSTRUCTION && <Instruction />}
-        {currentPage === Page.APPLY_FIRST && <ApplyFirst />}
-        {currentPage === Page.APPLY_SECOND && <ApplySecond />}
-        {currentPage === Page.APPLY_THIRD && <ApplyThird />}
+        {currentPage === Page.APPLY_FIRST && (
+          <ApplyFirst handlePageChange={handlePageChange} />
+        )}
+        {currentPage === Page.APPLY_SECOND && (
+          <ApplySecond handlePageChange={handlePageChange} />
+        )}
+        {currentPage === Page.APPLY_THIRD && (
+          <ApplyThird handlePageChange={handlePageChange} />
+        )}
+        {currentPage === Page.APPLY_FOURTH && (
+          <ApplyFourth handlePageChange={handlePageChange} />
+        )}
       </div>
     </div>
   );

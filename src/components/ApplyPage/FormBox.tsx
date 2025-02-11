@@ -28,13 +28,13 @@ const FormBox = ({
         (isError
           ? 'border-negative text-negative'
           : 'border-primary text-primary') +
-        ' flex flex-col gap-[0.6rem] w-full text-[1.4rem]'
+        ' flex flex-col gap-[0.6rem] grow-1 shrink-1 basis-0 text-[1.4rem]'
       }
     >
       <div className="relative">
         <p className="text-primary">{name}</p>
         <input
-          className="py-[1.2rem] border-b w-full focus:outline-none"
+          className="py-[1.2rem] border-b w-full font-pretendard font-medium focus:outline-none"
           placeholder={placeholder}
           type={
             inputType === 'password' && isPasswordVisible ? 'text' : inputType
@@ -44,7 +44,7 @@ const FormBox = ({
         ></input>
         {inputType === 'password' && (
           <img
-            src={isPasswordVisible ? passwordEyeClosed : passwordEyeOpened}
+            src={isPasswordVisible ? passwordEyeOpened : passwordEyeClosed}
             alt="Password Eye"
             className="absolute right-0 top-[50%]"
             onClick={() => setIsPasswordVisible(!isPasswordVisible)}
@@ -53,7 +53,9 @@ const FormBox = ({
       </div>
 
       {isExplanation && (
-        <p className="text-[1.2rem] opacity-[0.6]">{explanation}</p>
+        <p className="text-[1.2rem] opacity-[0.6] font-pretendard font-medium">
+          {explanation}
+        </p>
       )}
     </div>
   );

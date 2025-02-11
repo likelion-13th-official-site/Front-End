@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import StackItem from '../components/TrackPage/StackItem';
 
 interface StackItem {

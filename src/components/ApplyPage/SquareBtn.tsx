@@ -24,7 +24,7 @@ const SquareBtn = ({ content, handleClick, status }: SquareBtnProps) => {
             default:
               return '';
           }
-        })() + 'flex justify-center items-center p-[1.2rem]'
+        })() + 'flex justify-center items-center w-full p-[1.2rem]'
       }
       onClick={() => {
         if (status !== 'disabled') {

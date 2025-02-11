@@ -22,6 +22,7 @@ body {
   --breakpoint-3xl: 151.2rem;
   --font-d2: D2Coding;
   --font-pp: PP Lettra Mono;
+  --font-pretendard: Pretendard;
   --color-surface-primary-light: #ffffff;
   --color-surface-primary-dark: #232325;
   --color-surface-secondary-light: #e9f4ff;
@@ -35,6 +36,19 @@ body {
   --color-text-invert-light: #ffffff;
   --color-text-invert-dark: #232325;
   --color-status-negative: #ff8b8b;
+
+  --color-surface-primary: #ffffff;
+  /* --color-surface-primary-dark: #232325; */
+  --color-surface-secondary: #e9f4ff;
+  /* --color-surface-secondary-dark: #303034; */
+  --color-surface-tertiary: #8dc2ff;
+  /* --color-surface-tertiary-dark: #39393b; */
+  --color-text-primary: #288dff;
+  /* --color-text-primary-dark: #b9d5e6; */
+  --color-text-secondary: #8dc2ff;
+  /* --color-text-secondary-dark: #d2e6f2; */
+  --color-text-invert: #ffffff;
+  /* --color-text-invert-dark: #232325; */
 }
 
 @font-face {
@@ -46,8 +60,115 @@ body {
 }
 
 @font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/PretendardVariable.woff2') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+.bg-primary {
+  background-color: var(--color-surface-primary-light);
+}
+
+.dark .bg-primary {
+  background-color: var(--color-surface-primary-dark);
+}
+
+.bg-text-primary {
+  background-color: var(--color-text-primary-light);
+}
+
+.dark .bg-text-primary {
+  background-color: var(--color-text-primary-dark);
+}
+
+.bg-secondary {
+  background-color: var(--color-surface-secondary-light);
+}
+
+.dark .bg-secondary {
+  background-color: var(--color-surface-secondary-dark);
+}
+
+.bg-tertiary {
+  background-color: var(--color-surface-tertiary-light);
+}
+
+.dark .bg-tertiary {
+  background-color: var(--color-surface-tertiary-dark);
+}
+
+.border-primary {
+  border-color: var(--color-text-primary-light);
+}
+
+.dark .border-primary {
+  border-color: var(--color-text-primary-dark);
+}
+
+.border-secondary {
+  border-color: var(--color-text-secondary-light);
+}
+
+.dark .border-secondary {
+  border-color: var(--color-text-secondary-dark);
+}
+
+.border-surface-secondary {
+  border-color: var(--color-surface-secondary-light);
+}
+
+.dark .border-surface-secondary {
+  border-color: var(--color-surface-secondary-dark);
+}
+
+.border-tertiary {
+  border-color: var(--color-text-tertiary-light);
+}
+
+.dark .border-tertiary {
+  border-color: var(--color-text-tertiary-dark);
+}
+
+.text-primary {
+  color: var(--color-text-primary-light);
+}
+
+.dark .text-primary {
+  color: var(--color-text-primary-dark);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary-light);
+}
+
+.dark .text-secondary {
+  color: var(--color-text-secondary-dark);
+}
+
+.text-invert {
+  color: var(--color-text-invert-light);
+}
+
+.dark .text-invert {
+  color: var(--color-text-invert-dark);
+}
+
+.text-negative {
+  color: var(--color-status-negative);
+}
+
+.bg-negative {
+  color: var(--color-status-negative);
+}
+
+.border-negative {
+  border-color: var(--color-status-negative);
+}
+
+@font-face {
   font-family: 'PP Lettra Mono';
-  src: url('./assets/font/pp_lettra_mono.woff') format('woff');
+  src: url('./assets/font/pp-lettra-mono.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

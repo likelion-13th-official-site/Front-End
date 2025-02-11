@@ -12,7 +12,7 @@ interface IsChecked {
   second: boolean;
 }
 
-const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
+const ApplyFourth = ({ handlePageChange }: ApplyFirstProps) => {
   const [isChecked, setIsChecked] = useState<IsChecked>({
     first: false,
     second: false
@@ -20,7 +20,7 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
 
   const handleNextBtn = () => {
     //API call
-    handlePageChange(Page.APPLY_SECOND);
+    handlePageChange(Page.HOME);
   };
 
   return (
@@ -100,4 +100,4 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
   );
 };
 
-export default ApplyFirst;
+export default ApplyFourth;
