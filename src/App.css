@@ -46,7 +46,7 @@ body {
 
 @font-face {
   font-family: 'PP Lettra Mono';
-  src: url('@/assets/font/pp_lettra_mono.woff') format('woff');
+  src: url('./assets/font/pp_lettra_mono.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
