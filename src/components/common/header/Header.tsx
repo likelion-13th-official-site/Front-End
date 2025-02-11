@@ -1,17 +1,28 @@
+import { useState } from 'react';
 import ThemeButton from './ThemeButton';
+import MenuPortal from '@/components/portal/MenuPortal';
+import MenuModal from './MenuModal';
+import clsx from 'clsx';
 
 const navItems = [
-  { name: 'About', link: 'about' },
+  { name: 'About', link: '/' },
   { name: 'Track', link: 'track' },
   { name: 'People', link: 'people' },
-  { name: 'Projects', link: 'projectss' }
+  { name: 'Projects', link: 'projects' }
 ];
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header
       id="header"
-      className="fixed top-0 left-0 font-pp w-screen h-[4.7rem] sm:h-[17rem] md:h-[4.7rem] px-[1.8rem] py-[1.2rem] flex gap-[2.4rem] justify-between items-center"
+      className={clsx(
+        'z-1000 absolute sm:fixed top-0 left-0 font-pp w-screen h-[4.7rem] sm:h-[17rem] md:h-[4.7rem] pl-[1.2rem] pr-[2.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between items-center',
+        {
+          fixed: isMenuOpen
+        }
+      )}
     >
       <div
         id="header-left"
@@ -45,19 +56,25 @@ export default function Header() {
         >
           <button
             id="header-right__apply"
-            className="hidden sm:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
+            className="cursor-pointer hidden sm:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
           >
             Apply Now →
           </button>
           <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             id="header-right__apply"
-            className="block sm:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
+            className="cursor-pointer block sm:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
           >
             Menu
           </button>
           <ThemeButton />
         </div>
       </div>
+      {isMenuOpen && (
+        <MenuPortal>
+          <MenuModal setIsMenuOpen={setIsMenuOpen} />
+        </MenuPortal>
+      )}
     </header>
   );
 }

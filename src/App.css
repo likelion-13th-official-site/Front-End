@@ -4,6 +4,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  transition:
+    color 0.3s,
+    background-color 0.3s,
+    border 0.3s;
 }
 
 html {
@@ -22,19 +26,21 @@ body {
   --breakpoint-3xl: 151.2rem;
   --font-d2: D2Coding;
   --font-pp: PP Lettra Mono;
-  --color-surface-primary-light: #ffffff;
-  --color-surface-primary-dark: #232325;
-  --color-surface-secondary-light: #e9f4ff;
-  --color-surface-secondary-dark: #303034;
-  --color-surface-tertiary-light: #8dc2ff;
-  --color-surface-tertiary-dark: #39393b;
-  --color-text-primary-light: #288dff;
-  --color-text-primary-dark: #b9d5e6;
-  --color-text-secondary-light: #8dc2ff;
-  --color-text-secondary-dark: #d2e6f2;
-  --color-text-invert-light: #ffffff;
-  --color-text-invert-dark: #232325;
+  --color-surface-primary: #ffffff;
+  /* --color-surface-primary-dark: #232325; */
+  --color-surface-secondary: #e9f4ff;
+  /* --color-surface-secondary-dark: #303034; */
+  --color-surface-tertiary: #8dc2ff;
+  /* --color-surface-tertiary-dark: #39393b; */
+  --color-text-primary: #288dff;
+  /* --color-text-primary-dark: #b9d5e6; */
+  --color-text-secondary: #8dc2ff;
+  /* --color-text-secondary-dark: #d2e6f2; */
+  --color-text-invert: #ffffff;
+  /* --color-text-invert-dark: #232325; */
   --color-status-negative: #ff8b8b;
+
+  --animate-spin-logo: spin 5s linear infinite;
 }
 
 @font-face {
