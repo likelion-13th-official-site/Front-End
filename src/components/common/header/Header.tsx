@@ -3,6 +3,7 @@ import ThemeButton from './ThemeButton';
 import MenuPortal from '@/components/portal/MenuPortal';
 import MenuModal from './MenuModal';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
 
 const navItems = [
   { name: 'About', link: '/' },
@@ -13,6 +14,7 @@ const navItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const nav = useNavigate();
 
   return (
     <header
@@ -52,6 +54,7 @@ export default function Header() {
           <button
             id="header-right__apply"
             className="cursor-pointer hidden md:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
+            onClick={() => nav('/apply')}
           >
             Apply Now →
           </button>

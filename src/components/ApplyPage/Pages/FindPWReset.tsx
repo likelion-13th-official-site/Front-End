@@ -1,7 +1,7 @@
 import { Page } from '@/pages/ApplyPage';
 import React, { useState } from 'react';
-import SquareBtn from './SquareBtn';
-import FormBox from './FormBox';
+import SquareBtn from '../SquareBtn';
+import FormBox from '../FormBox';
 
 interface FindPWEmailProps {
   handlePageChange: (page: Page) => void;
@@ -26,6 +26,7 @@ const FindPWReset = ({ handlePageChange }: FindPWEmailProps) => {
 
       <FormBox
         name={'NEW PASSWORD'}
+        title={'NEW PASSWORD'}
         handleChange={handleInput}
         isError={false}
         isExplanation={true}

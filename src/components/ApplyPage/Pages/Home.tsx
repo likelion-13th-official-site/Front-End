@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SquareBtn from './SquareBtn';
-import FormBox from './FormBox';
+import SquareBtn from '../SquareBtn';
+import FormBox from '../FormBox';
 import { Page } from '@/pages/ApplyPage';
 import ApplyFirst from './ApplyFirst';
 
@@ -62,12 +62,14 @@ const Home = ({ handlePageChange }: HomeProps) => {
         <p className="font-bold">이미 작성하던 지원서가 있으시다면,</p>
         <FormBox
           name={'EMAIL'}
+          title={'EMAIL'}
           handleChange={handleInput}
           isError={false}
           isExplanation={false}
           placeholder=""
         ></FormBox>
         <FormBox
+          title={'PASSWORD'}
           name={'PASSWORD'}
           handleChange={handleInput}
           isError={false}

@@ -1,6 +1,6 @@
 import { Page } from '@/pages/ApplyPage';
 import React, { useState } from 'react';
-import SquareBtn from './SquareBtn';
+import SquareBtn from '../SquareBtn';
 import checkIcon from '../../assets/image/check_icon.svg';
 
 interface ApplyFirstProps {
@@ -25,7 +25,7 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
 
   return (
     <section className="flex flex-col gap-[4.8rem] text-[1.4rem]  ">
-      <p className="font-bold p-[1.2rem] border border-primary font-pretendard leading-[2.1rem]">
+      <p className="font-bold p-[1.2rem] border border-text-primary font-pretendard leading-[2.1rem]">
         지원 안내
         <br />
         제출 버튼을 누른 후에도 서류 마감 기한 전까지는 지원 페이지에서 수정이

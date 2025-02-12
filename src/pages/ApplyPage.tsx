@@ -1,15 +1,16 @@
-import ApplyFirst from '@/components/ApplyPage/ApplyFirst';
-import ApplySecond from '@/components/ApplyPage/ApplySecond';
-import ApplyThird from '@/components/ApplyPage/ApplyThird';
-import FindPWAuth from '@/components/ApplyPage/FindPWAuth';
-import FindPWEmail from '@/components/ApplyPage/FindPWEmail';
-import FindPWReset from '@/components/ApplyPage/FindPWReset';
-import Home from '@/components/ApplyPage/Home';
-import ApplyFourth from '@/components/ApplyPage/ApplyFourth';
-import Instruction from '@/components/ApplyPage/ApplyFourth';
+import ApplyFirst from '@/components/ApplyPage/Pages/ApplyFirst';
+import ApplySecond from '@/components/ApplyPage/Pages/ApplySecond';
+import ApplyThird from '@/components/ApplyPage/Pages/ApplyThird';
+import FindPWAuth from '@/components/ApplyPage/Pages/FindPWAuth';
+import FindPWEmail from '@/components/ApplyPage/Pages/FindPWEmail';
+import FindPWReset from '@/components/ApplyPage/Pages/FindPWReset';
+import Home from '@/components/ApplyPage/Pages/Home';
+import ApplyFourth from '@/components/ApplyPage/Pages/ApplyFourth';
+import Instruction from '@/components/ApplyPage/Pages/ApplyFourth';
 import RoundBtn from '@/components/ApplyPage/RoundBtn';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ThemeButton from '@/components/common/header/ThemeButton';
 
 export enum Page {
   HOME,
@@ -31,6 +32,7 @@ const ApplyPage = () => {
   }, []);
 
   const handleHomeClick = () => {
+    localStorage.setItem('currentPage', Page.HOME.toString());
     nav('/');
   };
 
@@ -45,11 +47,11 @@ const ApplyPage = () => {
   // document.documentElement.classList.add('dark');
 
   return (
-    <div className="bg-secondary w-screen min-h-screen flex justify-center font-[D2Coding] text-primary text-[1.6rem] font-normal leading-normal">
-      <div className="bg-primary border flex flex-col w-[68rem] px-[2.4rem] pt-[1.2rem] pb-[2.4rem] gap-[8rem] min-h-screen">
-        <section className="w-full flex justify-between items-center">
+    <div className="bg-surface-secondary w-screen min-h-screen flex justify-center font-[D2Coding] text-text-primary text-[1.6rem] font-normal leading-normal">
+      <div className="bg-surface-primary border flex flex-col w-[68rem] px-[2.4rem] pt-[1.2rem] pb-[2.4rem] gap-[8rem] min-h-screen">
+        <section className="w-full flex justify-between items-center font-pp">
           <p>
-            Likelion <span className="italic">Sogang</span>¹³ — — —{' '}
+            Likelion<span className="italic">Sogang</span>¹³ ———{' '}
             <span className="italic">Recruiting</span>
           </p>
           <div className="flex gap-[0.8rem]">
@@ -62,6 +64,7 @@ const ApplyPage = () => {
                 }}
               ></RoundBtn>
             )}
+            <ThemeButton />
           </div>
         </section>
         {currentPage === Page.HOME && (

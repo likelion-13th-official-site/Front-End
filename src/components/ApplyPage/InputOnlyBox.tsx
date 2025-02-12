@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import passwordEyeOpened from '../../assets/image/password_eye_opened.svg';
-import passwordEyeClosed from '../../assets/image/password_eye_closed.svg';
-import SquareBtn from './SquareBtn';
+import clsx from 'clsx';
 
 interface InputOnlyBoxProps {
   name: string;
@@ -26,14 +24,17 @@ const InputOnlyBox = ({
   return (
     <div
       className={
-        (isError
-          ? 'border-negative text-negative'
-          : 'border-primary text-primary') +
-        ' flex flex-col gap-[0.6rem] grow-1 shrink-1 basis-0 text-[1.4rem]'
+        'flex flex-col gap-[0.6rem] grow-1 shrink-1 basis-0 text-[1.4rem]'
       }
     >
       <input
-        className="py-[1.2rem] border-b w-full font-pretendard font-medium focus:outline-none"
+        className={clsx(
+          'py-[1.2rem] border-b w-full font-pretendard font-medium focus:outline-none',
+          {
+            'border-status-negative text-status-negative': isError,
+            'border-text-primary text-text-primary': !isError
+          }
+        )}
         placeholder={placeholder}
         type={
           inputType === 'password' && isPasswordVisible ? 'text' : inputType
@@ -43,7 +44,14 @@ const InputOnlyBox = ({
       ></input>
 
       {isExplanation && (
-        <p className="text-[1.2rem] opacity-[0.6]">{explanation}</p>
+        <p
+          className={clsx(
+            'text-[1.2rem] opacity-[0.6] font-pretendard font-medium',
+            { 'text-status-negative': isError, 'text-text-primary': !isError }
+          )}
+        >
+          {explanation}
+        </p>
       )}
     </div>
   );

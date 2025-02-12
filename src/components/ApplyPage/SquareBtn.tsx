@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
 
 interface SquareBtnProps {
   content: string;
@@ -7,34 +8,21 @@ interface SquareBtnProps {
 }
 
 const SquareBtn = ({ content, handleClick, status }: SquareBtnProps) => {
-  const [curStatus, setCurStatus] = useState(status);
   return (
     <button
-      className={
-        (() => {
-          switch (curStatus) {
-            case 'default':
-              return 'cursor-pointer border-surface-secondary border bg-secondary text-primary';
-            case 'default2':
-              return 'bg-transparent border-primary text-primary border cursor-pointer';
-            case 'hovered':
-              return 'cursor-pointer text-invert bg-text-primary border border-primary';
-            case 'disabled':
-              return 'cursor-not-allowed border border-secondary text-secondary bg-transparent ';
-            default:
-              return '';
-          }
-        })() + 'flex justify-center items-center w-full p-[1.2rem]'
-      }
+      className={clsx('flex justify-center items-center w-full p-[1.2rem]', {
+        'cursor-pointer border border-transparent bg-surface-secondary text-text-primary hover:bg-text-primary hover:text-text-invert hover:border-text-primary':
+          status === 'default',
+        'bg-transparent border-text-primary text-text-primary border cursor-pointer hover:bg-text-primary hover:text-text-invert hover:border-text-primary':
+          status === 'default2',
+        'cursor-not-allowed border border-text-secondary text-text-secondary bg-transparent':
+          status === 'disabled'
+      })}
       onClick={() => {
         if (status !== 'disabled') {
           handleClick();
         }
       }}
-      onMouseEnter={() => {
-        if (status !== 'disabled') setCurStatus('hovered');
-      }}
-      onMouseLeave={() => setCurStatus(status)}
     >
       {content}
     </button>
