@@ -28,7 +28,7 @@ export const projectsData = [
     stack: null,
     desc: '급한 사정으로 알바 대타를 구해야 하는데,전문성을 갖춘 사람을 찾기 어려우셨나요?6개월 이상 알바를 지속하기는 어렵고,당장 급전이 필요한 상황이신가요?가까운 곳에서 신뢰할 수 있는 일자리 & 알바생을 연결해 드립니다!같은 학교 동문들이 공유한 전공 및 알바 경력을 확인하고, 나의 일자리를안심하고 맡길 수 있는 사람을 찾아보세요.구인자와 구직자, 서로의 니즈를 간편하고 FIT하게!동문과의 특별한 교류의 장, 지금 동문서잡과 함께 시작하세요!',
     event: '데모데이',
-    img: 'https://i.imgur.com/2F7GUzC.png',
+    img: '../../../src/assets/webp/동문서잡.webp',
     link: 'https://dong-mun-seo-job.vercel.app'
   },
   {
@@ -44,7 +44,7 @@ export const projectsData = [
     stack: null,
     desc: "REAL NEWS, REAL SIMPLE!안녕하세요, 참여형 개인 맞춤 뉴스 서비스 'NEWREALS'입니다.'뉴스는 어렵고 재미없다' 는 편견을 넘어, 누구나 쉽고 흥미롭게 뉴스를 소비하고 참여할 수 있는 공간을 만들고자 NEWREALS를 만들었어요.개인의 관심사에 딱 맞춘 뉴스와 다양한 참여형 기능으로 여러분이 뉴스를 더 가깝게 느끼고 적극적으로 소통할 수 있도록 도와드릴게요!맞춤형 뉴스 소비의 새로운 경험, 팀 NEWREALS와 함께 만들어 가요!",
     event: '데모데이',
-    img: 'https://i.imgur.com/70eSSFv.png',
+    img: '../../../src/assets/webp/newreals.webp',
     link: null
   },
   {
@@ -60,7 +60,7 @@ export const projectsData = [
     stack: null,
     desc: "우리나라 경제교육이 부족하다고 느낀 적이 있으신가요?학교는 '세금은 왜 내고, 얼마나 내는 거지?' 등의궁금증을 해결해주지 않아요..퍼니페니를 사용하면 초등학교에서 쉽고 재미있게경제교육을 할 수 있어요!퍼니페니에서는 학급이 하나의 국가가 되어, 학생들은 직업을가지고 다양한 경제 활동을 직접 경험하며 학습해요.",
     event: '데모데이',
-    img: 'https://i.imgur.com/T5UHSvC.png',
+    img: '../../../src/assets/webp/퍼니페니.webp',
     link: null
   },
   {
@@ -76,7 +76,7 @@ export const projectsData = [
     stack: null,
     desc: '폭발적으로 늘어나는 동아리 지원자! 더 많은 동아리, 더 치열해지는 경쟁 속에서 운영진들은 한정된 시간과 자원으로 지원서 관리, 면접 일정 조율, 합불 통보 등복잡한 업무를 감당해야 하죠. 이제 스마트한 동아리 리크루팅 서비스 이너조인이 도와드릴게요. 모집 시작부터 결과 발표까지, 한 곳에서 간편하게. 이너조인으로 동아리 운영의 새로운 가능성을 경험하세요!',
     event: '데모데이',
-    img: 'https://i.imgur.com/iEjYfQR.png',
+    img: '../../../src/assets/webp/innerjoin.webp',
     link: null
   },
   {
@@ -92,7 +92,7 @@ export const projectsData = [
     stack: 'React, Typescript, Django',
     desc: '서강대학교의 외국인 학생 수가 꾸준히 증가하고 있음에도 불구하고,외국인 학생들을 지원하는 서강대학교 내의 플랫폼과 서비스는부족한 상황입니다.외국인 학생들은 학교 생활에 필요한 정보를 얻는 데 어려움을 겪고 있으며 한국 학생들 역시 외국인 친구와 소통하고 싶어하지만 교류할 기회가 부족합니다.그래서, UNICON을 만들었습니다.',
     event: '데모데이',
-    img: 'https://i.imgur.com/iEjYfQR.png',
+    img: '../../../src/assets/webp/unicon.webp',
     link: 'https://unicon-one.vercel.app/'
   },
   {
@@ -108,7 +108,7 @@ export const projectsData = [
     stack: 'React, Javascript, Django',
     desc: '우리 가족이 키우는 나무에 우리 가족만의 추억의 열매를 꽃피워요.',
     event: '전국 연합 해커톤',
-    img: 'https://i.imgur.com/UsnjpOx.jpeg',
+    img: '../../../src/assets/webp/추억의_숲.webp',
     link: 'https://forest-of-memories.vercel.app/tutorial'
   },
   {
@@ -124,7 +124,7 @@ export const projectsData = [
     stack: 'React, Django',
     desc: '바닷가의 조약돌(Pebble)처럼, 현대인들이 명언을 추천받고 자신만의 Pebble (명언)을 기록하며 쉬어갈 수 있는 공간이 되길.',
     event: '전국 연합 해커톤',
-    img: 'https://i.imgur.com/q4gsW6c.jpeg',
+    img: '../../../src/assets/webp/pebble.webp',
     link: null
   },
   {
@@ -140,7 +140,7 @@ export const projectsData = [
     stack: 'React, Django',
     desc: '어제를 돌아보다, 오늘을 마주보다.AI 기반 인터뷰형 에세이 서비스, BODA',
     event: '전국 연합 해커톤',
-    img: 'https://i.imgur.com/eo80cd2.jpeg',
+    img: '../../../src/assets/webp/BODA.webp',
     link: null
   },
   {
@@ -156,7 +156,7 @@ export const projectsData = [
     stack: 'React, Django',
     desc: '우리가 함께한 시간들이, 소중히 간직할 영원한 추억이 될 수 있도록.',
     event: '전국 연합 해커톤',
-    img: 'https://i.imgur.com/WR7kxxN.jpeg',
+    img: '../../../src/assets/webp/petever.webp',
     link: null
   },
   {
@@ -204,7 +204,7 @@ export const projectsData = [
     stack: null,
     desc: '팔 때를 아는 것, 그것이 진정한 투자의 시작. 투자자들에게 종목에 대한 전문가의 의견을 제시해 주는 AI 기반의 애널리틱스 플랫폼.',
     event: '데모데이',
-    img: '/src/assets/webp/SELLPOINT.webp',
+    img: '../../../src/assets/webp/SELLPOINT.webp',
     link: null
   },
   {
@@ -220,7 +220,7 @@ export const projectsData = [
     stack: null,
     desc: '복잡한 과외 과정을 단 하나의 플랫폼으로 해결할 수 있는 통합 과외 관리 서비스입니다. 과외를 할 때, 과외 일정 관리는 캘린더에서, 진도 기록은 메모장에서, 학생과의 소통은 메신저에서 따로따로 해야 하는 불편함이 있습니다. 이러한 불편함을 해소하기 위해, 과외를 위해 필요한 기능들을 단 하나의 플랫폼으로 압축했습니다.',
     event: '데모데이',
-    img: '/src/assets/webp/TUPL.webp',
+    img: '../../../src/assets/webp/TUPL.webp',
     link: null
   },
   {
@@ -236,7 +236,7 @@ export const projectsData = [
     stack: null,
     desc: '동아리 홍보 모집, 리쿠르팅, 면접자 관리와 같은 서비스를 제공하는 웹.',
     event: '데모데이',
-    img: '/src/assets/webp/CREWS.webp',
+    img: '../../../src/assets/webp/CREWS.webp',
     link: null
   },
   {
@@ -252,7 +252,7 @@ export const projectsData = [
     stack: null,
     desc: '이수한 과목과 듣고 싶은 강의를 로드맵에 정리하여 학점 관리와 학기별 과목 배치를 한눈에 볼 수 있는 플랫폼으로, 학점 관리 및 수강 계획에 도움을 주는 플랫폼입니다.',
     event: '데모데이',
-    img: '/src/assets/webp/RTS.webp',
+    img: '../../../src/assets/webp/RTS.webp',
     link: null
   },
   {
@@ -268,7 +268,7 @@ export const projectsData = [
     stack: null,
     desc: 'One Click, More Check. 유튜브를 통한 정보 습득이 증가하면서, 유튜브를 통한 뉴스 이용에 대해 많은 우려가 생겼어요. 이에 팀 효자동개발자는 뉴미디어 리터러시가 낮아 유튜브 영상을 비판적으로 보기 어려운 사용자들이 다양한 의견에 노출되게 함으로써 사회 양극화를 막는 서비스를 개발했어요. 유튜브 링크를 붙여 넣기만 하면 해당 영상의 요약본과 관련 기사들을 비교할 수 있어, 영상과 관련된 정보를 쉽고 빠르게 찾아볼 수 있어요.',
     event: '전국 연합 해커톤',
-    img: '/src/assets/webp/YOUCHECK.webp',
+    img: '../../../src/assets/webp/YOUCHECK.webp',
     link: null
   },
   {
@@ -284,7 +284,7 @@ export const projectsData = [
     stack: null,
     desc: '외국인을 위한 맞춤형 맛집 탐색 플랫폼으로, 사용자 친화적인 번역 기능과 자체 리뷰 시스템을 통해 여행자가 현지의 맛집을 쉽게 찾고 경험할 수 있도록 돕는 플랫폼입니다.',
     event: '전국 연합 해커톤',
-    img: '/src/assets/webp/KOOGLE.webp',
+    img: '../../../src/assets/webp/KOOGLE.webp',
     link: null
   },
   {
@@ -300,7 +300,7 @@ export const projectsData = [
     stack: null,
     desc: '<그땐 그랬지>는 7080을 위한 특별한 모임 서비스입니다. 언제 어디서든, 그때의 따뜻한 감성과 추억을 느껴보세요!',
     event: '전국 연합 해커톤',
-    img: '/src/assets/webp/그땐그랬지.webp',
+    img: '../../../src/assets/webp/그땐그랬지.webp',
     link: null
   },
   {
@@ -316,7 +316,7 @@ export const projectsData = [
     stack: null,
     desc: '연령에 따른 디지털 공간 격차를 해소하기 위한, 시니어 온라인 강의&커뮤니티 플랫폼입니다. 타 강의 웹 서비스와의 차별점은 다음과 같습니다. 간단하고 편리한 UI / 음성 안내 서비스/ 등급 시스템 / 시니어 맞춤 컨텐츠 / 소셜 페이지',
     event: '전국 연합 해커톤',
-    img: '/src/assets/webp/SILVERCAMPUS.webp',
+    img: '../../../src/assets/webp/SILVERCAMPUS.webp',
     link: null
   },
   {
@@ -332,7 +332,7 @@ export const projectsData = [
     stack: null,
     desc: '다양한 커뮤니티에 흩어져 있는 학교 정보, 꿀팁들의 핵심만 모아볼 수 있는 플랫폼. 지도를 바탕으로 혼자 공부하기 좋은, 팀플하기 좋은, 쉬기 좋은 장소 추천.',
     event: '복커톤',
-    img: '/src/assets/webp/YOUMAP.webp',
+    img: '../../../src/assets/webp/YOUMAP.webp',
     link: null
   },
   {
@@ -348,7 +348,7 @@ export const projectsData = [
     stack: null,
     desc: '2023 서강대학교 공식 축제 사이트입니다. 분실물/습득물 목록과 부루마블 이벤트 진행 현황 정보를 제공합니다. 또한 이벤트, 건물 위치, 푸드트럭, 공연 등 축제와 관련된 정보를 확인할 수 있습니다.',
     event: '축제 사이트 개발',
-    img: '/src/assets/webp/축제.webp',
+    img: '../../../src/assets/webp/축제.webp',
     link: null
   }
 ];
