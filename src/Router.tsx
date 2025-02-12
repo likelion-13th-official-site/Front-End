@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import TrackPage from './pages/TrackPage';
 import HeaderLayout from './components/common/HeaderLayout';
@@ -6,7 +6,12 @@ import ProjectsPage from './pages/ProjectsPage';
 import PeoplePage from './pages/PeoplePage';
 const router = createBrowserRouter([
   {
-    element: <HeaderLayout />,
+    element: (
+      <>
+        <HeaderLayout />
+        <Outlet />
+      </>
+    ),
     errorElement: <>error</>,
     children: [
       {
