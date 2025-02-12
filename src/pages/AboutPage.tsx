@@ -36,7 +36,7 @@ export default function AboutPage() {
                       <img
                         src={`${item.image}`}
                         alt={item.name}
-                        className="object-cover w-[17.2rem] h-[17.2rem] max-3xl:w-[10.8125rem] max-3xl:h-[10.8125rem] max-2xl:w-[7.0625rem] max-2xl:h-[7.0625rem] max-md:w-[33rem] max-md:h-[33rem]"
+                        className="object-cover w-[17.2rem] h-[17.2rem] max-3xl:w-[10.8125rem] max-3xl:h-[10.8125rem] max-2xl:w-[7.0625rem] max-2xl:h-[7.0625rem] max-md:w-[33rem] max-md:h-[33rem] max-[550px]:w-[16.75rem] max-[550px]:h-[16.75rem]"
                       />
                       <div className="font-[700] pl-[0.8rem] mr-[1rem] w-[15rem] flex-shrink-0  max-2xl:w-[8rem] max-md:w-[12em]">
                         {item.name}
