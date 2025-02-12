@@ -10,7 +10,7 @@ export default function FirstSection({
   onClickCardinal
 }: FirstSectionProps) {
   return (
-    <section className="w-full max-w-[151.2rem] bg-amber-500 mt-[4.7rem] py-[9.6rem] px-[1.2rem] gap-[2.4rem] flex justify-between max-md:flex-col">
+    <section className="w-full max-w-[151.2rem] bg-amber-500 py-[9.6rem] px-[1.2rem] gap-[2.4rem] flex justify-between max-md:flex-col">
       <div className="leftsection flex justify-between w-full max-md:flex-col">
         <div className="cardinal flex flex-col gap-[1.2rem] max-md:flex max-md:flex-row">
           {cardinalList.map((element, idx) => (
