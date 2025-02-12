@@ -204,7 +204,7 @@ export const projectsData = [
     stack: null,
     desc: '팔 때를 아는 것, 그것이 진정한 투자의 시작. 투자자들에게 종목에 대한 전문가의 의견을 제시해 주는 AI 기반의 애널리틱스 플랫폼.',
     event: '데모데이',
-    img: 'https://i.imgur.com/Wp261pN.png',
+    img: '/src/assets/webp/SELLPOINT.webp',
     link: null
   },
   {
@@ -220,7 +220,7 @@ export const projectsData = [
     stack: null,
     desc: '복잡한 과외 과정을 단 하나의 플랫폼으로 해결할 수 있는 통합 과외 관리 서비스입니다. 과외를 할 때, 과외 일정 관리는 캘린더에서, 진도 기록은 메모장에서, 학생과의 소통은 메신저에서 따로따로 해야 하는 불편함이 있습니다. 이러한 불편함을 해소하기 위해, 과외를 위해 필요한 기능들을 단 하나의 플랫폼으로 압축했습니다.',
     event: '데모데이',
-    img: 'https://i.imgur.com/znI1MHq.png',
+    img: '/src/assets/webp/TUPL.webp',
     link: null
   },
   {
@@ -236,7 +236,7 @@ export const projectsData = [
     stack: null,
     desc: '동아리 홍보 모집, 리쿠르팅, 면접자 관리와 같은 서비스를 제공하는 웹.',
     event: '데모데이',
-    img: 'https://i.imgur.com/H98ruKs.png',
+    img: '/src/assets/webp/CREWS.webp',
     link: null
   },
   {
@@ -252,7 +252,7 @@ export const projectsData = [
     stack: null,
     desc: '이수한 과목과 듣고 싶은 강의를 로드맵에 정리하여 학점 관리와 학기별 과목 배치를 한눈에 볼 수 있는 플랫폼으로, 학점 관리 및 수강 계획에 도움을 주는 플랫폼입니다.',
     event: '데모데이',
-    img: 'https://i.imgur.com/rMC4SMe.png',
+    img: '/src/assets/webp/RTS.webp',
     link: null
   },
   {
@@ -268,7 +268,7 @@ export const projectsData = [
     stack: null,
     desc: 'One Click, More Check. 유튜브를 통한 정보 습득이 증가하면서, 유튜브를 통한 뉴스 이용에 대해 많은 우려가 생겼어요. 이에 팀 효자동개발자는 뉴미디어 리터러시가 낮아 유튜브 영상을 비판적으로 보기 어려운 사용자들이 다양한 의견에 노출되게 함으로써 사회 양극화를 막는 서비스를 개발했어요. 유튜브 링크를 붙여 넣기만 하면 해당 영상의 요약본과 관련 기사들을 비교할 수 있어, 영상과 관련된 정보를 쉽고 빠르게 찾아볼 수 있어요.',
     event: '전국 연합 해커톤',
-    img: 'https://i.imgur.com/k2Tqe4B.png',
+    img: '/src/assets/webp/YOUCHECK.webp',
     link: null
   },
   {
@@ -284,7 +284,7 @@ export const projectsData = [
     stack: null,
     desc: '외국인을 위한 맞춤형 맛집 탐색 플랫폼으로, 사용자 친화적인 번역 기능과 자체 리뷰 시스템을 통해 여행자가 현지의 맛집을 쉽게 찾고 경험할 수 있도록 돕는 플랫폼입니다.',
     event: '전국 연합 해커톤',
-    img: 'https://i.imgur.com/p5WvqBi.png',
+    img: '/src/assets/webp/KOOGLE.webp',
     link: null
   },
   {
@@ -300,7 +300,7 @@ export const projectsData = [
     stack: null,
     desc: '<그땐 그랬지>는 7080을 위한 특별한 모임 서비스입니다. 언제 어디서든, 그때의 따뜻한 감성과 추억을 느껴보세요!',
     event: '전국 연합 해커톤',
-    img: 'https://i.imgur.com/IiwDcRX.png',
+    img: '/src/assets/webp/그땐그랬지.webp',
     link: null
   },
   {
@@ -316,7 +316,7 @@ export const projectsData = [
     stack: null,
     desc: '연령에 따른 디지털 공간 격차를 해소하기 위한, 시니어 온라인 강의&커뮤니티 플랫폼입니다. 타 강의 웹 서비스와의 차별점은 다음과 같습니다. 간단하고 편리한 UI / 음성 안내 서비스/ 등급 시스템 / 시니어 맞춤 컨텐츠 / 소셜 페이지',
     event: '전국 연합 해커톤',
-    img: 'https://i.imgur.com/XCtXw5W.png',
+    img: '/src/assets/webp/SILVERCAMPUS.webp',
     link: null
   },
   {
@@ -332,7 +332,7 @@ export const projectsData = [
     stack: null,
     desc: '다양한 커뮤니티에 흩어져 있는 학교 정보, 꿀팁들의 핵심만 모아볼 수 있는 플랫폼. 지도를 바탕으로 혼자 공부하기 좋은, 팀플하기 좋은, 쉬기 좋은 장소 추천.',
     event: '복커톤',
-    img: 'https://i.imgur.com/kGpK5Ve.png',
+    img: '/src/assets/webp/YOUMAP.webp',
     link: null
   },
   {
@@ -348,7 +348,7 @@ export const projectsData = [
     stack: null,
     desc: '2023 서강대학교 공식 축제 사이트입니다. 분실물/습득물 목록과 부루마블 이벤트 진행 현황 정보를 제공합니다. 또한 이벤트, 건물 위치, 푸드트럭, 공연 등 축제와 관련된 정보를 확인할 수 있습니다.',
     event: '축제 사이트 개발',
-    img: 'https://i.imgur.com/j0uuX9V.png',
+    img: '/src/assets/webp/축제.webp',
     link: null
   }
 ];
