@@ -1,11 +1,9 @@
-import { Outlet } from 'react-router-dom';
 import Header from './header/Header';
 
 export default function HeaderLayout() {
   return (
-    <div className="w-screen bg-surface-primary">
+    <div className="w-full z-1000 flex flex-col items-center md:sticky md:top-0">
       <Header />
-      <Outlet />
     </div>
   );
 }

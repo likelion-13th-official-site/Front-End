@@ -24,7 +24,7 @@ export default function ProjectsPage() {
   return (
     <main
       id="projects-main"
-      className="flex flex-col items-center w-[screen] md:mt-[17rem] 2xl:mt-[4.7rem] px-[1.2rem] py-[9.6rem] font-d2 text-text-primary"
+      className="flex flex-col items-center w-[screen] px-[1.2rem] py-[9.6rem] font-d2 text-text-primary"
     >
       <div
         id="tab-wrapper"

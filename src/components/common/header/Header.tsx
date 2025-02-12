@@ -18,16 +18,11 @@ export default function Header() {
     <header
       id="header"
       className={clsx(
-        'z-1000 absolute md:fixed top-0 left-0 font-pp w-screen h-[4.7rem] md:h-[17rem] 2xl:h-[4.7rem] pl-[1.2rem] pr-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between items-center',
-        {
-          fixed: isMenuOpen
-        }
+        'w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between ',
+        { fixed: isMenuOpen }
       )}
     >
-      <div
-        id="header-left"
-        className="h-full flex flex-1 items-center md:items-start 2xl:items-center"
-      >
+      <div id="header-left" className="h-full flex flex-1 items-center">
         <div
           id="header-left __logo"
           className="text-[1.6rem] w-fit flex items-center"
@@ -39,10 +34,10 @@ export default function Header() {
       </div>
       <div
         id="header-right"
-        className="flex flex-1 items-center md:items-start 2xl:items-center justify-end md:justify-between"
+        className="flex flex-1 items-start justify-end md:justify-between"
       >
         <nav id="header-right__nav" className="hidden md:block">
-          <ul className="flex flex-row md:flex-col 2xl:flex-row gap-[1.8rem] px-[1.2rem] py-[0] md:py-[0.4rem] 2xl:py-[0]">
+          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] px-[1.2rem] py-[0] sm:py-[0.4rem] md:py-[0]">
             {navItems.map((item) => (
               <li key={item.name} className="text-[1.6rem] italic">
                 <a href={`${item.link}`}>{item.name}</a>
