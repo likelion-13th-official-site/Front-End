@@ -64,7 +64,12 @@ export default function ProjectsList() {
             <h4 className="text-[1.4rem] font-[400] leading-[140%]">
               {proj.event}
             </h4>
-            <img src={proj.img} alt={proj.title} className="object-cover" />
+            <img
+              loading="lazy"
+              src={proj.img}
+              alt={proj.title}
+              className="object-cover"
+            />
           </div>
         </div>
       ))}
