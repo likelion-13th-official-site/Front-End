@@ -2,7 +2,6 @@ import { useState } from 'react';
 import ThemeButton from './ThemeButton';
 import MenuPortal from '@/components/portal/MenuPortal';
 import MenuModal from './MenuModal';
-import clsx from 'clsx';
 
 const navItems = [
   { name: 'About', link: '/' },
