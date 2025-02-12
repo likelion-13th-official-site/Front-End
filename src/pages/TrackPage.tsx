@@ -79,7 +79,7 @@ const TrackPage = () => {
   // document.documentElement.classList.add('dark');
   return (
     <>
-      <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-primary text-primary">
+      <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-surface-primary text-text-primary">
         <section className="grow-1 shrink-1 basis-0">
           <span className="text-[102.4rem] font-[D2Coding]  italic opacity-[0.1] leading-[143rem] text-center">
             {trackLetters[trackType]}
@@ -104,13 +104,13 @@ const TrackPage = () => {
         </section>
       </div>
       <div
-        className="absolute top-[50%] left-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-primary italic cursor-pointer"
+        className="absolute top-[50%] left-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary italic cursor-pointer"
         onClick={() => handleArrowClick('left')}
       >
         ←
       </div>
       <div
-        className="absolute top-[50%] right-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-primary italic cursor-pointer"
+        className="absolute top-[50%] right-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary italic cursor-pointer"
         onClick={() => handleArrowClick('right')}
       >
         →
