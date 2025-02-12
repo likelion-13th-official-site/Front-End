@@ -17,10 +17,8 @@ export default function FirstSection({
           {cardinalList.map((element, idx) => (
             <button
               key={idx}
-              className={`transition-all cursor-pointer font-d2 text-[1.4rem] font-[700] text-surface-primary max-md:mb-[2.4rem] ${
-                selectedCardinal === element
-                  ? 'opacity-100 ease-in duration-1000 delay-1000'
-                  : 'opacity-30 ease-out duration-1000 delay-1000'
+              className={`cursor-pointer font-d2 text-[1.4rem] font-[700] text-surface-primary max-md:mb-[2.4rem] ${
+                selectedCardinal === element ? 'opacity-100 ' : 'opacity-30 '
               }`}
               onClick={() => onClickCardinal(element)}
             >
@@ -39,6 +37,7 @@ export default function FirstSection({
           {MemberList[selectedCardinal].map((item, idx1) => (
             <div
               key={idx1}
+              style={{ transition: 'none' }}
               className={`w-[22.025rem] flex font-[700] gap-[2rem] border-b-[1px] py-[0.3rem] border-surface-primary first:border-t-[1px] ${selectedCardinal === cardinalList[0] && 'first:border-b-[0px] '}`}
             >
               {typeof item !== 'string' ? (
