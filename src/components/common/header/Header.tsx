@@ -1,19 +1,28 @@
+import { useState } from 'react';
 import ThemeButton from './ThemeButton';
+import MenuPortal from '@/components/portal/MenuPortal';
+import MenuModal from './MenuModal';
+import clsx from 'clsx';
 
 const navItems = [
-  { name: 'About', link: 'about' },
+  { name: 'About', link: '/' },
   { name: 'Track', link: 'track' },
   { name: 'People', link: 'people' },
-  { name: 'Projects', link: 'projectss' }
+  { name: 'Projects', link: 'projects' }
 ];
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header
       id="header"
-      className="fixed top-0 left-0 font-pp w-screen h-[4.7rem] px-[0.8rem] py-[1.2rem] flex gap-[2.4rem] justify-between items-center"
+      className={clsx(
+        'z-1001 w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between ',
+        { fixed: isMenuOpen }
+      )}
     >
-      <div id="header-left" className="flex-1">
+      <div id="header-left" className="h-full flex flex-1 items-center">
         <div
           id="header-left __logo"
           className="text-[1.6rem] w-fit flex items-center"
@@ -25,10 +34,10 @@ export default function Header() {
       </div>
       <div
         id="header-right"
-        className="flex flex-1 items-center justify-between"
+        className="flex flex-1 items-start justify-end md:justify-between"
       >
-        <nav id="header-right__nav">
-          <ul className="flex gap-[1.8rem]">
+        <nav id="header-right__nav" className="hidden md:block">
+          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] px-[1.2rem] py-[0] sm:py-[0.4rem] md:py-[0]">
             {navItems.map((item) => (
               <li key={item.name} className="text-[1.6rem] italic">
                 <a href={`${item.link}`}>{item.name}</a>
@@ -42,13 +51,25 @@ export default function Header() {
         >
           <button
             id="header-right__apply"
-            className="flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
+            className="cursor-pointer hidden md:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
           >
             Apply Now →
+          </button>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            id="header-right__apply"
+            className="cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
+          >
+            Menu
           </button>
           <ThemeButton />
         </div>
       </div>
+      {isMenuOpen && (
+        <MenuPortal>
+          <MenuModal setIsMenuOpen={setIsMenuOpen} />
+        </MenuPortal>
+      )}
     </header>
   );
 }
