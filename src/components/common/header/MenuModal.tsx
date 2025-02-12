@@ -13,7 +13,7 @@ export default function MenuModal({ setIsMenuOpen }: MenuModalProps) {
   ];
 
   return (
-    <div className="block sm:hidden pl-[1.2rem] pr-[2.6rem] font-pp w-screen h-screen max-h-screen fixed top-0 left-0 bg-text-primary pt-[7.9rem]">
+    <div className="block sm:hidden pl-[1.2rem] pr-[1.2rem] font-pp w-screen h-screen max-h-screen fixed top-0 left-0 bg-text-primary pt-[7.9rem]">
       <ul className="border-t border-surface-primary">
         {navItems.map((item) => (
           <li
