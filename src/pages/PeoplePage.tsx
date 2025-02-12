@@ -9,7 +9,7 @@ export default function PeoplePage() {
     setSelectedCardinal(cardinal);
   };
   return (
-    <main className="wrapper">
+    <main className="wrapper w-full flex flex-col items-center justify-center">
       <FirstSection
         selectedCardinal={selectedCardinal}
         onClickCardinal={onClickCardinal}
