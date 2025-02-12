@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function SecondSection() {
   return (
     <section className="max-w-[240rem] h-[46.8rem] bg-amber-800 py-[9.6rem] px-[1.2rem] gap-[2.4rem] flex justify-between max-md:flex-col  max-md:justify-start max-md:pt-0">
