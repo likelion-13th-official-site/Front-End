@@ -1,13 +1,21 @@
 import FirstSection from '@/components/PeoplePage/FirstSection';
+import { cardinalList } from '@/components/PeoplePage/memberDB';
 import SecondSection from '@/components/PeoplePage/SecondSection';
-import React from 'react';
+import { useState } from 'react';
 
 export default function PeoplePage() {
+  const [selectedCardinal, setSelectedCardinal] = useState(cardinalList[0]);
+  const onClickCardinal = (cardinal: number) => {
+    setSelectedCardinal(cardinal);
+  };
   return (
     <main className="">
-      <FirstSection />
+      <FirstSection
+        selectedCardinal={selectedCardinal}
+        onClickCardinal={onClickCardinal}
+      />
 
-      <SecondSection />
+      {selectedCardinal === cardinalList[0] && <SecondSection />}
     </main>
   );
 }

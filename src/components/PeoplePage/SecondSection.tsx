@@ -10,7 +10,7 @@ export default function SecondSection() {
         </div>
       </div>
 
-      <div className="rightSection w-full text-surface-primary font-d2  line-height-[1.4] text-[1.4rem] pl-[1.2rem] max-md:pl-0">
+      <div className="rightSection w-full text-surface-primary font-d2 line-height-[1.4] text-[1.4rem] pl-[1.2rem] max-md:pl-0">
         <div>Coming soon.</div>
       </div>
     </section>
