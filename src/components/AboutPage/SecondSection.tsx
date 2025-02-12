@@ -1,5 +1,3 @@
-import React from 'react';
-
 const achievementList = [
   { name: '운영 기간', value: '10' },
   { name: '프로젝트 수', value: '120+' },
