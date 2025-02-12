@@ -2,7 +2,7 @@ import Header from './header/Header';
 
 export default function HeaderLayout() {
   return (
-    <div className="w-full bg-surface-primary z-1000 flex flex-col items-center md:sticky md:top-0">
+    <div className="w-full bg-surface-primary z-1000 flex flex-col items-center md:sticky top-0">
       <Header />
     </div>
   );
