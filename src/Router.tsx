@@ -3,6 +3,7 @@ import AboutPage from './pages/AboutPage';
 import TrackPage from './pages/TrackPage';
 import HeaderLayout from './components/common/HeaderLayout';
 import ProjectsPage from './pages/ProjectsPage';
+import ProjectsDetailPage from './pages/ProjectsDetailPage';
 const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: 'projects',
         element: <ProjectsPage />
+      },
+      {
+        path: 'projects/:id',
+        element: <ProjectsDetailPage />
       }
     ]
   },
