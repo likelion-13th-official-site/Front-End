@@ -18,7 +18,7 @@ export default function Header() {
     <header
       id="header"
       className={clsx(
-        'w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between ',
+        'z-1001 w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between ',
         { fixed: isMenuOpen }
       )}
     >
