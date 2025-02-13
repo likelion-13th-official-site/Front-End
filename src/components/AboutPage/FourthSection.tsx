@@ -1,4 +1,4 @@
-import { activityList } from '../PeoplePage/activitiesDB';
+import { activityList } from './activitiesDB';
 
 export default function FourthSection() {
   return (

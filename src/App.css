@@ -46,6 +46,27 @@ body {
   --color-status-negative: #ff8b8b;
 
   --animate-spin-logo: spin 5s linear infinite;
+
+  --animation-scrolling1: scrolling1 10s linear infinite;
+  --animation-scrolling2: scrolling2 10s linear infinite;
+}
+
+@keyframes scrolling1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrolling2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 @font-face {
