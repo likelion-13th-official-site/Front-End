@@ -2,7 +2,7 @@ import { companyList } from './companyList';
 
 export default function SeventhSection() {
   return (
-    <section className="w-full max-w-[151.2rem] px-[1.2rem] py-[9.6rem] bg-gray-200 font-d2 text-[1.4rem] text-text-primary font-[400]">
+    <section className="w-full max-w-[151.2rem] px-[1.2rem] py-[9.6rem]  font-d2 text-[1.4rem] text-text-primary font-[400]">
       <div className="flex gap-[2.4rem] border-t-text-primary border-t-[1px]">
         <div className="leftSection w-full h-full flex py-[2.4rem]">
           <div className="w-full max-md:hidden"></div>
