@@ -5,6 +5,7 @@ import HeaderLayout from './components/common/HeaderLayout';
 import ProjectsPage from './pages/ProjectsPage';
 import PeoplePage from './pages/PeoplePage';
 import ProjectsDetailPage from './pages/ProjectsDetailPage';
+import RecruitPage from './pages/RecruitPage';
 const router = createBrowserRouter([
   {
     element: (
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: 'projects/:id',
         element: <ProjectsDetailPage />
+      },
+      {
+        path: 'recruit',
+        element: <RecruitPage />
       }
     ]
   },
