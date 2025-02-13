@@ -60,7 +60,8 @@ export default function Header() {
       >
         <div
           id="header-left __logo"
-          className="text-[1.6rem] w-fit flex items-center"
+          className="text-[1.6rem] w-fit flex items-center cursor-pointer"
+          onClick={() => navigate('/')}
         >
           <span>Likelion</span>
           <i className="italic">Sogang</i>
