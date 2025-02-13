@@ -26,7 +26,7 @@ export default function FifthSection() {
         </div>
       </div>
 
-      <div className="rightSection w-full pl-[1.2rem]">
+      <div className="rightSection w-full pl-[1.2rem]  max-md:pl-0">
         <div>
           <div className="tracks leading-[1.4] text-[1.4rem]">
             <div className="font-[700] pb-[1.6rem]">트랙</div>
