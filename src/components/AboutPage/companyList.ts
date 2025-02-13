@@ -1,27 +1,29 @@
-import aws from '@/assets/image/AboutPage/company/aws.png';
-import coupang from '@/assets/image/AboutPage/company/coupang.png';
-import hyundai_card from '@/assets/image/AboutPage/company/hyundai_card.png';
-import kaist from '@/assets/image/AboutPage/company/kaist.png';
-import kakao from '@/assets/image/AboutPage/company/kakao.png';
-import kt from '@/assets/image/AboutPage/company/kt.png';
-import lg from '@/assets/image/AboutPage/company/lg.png';
-import naver from '@/assets/image/AboutPage/company/naver.png';
-import samsung from '@/assets/image/AboutPage/company/samsung.png';
-import shinsegae from '@/assets/image/AboutPage/company/shinsegae.png';
-import sk from '@/assets/image/AboutPage/company/sk.png';
-import toss from '@/assets/image/AboutPage/company/toss.png';
+import image1 from '@/assets/image/AboutPage/company/01_KT Wordmark (Standard)_01 1.png';
+import image2 from '@/assets/image/AboutPage/company/Toss_Logo_Primary 1.png';
+import image3 from '@/assets/image/AboutPage/company/gorgeous_brother.png';
+import image4 from '@/assets/image/AboutPage/company/image 10.png';
+import image5 from '@/assets/image/AboutPage/company/image 11.png';
+import image6 from '@/assets/image/AboutPage/company/image 12.png';
+import image7 from '@/assets/image/AboutPage/company/image 13.png';
+import image8 from '@/assets/image/AboutPage/company/image 14.png';
+import image9 from '@/assets/image/AboutPage/company/image 15.png';
+import image10 from '@/assets/image/AboutPage/company/image 16.png';
+import image11 from '@/assets/image/AboutPage/company/image 17.png';
+import image12 from '@/assets/image/AboutPage/company/image 18.png';
+import image13 from '@/assets/image/AboutPage/company/image 19.png';
 
 export const companyList = [
-  aws,
-  coupang,
-  hyundai_card,
-  kaist,
-  kakao,
-  kt,
-  lg,
-  samsung,
-  shinsegae,
-  sk,
-  toss,
-  naver
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
+  image12,
+  image13
 ];

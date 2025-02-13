@@ -20,11 +20,12 @@ export default function FourthSection() {
                   key={idx}
                   className="flex font-d2 py-[0.8rem] justify-between text-text-primary font-[400] leading-[1.4] border-t-text-primary border-t-[1px] last:border-b-[1px] max-md:block"
                 >
-                  <div className="flex min-w-[26rem] max-2xl:min-w-[15.6rem] max-md:mb-[1.6rem]">
+                  <div className="flex min-w-[26rem] max-2xl:min-w-[15.6rem] max-md:mb-[1.6rem] relative">
+                    <div className="absolute top-0 hover:bg-text-primary opacity-50 left-0 aspect-square h-[17.2rem] max-3xl:w-[10.8125rem] max-3xl:h-[10.8125rem] max-2xl:w-[7.0625rem] max-2xl:h-[7.0625rem] max-md:w-[33rem] max-md:h-[33rem] max-[550px]:w-[16.75rem] max-[550px]:h-[16.75rem]"></div>
                     <img
                       src={`${item.image}`}
                       alt={item.name}
-                      className="object-cover w-[17.2rem] h-[17.2rem] max-3xl:w-[10.8125rem] max-3xl:h-[10.8125rem] max-2xl:w-[7.0625rem] max-2xl:h-[7.0625rem] max-md:w-[33rem] max-md:h-[33rem] max-[550px]:w-[16.75rem] max-[550px]:h-[16.75rem]"
+                      className="object-cover aspect-square h-[17.2rem] max-3xl:w-[10.8125rem] max-3xl:h-[10.8125rem] max-2xl:w-[7.0625rem] max-2xl:h-[7.0625rem] max-md:w-[33rem] max-md:h-[33rem] max-[550px]:w-[16.75rem] max-[550px]:h-[16.75rem]"
                     />
                     <div className="font-[700] pl-[0.8rem] mr-[1rem] w-[15rem] flex-shrink-0  max-2xl:w-[8rem] max-md:w-[12em]">
                       {item.name}
