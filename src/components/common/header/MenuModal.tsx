@@ -1,5 +1,3 @@
-import LogoIcon from '@/assets/svg/CircleLogo.svg?react';
-
 interface MenuModalProps {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
 }

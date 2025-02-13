@@ -1,6 +1,5 @@
-import clsx from 'clsx';
 import { AnimatePresence, motion } from 'motion/react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const faqList = [
   {
@@ -146,73 +145,5 @@ export default function RecruitFAQ() {
         ))}
       </div>
     </div>
-  );
-}
-
-function PlusMinus() {
-  const [menu, setMenu] = React.useState(false);
-
-  const taphandler = () => {
-    setMenu(!menu);
-  };
-
-  const firstLine = {
-    flat: {
-      d: 'M 4 14 L 24 14',
-      transition: {
-        duration: 0.3
-      }
-    },
-    closed: {
-      d: 'M 14 4 L 14 24',
-      transition: {
-        duration: 0.3
-      }
-    }
-  };
-
-  const secondLine = {
-    flat: {
-      d: 'M 4 14 L 24 14',
-      transition: {
-        duration: 0.3
-      }
-    },
-    closed: {
-      d: 'M 4 14 L 24 14',
-      transition: {
-        duration: 0.3
-      }
-    }
-  };
-
-  return (
-    <motion.svg
-      className="svg--menu scale-50"
-      style={{
-        display: 'inline-block'
-      }}
-      xmlns="http://www.w3.org/2000/svg"
-      width="28"
-      height="28"
-      onTap={taphandler}
-    >
-      <motion.path
-        variants={firstLine}
-        initial="closed"
-        animate={menu ? 'flat' : 'closed'}
-        fill="transparent"
-        strokeWidth="2.5"
-        stroke="var(--color-text-primary)"
-      ></motion.path>
-      <motion.path
-        variants={secondLine}
-        initial="flat"
-        animate={menu ? 'flat' : 'closed'}
-        fill="transparent"
-        strokeWidth="2.5"
-        stroke="var(--color-text-primary)"
-      ></motion.path>
-    </motion.svg>
   );
 }
