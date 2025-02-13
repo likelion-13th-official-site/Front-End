@@ -17,17 +17,43 @@ const RootLayout = () => {
   );
 };
 
+import ProjectsDetailPage from './pages/ProjectsDetailPage';
+import RecruitPage from './pages/RecruitPage';
 const router = createBrowserRouter([
   {
     element: <RootLayout />,
     errorElement: <>error</>,
     children: [
-      { path: '/', element: <AboutPage /> },
-      { path: 'track', element: <TrackPage /> },
-      { path: 'projects', element: <ProjectsPage /> },
-      { path: 'people', element: <PeoplePage /> },
-      { path: 'apply', element: <ApplyPage /> }
+      {
+        path: '/',
+        element: <AboutPage />
+      },
+      {
+        path: 'track',
+        element: <TrackPage />
+      },
+      {
+        path: 'projects',
+        element: <ProjectsPage />
+      },
+      {
+        path: 'people',
+        element: <PeoplePage />
+      },
+      {
+        path: 'projects/:id',
+        element: <ProjectsDetailPage />
+      },
+      {
+        path: 'recruit',
+        element: <RecruitPage />
+      }
     ]
+  },
+  {
+    element: <></>,
+    errorElement: <></>,
+    children: []
   }
 ]);
 
