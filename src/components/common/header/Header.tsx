@@ -3,6 +3,7 @@ import ThemeButton from './ThemeButton';
 import MenuPortal from '@/components/portal/MenuPortal';
 import MenuModal from './MenuModal';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
 
 const navItems = [
   { name: 'About', link: '/' },
@@ -13,12 +14,13 @@ const navItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <header
       id="header"
       className={clsx(
-        'w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between z-1000',
+        'z-1001 w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between ',
         { fixed: isMenuOpen }
       )}
     >
@@ -50,6 +52,7 @@ export default function Header() {
           className="flex gap-[0.8rem] align-center"
         >
           <button
+            onClick={() => navigate('/recruit')}
             id="header-right__apply"
             className="cursor-pointer hidden md:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic"
           >
