@@ -1,6 +1,3 @@
-// import React from 'react';
-
-import { companyList } from '@/components/AboutPage/companyList';
 import FifthSection from '@/components/AboutPage/FifthSection';
 import FirstSection from '@/components/AboutPage/FirstSection';
 import FourthSection from '@/components/AboutPage/FourthSection';

@@ -1,4 +1,3 @@
-import React from 'react';
 import useResponsiveMonths from '@/hooks/AboutPage/useResponsiveMonths';
 
 const TOGGLE_PX = 1000;

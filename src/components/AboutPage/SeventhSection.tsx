@@ -1,4 +1,3 @@
-import React from 'react';
 import { companyList } from './companyList';
 
 export default function SeventhSection() {
