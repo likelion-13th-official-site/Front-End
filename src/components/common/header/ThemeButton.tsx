@@ -7,8 +7,6 @@ export default function ThemeButton({
   isBlueBackground: boolean;
 }) {
   const [isDark, setIsDark] = useState(false);
-  console.log('theme', isBlueBackground);
-
   const toggleTheme = () => {
     const colors = {
       '--color-surface-primary': isDark ? '#ffffff' : '#232325',

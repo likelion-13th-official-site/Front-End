@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ThemeButton from './ThemeButton';
 import MenuPortal from '@/components/portal/MenuPortal';
 import MenuModal from './MenuModal';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
+import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
   { name: 'About', link: '/' },
@@ -15,33 +16,33 @@ const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const location = window.location.href;
+  // const location = window.location.href;
+  const isBlueBackground = useDetectBlue();
+  // const [isBlueBackground, setIsBlueBackground] = useState(false);
 
-  const [isBlueBackground, setIsBlueBackground] = useState(false);
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           setIsBlueBackground(
+  //             entry.target.classList.contains('blueBackground')
+  //           );
+  //         } else {
+  //           setIsBlueBackground(false);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 } // 요소가 50% 이상 보일 때 감지
+  //   );
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsBlueBackground(
-              entry.target.classList.contains('blueBackground')
-            );
-          } else {
-            setIsBlueBackground(false);
-          }
-        });
-      },
-      { threshold: 0.5 } // 요소가 50% 이상 보일 때 감지
-    );
+  //   const sections = document.querySelectorAll('.blueBackground');
+  //   sections.forEach((section) => observer.observe(section));
 
-    const sections = document.querySelectorAll('.blueBackground');
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, [location]);
+  //   return () => {
+  //     sections.forEach((section) => observer.unobserve(section));
+  //   };
+  // }, [location]);
 
   return (
     <header
