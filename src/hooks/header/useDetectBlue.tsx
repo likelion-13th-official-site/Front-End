@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const getSetBlueBackground = () => {
+const GetSetBlueBackground = () => {
   const [isBlueBackground, setIsBlueBackground] = useState(false);
   const location = window.location.href;
 
@@ -32,7 +32,7 @@ const getSetBlueBackground = () => {
 };
 
 const useDetectBlue = () => {
-  return getSetBlueBackground();
+  return GetSetBlueBackground();
 };
 
 export default useDetectBlue;
