@@ -15,6 +15,7 @@ const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = window.location.href;
 
   const [isBlueBackground, setIsBlueBackground] = useState(false);
 
@@ -23,11 +24,9 @@ export default function Header() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(entry.target.classList.contains('blueBackground'));
             setIsBlueBackground(
               entry.target.classList.contains('blueBackground')
             );
-            console.log('blue', isBlueBackground);
           } else {
             setIsBlueBackground(false);
           }
@@ -42,7 +41,7 @@ export default function Header() {
     return () => {
       sections.forEach((section) => observer.unobserve(section));
     };
-  }, []);
+  }, [location]);
 
   return (
     <header
