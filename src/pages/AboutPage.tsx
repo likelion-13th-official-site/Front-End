@@ -8,7 +8,7 @@ import ThirdSection from '@/components/AboutPage/ThirdSection';
 
 export default function AboutPage() {
   return (
-    <main className="main w-full flex flex-col items-center justify-center">
+    <main className="main w-full flex flex-col items-center justify-center pt-[5.752rem]">
       <FirstSection />
 
       <SecondSection />
