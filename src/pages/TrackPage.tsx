@@ -104,13 +104,13 @@ const TrackPage = () => {
         </section>
       </div>
       <div
-        className="absolute top-[50%] left-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary italic cursor-pointer"
+        className="absolute top-[50%] left-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary cursor-pointer font-pp"
         onClick={() => handleArrowClick('left')}
       >
         ←
       </div>
       <div
-        className="absolute top-[50%] right-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary italic cursor-pointer"
+        className="absolute top-[50%] right-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary cursor-pointer font-pp"
         onClick={() => handleArrowClick('right')}
       >
         →

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
 import { Page } from '@/pages/ApplyPage';
-import ApplyFirst from './ApplyFirst';
 
 interface LoginData {
   email: string;

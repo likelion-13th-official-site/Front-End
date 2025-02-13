@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import passwordEyeOpened from '../../assets/image/password_eye_opened.svg';
-import passwordEyeClosed from '../../assets/image/password_eye_closed.svg';
+import passwordEyeOpened from '../../assets/image/password_eye_opened.svg?url';
+import passwordEyeClosed from '../../assets/image/password_eye_closed.svg?url';
+
 import clsx from 'clsx';
 
 interface FormBoxProps {
@@ -11,7 +12,7 @@ interface FormBoxProps {
   placeholder?: string;
   inputType?: string;
   explanation?: string;
-  title:string;
+  title: string;
 }
 
 const FormBox = ({

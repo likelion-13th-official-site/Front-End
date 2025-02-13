@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface StackItemProps {
   imageName: string;
   name: string;

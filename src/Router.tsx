@@ -5,6 +5,8 @@ import HeaderLayout from './components/common/HeaderLayout';
 import ProjectsPage from './pages/ProjectsPage';
 import PeoplePage from './pages/PeoplePage';
 import ApplyPage from './pages/ApplyPage';
+import ProjectsDetailPage from './pages/ProjectsDetailPage';
+import RecruitPage from './pages/RecruitPage';
 
 const RootLayout = () => {
   const location = useLocation();
@@ -17,8 +19,6 @@ const RootLayout = () => {
   );
 };
 
-import ProjectsDetailPage from './pages/ProjectsDetailPage';
-import RecruitPage from './pages/RecruitPage';
 const router = createBrowserRouter([
   {
     element: <RootLayout />,
@@ -47,7 +47,8 @@ const router = createBrowserRouter([
       {
         path: 'recruit',
         element: <RecruitPage />
-      }
+      },
+      { path: 'apply', element: <ApplyPage /> }
     ]
   },
   {

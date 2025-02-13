@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 
 interface InputOnlyBoxProps {
@@ -17,10 +17,8 @@ const InputOnlyBox = ({
   isError,
   isExplanation,
   placeholder,
-  inputType,
   explanation
 }: InputOnlyBoxProps) => {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   return (
     <div
       className={
@@ -36,9 +34,6 @@ const InputOnlyBox = ({
           }
         )}
         placeholder={placeholder}
-        type={
-          inputType === 'password' && isPasswordVisible ? 'text' : inputType
-        }
         onChange={handleChange}
         name={name}
       ></input>

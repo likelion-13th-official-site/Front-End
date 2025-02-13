@@ -1,7 +1,6 @@
 import { Page } from '@/pages/ApplyPage';
 import React, { useEffect, useState } from 'react';
 import SquareBtn from '../SquareBtn';
-import checkIcon from '../../assets/image/check_icon.svg';
 import FormBox from '../FormBox';
 import InputOnlyBox from '../InputOnlyBox';
 

@@ -6,7 +6,6 @@ import FindPWEmail from '@/components/ApplyPage/Pages/FindPWEmail';
 import FindPWReset from '@/components/ApplyPage/Pages/FindPWReset';
 import Home from '@/components/ApplyPage/Pages/Home';
 import ApplyFourth from '@/components/ApplyPage/Pages/ApplyFourth';
-import Instruction from '@/components/ApplyPage/Pages/ApplyFourth';
 import RoundBtn from '@/components/ApplyPage/RoundBtn';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -64,7 +63,7 @@ const ApplyPage = () => {
                 }}
               ></RoundBtn>
             )}
-            <ThemeButton />
+            <ThemeButton isBlueBackground={false} />
           </div>
         </section>
         {currentPage === Page.HOME && (
