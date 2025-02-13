@@ -8,9 +8,9 @@ import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
   { name: 'About', link: '/' },
-  { name: 'Track', link: 'track' },
-  { name: 'People', link: 'people' },
-  { name: 'Projects', link: 'projects' }
+  { name: 'Track', link: '/track' },
+  { name: 'People', link: '/people' },
+  { name: 'Projects', link: '/projects' }
 ];
 
 export default function Header() {
