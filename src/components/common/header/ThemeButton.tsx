@@ -32,7 +32,7 @@ export default function ThemeButton({
       '--color-surface-tertiary': isDark ? '#39393b' : '#8dc2ff',
       '--color-text-primary': isDark ? '#b9d5e6' : '#288dff',
       '--color-text-secondary': isDark ? '#d2e6f2' : '#8dc2ff',
-      '--color-text-invert': isDark ? '#ffffff' : '#232325'
+      '--color-text-invert': isDark ? '#232325' : '#ffffff'
     };
 
     Object.entries(colors).forEach(([property, value]) => {
