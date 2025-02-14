@@ -81,7 +81,7 @@ const TrackPage = () => {
     <>
       <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-surface-primary text-text-primary">
         <section className="grow-1 shrink-1 basis-0">
-          <span className="text-[102.4rem] font-[D2Coding]  italic opacity-[0.1] leading-[143rem] text-center">
+          <span className="text-[102.4rem] font-pp  italic opacity-[0.1] leading-[143rem] text-center">
             {trackLetters[trackType]}
           </span>
         </section>

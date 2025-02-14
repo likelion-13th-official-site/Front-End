@@ -1,27 +1,21 @@
-import { createBrowserRouter, Outlet, useLocation } from 'react-router-dom';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import TrackPage from './pages/TrackPage';
 import HeaderLayout from './components/common/HeaderLayout';
 import ProjectsPage from './pages/ProjectsPage';
 import PeoplePage from './pages/PeoplePage';
-import ApplyPage from './pages/ApplyPage';
 import ProjectsDetailPage from './pages/ProjectsDetailPage';
+import ApplyPage from './pages/ApplyPage';
 import RecruitPage from './pages/RecruitPage';
-
-const RootLayout = () => {
-  const location = useLocation();
-
-  return (
-    <>
-      {location.pathname !== '/apply' && <HeaderLayout />}
-      <Outlet />
-    </>
-  );
-};
 
 const router = createBrowserRouter([
   {
-    element: <RootLayout />,
+    element: (
+      <>
+        <HeaderLayout />
+        <Outlet />
+      </>
+    ),
     errorElement: <>error</>,
     children: [
       {
@@ -47,14 +41,12 @@ const router = createBrowserRouter([
       {
         path: 'recruit',
         element: <RecruitPage />
-      },
-      { path: 'apply', element: <ApplyPage /> }
+      }
     ]
   },
   {
-    element: <></>,
-    errorElement: <></>,
-    children: []
+    path: 'apply',
+    element: <ApplyPage />
   }
 ]);
 
