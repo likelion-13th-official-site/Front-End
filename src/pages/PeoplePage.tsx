@@ -9,7 +9,7 @@ export default function PeoplePage() {
     setSelectedCardinal(cardinal);
   };
   return (
-    <div className="w-screen h-screen bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
+    <div className="blueBackground w-screen h-screen bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
       <main className="wrapper w-full flex flex-col  items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem] bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
         <FirstSection
           selectedCardinal={selectedCardinal}
