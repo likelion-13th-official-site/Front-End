@@ -5,7 +5,9 @@ import HeaderLayout from './components/common/HeaderLayout';
 import ProjectsPage from './pages/ProjectsPage';
 import PeoplePage from './pages/PeoplePage';
 import ProjectsDetailPage from './pages/ProjectsDetailPage';
+import ApplyPage from './pages/ApplyPage';
 import RecruitPage from './pages/RecruitPage';
+
 const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
@@ -38,9 +40,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    element: <></>,
-    errorElement: <></>,
-    children: []
+    path: 'apply',
+    element: <ApplyPage />
   }
 ]);
 
