@@ -9,13 +9,15 @@ export default function PeoplePage() {
     setSelectedCardinal(cardinal);
   };
   return (
-    <main className="wrapper w-full flex flex-col items-center justify-center">
-      <FirstSection
-        selectedCardinal={selectedCardinal}
-        onClickCardinal={onClickCardinal}
-      />
+    <div className="h-screen bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
+      <main className="wrapper w-full flex flex-col items-center justify-center pt-[5.725rem] bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
+        <FirstSection
+          selectedCardinal={selectedCardinal}
+          onClickCardinal={onClickCardinal}
+        />
 
-      {selectedCardinal === cardinalList[0] && <SecondSection />}
-    </main>
+        {selectedCardinal === cardinalList[0] && <SecondSection />}
+      </main>
+    </div>
   );
 }

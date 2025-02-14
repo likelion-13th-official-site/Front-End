@@ -10,7 +10,7 @@ export default function RecruitQualifications() {
   return (
     <div
       id="qual-section"
-      className="w-full pl-[1.2rem] flex flex-col gap-[1.6rem]"
+      className="w-full md:pl-[1.2rem] flex flex-col gap-[1.6rem]"
     >
       <h1 className="text-[1.4rem] font-[900] leading-[140%]">모집 대상</h1>
       <div id="qual-list" className="w-full flex flex-col">
