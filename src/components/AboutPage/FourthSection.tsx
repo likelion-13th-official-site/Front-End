@@ -21,7 +21,7 @@ export default function FourthSection() {
                   className="flex font-d2 py-[0.8rem] justify-between text-text-primary font-[400] leading-[1.4] border-t-text-primary border-t-[1px] last:border-b-[1px] max-md:block"
                 >
                   <div className="flex min-w-[26rem] max-2xl:min-w-[15.6rem] max-md:mb-[1.6rem] relative">
-                    <div className="absolute top-0 hover:bg-text-primary opacity-50 left-0 aspect-square h-[17.2rem] max-3xl:w-[10.8125rem] max-3xl:h-[10.8125rem] max-2xl:w-[7.0625rem] max-2xl:h-[7.0625rem] max-md:w-[33rem] max-md:h-[33rem] max-[550px]:w-[16.75rem] max-[550px]:h-[16.75rem]"></div>
+                    <div className="absolute top-0 hover:bg-transparent bg-text-primary opacity-50 left-0 aspect-square h-[17.2rem] max-3xl:w-[10.8125rem] max-3xl:h-[10.8125rem] max-2xl:w-[7.0625rem] max-2xl:h-[7.0625rem] max-md:w-[33rem] max-md:h-[33rem] max-[550px]:w-[16.75rem] max-[550px]:h-[16.75rem]"></div>
                     <img
                       src={`${item.image}`}
                       alt={item.name}
