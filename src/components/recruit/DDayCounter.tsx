@@ -20,7 +20,7 @@ export default function DdayCounter() {
       id="dday-counter"
       className="text-[9.6rem] font-[500] leading-[140%] font-pp"
     >
-      <h3>D-{dayDiff}</h3>
+      {dayDiff === 0 ? <h3>D-Day</h3> : <h3>D-{dayDiff}</h3>}
     </div>
   );
 }

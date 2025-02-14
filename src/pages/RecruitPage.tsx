@@ -9,10 +9,10 @@ export default function RecruitPage() {
   return (
     <main id="recruit-main bg-surface-primary">
       <RecruitHeader />
-      <button className="cursor-pointer hidden md:block w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border border-text-primary hover:bg-text-primary hover:text-surface-primary">
+      <button className="cursor-pointer hidden md:block w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border-y border-text-primary hover:bg-text-primary hover:text-surface-primary">
         지원하기
       </button>
-      <button className="block md:hidden w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border border-text-primary">
+      <button className="block md:hidden w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border-y border-text-primary">
         PC에서만 지원 가능합니다.
       </button>
       <div className="w-screen flex flex-col items-center">
