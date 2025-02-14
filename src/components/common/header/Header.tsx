@@ -60,7 +60,7 @@ export default function Header() {
       >
         <div
           id="header-left __logo"
-          className="text-[1.6rem] w-fit flex items-center cursor-pointer"
+          className={`text-[1.6rem] w-fit flex items-center cursor-pointer ${isMenuOpen && 'text-text-invert'}`}
           onClick={() => navigate('/')}
         >
           <span>Likelion</span>
@@ -109,12 +109,17 @@ export default function Header() {
               'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic',
               isBlueBackground
                 ? 'border-text-invert text-text-invert hover:border-text-invert hover:bg-text-invert hover:text-text-primary'
-                : 'hover:border-text-primary hover:bg-text-primary hover:text-text-invert'
+                : 'hover:border-text-primary hover:bg-text-primary hover:text-text-invert',
+              isMenuOpen &&
+                'bg-text-invert text-text-primary hover:!border-text-invert'
             )}
           >
             Menu
           </button>
-          <ThemeButton isBlueBackground={isBlueBackground} />
+          <ThemeButton
+            isBlueBackground={isBlueBackground}
+            isMenuOpen={isMenuOpen}
+          />
         </div>
       </div>
       {isMenuOpen && (
