@@ -35,7 +35,7 @@ export default function ProjectsList() {
   }, [tab, searchParams]);
 
   return (
-    <section className="w-full max-w-[151.2rem]s">
+    <section className="w-full max-w-[151.2rem]">
       {filterdData?.map((proj: ProjectListType, idx: number) => (
         <div
           id="proj-box"
