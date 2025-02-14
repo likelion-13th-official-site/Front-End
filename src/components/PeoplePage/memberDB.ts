@@ -2,7 +2,7 @@ import { Member } from '@/types/member';
 
 export const cardinalList = [13, 12, 11];
 
-export const MemberList: { [key: number]: (Member | string)[] } = {
+export const MemberList: Record<number, Member[] | string[]> = {
   13: [
     { type: 'manager', job: '대표', names: ['윤예은'] },
     { type: 'manager', job: '부대표', names: ['김별', '나현진'] },
