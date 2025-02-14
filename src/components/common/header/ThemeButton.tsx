@@ -16,7 +16,7 @@ export default function ThemeButton({
   isMenuOpen
 }: {
   isBlueBackground: boolean;
-  isMenuOpen: boolean;
+  isMenuOpen?: boolean;
 }) {
   // 📌 렌더링 되면 로컬스토리지에서 다크모드가 있는지 확인/✅있으면 true 반환!
   const [isDark, setIsDark] = useState(() => {
@@ -85,7 +85,7 @@ const SunIcon = ({
   isMenuOpen
 }: {
   isBlueBackground: boolean;
-  isMenuOpen: boolean;
+  isMenuOpen?: boolean;
 }) => (
   <svg
     className="w-[1.6rem] h-[1.6rem]"
@@ -117,7 +117,7 @@ const MoonIcon = ({
   isMenuOpen
 }: {
   isBlueBackground: boolean;
-  isMenuOpen: boolean;
+  isMenuOpen?: boolean;
 }) => (
   <svg
     className="w-[1.6rem] h-[1.6rem]"
