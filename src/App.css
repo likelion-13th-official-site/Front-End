@@ -31,12 +31,14 @@ body {
   --breakpoint-3xl: 1512px;
   --font-d2: D2Coding;
   --font-pp: PP Lettra Mono;
+  --font-pretendard: Pretendard;
   --color-surface-primary: #ffffff;
   /* --color-surface-primary-dark: #232325; */
   --color-surface-secondary: #e9f4ff;
   /* --color-surface-secondary-dark: #303034; */
   --color-surface-tertiary: #8dc2ff;
   /* --color-surface-tertiary-dark: #39393b; */
+  --color-text-primary: #288dff;
   --color-text-primary: #288dff;
   /* --color-text-primary-dark: #b9d5e6; */
   --color-text-secondary: #8dc2ff;
@@ -82,6 +84,13 @@ body {
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff')
     format('woff');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('./assets/font/PretendardVariable.woff2') format('woff');
+  font-weight: 300;
   font-style: normal;
 }
 
