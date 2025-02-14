@@ -7,12 +7,15 @@ import RecruitTracks from '@/components/recruit/section-items/RecruitTracks';
 import { useNavigate } from 'react-router-dom';
 
 export default function RecruitPage() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   return (
     <main id="recruit-main bg-surface-primary">
       <RecruitHeader />
-      <button className="cursor-pointer hidden md:block w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border border-text-primary hover:bg-text-primary hover:text-surface-primary" onClick={()=>navigate('/apply')}>
+      <button
+        className="cursor-pointer hidden md:block w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border-y border-text-primary hover:bg-text-primary hover:text-surface-primary"
+        onClick={() => navigate('/apply')}
+      >
         지원하기
       </button>
       <button className="block md:hidden w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border border-text-primary">
