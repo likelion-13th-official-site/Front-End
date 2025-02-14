@@ -1,5 +1,15 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
+
+// 🚨비상!🚨
+// 다크 모드 적용하더 페이지 이동하면 다크모드가 풀리는 문제!!
+// 문제 원인은 해더에서 다크모드의 state를 관리하기 때문
+// App-HeaderLayout--Header-ThemeButton-🔖isDark
+//                  |-PageComponent
+//                  |-Footer
+// 가장 근본적인 문제 원인은 페이지 이동이 a태그로 이루어져서 그런듯 합니다
+// 페이지 이동시마다 앱 컴포넌트가 싸악 리렌더링되서 그런듯
+// 로컬스토리지를 통해서 관리하도록 수정해보겠슴다.
 
 export default function ThemeButton({
   isBlueBackground,
@@ -8,23 +18,47 @@ export default function ThemeButton({
   isBlueBackground: boolean;
   isMenuOpen: boolean;
 }) {
-  const [isDark, setIsDark] = useState(false);
-  const toggleTheme = () => {
+  // 📌 렌더링 되면 로컬스토리지에서 다크모드가 있는지 확인/✅있으면 true 반환!
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem('isDarkMode') === 'true';
+  });
+
+  // 📌 기존에 toggleTheme 안에 있던 색을 변경하는 기능을 분리했습니다다
+  const applyTheme = (isDark: boolean) => {
+    // 컬러가 반대로 되어있어서 수정했습니다.
     const colors = {
-      '--color-surface-primary': isDark ? '#ffffff' : '#232325',
-      '--color-surface-secondary': isDark ? '#e9f4ff' : '#303034',
-      '--color-surface-tertiary': isDark ? '#8dc2ff' : '#39393b',
-      '--color-text-primary': isDark ? '#288dff' : '#b9d5e6',
-      '--color-text-secondary': isDark ? '#8dc2ff' : '#d2e6f2',
+      '--color-surface-primary': isDark ? '#232325' : '#ffffff',
+      '--color-surface-secondary': isDark ? '#303034' : '#e9f4ff',
+      '--color-surface-tertiary': isDark ? '#39393b' : '#8dc2ff',
+      '--color-text-primary': isDark ? '#b9d5e6' : '#288dff',
+      '--color-text-secondary': isDark ? '#d2e6f2' : '#8dc2ff',
       '--color-text-invert': isDark ? '#ffffff' : '#232325'
     };
 
     Object.entries(colors).forEach(([property, value]) => {
       document.documentElement.style.setProperty(property, value);
     });
-
-    setIsDark(!isDark);
   };
+
+  // 📌 toggleTheme 실행되면 로컬스토리지에 먼저 다크모드 상태 저장하고
+  // 📌 그 담에 모드에 맞는 스타일 싸악 전역에 먹이고
+  // 📌 state 토글하면서 리렌더링 유발시키고
+  // 📌 이 작업들은 모두 한 페이지 내에서 토글 버튼을 눌렀을 때에 해당하는 상황임을 알아주세용
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    localStorage.setItem('isDarkMode', String(newTheme));
+    applyTheme(newTheme);
+  };
+
+  // 📌 useLayoutEffect를 사용해서 화면에 페인팅되기 전에 색을 먼저 전역에 먹입니다.
+  // 📌 useEffect: 페인팅 후에 작동/ useLayoutEffect: 페인팅 전에 작동
+  // 📌 이 작업은 페이지 이동시 발생하는 작업입니다.
+  // 📌 페이지 이동하면 싸악 다시 렌더링할 때, 여기서는 로컬스토리지에 있는지 여부로 isDark가 초기화됩니다.
+  // 📌 그 다음에 페인팅하기 전에 스타일을 먹이는 겁니다.
+  useLayoutEffect(() => {
+    applyTheme(isDark);
+  }, []);
 
   return (
     <div
