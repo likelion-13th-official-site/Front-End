@@ -25,16 +25,12 @@ export default function SeventhSection() {
 
       <div className="carousel flex relative overflow-hidden h-[11.2rem] items-center">
         <ul className="flex h-full animate-[scrolling1_20s_linear_infinite] w-max absolute">
-          {companyList.map((company, idx) => (
+          {companyList.map((CompantIcon, idx) => (
             <li
               key={idx}
               className=" flex items-center justify-center py-[4rem] px-[4.8rem] flex-shrink-0"
             >
-              <img
-                src={company}
-                className="h-[3.2rem] object-cover"
-                alt={`Company ${idx + 1}`}
-              />
+              <CompantIcon className="h-[3.2rem] object-cover" />
             </li>
           ))}
         </ul>
@@ -43,16 +39,12 @@ export default function SeventhSection() {
           className="flex h-full animate-[scrolling2_20s_linear_infinite] w-max absolute"
           aria-hidden="true"
         >
-          {companyList.map((company, idx) => (
+          {companyList.map((CompantIcon, idx) => (
             <li
               key={idx}
               className=" flex items-center justify-center py-[4rem] px-[4.8rem] flex-shrink-0"
             >
-              <img
-                src={company}
-                className="h-[3.2rem] object-cover"
-                alt={`Company ${idx + 1}`}
-              />
+              <CompantIcon className="h-[3.2rem] object-cover" />
             </li>
           ))}
         </ul>
