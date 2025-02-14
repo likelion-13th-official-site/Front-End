@@ -48,7 +48,7 @@ export default function ProjectsList() {
             className="flex-1 flex flex-col md:flex-row gap-[1.2rem]"
           >
             <div id="title-year" className="flex-1 flex flex-col gap-[2rem]">
-              <h1 className="group-hover:text-text-secondary ease-out duration-[3000ms] text-[1.4rem] font-[700] leading-[140%]">
+              <h1 className="group-hover:underline -underline-offset-[-3px] ease-out duration-[3000ms] text-[1.4rem] font-[700] leading-[140%]">
                 {proj.title}
               </h1>
               <p className="text-[1.4rem] opacity-40 leading-[140%]">
@@ -68,7 +68,7 @@ export default function ProjectsList() {
               loading="lazy"
               src={proj.img}
               alt={proj.title}
-              className="object-cover"
+              className="object-cover w-full h-full"
             />
           </div>
         </div>
