@@ -7,8 +7,6 @@ import { useLayoutEffect, useState } from 'react';
 // App-HeaderLayout--Header-ThemeButton-🔖isDark
 //                  |-PageComponent
 //                  |-Footer
-// 가장 근본적인 문제 원인은 페이지 이동이 a태그로 이루어져서 그런듯 합니다
-// 페이지 이동시마다 앱 컴포넌트가 싸악 리로드되서 그런듯
 // 로컬스토리지를 통해서 관리하도록 수정해보겠슴다.
 
 export default function ThemeButton({
