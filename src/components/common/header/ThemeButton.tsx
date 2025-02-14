@@ -4,6 +4,8 @@ import { useLayoutEffect, useState } from 'react';
 // 🚨비상!🚨
 // 다크 모드 적용하더 페이지 이동하면 다크모드가 풀리는 문제!!
 // 문제 원인은 해더에서 다크모드의 state를 관리하기 때문
+// 더 들어가서 근본적인 원인은 페이지 이동이 a태그로 이루어져서 그런듯 합니다
+// 페이지 이동시마다 앱 컴포넌트가 싸악 리로드되서 그런듯
 // App-HeaderLayout--Header-ThemeButton-🔖isDark
 //                  |-PageComponent
 //                  |-Footer
