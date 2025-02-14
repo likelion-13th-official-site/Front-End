@@ -1,4 +1,4 @@
-import image1 from '@/assets/svg/AboutPage/company/01_KT Wordmark (Standard)_01 1.svg?react';
+import image1 from '@/assets/svg/AboutPage/company/kt.svg?react';
 import image2 from '@/assets/svg/AboutPage/company/brothers.svg?react';
 import image3 from '@/assets/svg/AboutPage/company/image 9.svg?react';
 import image4 from '@/assets/svg/AboutPage/company/image 10.svg?react';
