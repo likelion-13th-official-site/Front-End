@@ -23,12 +23,12 @@ export default function RecruitTracks() {
   return (
     <div
       id="tracks-section"
-      className="w-full pl-[1.2rem] flex flex-col gap-[1.6rem]"
+      className="w-full md:pl-[1.2rem] flex flex-col gap-[1.6rem]"
     >
       <h1 className="text-[1.4rem] font-[900] leading-[140%]">모집 트랙</h1>
       <div
         id="tracks-list"
-        className="w-full flex flex-col pt-[0.8rem] border-t border-text-primary"
+        className="w-full flex flex-col  border-t border-text-primary"
       >
         {trackList.map((track, idx) => (
           <div
@@ -39,7 +39,7 @@ export default function RecruitTracks() {
             <div id="track-box__left" className="pr-[1.2rem] flex gap-[0.8rem]">
               <span
                 id="track-initial"
-                className="w-[9rem] h-fit font-pp italic text-[9.6rem] leading-[70%]"
+                className="w-[9rem] font-pp italic font-[500] text-[9.6rem] flex items-center leading-[0.8]"
               >
                 {track.initial}
               </span>

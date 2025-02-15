@@ -4,7 +4,7 @@ export default function RecruitHeader() {
   return (
     <section
       id="recruit-header"
-      className="blueBackground pt-[14.3rem] md:pt-[26.6rem] 2xl:pt-[14.3rem] pb-[9.6rem] w-screen md:grid grid-cols-2 gap-[1rem] bg-gradient-to-r from-surface-tertiary from-0% via-surface-secondary via-27.5% to-text-primary to-90% text-text-invert font-d2"
+      className="blueBackground pt-[14.3rem] md:pt-[26.6rem] 2xl:pt-[14.3rem] pb-[9.6rem] w-screen md:grid grid-cols-2 gap-[1rem] bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90% text-text-invert font-d2"
     >
       <div id="header-left" className="hidden md:grid grid-cols-2 gap-[1.2rem]">
         <h1 className="col-start-2 text-[1.4rem] font-[700] leading-[140%]">

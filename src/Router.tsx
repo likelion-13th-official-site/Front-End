@@ -1,19 +1,16 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import TrackPage from './pages/TrackPage';
 import HeaderLayout from './components/common/HeaderLayout';
 import ProjectsPage from './pages/ProjectsPage';
 import PeoplePage from './pages/PeoplePage';
 import ProjectsDetailPage from './pages/ProjectsDetailPage';
+import ApplyPage from './pages/ApplyPage';
 import RecruitPage from './pages/RecruitPage';
+import CreditPage from './pages/CreditPage';
 const router = createBrowserRouter([
   {
-    element: (
-      <>
-        <HeaderLayout />
-        <Outlet />
-      </>
-    ),
+    element: <HeaderLayout />,
     errorElement: <>error</>,
     children: [
       {
@@ -39,13 +36,16 @@ const router = createBrowserRouter([
       {
         path: 'recruit',
         element: <RecruitPage />
+      },
+      {
+        path: 'credits',
+        element: <CreditPage />
       }
     ]
   },
   {
-    element: <></>,
-    errorElement: <></>,
-    children: []
+    path: 'apply',
+    element: <ApplyPage />
   }
 ]);
 

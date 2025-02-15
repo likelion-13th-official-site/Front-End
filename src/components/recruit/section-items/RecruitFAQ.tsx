@@ -77,7 +77,7 @@ export default function RecruitFAQ() {
   return (
     <div
       id="faq-section"
-      className="w-full pl-[1.2rem] flex flex-col gap-[1.6rem]"
+      className="w-full md:pl-[1.2rem] flex flex-col gap-[1.6rem]"
     >
       <h1 className="text-[1.4rem] font-[900] leading-[140%]">
         자주 묻는 질문
