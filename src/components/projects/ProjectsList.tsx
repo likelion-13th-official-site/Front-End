@@ -68,7 +68,7 @@ export default function ProjectsList() {
               loading="lazy"
               src={proj.img}
               alt={proj.title}
-              className="object-cover w-full h-full"
+              className="object-cover w-full "
             />
           </div>
         </div>
