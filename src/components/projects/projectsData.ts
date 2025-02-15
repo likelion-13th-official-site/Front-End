@@ -61,7 +61,7 @@ export const projectsData = [
     desc: "우리나라 경제교육이 부족하다고 느낀 적이 있으신가요?학교는 '세금은 왜 내고, 얼마나 내는 거지?' 등의궁금증을 해결해주지 않아요..퍼니페니를 사용하면 초등학교에서 쉽고 재미있게경제교육을 할 수 있어요!퍼니페니에서는 학급이 하나의 국가가 되어, 학생들은 직업을가지고 다양한 경제 활동을 직접 경험하며 학습해요.",
     event: '데모데이',
     img: 'https://i.imgur.com/xe11Nws.png',
-    link: null
+    link: 'https://funny-penny.vercel.app'
   },
   {
     id: 5,
