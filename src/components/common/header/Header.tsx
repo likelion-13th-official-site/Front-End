@@ -3,7 +3,7 @@ import ThemeButton from './ThemeButton';
 import MenuPortal from '@/components/portal/MenuPortal';
 import MenuModal from './MenuModal';
 import clsx from 'clsx';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
@@ -59,15 +59,18 @@ export default function Header() {
           'text-text-invert': isBlueBackground
         })}
       >
-        <div
-          id="header-left __logo"
-          className={`text-[1.6rem] w-fit flex items-center cursor-pointer ${isMenuOpen && 'text-text-invert'}`}
-          onClick={() => navigate('/')}
+        <Link
+          to="/"
+          id="header-left__logo"
+          className={clsx(
+            'text-[1.6rem] w-fit flex items-center cursor-pointer',
+            { 'text-text-invert': isMenuOpen }
+          )}
         >
           <span>Likelion</span>
           <i className="italic">Sogang</i>
-          <sup className="">13</sup>
-        </div>
+          <sup>13</sup>
+        </Link>
       </div>
       <div
         id="header-right"
@@ -82,7 +85,7 @@ export default function Header() {
           <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] px-[1.2rem] py-[0] sm:py-[0.4rem] md:py-[0]">
             {navItems.map((item) => (
               <li key={item.name} className="text-[1.6rem] italic">
-                <a href={`${item.link}`}>{item.name}</a>
+                <Link to={`${item.link}`}>{item.name}</Link>
               </li>
             ))}
           </ul>
