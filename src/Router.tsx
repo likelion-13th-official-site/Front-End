@@ -7,7 +7,7 @@ import PeoplePage from './pages/PeoplePage';
 import ProjectsDetailPage from './pages/ProjectsDetailPage';
 import ApplyPage from './pages/ApplyPage';
 import RecruitPage from './pages/RecruitPage';
-
+import CreditPage from './pages/CreditPage';
 const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
@@ -36,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: 'recruit',
         element: <RecruitPage />
+      },
+      {
+        path: 'credit',
+        element: <CreditPage />
       }
     ]
   },
