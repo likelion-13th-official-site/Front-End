@@ -16,39 +16,13 @@ const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  // const location = window.location.href;
   const isBlueBackground = useDetectBlue();
-  // const [isBlueBackground, setIsBlueBackground] = useState(false);
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           setIsBlueBackground(
-  //             entry.target.classList.contains('blueBackground')
-  //           );
-  //         } else {
-  //           setIsBlueBackground(false);
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.5 } // 요소가 50% 이상 보일 때 감지
-  //   );
-
-  //   const sections = document.querySelectorAll('.blueBackground');
-  //   sections.forEach((section) => observer.observe(section));
-
-  //   return () => {
-  //     sections.forEach((section) => observer.unobserve(section));
-  //   };
-  // }, [location]);
 
   return (
     <header
       id="header"
       className={clsx(
-        'z-1001 absolute md:fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between text-text-primary',
+        'z-1001 absolute 2xl:fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between text-text-primary',
         { fixed: isMenuOpen }
       )}
     >
