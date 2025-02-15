@@ -22,7 +22,7 @@ export default function Header() {
     <header
       id="header"
       className={clsx(
-        'z-1001 absolute md:fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between text-text-primary',
+        'z-1001 absolute 2xl:fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between text-text-primary',
         { fixed: isMenuOpen }
       )}
     >
