@@ -16,6 +16,7 @@ body::-webkit-scrollbar {
 
 html {
   font-size: 62.5%;
+  background-color: var(--color-surface-primary);
 }
 
 body {
