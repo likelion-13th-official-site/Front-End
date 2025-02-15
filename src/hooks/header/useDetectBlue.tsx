@@ -11,6 +11,7 @@ const GetSetBlueBackground = () => {
   // 더 좋은 방법있으면 추천 받습니다.
 
   useEffect(() => {
+    setIsBlueBackground(false);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const linkList = [
   { title: 'About', link: '/' },
-  { title: 'Tracks', link: '/tracks' },
+  { title: 'Track', link: '/track' },
   { title: 'People', link: '/people' },
   { title: 'Projects', link: '/projects' },
   { title: 'Recruit', link: '/recruit' },
