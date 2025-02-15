@@ -83,12 +83,11 @@ export default function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic',
+              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
               isBlueBackground
                 ? 'border-text-invert text-text-invert hover:border-text-invert hover:bg-text-invert hover:text-text-primary'
                 : 'hover:border-text-primary hover:bg-text-primary hover:text-text-invert',
-              isMenuOpen &&
-                'bg-text-invert text-text-primary hover:!border-text-invert'
+              isMenuOpen && ' text-text-invert hover:!border-text-invert'
             )}
           >
             Menu
