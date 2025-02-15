@@ -5,9 +5,9 @@
 *::after {
   box-sizing: border-box;
   transition:
-    color 0.2s,
+    color 0.1s,
     background-color 0.2s,
-    border 0.2s;
+    border 0.1s;
 }
 
 body::-webkit-scrollbar {
