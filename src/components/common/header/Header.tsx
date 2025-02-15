@@ -14,7 +14,6 @@ const navItems = [
 ];
 
 export default function Header() {
-  console.log('asdasdsdas');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   // const location = window.location.href;
