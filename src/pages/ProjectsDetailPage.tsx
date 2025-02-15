@@ -38,7 +38,10 @@ export default function ProjectsDetailPage() {
               <span className="font-[900]">TEAM</span>
               <span>
                 <h3>{project?.teamName}</h3>
-                {project?.PM && <h4>PM: {project?.PM}</h4>}
+                {project?.year === 2023 && <h4>{project?.PM}</h4>}
+                {project?.year !== 2023 && project?.PM && (
+                  <h4>PM: {project?.PM}</h4>
+                )}
                 {project?.DE && <h4>DE: {project?.DE}</h4>}
                 {project?.FE && <h4>FE: {project?.FE}</h4>}
                 {project?.BE && <h4>BE: {project?.BE}</h4>}
@@ -47,7 +50,11 @@ export default function ProjectsDetailPage() {
             {project?.link && (
               <div className="w-full grid grid-cols-2 py-[0.8rem] border-b">
                 <span className="font-[900]">LINK</span>
-                <a className="underline" href={project.link} target="_blank">
+                <a
+                  className="underline hover:text-text-secondary w-fit"
+                  href={project.link}
+                  target="_blank"
+                >
                   {project?.link}
                 </a>
               </div>
