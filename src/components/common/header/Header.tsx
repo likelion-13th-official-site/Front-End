@@ -8,7 +8,7 @@ import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
   { name: 'About', link: '/' },
-  { name: 'Track', link: '/track' },
+  { name: 'Tracks', link: '/track' },
   { name: 'People', link: '/people' },
   { name: 'Projects', link: '/projects' }
 ];
@@ -16,33 +16,7 @@ const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  // const location = window.location.href;
   const isBlueBackground = useDetectBlue();
-  // const [isBlueBackground, setIsBlueBackground] = useState(false);
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           setIsBlueBackground(
-  //             entry.target.classList.contains('blueBackground')
-  //           );
-  //         } else {
-  //           setIsBlueBackground(false);
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.5 } // 요소가 50% 이상 보일 때 감지
-  //   );
-
-  //   const sections = document.querySelectorAll('.blueBackground');
-  //   sections.forEach((section) => observer.observe(section));
-
-  //   return () => {
-  //     sections.forEach((section) => observer.unobserve(section));
-  //   };
-  // }, [location]);
 
   return (
     <header
