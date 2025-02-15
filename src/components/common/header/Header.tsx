@@ -3,14 +3,14 @@ import ThemeButton from './ThemeButton';
 import MenuPortal from '@/components/portal/MenuPortal';
 import MenuModal from './MenuModal';
 import clsx from 'clsx';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
   { name: 'About', link: '/' },
-  { name: 'Track', link: 'track' },
-  { name: 'People', link: 'people' },
-  { name: 'Projects', link: 'projects' }
+  { name: 'Track', link: '/track' },
+  { name: 'People', link: '/people' },
+  { name: 'Projects', link: '/projects' }
 ];
 
 export default function Header() {
@@ -58,14 +58,18 @@ export default function Header() {
           'text-text-invert': isBlueBackground
         })}
       >
-        <div
-          id="header-left __logo"
-          className="text-[1.6rem] w-fit flex items-center"
+        <Link
+          to="/"
+          id="header-left__logo"
+          className={clsx(
+            'text-[1.6rem] w-fit flex items-center cursor-pointer',
+            { 'text-text-invert': isMenuOpen }
+          )}
         >
           <span>Likelion</span>
           <i className="italic">Sogang</i>
-          <sup className="">13</sup>
-        </div>
+          <sup>13</sup>
+        </Link>
       </div>
       <div
         id="header-right"
@@ -80,7 +84,7 @@ export default function Header() {
           <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] px-[1.2rem] py-[0] sm:py-[0.4rem] md:py-[0]">
             {navItems.map((item) => (
               <li key={item.name} className="text-[1.6rem] italic">
-                <a href={`${item.link}`}>{item.name}</a>
+                <Link to={`${item.link}`}>{item.name}</Link>
               </li>
             ))}
           </ul>
@@ -93,7 +97,7 @@ export default function Header() {
             onClick={() => navigate('/recruit')}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer hidden md:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic',
+              'cursor-pointer hidden md:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
               isBlueBackground
                 ? 'border-text-invert text-text-invert hover:border-text-invert hover:bg-text-invert hover:text-text-primary'
                 : 'hover:border-text-primary hover:bg-text-primary hover:text-text-invert'
@@ -108,12 +112,17 @@ export default function Header() {
               'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic',
               isBlueBackground
                 ? 'border-text-invert text-text-invert hover:border-text-invert hover:bg-text-invert hover:text-text-primary'
-                : 'hover:border-text-primary hover:bg-text-primary hover:text-text-invert'
+                : 'hover:border-text-primary hover:bg-text-primary hover:text-text-invert',
+              isMenuOpen &&
+                'bg-text-invert text-text-primary hover:!border-text-invert'
             )}
           >
             Menu
           </button>
-          <ThemeButton isBlueBackground={isBlueBackground} />
+          <ThemeButton
+            isBlueBackground={isBlueBackground}
+            isMenuOpen={isMenuOpen}
+          />
         </div>
       </div>
       {isMenuOpen && (
