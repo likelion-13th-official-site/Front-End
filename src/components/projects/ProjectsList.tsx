@@ -38,6 +38,7 @@ export default function ProjectsList() {
     <section className="w-full max-w-[151.2rem]">
       {filterdData?.map((proj: ProjectListType, idx: number) => (
         <div
+          data-aos="fade-up"
           id="proj-box"
           key={idx}
           onClick={() => navigate(`/projects/${proj.id}`)}
