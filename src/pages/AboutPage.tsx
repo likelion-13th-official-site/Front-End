@@ -14,7 +14,7 @@ export default function AboutPage() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
-      className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem]"
+      className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem] max-md:pt-[5.752rem]"
     >
       <FirstSection />
 
