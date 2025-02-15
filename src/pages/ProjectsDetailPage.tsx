@@ -51,7 +51,7 @@ export default function ProjectsDetailPage() {
               <div className="w-full grid grid-cols-2 py-[0.8rem] border-b">
                 <span className="font-[900]">LINK</span>
                 <a
-                  className="underline hover:text-text-secondary"
+                  className="underline hover:text-text-secondary w-fit"
                   href={project.link}
                   target="_blank"
                 >
