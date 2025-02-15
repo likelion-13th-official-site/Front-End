@@ -24,10 +24,10 @@ export default function ProjectsPage() {
 
   return (
     <motion.main
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
       id="projects-main"
       className="flex flex-col items-center w-[screen] px-[1.2rem] pt-[14.3rem] md:pt-[26.6rem] 2xl:pt-[14.3rem] pb-[9.6rem] font-d2 text-text-primary bg-surface-primary"
     >

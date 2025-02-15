@@ -4,10 +4,10 @@ export default function CreditPage() {
   return (
     <main className="blueBackground main w-full h-screen flex flex-col items-center pt-[4.7rem] max-2xl:pt-[17rem] max-md:pt-[4.7rem] bg-text-primary text-text-invert">
       <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
         className="w-full max-w-[151.2rem] px-[1.2rem] py-[9.6rem]  flex font-d2 text-[1.4rem]  gap-[2.4rem] font-[400]"
       >
         <div className="leftSection w-full h-full flex max-md:hidden">

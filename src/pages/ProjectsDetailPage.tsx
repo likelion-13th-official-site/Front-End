@@ -12,10 +12,10 @@ export default function ProjectsDetailPage() {
       className="flex justify-center w-[screen] px-[1.2rem] py-[9.6rem] font-d2 text-text-primary"
     >
       <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 50 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
         className="max-w-[151.2rem] flex flex-col md:grid grid-cols-2 gap-[2.4rem]"
       >
         <img

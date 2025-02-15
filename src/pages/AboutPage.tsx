@@ -10,11 +10,11 @@ import { motion } from 'framer-motion';
 export default function AboutPage() {
   return (
     <motion.main
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
-      transition={{ duration: 0.5 }}
-      className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem] max-md:pt-[5.752rem]"
     >
       <FirstSection />
 
