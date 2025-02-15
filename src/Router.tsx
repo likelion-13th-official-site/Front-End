@@ -6,6 +6,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import PeoplePage from './pages/PeoplePage';
 import ProjectsDetailPage from './pages/ProjectsDetailPage';
 import RecruitPage from './pages/RecruitPage';
+import CreditPage from './pages/CreditPage';
 const router = createBrowserRouter([
   {
     element: (
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: 'recruit',
         element: <RecruitPage />
+      },
+      {
+        path: 'credit',
+        element: <CreditPage />
       }
     ]
   },

@@ -1,6 +1,6 @@
 export default function FirstSection() {
   return (
-    <section className="w-full max-w-[151.2rem] bg-gray-300  flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400] max-md:flex-col">
+    <section className="w-full max-w-[151.2rem] bg-gray-300 flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400] max-md:flex-col">
       <div className="p-[1.2rem]">
         <span className="font-[700] underline">멋쟁이사자처럼 대학</span>은
         국내외 121개 대학이 참여하는 국내 최대 규모의 IT 창업 동아리입니다. “내
