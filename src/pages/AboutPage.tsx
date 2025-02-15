@@ -5,10 +5,17 @@ import SecondSection from '@/components/AboutPage/SecondSection';
 import SeventhSection from '@/components/AboutPage/SeventhSection';
 import SixthSection from '@/components/AboutPage/SixthSection';
 import ThirdSection from '@/components/AboutPage/ThirdSection';
+import { motion } from 'framer-motion';
 
 export default function AboutPage() {
   return (
-    <main className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem]">
+    <motion.main
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.5 }}
+      className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem]"
+    >
       <FirstSection />
 
       <SecondSection />
@@ -22,6 +29,6 @@ export default function AboutPage() {
       <SixthSection />
 
       <SeventhSection />
-    </main>
+    </motion.main>
   );
 }
