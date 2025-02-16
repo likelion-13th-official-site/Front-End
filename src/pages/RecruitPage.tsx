@@ -5,19 +5,12 @@ import RecruitSchedule from '@/components/recruit/section-items/RecruitSchedule'
 import RecruitSection from '@/components/recruit/RecruitSection';
 import RecruitTracks from '@/components/recruit/section-items/RecruitTracks';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 export default function RecruitPage() {
   const navigate = useNavigate();
 
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      id="recruit-main bg-surface-primary"
-    >
+    <main id="recruit-main bg-surface-primary">
       <RecruitHeader />
       <div>
         <button
@@ -44,6 +37,6 @@ export default function RecruitPage() {
           </RecruitSection>
         </div>
       </div>
-    </motion.main>
+    </main>
   );
 }

@@ -1,6 +1,5 @@
 import { projectDetailData } from '@/components/projects/projectsData';
 import { useParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 export default function ProjectsDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -9,15 +8,9 @@ export default function ProjectsDetailPage() {
   return (
     <main
       id="projects-detail -main"
-      className="flex justify-center w-[screen] px-[1.2rem] py-[9.6rem] font-d2 text-text-primary"
+      className="flex justify-center w-[screen] px-[1.2rem] py-[9.6rem] md:pt-[26.6rem] 2xl:pt-[14.3rem] font-d2 text-text-primary"
     >
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        className="max-w-[151.2rem] flex flex-col md:grid grid-cols-2 gap-[2.4rem]"
-      >
+      <section className="max-w-[151.2rem] flex flex-col md:grid grid-cols-2 gap-[2.4rem]">
         <img
           src={project?.img}
           alt={project?.title}
@@ -75,7 +68,7 @@ export default function ProjectsDetailPage() {
           </div>
           <div>{project?.desc}</div>
         </div>
-      </motion.section>
+      </section>
     </main>
   );
 }
