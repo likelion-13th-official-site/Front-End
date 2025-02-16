@@ -1,6 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { projectsData } from './projectsData';
 import { useEffect, useState } from 'react';
+import LazyLoadingImage from './LazyLoadingImage';
 
 export interface ProjectListType {
   id: number;
@@ -65,12 +66,7 @@ export default function ProjectsList() {
             <h4 className="text-[1.4rem] font-[400] leading-[140%]">
               {proj.event}
             </h4>
-            <img
-              loading="lazy"
-              src={proj.img}
-              alt={proj.title}
-              className="object-cover w-full "
-            />
+            <LazyLoadingImage src={proj.img} alt={proj.title} />
           </div>
         </div>
       ))}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import StackItem from '../components/TrackPage/StackItem';
+import { motion } from 'framer-motion';
 
 interface StackItem {
   imageName: string;
@@ -79,7 +80,13 @@ const TrackPage = () => {
   // document.documentElement.classList.add('dark');
   return (
     <>
-      <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-surface-primary text-text-primary">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-surface-primary text-text-primary"
+      >
         <section className="grow-1 shrink-1 basis-0">
           <span className="text-[102.4rem] font-pp  italic opacity-[0.1] leading-[143rem] text-center">
             {trackLetters[trackType]}
@@ -102,7 +109,7 @@ const TrackPage = () => {
             </div>
           </div>
         </section>
-      </div>
+      </motion.div>
       <div
         className="absolute top-[50%] left-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary cursor-pointer font-pp"
         onClick={() => handleArrowClick('left')}

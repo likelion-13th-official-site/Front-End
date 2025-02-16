@@ -10,6 +10,7 @@ import RoundBtn from '@/components/ApplyPage/RoundBtn';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ThemeButton from '@/components/common/header/ThemeButton';
+import { motion } from 'framer-motion';
 
 export enum Page {
   HOME,
@@ -46,7 +47,13 @@ const ApplyPage = () => {
   // document.documentElement.classList.add('dark');
 
   return (
-    <div className="bg-surface-secondary w-screen min-h-screen flex justify-center font-[D2Coding] text-text-primary text-[1.6rem] font-normal leading-normal">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="bg-surface-secondary w-screen min-h-screen flex justify-center font-[D2Coding] text-text-primary text-[1.6rem] font-normal leading-normal"
+    >
       <div className="bg-surface-primary border flex flex-col w-[68rem] px-[2.4rem] pt-[1.2rem] pb-[2.4rem] gap-[8rem] min-h-screen">
         <section className="w-full flex justify-between items-center font-pp">
           <p>
@@ -91,7 +98,7 @@ const ApplyPage = () => {
           <ApplyFourth handlePageChange={handlePageChange} />
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
