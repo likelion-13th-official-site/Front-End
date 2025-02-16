@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import passwordEyeOpened from '../../assets/image/password_eye_opened.svg?url';
-import passwordEyeClosed from '../../assets/image/password_eye_closed.svg?url';
 import { EyeOutline, EyeOffOutline } from 'react-ionicons';
 
 import clsx from 'clsx';

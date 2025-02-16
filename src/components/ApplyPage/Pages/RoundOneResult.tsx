@@ -8,6 +8,7 @@ interface RoundTwoResultProps {
 
 const RoundOneResult = ({ handlePageChange }: RoundTwoResultProps) => {
   const [isPass, setIsPass] = useState(false);
+  setIsPass(true);
   const handleNextBtn = () => {
     //API call
     handlePageChange(Page.HOME);

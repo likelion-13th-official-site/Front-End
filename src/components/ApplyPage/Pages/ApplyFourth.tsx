@@ -1,5 +1,4 @@
 import { Page } from '@/pages/ApplyPage';
-import { useState } from 'react';
 import SquareBtn from '../SquareBtn';
 
 interface ApplyFirstProps {

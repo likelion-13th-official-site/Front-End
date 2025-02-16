@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import StackItem from '../components/TrackPage/StackItem';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -6,12 +5,6 @@ interface StackItem {
   imageName: string;
   name: string;
   description: string;
-}
-
-enum trackNum {
-  FRONT_END,
-  BACK_END,
-  DESIGN
 }
 
 const trackLetters = { 'front-end': 'F', 'back-end': 'B', design: 'D' };
@@ -88,30 +81,8 @@ const TrackPage = () => {
         navigate('/track/front-end');
       }
     }
-
-    // if (dir === 'left') {
-    //   if (trackType === trackNum.FRONT_END) {
-    //     setTrackType(trackNum.DESIGN);
-    //   if (trackType === 'front-end') {
-    //     navigate('/track/design');
-    //   } else {
-    //     setTrackType(trackType - 1);
-    //     navigate('/track/back-end');
-    //   }
-    // } else {
-    //   if (trackType === trackNum.DESIGN) {
-    //     setTrackType(trackNum.FRONT_END);
-    //   } else {
-    //     setTrackType(trackType + 1);
-    //   }
-    //   if (trackType === 'front-end') {
-    //     navigate('/track/design');
-    //   } else {
-    //     setTrackType(trackType - 1);
-    //     navigate('/track/back-end');
-    //   }
   };
-  // };
+
   return (
     <>
       <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-surface-primary text-text-primary">
