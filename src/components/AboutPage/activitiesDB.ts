@@ -1,9 +1,9 @@
 import { Activity } from '@/types/activity';
-import image1 from '@/assets/image/AboutPage/activity/image1.jpg';
-import image2 from '@/assets/image/AboutPage/activity/image2.png';
-import image3 from '@/assets/image/AboutPage/activity/image3.jpg';
-import image4 from '@/assets/image/AboutPage/activity/image4.png';
-import image5 from '@/assets/image/AboutPage/activity/image5.jpg';
+import image1 from '@/assets/image/AboutPage/activity/image1.webp';
+import image2 from '@/assets/image/AboutPage/activity/image2.webp';
+import image3 from '@/assets/image/AboutPage/activity/image3.webp';
+import image4 from '@/assets/image/AboutPage/activity/image4.webp';
+import image5 from '@/assets/image/AboutPage/activity/image5.webp';
 
 export const activityList: Activity[] = [
   {
