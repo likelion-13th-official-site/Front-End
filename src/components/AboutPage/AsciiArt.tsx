@@ -5,7 +5,7 @@ import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
 import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 // import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
-import AsciiTheme from './asciiTheme';
+// import AsciiTheme from './asciiTheme';
 export default function AsciiArt() {
   const mountRef = useRef<HTMLDivElement>(null);
   const [group, setGroup] = useState<THREE.Group | null>(null);
@@ -16,12 +16,12 @@ export default function AsciiArt() {
 
     //넓이, 높이 설정
     const width = window.innerWidth;
-    const height = 400;
+    const height = window.innerHeight - 200;
 
     // Scene, Camera, Renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(70, width / height, 1, 1000);
-    camera.position.set(0, 150, 500);
+    camera.position.set(0, 450, 500);
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
