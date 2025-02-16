@@ -22,6 +22,7 @@ const trackList = [
 export default function RecruitTracks() {
   return (
     <div
+      data-aos="fade-up"
       id="tracks-section"
       className="w-full md:pl-[1.2rem] flex flex-col gap-[1.6rem]"
     >

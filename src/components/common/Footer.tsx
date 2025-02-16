@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const linkList = [
   { title: 'About', link: '/' },
-  { title: 'Tracks', link: '/tracks' },
+  { title: 'Track', link: '/track' },
   { title: 'People', link: '/people' },
   { title: 'Projects', link: '/projects' },
   { title: 'Recruit', link: '/recruit' },
@@ -16,10 +16,17 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className={clsx('font-d2 w-screen flex justify-center', {
-        'text-text-invert border-text-invert': path === 'people',
-        ' text-text-primary border-text-primary': path !== 'people'
-      })}
+      className={clsx(
+        'font-d2 w-screen flex justify-center',
+        {
+          'text-text-invert border-text-invert': path === 'people',
+          ' text-text-primary border-text-primary': path !== 'people'
+        },
+        {
+          'bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%':
+            path === 'people'
+        }
+      )}
     >
       <div
         id="footer-container"
