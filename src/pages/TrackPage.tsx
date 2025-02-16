@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import StackItem from '../components/TrackPage/StackItem';
+import { useNavigate, useParams } from 'react-router-dom';
 
 interface StackItem {
   imageName: string;
@@ -13,11 +14,15 @@ enum trackNum {
   DESIGN
 }
 
-const trackLetters: string[] = ['F', 'B', 'D'];
-const trackNames: string[] = ['Front-end', 'Back-end', 'Design'];
+const trackLetters = { 'front-end': 'F', 'back-end': 'B', design: 'D' };
+const trackNames = {
+  'front-end': 'Front-end',
+  'back-end': 'Back-end',
+  design: 'Design'
+};
 
-const stackItems: StackItem[][] = [
-  [
+const stackItems = {
+  'front-end': [
     {
       imageName: 'html.svg',
       name: 'HTML',
@@ -35,7 +40,7 @@ const stackItems: StackItem[][] = [
         '사용자 인터페이스를 만들기 위해 사용하는 자바스크립트 라이브러리'
     }
   ],
-  [
+  'back-end': [
     {
       imageName: 'html.svg',
       name: 'java',
@@ -49,7 +54,7 @@ const stackItems: StackItem[][] = [
         '스프링은 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크입니다.'
     }
   ],
-  [
+  design: [
     {
       imageName: 'html.svg',
       name: 'Figma',
@@ -57,47 +62,81 @@ const stackItems: StackItem[][] = [
         '피그마는 인터페이스 디자인, 프로토타이핑, 협업 기능을 제공하는 디자인 툴입니다.'
     }
   ]
-];
+};
 
 const TrackPage = () => {
-  const [trackType, setTrackType] = useState<trackNum>(trackNum.FRONT_END);
+  // const [trackType, setTrackType] = useState<trackNum>(trackNum.FRONT_END);
+  const trackType = useParams().type;
+  const navigate = useNavigate();
   const handleArrowClick = (dir: string) => {
-    if (dir === 'left') {
-      if (trackType === trackNum.FRONT_END) {
-        setTrackType(trackNum.DESIGN);
+    if (trackType === 'front-end') {
+      if (dir === 'left') {
+        navigate('/track/design');
       } else {
-        setTrackType(trackType - 1);
+        navigate('/track/back-end');
       }
-    } else {
-      if (trackType === trackNum.DESIGN) {
-        setTrackType(trackNum.FRONT_END);
+    } else if (trackType === 'back-end') {
+      if (dir === 'left') {
+        navigate('/track/front-end');
       } else {
-        setTrackType(trackType + 1);
+        navigate('/track/design');
+      }
+    } else if (trackType === 'design') {
+      if (dir === 'left') {
+        navigate('/track/back-end');
+      } else {
+        navigate('/track/front-end');
       }
     }
+
+    // if (dir === 'left') {
+    //   if (trackType === trackNum.FRONT_END) {
+    //     setTrackType(trackNum.DESIGN);
+    //   if (trackType === 'front-end') {
+    //     navigate('/track/design');
+    //   } else {
+    //     setTrackType(trackType - 1);
+    //     navigate('/track/back-end');
+    //   }
+    // } else {
+    //   if (trackType === trackNum.DESIGN) {
+    //     setTrackType(trackNum.FRONT_END);
+    //   } else {
+    //     setTrackType(trackType + 1);
+    //   }
+    //   if (trackType === 'front-end') {
+    //     navigate('/track/design');
+    //   } else {
+    //     setTrackType(trackType - 1);
+    //     navigate('/track/back-end');
+    //   }
   };
-  // document.documentElement.classList.add('dark');
+  // };
   return (
     <>
       <div className="w-full h-screen py-[9.6rem] px-[1.2rem] justify-center items-center flex gap-[2.4rem] overflow-hidden bg-surface-primary text-text-primary">
         <section className="grow-1 shrink-1 basis-0">
           <span className="text-[102.4rem] font-pp  italic opacity-[0.1] leading-[143rem] text-center">
-            {trackLetters[trackType]}
+            {trackLetters[trackType as keyof typeof trackLetters]}
           </span>
         </section>
         <section className="grow-1 shrink-1 basis-0 w-full flex items-center font-[D2Coding] text-[1.4rem] font-bold leading-[1.96rem]">
           <div className="w-full pr-[13.2rem]">
             <div className="w-full px-[1.2rem] flex flex-col gap-[1.6rem]">
-              <p className="w-full ">{trackNames[trackType]}</p>
+              <p className="w-full ">
+                {trackNames[trackType as keyof typeof trackNames]}
+              </p>
               <div className="flex flex-col items-start gap-[0.8rem]">
-                {stackItems[trackType].map((item) => (
-                  <StackItem
-                    key={item.name}
-                    imageName={item.imageName}
-                    name={item.name}
-                    description={item.description}
-                  />
-                ))}
+                {stackItems[trackType as keyof typeof stackItems].map(
+                  (item) => (
+                    <StackItem
+                      key={item.name}
+                      imageName={item.imageName}
+                      name={item.name}
+                      description={item.description}
+                    />
+                  )
+                )}
               </div>
             </div>
           </div>

@@ -10,6 +10,8 @@ import RoundBtn from '@/components/ApplyPage/RoundBtn';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ThemeButton from '@/components/common/header/ThemeButton';
+import RoundOneResult from '@/components/ApplyPage/Pages/RoundOneResult';
+import RoundTwoResult from '@/components/ApplyPage/Pages/RoundTwoResult';
 
 export enum Page {
   HOME,
@@ -19,7 +21,9 @@ export enum Page {
   APPLY_FIRST,
   APPLY_SECOND,
   APPLY_THIRD,
-  APPLY_FOURTH
+  APPLY_FOURTH,
+  ROUND_ONE_RESULT,
+  ROUND_TWO_RESULT
 }
 
 const ApplyPage = () => {
@@ -90,6 +94,12 @@ const ApplyPage = () => {
         )}
         {currentPage === Page.APPLY_FOURTH && (
           <ApplyFourth handlePageChange={handlePageChange} />
+        )}
+        {currentPage === Page.ROUND_ONE_RESULT && (
+          <RoundOneResult handlePageChange={handlePageChange} />
+        )}
+        {currentPage === Page.ROUND_TWO_RESULT && (
+          <RoundTwoResult handlePageChange={handlePageChange} />
         )}
       </div>
     </div>
