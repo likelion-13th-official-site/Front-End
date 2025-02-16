@@ -85,12 +85,14 @@ const Home = ({ handlePageChange }: HomeProps) => {
               : 'default'
           }
         ></SquareBtn>
-        <button
-          className="text-center underline cursor-pointer"
-          onClick={handleFindPWBtn}
-        >
-          비밀번호 찾기
-        </button>
+        <div className="flex justify-center">
+          <button
+            className="text-center underline cursor-pointer hover:text-text-secondary w-auto"
+            onClick={handleFindPWBtn}
+          >
+            비밀번호 찾기
+          </button>
+        </div>
       </div>
     </section>
   );

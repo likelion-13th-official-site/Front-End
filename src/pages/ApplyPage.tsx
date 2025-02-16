@@ -46,11 +46,12 @@ const ApplyPage = () => {
   // document.documentElement.classList.add('dark');
 
   return (
-    <div className="bg-surface-secondary w-screen min-h-screen flex justify-center font-[D2Coding] text-text-primary text-[1.6rem] font-normal leading-normal">
-      <div className="bg-surface-primary border flex flex-col w-[68rem] px-[2.4rem] pt-[1.2rem] pb-[2.4rem] gap-[8rem] min-h-screen">
+    <div className="bg-surface-secondary w-screen min-w-[68rem] min-h-screen flex justify-center font-[D2Coding] text-text-primary text-[1.6rem] font-normal leading-normal overflow-x-auto">
+      <div className="bg-surface-primary border flex flex-col w-[68rem] px-[2.4rem] pt-[1.2rem] pb-[2.4rem] gap-[8rem] min-h-screen ">
         <section className="w-full flex justify-between items-center font-pp">
           <p>
-            Likelion<span className="italic">Sogang</span>¹³ ———{' '}
+            Likelion<span className="italic">Sogang</span>
+            <span className="tracking-[-0.48rem]">¹³</span> ———{' '}
             <span className="italic">Recruiting</span>
           </p>
           <div className="flex gap-[0.8rem]">

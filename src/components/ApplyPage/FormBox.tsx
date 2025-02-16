@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import passwordEyeOpened from '../../assets/image/password_eye_opened.svg?url';
 import passwordEyeClosed from '../../assets/image/password_eye_closed.svg?url';
+import { EyeOutline, EyeOffOutline } from 'react-ionicons';
 
 import clsx from 'clsx';
 
@@ -36,7 +37,7 @@ const FormBox = ({
         <p className="text-primary">{title}</p>
         <input
           className={clsx(
-            'py-[1.2rem] border-b w-full font-pretendard font-medium focus:outline-none',
+            'py-[1.2rem] border-b w-full font-pretendard font-medium focus:outline-none bg-transparent',
             {
               'border-status-negative text-status-negative': isError,
               'border-text-primary text-text-primary': !isError
@@ -49,14 +50,35 @@ const FormBox = ({
           onChange={handleChange}
           name={name}
         ></input>
-        {inputType === 'password' && (
-          <img
-            src={isPasswordVisible ? passwordEyeOpened : passwordEyeClosed}
-            alt="Password Eye"
-            className="absolute right-0 top-[50%]"
-            onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-          />
-        )}
+        {
+          inputType === 'password' && (
+            <div className="absolute right-0 top-[50%] text-text-primary cursor-pointer">
+              {isPasswordVisible ? (
+                <EyeOutline
+                  color="currentColor"
+                  title=""
+                  height="1.6rem"
+                  width="1.6rem"
+                  onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                />
+              ) : (
+                <EyeOffOutline
+                  color="currentColor"
+                  title=""
+                  height="1.6rem"
+                  width="1.6rem"
+                  onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                />
+              )}
+            </div>
+          )
+          // <img
+          //   src={isPasswordVisible ? passwordEyeOpened : passwordEyeClosed}
+          //   alt="Password Eye"
+          //   className="absolute right-0 top-[50%]"
+          //   onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+          // />
+        }
       </div>
 
       {isExplanation && (
