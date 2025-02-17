@@ -17,7 +17,7 @@ const StackItem = ({ imageName, name, description }: StackItemProps) => {
         <p className="grow-1 shrink-1 basis-0 text-[1.4rem] font-bold leading-[1.96rem]">
           {name}
         </p>
-        <p className="grow-1 shrink-1 basis-0 text-[1.4rem] font-normal leading-[1.96rem]">
+        <p className="grow-1 shrink-1 basis-0 text-[1.4rem] font-normal leading-[1.96rem] break-keep">
           {description}
         </p>
       </div>
