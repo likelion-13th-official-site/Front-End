@@ -6,7 +6,10 @@ const achievementList = [
 
 export default function SecondSection() {
   return (
-    <section className="w-full  flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]">
+    <section
+      data-aos="fade-up"
+      className="w-full  flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]"
+    >
       {/* <div className="leftSection  w-full h-full flex max-md:hidden">
         <div className="w-full"></div>
         <div className="achievement w-full leading-[1.4] text-[1.4rem]">
@@ -20,14 +23,14 @@ export default function SecondSection() {
         </div>
       </div> */}
 
-      <div className="w-full ">
+      <div className="w-full">
         <div>
           <div className="achievement  leading-[1.4] text-[1.4rem]">
             <div className="font-[700]">성과</div>
-            <div className="flex gap-[6.4rem] flex-wrap max-3xl:gap-[5.6rem] max-2xl:gap-[6.4rem]">
+            <div className="flex gap-[6.4rem] flex-wrap max-3xl:gap-[5.6rem] max-2xl:gap-[6.4rem] max-[445px]:gap-[3rem]">
               {achievementList.map((item, idx) => (
                 <div key={idx}>
-                  <div className="text-text-primary font-pp text-[9.6rem] font-[500] leading-[1] max-3xl:text-[6.4rem] max-[350px]:text-[4rem] max-2xl:text-[9.6rem]">
+                  <div className="text-text-primary font-pp text-[9.6rem] font-[500] leading-[1] max-3xl:text-[6.4rem] max-2xl:text-[12.8rem] max-[960px]:text-[8rem] max-md:text-[6.4rem] max-[580px]:text-[4rem] ">
                     {item.value}
                   </div>
                   <div>{item.name}</div>
