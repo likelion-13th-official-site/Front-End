@@ -44,12 +44,12 @@ const stackItems = {
     {
       imageName: 'Spring.svg',
       name: 'Spring',
-      description: '백엔드 프레임워크인 Spring 배우고 REST API를 개발합니다.'
+      description: '백엔드 프레임워크인 Spring을 배우고 REST API를 개발합니다.'
     },
     {
       imageName: 'AWS.svg',
       name: 'AWS',
-      description: '클라우드 컴퓨팅 서비스 AWS를 이용해 REST API를 배포합니다. '
+      description: '클라우드 컴퓨팅 서비스 AWS를 이용해 서버를 배포합니다. '
     }
   ],
   design: [

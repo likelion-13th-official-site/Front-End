@@ -39,17 +39,17 @@ body {
   --font-pp-italic: PP Lettra Mono Italic;
   --font-pretendard: Pretendard;
   --color-surface-primary: #ffffff;
-  /* --color-surface-primary-dark: #232325; */
+  --color-surface-primary-dark: #232325;
   --color-surface-secondary: #e4edf7;
-  /* --color-surface-secondary-dark: #303034; */
+  --color-surface-secondary-dark: #303034;
   --color-surface-tertiary: #5c8cc2;
-  /* --color-surface-tertiary-dark: #39393b; */
+  --color-surface-tertiary-dark: #39393b;
   --color-text-primary: #0e54a4;
-  /* --color-text-primary-dark: #bad5e6; */
+  --color-text-primary-dark: #bad5e6;
   --color-text-secondary: #5c8cc2;
-  /* --color-text-secondary-dark: #7c8e99; */
+  --color-text-secondary-dark: #7c8e99;
   --color-text-invert: #ffffff;
-  /* --color-text-invert-dark: #232325; */
+  --color-text-invert-dark: #232325;
   --color-status-negative: #ff6462;
 
   /*그라디언트*/
@@ -154,7 +154,7 @@ body {
 
 @font-face {
   font-family: 'Pretendard';
-  src: url('./assets/font/PretendardVariable.woff2') format('woff2');
+  src: url('./assets/font/PretendardVariable.ttf') format('ttf');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
