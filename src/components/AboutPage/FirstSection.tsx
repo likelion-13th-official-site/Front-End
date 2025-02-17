@@ -1,6 +1,6 @@
 export default function FirstSection() {
   return (
-    <section className="w-full max-w-[151.2rem]   flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400] max-md:flex-col">
+    <section className="w-full max-w-[151.2rem] h-full flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400] max-md:flex-col">
       <div className="p-[1.2rem]">
         <a
           href="https://likelion.university/"

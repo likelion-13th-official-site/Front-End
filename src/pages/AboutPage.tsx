@@ -9,10 +9,11 @@ import ThirdSection from '@/components/AboutPage/ThirdSection';
 
 export default function AboutPage() {
   return (
-    <main className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem]">
-      <AsciiArt />
-
-      <FirstSection />
+    <main className="main w-full h-full flex flex-col items-center justify-center">
+      <div className="w-full h-screen grid grid-rows-[4fr_1fr] 2xl:grid-rows-[5fr_1fr]">
+        <AsciiArt />
+        <FirstSection />
+      </div>
 
       <SecondSection />
 
