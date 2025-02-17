@@ -6,13 +6,15 @@ interface TextBoxProps {
   handleChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   isError: boolean;
   name: string;
+  value: string;
 }
 
 const TextBox = ({
   description,
   handleChange,
   isError,
-  name
+  name,
+  value
 }: TextBoxProps) => {
   const [textLength, setTextLength] = useState(0);
 
@@ -37,6 +39,7 @@ const TextBox = ({
         )}
         onChange={handleInput}
         name={name}
+        value={value}
       ></textarea>
       <p className="text-right text-[1.2rem]">{`${textLength}/500`}</p>
     </div>
