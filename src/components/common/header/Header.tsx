@@ -8,7 +8,7 @@ import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
   { name: 'About', link: '/' },
-  { name: 'Tracks', link: '/track' },
+  { name: 'Track', link: '/track/front-end' },
   { name: 'People', link: '/people' },
   { name: 'Projects', link: '/projects' }
 ];
@@ -22,7 +22,7 @@ export default function Header() {
     <header
       id="header"
       className={clsx(
-        'z-1001 absolute 2xl:fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between text-text-primary',
+        'z-1001 absolute fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between text-text-primary',
         { fixed: isMenuOpen }
       )}
     >

@@ -28,10 +28,10 @@ export default function ThemeButton({
     // 컬러가 반대로 되어있어서 수정했습니다.
     const colors = {
       '--color-surface-primary': isDark ? '#232325' : '#ffffff',
-      '--color-surface-secondary': isDark ? '#303034' : '#e9f4ff',
-      '--color-surface-tertiary': isDark ? '#39393b' : '#8dc2ff',
-      '--color-text-primary': isDark ? '#b9d5e6' : '#288dff',
-      '--color-text-secondary': isDark ? '#d2e6f2' : '#8dc2ff',
+      '--color-surface-secondary': isDark ? '#303034' : '#e4edf7',
+      '--color-surface-tertiary': isDark ? '#39393b' : '#5c8cc2',
+      '--color-text-primary': isDark ? '#bad5e6' : '#0e54a4',
+      '--color-text-secondary': isDark ? '#7c8e99' : '#5c8cc2',
       '--color-text-invert': isDark ? '#232325' : '#ffffff'
     };
 
