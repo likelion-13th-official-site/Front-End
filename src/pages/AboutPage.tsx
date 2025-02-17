@@ -1,34 +1,57 @@
-import FifthSection from '@/components/AboutPage/FifthSection';
+// import AsciiArt from '@/components/AboutPage/AsciiArt';
 import FirstSection from '@/components/AboutPage/FirstSection';
-import FourthSection from '@/components/AboutPage/FourthSection';
 import SecondSection from '@/components/AboutPage/SecondSection';
-import SeventhSection from '@/components/AboutPage/SeventhSection';
-import SixthSection from '@/components/AboutPage/SixthSection';
-import ThirdSection from '@/components/AboutPage/ThirdSection';
-import { motion } from 'framer-motion';
+
+import { lazy, Suspense } from 'react';
+
+const ThirdSection = lazy(() => import('@/components/AboutPage/ThirdSection'));
+const FourthSection = lazy(
+  () => import('@/components/AboutPage/FourthSection')
+);
+const FifthSection = lazy(() => import('@/components/AboutPage/FifthSection'));
+const SixthSection = lazy(() => import('@/components/AboutPage/SixthSection'));
+const SeventhSection = lazy(
+  () => import('@/components/AboutPage/SeventhSection')
+);
 
 export default function AboutPage() {
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
-      transition={{ duration: 0.5 }}
-      className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem] max-md:pt-[5.752rem]"
-    >
+    <main className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem]">
+      {/* <AsciiArt /> */}
+
       <FirstSection />
 
       <SecondSection />
 
-      <ThirdSection />
+      <Suspense
+        fallback={<div className="h-40 w-full bg-gray-200 animate-pulse"></div>}
+      >
+        <ThirdSection />
+      </Suspense>
 
-      <FourthSection />
+      <Suspense
+        fallback={<div className="h-40 w-full bg-gray-200 animate-pulse"></div>}
+      >
+        <FourthSection />
+      </Suspense>
 
-      <FifthSection />
+      <Suspense
+        fallback={<div className="h-40 w-full bg-gray-200 animate-pulse"></div>}
+      >
+        <FifthSection />
+      </Suspense>
 
-      <SixthSection />
+      <Suspense
+        fallback={<div className="h-40 w-full bg-gray-200 animate-pulse"></div>}
+      >
+        <SixthSection />
+      </Suspense>
 
-      <SeventhSection />
-    </motion.main>
+      <Suspense
+        fallback={<div className="h-40 w-full bg-gray-200 animate-pulse"></div>}
+      >
+        <SeventhSection />
+      </Suspense>
+    </main>
   );
 }
