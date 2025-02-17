@@ -97,13 +97,13 @@ const TrackPage = () => {
   return (
     <>
       <div className="relative w-full h-screen px-[1.6rem] md:px-[3.2rem] flex 2xl:grid grid-cols-2 gap-[2.4rem] overflow-hidden bg-text-invert text-text-primary">
-        <section className="absolute top-0 w-screen 2xl:w-fit flex items-center justify-center leading-none">
+        <section className="absolute top-0 md:left-[3.2rem] w-screen 2xl:w-fit flex items-center justify-center leading-none">
           <span className=" text-[84.4rem] font-[900] font-pp-italic italic opacity-[0.1]">
             {trackLetters[trackType as keyof typeof trackLetters]}
           </span>
         </section>
         <section className="col-start-2 w-full flex  h-screen justify-center items-center font-[D2Coding] text-[1.4rem] font-bold leading-[1.96rem]">
-          <div className=" flex justify-center w-full h-fit px-[12.8rem] 2xl:pr-[13.2rem]">
+          <div className=" flex justify-center w-full h-fit px-[6.4rem] md:px-[12.8rem] 2xl:pr-[13.2rem]">
             <div className=" w-full px-[1.2rem] flex flex-col gap-[1.6rem]">
               <p className="w-full">
                 {trackNames[trackType as keyof typeof trackNames]}
