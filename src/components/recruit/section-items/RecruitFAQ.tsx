@@ -102,7 +102,9 @@ export default function RecruitFAQ() {
                 onClick={() => handleCheck(idx)}
               />
               <div className="group w-full flex justify-between items-center cursor-pointer text-[1.4rem] font-[900] leading-[140%]">
-                <span>{faq.question}</span>
+                <span>
+                  {idx + 1}. {faq.question}
+                </span>
                 {/* <span className="">{checkedList[idx] ? '-' : '+'}</span> */}
                 <span>
                   <motion.svg
@@ -132,7 +134,7 @@ export default function RecruitFAQ() {
               <AnimatePresence>
                 {checkedList[idx] && (
                   <motion.div
-                    className="pt-[0.4rem] text-[1.4rem] font-[400] leading-[140%] overflow-hidden"
+                    className="pt-[0.4rem] text-[1.4rem] font-[400] leading-[140%] overflow-hidden text-text-secondary"
                     initial={{ maxHeight: 0 }}
                     animate={{ maxHeight: '20rem' }}
                     exit={{ maxHeight: 0 }}
