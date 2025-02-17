@@ -17,27 +17,32 @@ export default function Footer() {
     <footer
       id="footer"
       className={clsx(
-        'font-d2 w-screen flex justify-center',
+        'font-d2 w-screen justify-center',
         {
-          'text-text-invert border-text-invert':
-            path === 'people' || path === 'credits',
-          ' text-text-primary border-text-primary':
-            path !== 'people' && path !== 'credits'
-        },
-        {
-          'bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%':
-            path === 'people'
+          'text-text-invert border-text-invert': path === 'credits',
+          ' text-text-primary border-text-primary': path !== 'credits'
         },
         {
           'bg-text-primary': path === 'credits'
+        },
+        {
+          'flex 2xl:grid grid-cols-2':
+            path === '' || path === 'recruit' || path === 'people',
+          flex: path === 'credits' || path === 'projects' || path === 'track'
         }
       )}
     >
       <div
         id="footer-container"
-        className="w-full max-w-[151.2rem] pt-[12.8rem] px-[1.2rem] pb-[0.8rem]"
+        className={clsx(
+          'w-full max-w-[151.2rem] pt-[12.8rem] px-[1.2rem] pb-[0.8rem]',
+          {
+            'col-start-1': path === 'people',
+            'col-start-2': path === 'recruit' || path === ''
+          }
+        )}
       >
-        <div className="w-full pt-[2.4rem] border-t  flex flex-col md:grid grid-cols-2 gap-[4.8rem] md:gap-[2.4rem]">
+        <div className="w-full pt-[2.4rem] border-t  flex flex-col gap-[4.8rem]">
           <div
             id="footer-left"
             className="text-[1.4rem] font-[400] leading-[1.4] flex flex-col gap-[1.4rem]"
