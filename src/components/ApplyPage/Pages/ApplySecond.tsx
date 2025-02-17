@@ -7,7 +7,7 @@ import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
 interface ApplySecondProps {
   handlePageChange: (page: Page) => void;
-  saveApplicationData: (data: object) => void;
+  saveApplicationData: (data: Record<string, string>) => void;
   handleToastRender: (text: string) => void;
   application: Application;
   isEdit: boolean;
@@ -27,6 +27,17 @@ export interface UserInput {
   emailAuth: InputInfo;
   password: InputInfo;
   path: InputInfo;
+}
+
+export interface UserInputString {
+  name: string;
+  studentNum: string;
+  major: string;
+  phone: string;
+  email: string;
+  emailAuth: string;
+  password: string;
+  path: string;
 }
 
 const ApplySecond = ({

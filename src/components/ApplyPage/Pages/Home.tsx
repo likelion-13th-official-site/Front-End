@@ -88,8 +88,8 @@ const Home = ({
 
   const handleCreateBtn = () => {
     setLoginData({ email: '', password: '' });
-    localStorage.setItem('isEdit', 'true');
-    setEditStatus(true); // 지원서의 status를 create로 설정
+    localStorage.setItem('isEdit', 'false');
+    setEditStatus(false); // 지원서의 status를 create로 설정
     handlePageChange(Page.APPLY_FIRST);
   };
 

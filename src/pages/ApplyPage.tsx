@@ -102,9 +102,15 @@ const ApplyPage = () => {
       }
       return;
     }
+    if (type === 'home') {
+      localStorage.setItem('currentPage', Page.HOME.toString());
+      nav('/');
+    } else if (type === 'apply') {
+      handlePageChange(Page.HOME);
+    }
   };
 
-  const saveApplicationData = (data: object) => {
+  const saveApplicationData = (data: Record<string, string>) => {
     const { emailAuth, ...newApplication } = data;
     setApplication({ ...application, ...newApplication });
   };
