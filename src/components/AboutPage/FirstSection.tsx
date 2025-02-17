@@ -1,6 +1,9 @@
 export default function FirstSection() {
   return (
-    <section className="w-full  font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400] max-md:flex-col">
+    <section
+      data-aos="fade-up"
+      className="w-full  font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400] max-md:flex-col"
+    >
       <div className="font-[700] font-d2 pb-[1.6rem] ">소개</div>
       <div className="py-[0.8rem] border-text-primary border-t-[1px]">
         <a

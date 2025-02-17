@@ -34,7 +34,7 @@ export default function AboutPage() {
 
       <div className="w-[50%] max-2xl:hidden" />
 
-      <div className="w-[50%] py-[12.8rem] px-[3.2rem] flex flex-col gap-[12.8rem] max-2xl:w-[100%] max-2xl:z-2000 relative bg-text-invert max-2xl:py-[3.2rem]">
+      <div className="w-[50%] pt-[12.8rem] px-[3.2rem] flex flex-col gap-[12.8rem] max-2xl:w-[100%] max-2xl:z-2000 relative bg-text-invert max-2xl:pt-[3.2rem] max-2xl:px-[3.2rem] max-md:pt-[1.6rem] max-md:px-[1.6rem]">
         <FirstSection />
         <SecondSection />
         <ThirdSection />

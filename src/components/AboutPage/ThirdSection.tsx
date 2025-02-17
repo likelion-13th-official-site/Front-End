@@ -19,7 +19,10 @@ const awardsList = [
 
 export default function ThirdSection() {
   return (
-    <section className="w-full    flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]">
+    <section
+      data-aos="fade-up"
+      className="w-full flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]"
+    >
       {/* <div className="leftSection w-full h-full flex max-md:hidden">
         <div className="w-full"></div>
         <div className="awards w-full leading-[1.4] text-[1.4rem]">
@@ -35,16 +38,23 @@ export default function ThirdSection() {
               {awardsList.map((item, idx) => (
                 <div
                   key={idx}
-                  className=" flex font-d2 py-[0.4rem] text-text-primary font-[400] leading-[1.4] justify-between border-t-text-primary border-t-[1px] last:border-b-[1px] max-2xl:flex-col max-2xl:gap-[2.4rem]"
+                  className=" flex font-d2 py-[0.4rem] text-text-primary font-[400] leading-[1.4] justify-between border-t-text-primary border-t-[1px] last:border-b-[1px] "
                 >
-                  <div className="flex gap-[2.4rem] max-2xl:justify-between max-2xl:">
-                    <div>{item.year}</div>
-                    <div className="max-2xl:hidden">{item.name}</div>
-                    <div className="hidden max-2xl:block">{item.team}</div>
+                  <div className="w-full flex gap-[2.4rem] justify-between max-md:hidden">
+                    <div className="flex gap-[2.4rem]">
+                      <div>{item.year}</div>
+                      <div className="">{item.name}</div>
+                    </div>
+                    <div className="max-2xl:block">{item.team}</div>
                   </div>
 
-                  <div className="max-2xl:hidden">{item.team}</div>
-                  <div className="hidden max-2xl:block">{item.name}</div>
+                  <div className="flex flex-col w-full gap-[2.4rem] md:hidden">
+                    <div className="flex justify-between w-full">
+                      <div>{item.year}</div>
+                      <div className="max-2xl:block">{item.team}</div>
+                    </div>
+                    <div className="">{item.name}</div>
+                  </div>
                 </div>
               ))}
             </div>
