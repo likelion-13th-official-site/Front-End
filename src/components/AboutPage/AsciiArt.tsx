@@ -10,6 +10,7 @@ export default function AsciiArt() {
   const mouseX = useRef(0);
   const mouseY = useRef(0);
   const svgGroupRef = useRef<THREE.Group | null>(null);
+  const [showClick, setShowClick] = useState(false);
 
   const [isDark, setIsDark] = useState(() => {
     return localStorage.getItem('isDarkMode') === 'true';
@@ -87,7 +88,7 @@ export default function AsciiArt() {
       scene.add(group);
       group.position.y = calculateSVGPosition(height);
       group.position.x = -100;
-      group.scale.set(2.2, 2.2, 2.2);
+      group.scale.set(1.8, 1.8, 1.8);
       group.rotateX(Math.PI);
     });
 
@@ -130,11 +131,11 @@ export default function AsciiArt() {
 
       if (svgGroupRef.current) {
         const moveSpeed = 0.0001;
-        const maxX = -2300;
+        const maxX = -1300;
         const minX = 0;
 
         svgGroupRef.current.position.x =
-          Math.sin(timer * moveSpeed) * (maxX - minX) - 3100;
+          Math.sin(timer * moveSpeed) * (maxX - minX) - 3200;
       }
       effect.render(scene, camera);
     };
@@ -176,6 +177,8 @@ export default function AsciiArt() {
         mouseFollow.style.top = e.clientY + 'px';
         mouseFollow.style.left = e.clientX + 'px';
       }
+
+      if (!showClick) setShowClick(true);
     };
 
     document.addEventListener('mousemove', handleMouseMove);
@@ -196,17 +199,29 @@ export default function AsciiArt() {
         onClick={toggleTheme}
         className="top-[5.752rem] md:top-[18.2rem] 2xl:top-[5.752rem] w-full h-full absolute"
       />
+
       <span
         onClick={toggleTheme}
         className="font-d2 text-[1.5rem] text-text-invert absolute top-[50vh] left-[25vw] mouse-follow w-[5rem] h-[5rem]"
       >
-        click
+        {showClick && (
+          <div className=" h-[50px] flex items-center justify-center text-text-primary bg-text-invert rounded-full">
+            {showClick && 'click'}
+          </div>
+        )}
       </span>
-      <Lottie
-        className="absolute bottom-0 left-[50vw] mx-auto transform -translate-x-1/2"
-        loop={true}
-        animationData={ScrollDownLottie}
-      />
+
+      <div className="lottie-container [&_svg]:text-text-secondary [&_svg]:fill-current [&_svg]:stroke-current">
+        <Lottie
+          rendererSettings={{
+            preserveAspectRatio: 'xMidYMid slice',
+            progressiveLoad: true
+          }}
+          className="absolute bottom-0 left-[50vw] mx-auto transform -translate-x-1/2"
+          loop={true}
+          animationData={ScrollDownLottie}
+        />
+      </div>
     </div>
   );
 }
