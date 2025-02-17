@@ -15,55 +15,33 @@ export default function AsciiArt() {
     return localStorage.getItem('isDarkMode') === 'true';
   });
 
-  const calculateHeight = (width: number) => {
-    if (width > 1100) {
-      return (window.innerHeight / 3) * 2;
-    } else if (width > 700) {
-      return (window.innerHeight / 3) * 2;
-    }
-    return window.innerHeight / 2;
-  };
+  const calculateHeight = () => window.innerHeight;
 
-  const calculateSVGPosition = (width: number, height: number) => {
-    if (width > 1100) {
-      return height * 1.5;
-    } else if (width > 700) {
-      return height * 1.3;
-    }
-    return height;
-  };
+  const calculateSVGPosition = (height: number) => height / 2 + 350;
 
   const setCameraPosition = (
     camera: THREE.PerspectiveCamera,
-    width: number
+    height: number
   ) => {
-    if (width > 1100) {
-      camera.position.set(0, 750, 500);
-    } else if (width > 700) {
-      camera.position.set(0, 600, 500);
-    } else {
-      camera.position.set(0, 450, 500);
-    }
+    camera.position.set(0, height / 2, 500);
   };
 
   useEffect(() => {
     if (!mountRef.current) return;
 
     const width = window.innerWidth;
-    const height = calculateHeight(width);
+    const height = calculateHeight();
 
     // Scene, Camera, Renderer setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(70, width / height, 1, 1000);
-    setCameraPosition(camera, width);
+    setCameraPosition(camera, height);
 
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
     renderer.setClearColor(0xf0f0f0);
 
-    const effect = new AsciiEffect(renderer, ' .:-+*=%@#', {
-      invert: false
-    });
+    const effect = new AsciiEffect(renderer, ' .:-+*=%@#', { invert: false });
     effect.setSize(width, height);
 
     if (mountRef.current) {
@@ -107,7 +85,7 @@ export default function AsciiArt() {
 
       svgGroupRef.current = group;
       scene.add(group);
-      group.position.y = calculateSVGPosition(width, height);
+      group.position.y = calculateSVGPosition(height);
       group.position.x = -100;
       group.scale.set(2.2, 2.2, 2.2);
       group.rotateX(Math.PI);
@@ -123,20 +101,17 @@ export default function AsciiArt() {
     // Resize handling
     const onWindowResize = () => {
       const newWidth = window.innerWidth;
-      const newHeight = calculateHeight(newWidth);
+      const newHeight = calculateHeight();
 
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
-      setCameraPosition(camera, newWidth);
+      setCameraPosition(camera, newHeight);
 
       renderer.setSize(newWidth, newHeight);
       effect.setSize(newWidth, newHeight);
 
       if (svgGroupRef.current) {
-        svgGroupRef.current.position.y = calculateSVGPosition(
-          newWidth,
-          newHeight
-        );
+        svgGroupRef.current.position.y = calculateSVGPosition(newHeight);
       }
     };
 
@@ -158,13 +133,8 @@ export default function AsciiArt() {
         const maxX = -2300;
         const minX = 0;
 
-        if (width > 1100) {
-          svgGroupRef.current.position.x =
-            Math.sin(timer * moveSpeed) * (maxX - minX) - 3100;
-        } else {
-          svgGroupRef.current.position.x =
-            Math.sin(timer * moveSpeed) * (maxX - minX) - 2600;
-        }
+        svgGroupRef.current.position.x =
+          Math.sin(timer * moveSpeed) * (maxX - minX) - 3100;
       }
       effect.render(scene, camera);
     };
