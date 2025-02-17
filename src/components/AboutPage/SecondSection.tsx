@@ -6,8 +6,8 @@ const achievementList = [
 
 export default function SecondSection() {
   return (
-    <section className="w-full max-w-[151.2rem] px-[1.2rem] py-[9.6rem] flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]">
-      <div className="leftSection  w-full h-full flex max-md:hidden">
+    <section className="w-full  flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]">
+      {/* <div className="leftSection  w-full h-full flex max-md:hidden">
         <div className="w-full"></div>
         <div className="achievement w-full leading-[1.4] text-[1.4rem]">
           <div className="pb-[1.3rem] font-[700]">Achievement</div>
@@ -18,16 +18,16 @@ export default function SecondSection() {
             있습니다.
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="rightSection w-full pl-[1.2rem]">
+      <div className="w-full ">
         <div>
           <div className="achievement  leading-[1.4] text-[1.4rem]">
             <div className="font-[700]">성과</div>
-            <div className="flex gap-[6.4rem] flex-wrap max-[350px]:gap-[2.5rem] max-[535px]:gap-[2rem] ">
+            <div className="flex gap-[6.4rem] flex-wrap max-3xl:gap-[5.6rem] max-2xl:gap-[6.4rem]">
               {achievementList.map((item, idx) => (
                 <div key={idx}>
-                  <div className="text-text-primary font-pp text-[9.6rem] font-[500] leading-[1] max-md:text-[6.4rem] max-[450px]:text-[4.5rem] max-[350px]:text-[4rem] ">
+                  <div className="text-text-primary font-pp text-[9.6rem] font-[500] leading-[1] max-3xl:text-[6.4rem] max-[350px]:text-[4rem] max-2xl:text-[9.6rem]">
                     {item.value}
                   </div>
                   <div>{item.name}</div>

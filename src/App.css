@@ -10,6 +10,10 @@
     border 0.1s;
 }
 
+* {
+  word-break: keep-all;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -24,10 +28,12 @@ body {
   overflow-x: hidden;
 }
 
-/*🚨여기에 색, 폰트 지정🚨*/
+/*🚨여기에 색,폰트 지정🚨*/
 @theme {
   --breakpoint-md: 700px;
   --breakpoint-2xl: 1100px;
+  --breakpoint-3xl: 1512px;
+  --breakpoint-4xl: 2000px;
   --font-d2: D2Coding;
   --font-pp: PP Lettra Mono;
   --font-pretendard: Pretendard;

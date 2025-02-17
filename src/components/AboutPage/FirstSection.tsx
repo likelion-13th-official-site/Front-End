@@ -1,7 +1,8 @@
 export default function FirstSection() {
   return (
-    <section className="w-full max-w-[151.2rem]   flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400] max-md:flex-col">
-      <div className="p-[1.2rem]">
+    <section className="w-full  font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400] max-md:flex-col">
+      <div className="font-[700] font-d2 pb-[1.6rem] ">소개</div>
+      <div className="py-[0.8rem] border-text-primary border-t-[1px]">
         <a
           href="https://likelion.university/"
           target="_blank"
@@ -14,7 +15,7 @@ export default function FirstSection() {
         서비스를 구현할 수 있도록 각종 스터디와 네트워킹, 행사를 지원하고
         있습니다.
       </div>
-      <div className="p-[1.2rem]">
+      <div className="py-[0.8rem] border-text-primary border-t-[1px]">
         <a
           href="https://www.instagram.com/likelion_sg/"
           target="_blank"
