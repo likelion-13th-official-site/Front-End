@@ -73,7 +73,8 @@ export default function ThemeButton({
           'hover:border-text-invert  hover:bg-text-invert 2xl:hover:border-text-primary  2xl:hover:bg-text-primary':
             !isMenuOpen && (path === '' || path === 'recruit'),
           'hover:border-text-primary  hover:bg-text-primary':
-            !isMenuOpen && (path === 'track' || path === 'projects'),
+            !isMenuOpen &&
+            (path === 'track' || path === 'projects' || path === 'apply'),
           'hover:border-text-invert  hover:bg-text-invert':
             !isMenuOpen && path === 'people'
         }
@@ -109,7 +110,8 @@ const SunIcon = ({
         'group-hover:fill-text-primary  fill-text-invert 2xl:fill-text-primary  2xl:group-hover:fill-text-invert':
           !isMenuOpen && (path === '' || path === 'recruit'),
         'group-hover:fill-text-invert fill-text-primary':
-          !isMenuOpen && (path === 'track' || path === 'projects'),
+          !isMenuOpen &&
+          (path === 'track' || path === 'projects' || path === 'apply'),
         'group-hover:fill-text-invert  fill-text-primary 2xl:fill-text-invert  2xl:group-hover:fill-text-primary':
           !isMenuOpen && path === 'people'
       })}
@@ -122,7 +124,8 @@ const SunIcon = ({
         'group-hover:fill-text-primary  fill-text-invert 2xl:fill-text-primary  2xl:group-hover:fill-text-invert':
           !isMenuOpen && (path === '' || path === 'recruit'),
         'group-hover:fill-text-invert fill-text-primary':
-          !isMenuOpen && (path === 'track' || path === 'projects'),
+          !isMenuOpen &&
+          (path === 'track' || path === 'projects' || path === 'apply'),
         'group-hover:fill-text-invert  fill-text-primary 2xl:fill-text-invert  2xl:group-hover:fill-text-primary':
           !isMenuOpen && path === 'people'
       })}
@@ -153,7 +156,8 @@ const MoonIcon = ({
           'group-hover:fill-text-primary  fill-text-invert 2xl:fill-text-primary  2xl:group-hover:fill-text-invert':
             !isMenuOpen && (path === '' || path === 'recruit'),
           'group-hover:fill-text-invert fill-text-primary':
-            !isMenuOpen && (path === 'track' || path === 'projects'),
+            !isMenuOpen &&
+            (path === 'track' || path === 'projects' || path === 'apply'),
           'group-hover:fill-text-invert  fill-text-primary 2xl:fill-text-invert  2xl:group-hover:fill-text-primary':
             !isMenuOpen && path === 'people'
         })}

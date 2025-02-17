@@ -16,7 +16,7 @@ const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const path = useLocation().pathname;
+  const path = useLocation().pathname.split('/')[1];
   const isBlueBackground = useDetectBlue();
 
   return (
@@ -24,7 +24,10 @@ export default function Header() {
       id="header"
       className={clsx(
         'text-text-primary z-1001 absolute 2xl:fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] flex gap-[2.4rem] justify-between transition-background duration-0',
-        { fixed: isMenuOpen }
+        { fixed: isMenuOpen },
+        {
+          'bg-text-invert': path === 'track' || path === 'projects'
+        }
       )}
     >
       {/* 2xl 이상 */}
@@ -33,9 +36,9 @@ export default function Header() {
         className={clsx(
           'h-full flex-1 items-center hidden 2xl:flex py-[1.2rem] ',
           {
-            'text-text-primary bg-text-invert': path === '/people',
+            'text-text-primary bg-text-invert': path === 'people',
             'text-text-invert':
-              path === '/' || path === '/recruit' || path === '/credits'
+              path === '' || path === 'recruit' || path === 'credits'
           }
         )}
       >
@@ -59,10 +62,10 @@ export default function Header() {
           'h-full flex-1 items-center flex 2xl:hidden py-[1.2rem] ',
           {
             'text-text-invert':
-              path === '/' ||
-              path === '/recruit' ||
-              path === '/people' ||
-              path === '/credits'
+              path === '' ||
+              path === 'recruit' ||
+              path === 'people' ||
+              path === 'credits'
           }
         )}
       >
@@ -86,8 +89,8 @@ export default function Header() {
           'flex-1 items-start justify-end md:justify-between hidden 2xl:flex py-[1.2rem] ',
           {
             'text-text-primary bg-text-invert h-full':
-              path === '/' || path === '/recruit',
-            'text-text-invert': path === '/people' || path === '/credits'
+              path === '' || path === 'recruit',
+            'text-text-invert': path === 'people' || path === 'credits'
           }
         )}
       >
@@ -108,7 +111,11 @@ export default function Header() {
             onClick={() => navigate('/recruit')}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer hidden md:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1'
+              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
+              {
+                'hidden md:hidden': path === 'recruit',
+                'hidden md:block': path !== 'recruit'
+              }
             )}
           >
             Apply Now →
@@ -136,10 +143,10 @@ export default function Header() {
           'flex-1 items-start justify-end md:justify-between flex 2xl:hidden py-[1.2rem] ',
           {
             'text-text-invert':
-              path === '/recruit' ||
-              path === '/' ||
-              path === '/people' ||
-              path === '/credits'
+              path === 'recruit' ||
+              path === '' ||
+              path === 'people' ||
+              path === 'credits'
           }
         )}
       >
@@ -160,7 +167,11 @@ export default function Header() {
             onClick={() => navigate('/recruit')}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer hidden md:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1'
+              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
+              {
+                'hidden md:hidden': path === 'recruit',
+                'hidden md:block': path !== 'recruit'
+              }
             )}
           >
             Apply Now →
