@@ -12,7 +12,6 @@
 
 * {
   word-break: keep-all;
-  -webkit-font-smoothing: antialiased;
 }
 
 body::-webkit-scrollbar {
@@ -22,13 +21,11 @@ body::-webkit-scrollbar {
 html {
   font-size: 62.5%;
   background-color: var(--color-surface-primary);
-  font-synthesis: none;
 }
 
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  font-synthesis: none;
 }
 
 /*🚨여기에 색,폰트 지정🚨*/
