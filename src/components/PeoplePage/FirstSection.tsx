@@ -21,8 +21,10 @@ export default function FirstSection({
           {cardinalList.map((element, idx) => (
             <button
               key={idx}
-              className={` cursor-pointer font-d2 text-[1.4rem] font-[700] text-text-primary  ${
-                selectedCardinal === element ? 'opacity-100 ' : 'opacity-30 '
+              className={` cursor-pointer font-d2 text-[1.4rem] text-text-primary  ${
+                selectedCardinal === element
+                  ? 'opacity-100 border-b-[1px] border-b-text-primary'
+                  : 'opacity-30 '
               }`}
               onClick={() => onClickCardinal(element)}
             >

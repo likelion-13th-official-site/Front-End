@@ -35,7 +35,7 @@ export default function PeoplePage() {
           ease: 'easeInOut' // 부드럽게 이동
         }}
         style={{
-          height: screenSize < 1100 ? height : '100vh',
+          height: screenSize < 1100 ? '40rem' : '100vh',
           backgroundImage:
             'linear-gradient(90deg, var(--color-surface-tertiary), var(--color-surface-secondary), var(--color-text-primary), var(--color-text-secondary))', // 시작과 끝 색상을 동일하게
           backgroundSize: '300% 100%' // 배경을 길게 늘려서 부드럽게 반복
