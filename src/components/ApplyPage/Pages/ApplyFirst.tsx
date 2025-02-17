@@ -94,10 +94,16 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
         <p>
           <strong>2. 면접 촬영 및 개인정보 수집 안내</strong>
         </p>
-        <p className="pl-[2rem]">
-          a. 면접은 대면으로 진행되며, 공정한 면접 평가를 위해 면접 내용을 촬영
+        <p className="pl-[2rem] flex">
+          <p>a.&nbsp;</p>
+          <p>
+            면접은 대면으로 진행되며, 공정한 면접 평가를 위해 면접 내용을 촬영
+            및 수집할 예정입니다. 수집한 면접 영상은 선발 과정에서만 활용되며,
+            최종 선발 이후 즉시 폐기됩니다.
+          </p>
+          {/* a. 면접은 대면으로 진행되며, 공정한 면접 평가를 위해 면접 내용을 촬영
           및 수집할 예정입니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;수집한 면접 영상은 선발 과정에서만 활용되며,
-          최종 선발 이후 즉시 폐기됩니다.
+          최종 선발 이후 즉시 폐기됩니다. */}
         </p>
         <br />
         <p>
@@ -116,10 +122,16 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
         <p>
           <strong>4. 공식 홈페이지, 인스타그램</strong>
         </p>
-        <p className="pl-[2rem]">
-          a. 서강대학교 멋쟁이사자처럼 공식 홈페이지와 @likelion_sg 공식
-          인스타그램에서 커리큘럼, 활동 일정 등 &nbsp;&nbsp;&nbsp;&nbsp;다양한 정보를 확인하실 수
-          있습니다.
+        <p className="pl-[2rem] flex">
+          <p>a.&nbsp;</p>
+          <p>
+            서강대학교 멋쟁이사자처럼 공식 홈페이지와 @likelion_sg 공식
+            인스타그램에서 커리큘럼, 활동 일정 등 다양한 정보를 확인하실 수
+            있습니다.
+          </p>
+          {/* a. 면접은 대면으로 진행되며, 공정한 면접 평가를 위해 면접 내용을 촬영
+          및 수집할 예정입니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;수집한 면접 영상은 선발 과정에서만 활용되며,
+          최종 선발 이후 즉시 폐기됩니다. */}
         </p>
         <br />
         <p>
