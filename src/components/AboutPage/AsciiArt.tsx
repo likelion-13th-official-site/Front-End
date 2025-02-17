@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { AsciiEffect } from './AsciiEffect';
 import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
 import Lottie from 'lottie-react';
@@ -10,9 +10,9 @@ export default function AsciiArt() {
   // const mouseY = useRef(0);
   const svgGroupRef = useRef<THREE.Group | null>(null); // SVG 그룹을 저장할 useRef 추가
   //
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem('isDarkMode') === 'true';
-  });
+  // const [isDark, setIsDark] = useState(() => {
+  //   return localStorage.getItem('isDarkMode') === 'true';
+  // });
   useEffect(() => {
     if (!mountRef.current) return;
 
@@ -125,20 +125,20 @@ export default function AsciiArt() {
   }, []);
 
   // 📌 기존에 toggleTheme 안에 있던 색을 변경하는 기능을 분리했습니다다
-  const applyTheme = (isDark: boolean) => {
-    const colors = {
-      '--color-surface-primary': isDark ? '#232325' : '#ffffff',
-      '--color-surface-secondary': isDark ? '#303034' : '#e9f4ff',
-      '--color-surface-tertiary': isDark ? '#39393b' : '#8dc2ff',
-      '--color-text-primary': isDark ? '#b9d5e6' : '#288dff',
-      '--color-text-secondary': isDark ? '#d2e6f2' : '#8dc2ff',
-      '--color-text-invert': isDark ? '#232325' : '#ffffff'
-    };
+  // const applyTheme = (isDark: boolean) => {
+  //   const colors = {
+  //     '--color-surface-primary': isDark ? '#232325' : '#ffffff',
+  //     '--color-surface-secondary': isDark ? '#303034' : '#e9f4ff',
+  //     '--color-surface-tertiary': isDark ? '#39393b' : '#8dc2ff',
+  //     '--color-text-primary': isDark ? '#b9d5e6' : '#288dff',
+  //     '--color-text-secondary': isDark ? '#d2e6f2' : '#8dc2ff',
+  //     '--color-text-invert': isDark ? '#232325' : '#ffffff'
+  //   };
 
-    Object.entries(colors).forEach(([property, value]) => {
-      document.documentElement.style.setProperty(property, value);
-    });
-  };
+  //   Object.entries(colors).forEach(([property, value]) => {
+  //     document.documentElement.style.setProperty(property, value);
+  //   });
+  // };
   // const toggleTheme = () => {
   //   const newTheme = !isDark;
   //   setIsDark(newTheme);
