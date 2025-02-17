@@ -34,18 +34,17 @@ body {
   --font-pretendard: Pretendard;
   --color-surface-primary: #ffffff;
   /* --color-surface-primary-dark: #232325; */
-  --color-surface-secondary: #e9f4ff;
+  --color-surface-secondary: #e4edf7;
   /* --color-surface-secondary-dark: #303034; */
-  --color-surface-tertiary: #8dc2ff;
+  --color-surface-tertiary: #5c8cc2;
   /* --color-surface-tertiary-dark: #39393b; */
-  --color-text-primary: #288dff;
-  --color-text-primary: #288dff;
-  /* --color-text-primary-dark: #b9d5e6; */
-  --color-text-secondary: #8dc2ff;
-  /* --color-text-secondary-dark: #d2e6f2; */
+  --color-text-primary: #0e54a4;
+  /* --color-text-primary-dark: #bad5e6; */
+  --color-text-secondary: #5c8cc2;
+  /* --color-text-secondary-dark: #7c8e99; */
   --color-text-invert: #ffffff;
   /* --color-text-invert-dark: #232325; */
-  --color-status-negative: #ff8b8b;
+  --color-status-negative: #ff6462;
 
   /*그라디언트*/
   --gradient-primary: linear-gradient(
