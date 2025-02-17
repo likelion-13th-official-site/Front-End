@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { AsciiEffect } from './AsciiEffect';
 import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
+import Lottie from 'lottie-react';
+import ScrollDownLottie from '@/assets/lottie/scrolldown.json';
 export default function AsciiArt() {
   const mountRef = useRef<HTMLDivElement>(null);
   const mouseX = useRef(0); // useRef로 변경
@@ -168,6 +170,12 @@ export default function AsciiArt() {
       >
         click
       </span>
+      <Lottie
+        className="absolute bottom-0 left-[50vw] mx-auto transform -translate-x-1/2"
+        // style={{ height: "50%" }}
+        loop={true}
+        animationData={ScrollDownLottie}
+      />
     </div>
   );
 }
