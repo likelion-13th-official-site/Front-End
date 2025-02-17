@@ -2,7 +2,7 @@ export default function CreditPage() {
   return (
     <main className="blueBackground main w-full h-screen flex flex-col items-center pt-[4.7rem] max-2xl:pt-[17rem] max-md:pt-[4.7rem] bg-text-primary text-text-invert">
       <section className="w-full max-w-[151.2rem] px-[1.2rem] py-[9.6rem]  flex font-d2 text-[1.4rem]  gap-[2.4rem] font-[400]">
-        <div className="rightSection w-full pl-[1.2rem]">
+        <div className="w-full pl-[1.2rem]">
           <div>
             <div className="credits leading-[1.4] text-[1.4rem]">
               <div className="font-[700] pb-[1.6rem] border-b-text-invert border-b-[1px]">
