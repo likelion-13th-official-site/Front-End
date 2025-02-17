@@ -24,10 +24,10 @@ export default function SecondSection() {
         <div>
           <div className="achievement  leading-[1.4] text-[1.4rem]">
             <div className="font-[700]">성과</div>
-            <div className="flex gap-[6.4rem] flex-wrap max-[350px]:gap-[2.5rem]">
+            <div className="flex gap-[6.4rem] flex-wrap max-[350px]:gap-[2.5rem] max-[535px]:gap-[2rem] ">
               {achievementList.map((item, idx) => (
                 <div key={idx}>
-                  <div className="text-text-primary font-pp text-[9.6rem] font-[500] leading-[1] max-md:text-[6.4rem] max-[350px]:text-[4rem]">
+                  <div className="text-text-primary font-pp text-[9.6rem] font-[500] leading-[1] max-md:text-[6.4rem] max-[450px]:text-[4.5rem] max-[350px]:text-[4rem] ">
                     {item.value}
                   </div>
                   <div>{item.name}</div>

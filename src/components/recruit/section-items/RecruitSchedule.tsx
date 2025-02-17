@@ -9,6 +9,7 @@ const scheduleList = [
 export default function RecruitSchedule() {
   return (
     <div
+      data-aos="fade-up"
       id="schedule-section"
       className="w-full md:pl-[1.2rem] flex flex-col gap-[1.6rem]"
     >

@@ -9,6 +9,7 @@ const qualificationList = [
 export default function RecruitQualifications() {
   return (
     <div
+      data-aos="fade-up"
       id="qual-section"
       className="w-full md:pl-[1.2rem] flex flex-col gap-[1.6rem]"
     >
