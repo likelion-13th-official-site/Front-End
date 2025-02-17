@@ -8,10 +8,11 @@ import ProjectsDetailPage from './pages/ProjectsDetailPage';
 import ApplyPage from './pages/ApplyPage';
 import RecruitPage from './pages/RecruitPage';
 import CreditPage from './pages/CreditPage';
+import ErrorPage from './pages/ErrorPage';
 const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
-    errorElement: <>error</>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
     ]
   },
   {
+    errorElement: <ErrorPage />,
     path: 'apply',
     element: <ApplyPage />
   }
