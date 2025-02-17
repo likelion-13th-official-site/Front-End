@@ -25,7 +25,7 @@ export default function AsciiArt() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(70, width / height, 1, 1000);
     if (width > 700) {
-      camera.position.set(0, 1050, 500);
+      camera.position.set(0, 750, 500);
     } else {
       camera.position.set(0, 450, 500);
     }
