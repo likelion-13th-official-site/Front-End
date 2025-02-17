@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import TextBox from '../TextBox';
-import { Page } from '@/pages/ApplyPage';
+import { Application, Page } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
+import { instance } from '@/api/instance';
+import { AxiosError } from 'axios';
 
 interface ApplyThirdProps {
   handlePageChange: (page: Page) => void;
+  application: Application;
+  handleToastRender: (text: string) => void;
+  isEdit: boolean;
 }
 
 interface InputInfo {
@@ -21,8 +26,14 @@ interface ApplyInput {
   answer3: InputInfo;
   answer4: InputInfo;
   githubLink: InputInfo;
-  portpolioLink: InputInfo;
+  portfolioLink: InputInfo;
   interviewTimes: { value: number[]; isValid: boolean };
+}
+interface AnswerInput {
+  answer1: InputInfo;
+  answer2: InputInfo;
+  answer3: InputInfo;
+  answer4: InputInfo;
 }
 
 const questionProps = [
@@ -83,16 +94,22 @@ const interviewProps = {
     { time: '20:50 - 21:10', index: 27 }
   ]
 };
-const ApplyThird = ({ handlePageChange }: ApplyThirdProps) => {
+
+const ApplyThird = ({
+  handlePageChange,
+  application,
+  handleToastRender,
+  isEdit,
+}: ApplyThirdProps) => {
   const [applyInput, setApplyInput] = useState<ApplyInput>({
-    track: { value: '', isValid: true },
-    answer1: { value: '', isValid: true },
-    answer2: { value: '', isValid: true },
-    answer3: { value: '', isValid: true },
-    answer4: { value: '', isValid: true },
-    githubLink: { value: '', isValid: true },
-    portpolioLink: { value: '', isValid: true },
-    interviewTimes: { value: [], isValid: true }
+    track: { value: application.track, isValid: true },
+    answer1: { value: application.answer1, isValid: true },
+    answer2: { value: application.answer2, isValid: true },
+    answer3: { value: application.answer3, isValid: true },
+    answer4: { value: application.answer4, isValid: true },
+    githubLink: { value: application.githubLink, isValid: true },
+    portfolioLink: { value: application.portfolioLink, isValid: true },
+    interviewTimes: { value: application.interviewTimes, isValid: true }
   });
   const [isInputFilled, setIsInputFilled] = useState(false);
 
@@ -100,8 +117,6 @@ const ApplyThird = ({ handlePageChange }: ApplyThirdProps) => {
     let isFilled = true;
     Object.entries(applyInput).forEach(([key, value]) => {
       if (key === 'interviewTimes') {
-        console.log(value.value.length);
-
         if (value.value.length === 0) isFilled = false;
       } else if (key === 'track') {
         if (value.value === '') isFilled = false;
@@ -139,12 +154,42 @@ const ApplyThird = ({ handlePageChange }: ApplyThirdProps) => {
     return isValid;
   };
 
-  const handleNextBtn = () => {
-    console.log('pressed');
+  const handleNextBtn = async () => {
+    if (!IsValidInput()) {
+      handleToastRender('모든 항목을 올바르게 입력해주세요.');
+      return;
+    }
+    // const body: Record<string, string | number[]> = {};
+    const newBody: Record<string, string | number[]> = { ...application };
+    Object.keys(applyInput).map((key) => {
+      newBody[key] = applyInput[key as keyof ApplyInput].value;
+    });
+    console.log(newBody);
 
-    if (!IsValidInput()) return;
-    //API call
-    handlePageChange(Page.APPLY_FOURTH);
+    // Object.keys(applyInput).map((key) => {
+    //   body[key] = applyInput[key as keyof ApplyInput].value;
+    // });
+
+    try {
+      let res;
+      if (isEdit === true) {
+        res = await instance.put('/application', newBody);
+      } else if (isEdit === false) {
+        res = await instance.post('/application', newBody);
+      }
+      if (res?.data?.success) {
+        handleToastRender(res.data.message);
+        handlePageChange(Page.APPLY_FOURTH);
+      }
+    } catch (err: unknown) {
+      if (
+        err instanceof AxiosError &&
+        err?.response?.status &&
+        err?.response?.status >= 400
+      ) {
+        handleToastRender(err.response.data.message);
+      }
+    }
   };
 
   const handleInterViewInput = (index: number) => {
@@ -217,8 +262,8 @@ const ApplyThird = ({ handlePageChange }: ApplyThirdProps) => {
           <option value="" disabled selected hidden>
             지원 분야
           </option>
-          <option>Front-End</option>
-          <option>Back-End</option>
+          <option>Backend</option>
+          <option>Frontend</option>
           <option>Design</option>
         </select>
       </div>
@@ -229,6 +274,7 @@ const ApplyThird = ({ handlePageChange }: ApplyThirdProps) => {
           isError={!applyInput[item.name as keyof ApplyInput].isValid}
           handleChange={handleInput}
           description={item.description}
+          value={applyInput[item.name as keyof AnswerInput].value}
         ></TextBox>
       ))}
       <div
@@ -260,6 +306,9 @@ const ApplyThird = ({ handlePageChange }: ApplyThirdProps) => {
                       onChange={() => {
                         handleInterViewInput(item.index);
                       }}
+                      checked={applyInput.interviewTimes.value.includes(
+                        item.index
+                      )}
                     />
                   </div>
                 </div>
@@ -275,15 +324,17 @@ const ApplyThird = ({ handlePageChange }: ApplyThirdProps) => {
         isError={!applyInput.githubLink.isValid}
         isExplanation={false}
         placeholder=""
+        value={applyInput.githubLink.value}
       ></FormBox>
       <FormBox
-        name={'portpolioLink'}
+        name={'portfolioLink'}
         title={'포트폴리오 링크 (디자인 파트만, 선택)'}
         handleChange={handleInput}
-        isError={!applyInput.portpolioLink.isValid}
+        isError={!applyInput.portfolioLink.isValid}
         isExplanation={true}
         explanation="pdf를 올린 구글 드라이브 링크나 본인 포트폴리오 웹사이트 링크를 첨부해주세요."
         placeholder=""
+        value={applyInput.portfolioLink.value}
       ></FormBox>
       <SquareBtn
         content="다음"

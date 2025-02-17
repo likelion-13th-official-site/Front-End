@@ -1,31 +1,18 @@
-interface MenuModalProps {
-  setIsMenuOpen: (isMenuOpen: boolean) => void;
-}
-
-export default function MenuModal({ setIsMenuOpen }: MenuModalProps) {
-  const navItems = [
-    { name: 'About', link: '/' },
-    { name: 'Track', link: '/track/front-end' },
-    { name: 'People', link: '/people' },
-    { name: 'Projects', link: '/projects' }
-  ];
-
+export default function ErrorPage() {
   return (
-    <div className="blueBackground block md:hidden pl-[1.2rem] pr-[1.2rem] font-pp w-screen h-screen max-h-screen fixed top-0 left-0 bg-text-primary pt-[7.9rem]">
-      <ul className="border-t border-surface-primary">
-        {navItems.map((item) => (
-          <li
-            key={item.name}
-            className="border-b border-surface-primary text-[3.6rem] italic text-text-invert py-[1.8rem]"
-          >
-            <a href={`${item.link}`} onClick={() => setIsMenuOpen(false)}>
-              {item.name}
-            </a>
-          </li>
-        ))}
-        {/* <LogoIcon className="absolute bottom-[1.2rem] left-[1.2rem] w-[8rem] h-[8rem] animate-spin-logo" /> */}
-        <LogoSVG />
-      </ul>
+    <div className="font-d2 w-screen h-screen flex flex-col items-center justify-center bg-text-primary text-text-invert">
+      <h1 className="font-pp text-[38.4rem] leading-[1.1]">404</h1>
+      <h2 className="text-[1.4rem] text-center">
+        Something went wrong.
+        <br /> We can't find the page you're looking for.
+      </h2>
+      <a
+        className="text-[1.4rem] underline mt-[2.4rem] hover:text-text-secondary"
+        href="/"
+      >
+        Back To Home
+      </a>
+      <LogoSVG />
     </div>
   );
 }
