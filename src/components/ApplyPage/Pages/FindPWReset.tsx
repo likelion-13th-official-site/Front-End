@@ -21,10 +21,9 @@ const FindPWReset = ({
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     let res = true;
-    res =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()\-_+=])[A-Za-z\d!@#$%^&*()\-_+=]{8,20}$/.test(
-        e.target.value
-      );
+    res = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()\-_+=]{8,20}$/.test(
+      e.target.value
+    );
     setIsValid(res);
     setPassword(e.target.value);
   };

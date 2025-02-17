@@ -28,7 +28,8 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
         <span className="font-[700]">
           🦁 멋쟁이사자처럼 서강대학교 13기 모집 안내 🦁
         </span>
-
+        <br />
+        <br />
         <p>
           안녕하세요! <strong>멋쟁이사자처럼 서강대학교</strong>
           입니다.
@@ -49,7 +50,7 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
           프로그래밍을 처음 접하는 분들도, 개발 경험이 있는 분들도 모두
           환영합니다!
         </p>
-
+        <br />
         <p>
           💡 <strong>"내 아이디어를 실제 서비스로 만들어 보고 싶다면?"</strong>
         </p>
@@ -61,7 +62,7 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
         <p>
           💡 <strong>"코딩을 배워 나만의 포트폴리오를 만들고 싶다면?"</strong>
         </p>
-
+        <br />
         <p>
           지금 바로 <strong>멋쟁이사자처럼 서강대학교 13기</strong>에
           도전하세요!
@@ -71,54 +72,61 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
           아래 지원 안내 및 선발 일정을 참고하여{' '}
           <strong>멋쟁이사자처럼과 함께할 준비</strong>를 해 주세요. 🚀
         </p>
-<br/>
+        <br />
         <p>
           <strong>1. 지원 안내</strong>
         </p>
-        <p>
+        <p className="indent-[2rem]">
           a. 제출 버튼을 누른 후에도 서류 마감 기한 전까지는 지원 페이지에서
           수정이 가능합니다.
         </p>
-        <p>
+        <p className="indent-[2rem]">
           b. 지원서는 다음과 같은 구성으로 되어있습니다. 모든 사항을 빠짐없이
           작성 바랍니다.
         </p>
-        <p> i. 안내 사항 동의</p>
-        <p> ii. 인적사항 기입</p>
-        <p> iii. 자기소개서 제출 및 면접 가능 시간 선택</p>
-        <br/>
+        <p className="indent-[4rem]"> i. 안내 사항 동의</p>
+        <p className="indent-[4rem]"> ii. 인적사항 기입</p>
+        <p className="indent-[4rem]">
+          {' '}
+          iii. 자기소개서 제출 및 면접 가능 시간 선택
+        </p>
+        <br />
         <p>
           <strong>2. 면접 촬영 및 개인정보 수집 안내</strong>
         </p>
-        <p>
+        <p className="pl-[2rem]">
           a. 면접은 대면으로 진행되며, 공정한 면접 평가를 위해 면접 내용을 촬영
-          및 수집할 예정입니다. 수집한 면접 영상은 선발 과정에서만 활용되며,
+          및 수집할 예정입니다.<br/> &nbsp;&nbsp;&nbsp;&nbsp;수집한 면접 영상은 선발 과정에서만 활용되며,
           최종 선발 이후 즉시 폐기됩니다.
         </p>
-        <br/>
+        <br />
         <p>
           <strong>3. 선발 일정 안내</strong>
         </p>
-        <p>a. 서류 지원 마감일 : 2025-02-18 ~ 2025-03-06</p>
-        <p>b. 서류 합격 발표일 : 2025-03-08 ~ 2025-03-09</p>
-        <p>c. 면접 평가 : 2025-03-10 ~ 2025-03-12</p>
-        <p>d. 최종 합격 발표일 : 2025-03-14</p>
-        <p>e. OT : 2025-03-17</p>
-        <br/>
+        <p className="indent-[2rem]">
+          a. 서류 지원 마감일 : 2025-02-18 ~ 2025-03-06
+        </p>
+        <p className="indent-[2rem]">
+          b. 서류 합격 발표일 : 2025-03-08 ~ 2025-03-09
+        </p>
+        <p className="indent-[2rem]">c. 면접 평가 : 2025-03-10 ~ 2025-03-12</p>
+        <p className="indent-[2rem]">d. 최종 합격 발표일 : 2025-03-14</p>
+        <p className="indent-[2rem]">e. OT : 2025-03-17</p>
+        <br />
         <p>
           <strong>4. 공식 홈페이지, 인스타그램</strong>
         </p>
-        <p>
+        <p className="pl-[2rem]">
           a. 서강대학교 멋쟁이사자처럼 공식 홈페이지와 @likelion_sg 공식
-          인스타그램에서 커리큘럼, 활동 일정 등 다양한 정보를 확인하실 수
+          인스타그램에서 커리큘럼, 활동 일정 등 &nbsp;&nbsp;&nbsp;&nbsp;다양한 정보를 확인하실 수
           있습니다.
         </p>
-        <br/>
+        <br />
         <p>
           <strong>5. 문의사항</strong>
         </p>
-        <p>a. 대표 윤예은: 010-4126-8427</p>
-        <p>b. 인스타그램: @likelion_sogang</p>
+        <p className="indent-[2rem]">a. 대표 윤예은: 010-4126-8427</p>
+        <p className="indent-[2rem]">b. 인스타그램: @likelion_sogang</p>
       </p>
       <div className="flex flex-col gap-[1.2rem]">
         <div className="flex justify-between items-center">

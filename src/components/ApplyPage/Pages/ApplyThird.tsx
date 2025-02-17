@@ -99,7 +99,7 @@ const ApplyThird = ({
   handlePageChange,
   application,
   handleToastRender,
-  isEdit,
+  isEdit
 }: ApplyThirdProps) => {
   const [applyInput, setApplyInput] = useState<ApplyInput>({
     track: { value: application.track, isValid: true },
@@ -143,6 +143,12 @@ const ApplyThird = ({
           break;
         case 'interviewTimes':
           res = value.value.length > 0;
+          break;
+        case 'githubLink':
+          res = !(value.value.length > 255);
+          break;
+        case 'portfolioLink':
+          res = !(value.value.length > 1000);
           break;
         default:
           break;

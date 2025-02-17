@@ -74,8 +74,13 @@ const ApplySecond = ({
   useEffect(() => {
     let isFilled = true;
     Object.entries(userInput).forEach((item) => {
-      if (item[0] !== 'emailAuth' && item[1].value === '') isFilled = false;
+      if (isEdit) {
+        if (item[0] !== 'emailAuth' && item[1].value === '') isFilled = false;
+      } else {
+        if (item[1].value === '') isFilled = false;
+      }
     });
+    if (!isEdit && emailState.isAuth === false) isFilled = false;
     setIsInputFilled(isFilled);
   }, [userInput]);
 
@@ -99,16 +104,16 @@ const ApplySecond = ({
           break;
         case 'email':
           res =
-            emailState.isSent === true && value.value.endsWith('@sogang.ac.kr');
+            emailState.isSent === true &&
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.value);
           break;
         case 'emailAuth':
           res = emailState.isAuth === true;
           break;
         case 'password':
-          res =
-            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()\-_+=])[A-Za-z\d!@#$%^&*()\-_+=]{8,20}$/.test(
-              value.value
-            );
+          res = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()\-_+=]{8,20}$/.test(
+            value.value
+          );
           break;
         default:
           break;
@@ -138,17 +143,16 @@ const ApplySecond = ({
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
   ) => {
-    let res = true;
-    if (e.target.name === 'password') {
-      res =
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()\-_+=])[A-Za-z\d!@#$%^&*()\-_+=]{8,20}$/.test(
-          e.target.value
-        );
-    } else if (e.target.name === 'phone') {
-      res = /^\d{3}-\d{3,4}-\d{4}$/.test(e.target.value);
-    } else if (e.target.name === 'email') {
-      res = e.target.value.endsWith('@sogang.ac.kr');
-    }
+    const res = true;
+    // if (e.target.name === 'password') {
+    //   res = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()\-_+=]{8,20}$/.test(
+    //     e.target.value
+    //   );
+    // } else if (e.target.name === 'phone') {
+    //   res = /^\d{3}-\d{3,4}-\d{4}$/.test(e.target.value);
+    // } else if (e.target.name === 'email') {
+    //   res = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
+    // }
     setUserInput({
       ...userInput,
       [e.target.name]: { value: e.target.value, isValid: res }
@@ -169,7 +173,11 @@ const ApplySecond = ({
           });
         }
       } catch (err: unknown) {
-        if (err instanceof AxiosError && err?.response?.status && err?.response?.status >= 400) {
+        if (
+          err instanceof AxiosError &&
+          err?.response?.status &&
+          err?.response?.status >= 400
+        ) {
           handleToastRender(err.response.data.message);
           setUserInput({
             ...userInput,
@@ -202,7 +210,11 @@ const ApplySecond = ({
           // });
         }
       } catch (err: unknown) {
-        if (err instanceof AxiosError && err?.response?.status && err?.response?.status >= 400) {
+        if (
+          err instanceof AxiosError &&
+          err?.response?.status &&
+          err?.response?.status >= 400
+        ) {
           handleToastRender(err.response.data.message);
           setUserInput({
             ...userInput,
@@ -263,7 +275,7 @@ const ApplySecond = ({
         handleChange={handleInput}
         isError={!userInput.major.isValid}
         isExplanation={!userInput.major.isValid}
-        placeholder=""
+        placeholder="주전공(복수전공)"
         explanation="학과를 입력해주세요."
         value={userInput.major.value}
       ></FormBox>
@@ -284,13 +296,9 @@ const ApplySecond = ({
             name={'email'}
             handleChange={handleInput}
             isError={!userInput.email.isValid}
-            isExplanation={!userInput.email.value.endsWith('@sogang.ac.kr') || isEdit}
-            explanation={
-              isEdit
-                ? '이메일은 수정이 불가능합니다'
-                : '@sogang.ac.kr로 끝나는 이메일 주소만 가능합니다.'
-            }
-            placeholder="@sogang.ac.kr로 끝나는 이메일 주소만 가능합니다."
+            isExplanation={isEdit}
+            explanation={'이메일은 수정이 불가능합니다'}
+            placeholder=""
             isDisabled={
               isEdit ? true : emailState.isAuth === true ? true : false
             }
@@ -347,7 +355,7 @@ const ApplySecond = ({
         explanation={
           isEdit
             ? '비밀번호는 수정이 불가능합니다'
-            : '비밀번호는 8~20자의 영문, 숫자, 특수문자(!@#$%^&*()-_+=)를 혼합하여 설정해주세요.'
+            : '비밀번호는 8~20자의 영문, 숫자를 혼합하여 설정해주세요.'
         }
         isDisabled={isEdit ? true : false}
         value={userInput.password.value}
