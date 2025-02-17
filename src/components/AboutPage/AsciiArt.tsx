@@ -4,46 +4,52 @@ import { AsciiEffect } from './AsciiEffect';
 import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
 import Lottie from 'lottie-react';
 import ScrollDownLottie from '@/assets/lottie/scrolldown.json';
+
 export default function AsciiArt() {
   const mountRef = useRef<HTMLDivElement>(null);
-  const mouseX = useRef(0); // useRef로 변경
+  const mouseX = useRef(0);
   const mouseY = useRef(0);
-  const svgGroupRef = useRef<THREE.Group | null>(null); // SVG 그룹을 저장할 useRef 추가
-  //
+  const svgGroupRef = useRef<THREE.Group | null>(null);
+  const [showClick, setShowClick] = useState(false);
+
   const [isDark, setIsDark] = useState(() => {
     return localStorage.getItem('isDarkMode') === 'true';
   });
+
+  const calculateHeight = () => window.innerHeight;
+
+  const calculateSVGPosition = (height: number) => height / 2 + 350;
+
+  const setCameraPosition = (
+    camera: THREE.PerspectiveCamera,
+    height: number
+  ) => {
+    camera.position.set(0, height / 2, 500);
+  };
+
   useEffect(() => {
     if (!mountRef.current) return;
 
-    //넓이, 높이 설정
     const width = window.innerWidth;
-    const height =
-      width > 700 ? (window.innerHeight / 3) * 2 : window.innerHeight / 2;
+    const height = calculateHeight();
 
-    // Scene, Camera, Renderer
+    // Scene, Camera, Renderer setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(70, width / height, 1, 1000);
-    if (width > 700) {
-      camera.position.set(0, 750, 500);
-    } else {
-      camera.position.set(0, 450, 500);
-    }
+    setCameraPosition(camera, height);
+
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
     renderer.setClearColor(0xf0f0f0);
 
-    //무슨 문자를 넣을건지? invert는 반전
-    const effect = new AsciiEffect(renderer, ' .:-+*=%@#', {
-      invert: false //True로 하면 반전되어 나온다
-    });
+    const effect = new AsciiEffect(renderer, ' .:-+*=%@#', { invert: false });
     effect.setSize(width, height);
 
     if (mountRef.current) {
       mountRef.current.appendChild(effect.domElement);
     }
 
-    // Lights
+    // Lights setup
     const light1 = new THREE.PointLight(0xffffff, 1);
     light1.position.set(0, 500, 500);
     scene.add(light1);
@@ -52,11 +58,11 @@ export default function AsciiArt() {
     light2.position.set(0, -500, -500);
     scene.add(light2);
 
-    const light3 = new THREE.PointLight(0xff0000, 0.5); // Red light with moderate intensity
+    const light3 = new THREE.PointLight(0xff0000, 0.5);
     light3.position.set(0, 1000, 1000);
     scene.add(light3);
 
-    //SVG
+    // SVG Loading
     const loader = new SVGLoader();
     loader.load('/ascii2.svg', function (data) {
       const paths = data.paths;
@@ -77,11 +83,12 @@ export default function AsciiArt() {
           group.add(mesh);
         });
       });
-      svgGroupRef.current = group; // useRef에 저장
+
+      svgGroupRef.current = group;
       scene.add(group);
-      group.position.y = width > 1100 ? height * 2 : height * 1.8; // 기존 height * 2 → 1.2로 줄여서 중앙 정렬
-      group.position.x = -100; // x 축 정렬
-      group.scale.set(2.2, 2.2, 2.2);
+      group.position.y = calculateSVGPosition(height);
+      group.position.x = -100;
+      group.scale.set(1.8, 1.8, 1.8);
       group.rotateX(Math.PI);
     });
 
@@ -95,15 +102,26 @@ export default function AsciiArt() {
     // Resize handling
     const onWindowResize = () => {
       const newWidth = window.innerWidth;
-      const newHeight =
-        newWidth > 1100 ? (window.innerHeight / 4) * 3 : window.innerHeight / 2;
+      const newHeight = calculateHeight();
 
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
+      setCameraPosition(camera, newHeight);
+
       renderer.setSize(newWidth, newHeight);
       effect.setSize(newWidth, newHeight);
+
+      if (svgGroupRef.current) {
+        svgGroupRef.current.position.y = calculateSVGPosition(newHeight);
+      }
     };
+
     window.addEventListener('resize', onWindowResize);
+
+    // Force initial resize
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 100);
 
     // Animation loop
     const start = Date.now();
@@ -113,16 +131,11 @@ export default function AsciiArt() {
 
       if (svgGroupRef.current) {
         const moveSpeed = 0.0001;
-        const maxX = -2300; // 최대 이동 범위
-        const minX = 0; // 최소 이동 범위
+        const maxX = -1300;
+        const minX = 0;
 
-        if (width > 1100) {
-          svgGroupRef.current.position.x =
-            Math.sin(timer * moveSpeed) * (maxX - minX) - 3100;
-        } else {
-          svgGroupRef.current.position.x =
-            Math.sin(timer * moveSpeed) * (maxX - minX) - 2600;
-        }
+        svgGroupRef.current.position.x =
+          Math.sin(timer * moveSpeed) * (maxX - minX) - 3200;
       }
       effect.render(scene, camera);
     };
@@ -130,11 +143,11 @@ export default function AsciiArt() {
 
     return () => {
       window.removeEventListener('resize', onWindowResize);
+      document.removeEventListener('mousemove', onMouseMove);
       mountRef.current?.removeChild(effect.domElement);
     };
   }, []);
 
-  // 📌 기존에 toggleTheme 안에 있던 색을 변경하는 기능을 분리했습니다다
   const applyTheme = (isDark: boolean) => {
     const colors = {
       '--color-surface-primary': isDark ? '#232325' : '#ffffff',
@@ -157,13 +170,23 @@ export default function AsciiArt() {
     applyTheme(newTheme);
   };
 
-  const mouseFollow = document.querySelector('.mouse-follow') as HTMLElement;
-  document.addEventListener('mousemove', (e) => {
-    if (mouseFollow) {
-      mouseFollow.style.top = e.clientY + 'px';
-      mouseFollow.style.left = e.clientX + 'px';
-    }
-  });
+  useEffect(() => {
+    const mouseFollow = document.querySelector('.mouse-follow') as HTMLElement;
+    const handleMouseMove = (e: MouseEvent) => {
+      if (mouseFollow) {
+        mouseFollow.style.top = e.clientY + 'px';
+        mouseFollow.style.left = e.clientX + 'px';
+      }
+
+      if (!showClick) setShowClick(true);
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
     <div className="cursor-none overflow-hidden relative pt-[5.752rem] blueBackground w-full h-full bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
@@ -173,20 +196,32 @@ export default function AsciiArt() {
         ref={mountRef}
       />
       <div
-        onClick={() => toggleTheme()}
+        onClick={toggleTheme}
         className="top-[5.752rem] md:top-[18.2rem] 2xl:top-[5.752rem] w-full h-full absolute"
       />
+
       <span
-        onClick={() => toggleTheme()}
+        onClick={toggleTheme}
         className="font-d2 text-[1.5rem] text-text-invert absolute top-[50vh] left-[25vw] mouse-follow w-[5rem] h-[5rem]"
       >
-        click
+        {showClick && (
+          <div className=" h-[50px] flex items-center justify-center text-text-primary bg-text-invert rounded-full">
+            {showClick && 'click'}
+          </div>
+        )}
       </span>
-      <Lottie
-        className="absolute bottom-0 left-[50vw] mx-auto transform -translate-x-1/2"
-        loop={true}
-        animationData={ScrollDownLottie}
-      />
+
+      <div className="lottie-container [&_svg]:text-text-secondary [&_svg]:fill-current [&_svg]:stroke-current">
+        <Lottie
+          rendererSettings={{
+            preserveAspectRatio: 'xMidYMid slice',
+            progressiveLoad: true
+          }}
+          className="absolute bottom-0 left-[50vw] mx-auto transform -translate-x-1/2"
+          loop={true}
+          animationData={ScrollDownLottie}
+        />
+      </div>
     </div>
   );
 }

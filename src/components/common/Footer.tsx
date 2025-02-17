@@ -17,7 +17,7 @@ export default function Footer() {
     <footer
       id="footer"
       className={clsx(
-        'font-d2 w-screen justify-center',
+        'font-d2 w-screen justify-center pb-[12.8rem]',
         {
           'text-text-invert border-text-invert': path === 'credits',
           ' text-text-primary border-text-primary': path !== 'credits'
@@ -35,14 +35,14 @@ export default function Footer() {
       <div
         id="footer-container"
         className={clsx(
-          'w-full max-w-[151.2rem] pt-[12.8rem] px-[1.2rem] pb-[0.8rem]',
+          'w-full max-w-[151.2rem] pt-[12.8rem] px-[3.2rem] max-md:px-[1.6rem] pb-[0.8rem]',
           {
             'col-start-1': path === 'people',
             'col-start-2': path === 'recruit' || path === ''
           }
         )}
       >
-        <div className="w-full pt-[2.4rem] border-t  flex flex-col gap-[4.8rem]">
+        <div className="w-full py-[2.4rem] border-t  flex flex-col gap-[4.8rem]">
           <div
             id="footer-left"
             className="text-[1.4rem] font-[400] leading-[1.4] flex flex-col gap-[1.4rem]"

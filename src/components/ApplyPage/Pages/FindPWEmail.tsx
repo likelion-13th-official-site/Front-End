@@ -20,10 +20,11 @@ const FindPWEmail = ({
   const [isValid, setIsValid] = useState(true);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let res = true;
-    res = e.target.value.endsWith('@sogang.ac.kr');
+    // let res = true;
+    // res = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
+    // setIsValid(res);
+    setIsValid(true);
     setEmail(e.target.value);
-    setIsValid(res);
   };
 
   const handleRequestBtn = async () => {
@@ -42,6 +43,7 @@ const FindPWEmail = ({
         err?.response?.status >= 400
       ) {
         handleToastRender(err.response.data.message);
+        setIsValid(false);
       }
     }
   };
@@ -60,7 +62,7 @@ const FindPWEmail = ({
         handleChange={handleInput}
         isError={!isValid}
         isExplanation={!isValid}
-        explanation="@sogang.ac.kr로 끝나는 이메일 주소만 가능합니다."
+        explanation="이메일 형식이 잘못되었습니다."
         placeholder=""
       ></FormBox>
       <SquareBtn
