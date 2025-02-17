@@ -9,11 +9,11 @@ export default function RecruitHeader() {
     <motion.section
       initial={{
         background:
-          'conic-gradient(from 0deg, var(--surface-surface-tertiary, #5C8CC2) 8%, var(--text-text-primary, #0D54A5) 36%, var(--surface-surface-secondary, #E4EDF7) 81%)'
+          'conic-gradient(from 0deg, var(--color-surface-tertiary) 8%, var(--color-text-primary, #0D54A5) 36%, var(--color-surface-secondary, #E4EDF7) 81%)'
       }}
       animate={{
         background:
-          'conic-gradient(from 360deg, var(--surface-surface-tertiary, #5C8CC2) 8%, var(--text-text-primary, #0D54A5) 36%, var(--surface-surface-secondary, #E4EDF7) 81%)'
+          'conic-gradient(from 360deg, var(--color-surface-tertiary, #5C8CC2) 8%, var(--color-text-primary, #0D54A5) 36%, var(--color-surface-secondary, #E4EDF7) 81%)'
       }}
       transition={{
         duration: 10,
