@@ -1,6 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { projectsData } from './projectsData';
 import { useEffect, useState } from 'react';
+import LazyLoadingImage from './LazyLoadingImage';
 
 export interface ProjectListType {
   id: number;
@@ -14,6 +15,7 @@ export interface ProjectListType {
   BE: string | null;
   stack: string | null;
   desc: string;
+  short: string;
   event: string;
   img: string;
   link: string | null;
@@ -38,6 +40,7 @@ export default function ProjectsList() {
     <section className="w-full max-w-[151.2rem]">
       {filterdData?.map((proj: ProjectListType, idx: number) => (
         <div
+          data-aos="fade-up"
           id="proj-box"
           key={idx}
           onClick={() => navigate(`/projects/${proj.id}`)}
@@ -55,7 +58,9 @@ export default function ProjectsList() {
                 {proj.year}
               </p>
             </div>
-            <h3 className="flex-1 text-[1.4rem] leading-[140%]">{proj.desc}</h3>
+            <h3 className="flex-1 text-[1.4rem] leading-[140%]">
+              {proj.short}
+            </h3>
           </div>
           <div
             id="proj-right"
@@ -64,12 +69,7 @@ export default function ProjectsList() {
             <h4 className="text-[1.4rem] font-[400] leading-[140%]">
               {proj.event}
             </h4>
-            <img
-              loading="lazy"
-              src={proj.img}
-              alt={proj.title}
-              className="object-cover w-full "
-            />
+            <LazyLoadingImage src={proj.img} alt={proj.title} />
           </div>
         </div>
       ))}
