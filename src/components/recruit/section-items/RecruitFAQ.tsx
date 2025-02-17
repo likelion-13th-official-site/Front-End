@@ -134,7 +134,7 @@ export default function RecruitFAQ() {
               <AnimatePresence>
                 {checkedList[idx] && (
                   <motion.div
-                    className="pt-[0.4rem] text-[1.4rem] font-[400] leading-[140%] overflow-hidden"
+                    className="pt-[0.4rem] text-[1.4rem] font-[400] leading-[140%] overflow-hidden text-text-secondary"
                     initial={{ maxHeight: 0 }}
                     animate={{ maxHeight: '20rem' }}
                     exit={{ maxHeight: 0 }}
