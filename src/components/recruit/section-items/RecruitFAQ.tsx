@@ -102,7 +102,9 @@ export default function RecruitFAQ() {
                 onClick={() => handleCheck(idx)}
               />
               <div className="group w-full flex justify-between items-center cursor-pointer text-[1.4rem] font-[900] leading-[140%]">
-                <span>{faq.question}</span>
+                <span>
+                  {idx + 1}. {faq.question}
+                </span>
                 {/* <span className="">{checkedList[idx] ? '-' : '+'}</span> */}
                 <span>
                   <motion.svg
