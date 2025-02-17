@@ -19,6 +19,7 @@
     "motion": "^12.4.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-ionicons": "^4.2.1",
     "react-router-dom": "^7.1.5",
     "smooth-scrollbar": "^8.8.4",
     "svgo": "^3.3.2"
