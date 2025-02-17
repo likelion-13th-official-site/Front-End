@@ -139,12 +139,12 @@ export default function AsciiArt() {
       document.documentElement.style.setProperty(property, value);
     });
   };
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    localStorage.setItem('isDarkMode', String(newTheme));
-    applyTheme(newTheme);
-  };
+  // const toggleTheme = () => {
+  //   const newTheme = !isDark;
+  //   setIsDark(newTheme);
+  //   localStorage.setItem('isDarkMode', String(newTheme));
+  //   applyTheme(newTheme);
+  // };
 
   const mouseFollow = document.querySelector('.mouse-follow') as HTMLElement;
   document.addEventListener('mousemove', (e) => {
