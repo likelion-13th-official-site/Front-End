@@ -2,14 +2,15 @@ import * as THREE from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { AsciiEffect } from './AsciiEffect';
 import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
-// import AsciiTheme from './asciiTheme';
 export default function AsciiArt() {
   const mountRef = useRef<HTMLDivElement>(null);
   const mouseX = useRef(0); // useRef로 변경
   const mouseY = useRef(0);
   const svgGroupRef = useRef<THREE.Group | null>(null); // SVG 그룹을 저장할 useRef 추가
-  const [isClicked, setIsClicked] = useState(false);
-
+  //
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem('isDarkMode') === 'true';
+  });
   useEffect(() => {
     if (!mountRef.current) return;
 
@@ -78,35 +79,6 @@ export default function AsciiArt() {
       group.rotateX(Math.PI);
     });
 
-    // const loader2 = new SVGLoader();
-    // loader2.load('/logo2.svg', function (data) {
-    //   const paths = data.paths;
-    //   const group = new THREE.Group();
-
-    //   paths.forEach((path) => {
-    //     const material = new THREE.MeshLambertMaterial({
-    //       color: 0xffff00,
-    //       side: THREE.DoubleSide,
-    //       depthWrite: false
-    //     });
-
-    //     const shapes = SVGLoader.createShapes(path);
-
-    //     shapes.forEach((shape) => {
-    //       const geometry = new THREE.ShapeGeometry(shape);
-    //       const mesh = new THREE.Mesh(geometry, material);
-    //       group.add(mesh);
-    //     });
-    //   });
-    //   setGroup2(group);
-    //   group.position.y = height * 2;
-    //   group.scale.set(4.2, 4.2, 4.2);
-    //   group.rotateX(Math.PI);
-
-    //   groupRef.current = group; // useRef에 저장
-    //   scene.add(group);
-    // });
-
     const onMouseMove = (event: MouseEvent) => {
       mouseX.current = (event.clientX / window.innerWidth) * 2 - 1;
       mouseY.current = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -139,21 +111,10 @@ export default function AsciiArt() {
 
         svgGroupRef.current.position.x =
           Math.sin(timer * moveSpeed) * (maxX - minX) - 3000;
-        // scene.add(group);
       }
-
-      // if (groupRef.current) {
-      //   groupRef.current.position.x = mouseX.current * 3000; // 마우스 좌표 적용
-      //   groupRef.current.position.y = mouseY.current * 3000;
-      // }
       effect.render(scene, camera);
     };
     animate();
-    const handleDivClick = () => {
-      console.log('clicked');
-      setIsClicked(!isClicked);
-    };
-    mountRef.current?.addEventListener('click', handleDivClick);
 
     return () => {
       window.removeEventListener('resize', onWindowResize);
@@ -161,13 +122,52 @@ export default function AsciiArt() {
     };
   }, []);
 
+  // 📌 기존에 toggleTheme 안에 있던 색을 변경하는 기능을 분리했습니다다
+  const applyTheme = (isDark: boolean) => {
+    const colors = {
+      '--color-surface-primary': isDark ? '#232325' : '#ffffff',
+      '--color-surface-secondary': isDark ? '#303034' : '#e9f4ff',
+      '--color-surface-tertiary': isDark ? '#39393b' : '#8dc2ff',
+      '--color-text-primary': isDark ? '#b9d5e6' : '#288dff',
+      '--color-text-secondary': isDark ? '#d2e6f2' : '#8dc2ff',
+      '--color-text-invert': isDark ? '#232325' : '#ffffff'
+    };
+
+    Object.entries(colors).forEach(([property, value]) => {
+      document.documentElement.style.setProperty(property, value);
+    });
+  };
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    localStorage.setItem('isDarkMode', String(newTheme));
+    applyTheme(newTheme);
+  };
+
+  const mouseFollow = document.querySelector('.mouse-follow') as HTMLElement;
+  document.addEventListener('mousemove', (e) => {
+    if (mouseFollow) {
+      mouseFollow.style.top = e.clientY + 'px';
+      mouseFollow.style.left = e.clientX + 'px';
+    }
+  });
+
   return (
-    <div className="cursor-[url(/click.svg),_pointer] pt-[5.752rem] md:pt-[18.2rem] 2xl:pt-[5.752rem]  blueBackground w-full h-full bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
+    <div className="cursor-none overflow-hidden relative pt-[5.752rem] md:pt-[18.2rem] 2xl:pt-[5.752rem]  blueBackground w-full h-full bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
       <div
-        id="ascii"
         className="text-text-invert font-[900] cursor-pointer"
         ref={mountRef}
       />
+      <div
+        onClick={() => toggleTheme()}
+        className="top-[5.752rem] md:top-[18.2rem] 2xl:top-[5.752rem] w-full h-full absolute"
+      />
+      <span
+        onClick={() => toggleTheme()}
+        className="font-d2 text-[1.5rem] text-text-invert absolute top-[1rem] left-[1rem] mouse-follow w-[5rem] h-[5rem]"
+      >
+        click
+      </span>
     </div>
   );
 }
