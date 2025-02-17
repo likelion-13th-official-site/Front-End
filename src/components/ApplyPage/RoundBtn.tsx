@@ -6,7 +6,7 @@ interface RoundBtnProps {
 const RoundBtn = ({ content, handleClick }: RoundBtnProps) => {
   return (
     <button
-      className="flex justify-center items-center py-[0.4rem] px-[1.2rem] rounded-[3.2rem] border cursor-pointer italic"
+      className="flex justify-center items-center  px-[1.2rem] rounded-[3.2rem] border cursor-pointer italic hover:text-text-invert hover:bg-text-primary"
       onClick={() => {
         handleClick();
       }}
