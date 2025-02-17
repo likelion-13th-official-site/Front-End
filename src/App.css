@@ -32,11 +32,8 @@ body {
 @theme {
   --breakpoint-md: 700px;
   --breakpoint-2xl: 1100px;
-<<<<<<< HEAD
   --breakpoint-3xl: 1512px;
   --breakpoint-4xl: 2000px;
-=======
->>>>>>> 0035411ce6e69fac0719a435f97ff00881891637
   --font-d2: D2Coding;
   --font-pp: PP Lettra Mono;
   --font-pretendard: Pretendard;
