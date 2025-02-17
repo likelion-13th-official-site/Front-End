@@ -23,7 +23,7 @@ export default function Header() {
     <header
       id="header"
       className={clsx(
-        'text-text-primary z-1001 absolute 2xl:fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] flex gap-[2.4rem] justify-between transition-background duration-0',
+        'text-text-primary z-1001 absolute 2xl:fixed w-full  font-pp px-[1.2rem] flex gap-[2.4rem] justify-between transition-background duration-0',
         { fixed: isMenuOpen },
         {
           'bg-text-invert':
