@@ -19,15 +19,15 @@ const awardsList = [
 
 export default function ThirdSection() {
   return (
-    <section className="w-full max-w-[151.2rem] px-[1.2rem] py-[9.6rem]  flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]">
-      <div className="leftSection w-full h-full flex max-md:hidden">
+    <section className="w-full    flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]">
+      {/* <div className="leftSection w-full h-full flex max-md:hidden">
         <div className="w-full"></div>
         <div className="awards w-full leading-[1.4] text-[1.4rem]">
           <div className="pb-[1.3rem] font-[700]">Awards</div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="rightSection w-full pl-[1.2rem] max-md:pl-0">
+      <div className="rightSection w-full ">
         <div>
           <div className="awards leading-[1.4] text-[1.4rem]">
             <div className="font-[700] pb-[1.6rem] ">수상</div>
