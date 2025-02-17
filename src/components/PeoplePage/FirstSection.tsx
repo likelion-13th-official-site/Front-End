@@ -56,7 +56,7 @@ export default function FirstSection({
                   </div>
                 </>
               ) : (
-                <div className="py-[0.3rem]">{person}</div>
+                <div className="py-[0.3rem] font-[400]">{person}</div>
               )}
             </div>
           ))}

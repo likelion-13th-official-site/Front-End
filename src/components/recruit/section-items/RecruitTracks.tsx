@@ -3,19 +3,19 @@ const trackList = [
     initial: 'F',
     name: 'Front-end',
     desc: '사용자와 상호작용하는 인터페이스를 시각화하여 구현합니다.',
-    link: '/tracks/front-end'
+    link: '/track/front-end'
   },
   {
     initial: 'B',
     name: 'Back-end',
     desc: '데이터 처리, 비즈니스 로직, 서버 관리 등을 담당합니다.',
-    link: '/tracks/back-end'
+    link: '/track/back-end'
   },
   {
     initial: 'D',
     name: 'Design',
     desc: '사용자의 관점에서 문제를 해결하는 서비스를 디자인합니다.',
-    link: '/tracks/front-end'
+    link: '/track/design'
   }
 ];
 

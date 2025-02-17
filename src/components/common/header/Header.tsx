@@ -8,7 +8,7 @@ import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
   { name: 'About', link: '/' },
-  { name: 'Tracks', link: '/track' },
+  { name: 'Track', link: '/track/front-end' },
   { name: 'People', link: '/people' },
   { name: 'Projects', link: '/projects' }
 ];

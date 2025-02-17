@@ -23,7 +23,10 @@ export default function FourthSection() {
                   {/* 왼쪽 영역 (이미지 + name) */}
                   <div className="flex min-w-[26rem] font-[1.4rem] flex-shrink-0">
                     <img
-                      src={`${item.image}`}
+                      loading={idx === 0 ? 'eager' : 'lazy'}
+                      src={item.image}
+                      srcSet={`${item.image}?w=400 400w,${item.image}?w=800 800w,${item.image}?w=1200 1200w`}
+                      sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
                       alt={item.name}
                       className="object-cover aspect-square h-[22.6rem] max-4xl:h-[16.5rem] max-3xl:h-[11.3625rem]"
                     />

@@ -1,3 +1,4 @@
+import AsciiArt from '@/components/AboutPage/AsciiArt';
 import FifthSection from '@/components/AboutPage/FifthSection';
 import FirstSection from '@/components/AboutPage/FirstSection';
 import FourthSection from '@/components/AboutPage/FourthSection';

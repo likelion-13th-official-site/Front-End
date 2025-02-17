@@ -24,12 +24,11 @@ html {
 }
 
 body {
-  font-size: 62.5%;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/*🚨여기에 색, 폰트 지정🚨*/
+/*🚨여기에 색,폰트 지정🚨*/
 @theme {
   --breakpoint-md: 700px;
   --breakpoint-2xl: 1100px;
@@ -62,27 +61,6 @@ body {
   );
 
   --animate-spin-logo: spin 5s linear infinite;
-
-  --animation-scrolling1: scrolling1 10s linear infinite;
-  --animation-scrolling2: scrolling2 10s linear infinite;
-}
-
-@keyframes scrolling1 {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes scrolling2 {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
 }
 
 @font-face {
@@ -91,13 +69,15 @@ body {
     format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Pretendard';
-  src: url('./assets/font/PretendardVariable.woff2') format('woff');
+  src: url('./assets/font/PretendardVariable.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -105,4 +85,5 @@ body {
   src: url('./assets/font/pp-lettra-mono.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
