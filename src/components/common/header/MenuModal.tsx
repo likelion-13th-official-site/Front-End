@@ -5,9 +5,9 @@ interface MenuModalProps {
 export default function MenuModal({ setIsMenuOpen }: MenuModalProps) {
   const navItems = [
     { name: 'About', link: '/' },
-    { name: 'Track', link: 'track' },
-    { name: 'People', link: 'people' },
-    { name: 'Projects', link: 'projects' }
+    { name: 'Track', link: '/track/front-end' },
+    { name: 'People', link: '/people' },
+    { name: 'Projects', link: '/projects' }
   ];
 
   return (
