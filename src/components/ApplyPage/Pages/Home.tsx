@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
-import { Page } from '@/pages/ApplyPage';
+import { Application, Page } from '@/pages/ApplyPage';
+import { instance } from '@/api/instance';
+import { AxiosError } from 'axios';
 
 interface LoginData {
   email: string;
@@ -10,10 +12,18 @@ interface LoginData {
 
 interface HomeProps {
   handlePageChange: (page: Page) => void;
+  getApplicationData: (data: Application) => void;
+  handleToastRender: (text: string) => void;
+  setEditStatus: (isEdit: boolean) => void;
 }
 
-const Home = ({ handlePageChange }: HomeProps) => {
-  const [roundNum, setRoundNum] = useState<'apply' | 'one' | 'two'>('one');
+const Home = ({
+  handlePageChange,
+  getApplicationData,
+  handleToastRender,
+  setEditStatus
+}: HomeProps) => {
+  const [roundNum, setRoundNum] = useState<'apply' | 'one' | 'two'>('apply');
   const [loginData, setLoginData] = useState<LoginData>({
     email: '',
     password: ''
@@ -42,11 +52,28 @@ const Home = ({ handlePageChange }: HomeProps) => {
     }
   };
 
-  const handleRedirectBtn = () => {
+  const handleRedirectBtn = async () => {
     if (roundNum === 'apply') {
-      //API call
-      setLoginData({ email: '', password: '' });
-      handlePageChange(Page.APPLY_SECOND);
+      try {
+        const body = { ...loginData };
+        const res = await instance.post('/application/view', body);
+        if (res?.data?.success) {
+          const { id, ...newData } = res.data.data;
+          getApplicationData(newData);
+          localStorage.setItem('isEdit', 'true');
+          setEditStatus(true); // 지원서의 status를 edit로 설정
+          setLoginData({ email: '', password: '' });
+          handlePageChange(Page.APPLY_SECOND);
+        }
+      } catch (err: unknown) {
+        if (
+          err instanceof AxiosError &&
+          err?.response?.status &&
+          err?.response?.status >= 400
+        ) {
+          handleToastRender(err.response.data.message);
+        }
+      }
     } else if (roundNum === 'one') {
       handlePageChange(Page.ROUND_ONE_RESULT);
     } else if (roundNum === 'two') {
@@ -60,8 +87,9 @@ const Home = ({ handlePageChange }: HomeProps) => {
   };
 
   const handleCreateBtn = () => {
-    //API call
     setLoginData({ email: '', password: '' });
+    localStorage.setItem('isEdit', 'true');
+    setEditStatus(true); // 지원서의 status를 create로 설정
     handlePageChange(Page.APPLY_FIRST);
   };
 
