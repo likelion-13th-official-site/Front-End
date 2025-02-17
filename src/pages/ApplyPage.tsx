@@ -199,13 +199,25 @@ const ApplyPage = () => {
             />
           )}
           {currentPage === Page.FIND_PW_EMAIL && (
-            <FindPWEmail handlePageChange={handlePageChange} />
+            <FindPWEmail
+              handlePageChange={handlePageChange}
+              handleToastRender={handleToastRender}
+              getApplicationData={getApplicationData}
+            />
           )}
           {currentPage === Page.FIND_PW_AUTH && (
-            <FindPWAuth handlePageChange={handlePageChange} />
+            <FindPWAuth
+              handlePageChange={handlePageChange}
+              handleToastRender={handleToastRender}
+              application={application}
+            />
           )}
           {currentPage === Page.FIND_PW_RESET && (
-            <FindPWReset handlePageChange={handlePageChange} />
+            <FindPWReset
+              handlePageChange={handlePageChange}
+              handleToastRender={handleToastRender}
+              application={application}
+            />
           )}
           {currentPage === Page.APPLY_FIRST && (
             <ApplyFirst handlePageChange={handlePageChange} />
