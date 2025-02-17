@@ -130,7 +130,7 @@ export class AsciiEffect {
           iCharIdx = this.charSet.length - iCharIdx - 1;
         }
 
-        let strThisChar = this.charSet[iCharIdx] || '&nbsp;';
+        const strThisChar = this.charSet[iCharIdx] || '&nbsp;';
 
         if (this.options.color) {
           strChars += `<span style="color:rgb(${iRed},${iGreen},${iBlue}); ${

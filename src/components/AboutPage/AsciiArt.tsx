@@ -6,8 +6,8 @@ import Lottie from 'lottie-react';
 import ScrollDownLottie from '@/assets/lottie/scrolldown.json';
 export default function AsciiArt() {
   const mountRef = useRef<HTMLDivElement>(null);
-  const mouseX = useRef(0); // useRef로 변경
-  const mouseY = useRef(0);
+  // const mouseX = useRef(0); // useRef로 변경
+  // const mouseY = useRef(0);
   const svgGroupRef = useRef<THREE.Group | null>(null); // SVG 그룹을 저장할 useRef 추가
   //
   const [isDark, setIsDark] = useState(() => {
@@ -18,8 +18,7 @@ export default function AsciiArt() {
 
     //넓이, 높이 설정
     const width = window.innerWidth;
-    const height =
-      width > 1000 ? (window.innerHeight / 4) * 3 : window.innerHeight / 2;
+    const height = window.innerHeight / 2;
 
     // Scene, Camera, Renderer
     const scene = new THREE.Scene();
@@ -76,29 +75,30 @@ export default function AsciiArt() {
       });
       svgGroupRef.current = group; // useRef에 저장
       scene.add(group);
-      group.position.y = width > 1000 ? height * 2 : height * 3;
-      group.scale.set(2.5, 2.5, 2.5);
+      group.position.y = height * 2.2; // 기존 height * 2 → 1.2로 줄여서 중앙 정렬
+      group.position.x = -100; // x 축 정렬
+      group.scale.set(2.2, 2.2, 2.2);
       group.rotateX(Math.PI);
     });
 
-    const onMouseMove = (event: MouseEvent) => {
-      mouseX.current = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY.current = -(event.clientY / window.innerHeight) * 2 + 1;
-    };
+    // const onMouseMove = (event: MouseEvent) => {
+    //   mouseX.current = (event.clientX / window.innerWidth) * 2 - 1;
+    //   mouseY.current = -(event.clientY / window.innerHeight) * 2 + 1;
+    // };
 
-    document.addEventListener('mousemove', onMouseMove);
+    // document.addEventListener('mousemove', onMouseMove);
 
     // Resize handling
     const onWindowResize = () => {
       const newWidth = window.innerWidth;
       const newHeight =
-        newWidth > 1000 ? (window.innerHeight / 4) * 3 : window.innerHeight / 2;
+        newWidth > 1100 ? (window.innerHeight / 4) * 3 : window.innerHeight / 2;
+
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(newWidth, newHeight);
       effect.setSize(newWidth, newHeight);
     };
-    window.addEventListener('resize', onWindowResize);
 
     // Animation loop
     const start = Date.now();
@@ -155,21 +155,19 @@ export default function AsciiArt() {
   });
 
   return (
-    <div className="cursor-none overflow-hidden relative pt-[5.752rem] md:pt-[18.2rem] 2xl:pt-[5.752rem]  blueBackground w-full h-full bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
+    <div className="flex items-center justify-center overflow-hidden absolute pt-[5.752rem]   blueBackground w-full h-full bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%">
       <div
-        className="text-text-invert font-[900] cursor-pointer"
+        id="ascii_container"
+        className="text-text-invert font-[900] cursor-pointer flex items-center"
         ref={mountRef}
       />
-      <div
-        onClick={() => toggleTheme()}
-        className="top-[5.752rem] md:top-[18.2rem] 2xl:top-[5.752rem] w-full h-full absolute"
-      />
-      <span
+      <div className="top-[5.752rem] md:top-[18.2rem] 2xl:top-[5.752rem] w-full h-full absolute" />
+      {/* <span
         onClick={() => toggleTheme()}
         className="font-d2 text-[1.5rem] text-text-invert absolute top-[1rem] left-[1rem] mouse-follow w-[5rem] h-[5rem]"
       >
         click
-      </span>
+      </span> */}
       <Lottie
         className="absolute bottom-0 left-[50vw] mx-auto transform -translate-x-1/2"
         // style={{ height: "50%" }}
