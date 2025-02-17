@@ -1,7 +1,7 @@
+// import AsciiArt from '@/components/AboutPage/AsciiArt';
 import FirstSection from '@/components/AboutPage/FirstSection';
 import SecondSection from '@/components/AboutPage/SecondSection';
 
-import { motion } from 'framer-motion';
 import { lazy, Suspense } from 'react';
 
 const ThirdSection = lazy(() => import('@/components/AboutPage/ThirdSection'));
@@ -16,13 +16,9 @@ const SeventhSection = lazy(
 
 export default function AboutPage() {
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem] max-md:pt-[5.752rem]"
-    >
+    <main className="main w-full flex flex-col items-center justify-center pt-[5.752rem] max-2xl:pt-[18.2rem]">
+      {/* <AsciiArt /> */}
+
       <FirstSection />
 
       <SecondSection />
@@ -56,6 +52,6 @@ export default function AboutPage() {
       >
         <SeventhSection />
       </Suspense>
-    </motion.main>
+    </main>
   );
 }

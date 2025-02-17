@@ -15,6 +15,7 @@ export interface ProjectListType {
   BE: string | null;
   stack: string | null;
   desc: string;
+  short: string;
   event: string;
   img: string;
   link: string | null;
@@ -57,7 +58,9 @@ export default function ProjectsList() {
                 {proj.year}
               </p>
             </div>
-            <h3 className="flex-1 text-[1.4rem] leading-[140%]">{proj.desc}</h3>
+            <h3 className="flex-1 text-[1.4rem] leading-[140%]">
+              {proj.short}
+            </h3>
           </div>
           <div
             id="proj-right"

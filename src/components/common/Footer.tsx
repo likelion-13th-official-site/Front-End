@@ -19,12 +19,17 @@ export default function Footer() {
       className={clsx(
         'font-d2 w-screen flex justify-center',
         {
-          'text-text-invert border-text-invert': path === 'people',
-          ' text-text-primary border-text-primary': path !== 'people'
+          'text-text-invert border-text-invert':
+            path === 'people' || path === 'credits',
+          ' text-text-primary border-text-primary':
+            path !== 'people' && path !== 'credits'
         },
         {
           'bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90%':
             path === 'people'
+        },
+        {
+          'bg-text-primary': path === 'credits'
         }
       )}
     >
