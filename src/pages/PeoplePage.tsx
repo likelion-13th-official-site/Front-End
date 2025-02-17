@@ -28,7 +28,7 @@ export default function PeoplePage() {
     <div className="blueBackground transition-all duration-300 ease-in-out w-screen h-full  ">
       <motion.div
         initial={{ backgroundPosition: '0% 50%' }}
-        animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }} // 순환하도록 설정
+        animate={{ backgroundPosition: ['0% 50%', '100% -50%', '0% 50%'] }} // 순환하도록 설정
         transition={{
           duration: 20, // 애니메이션 속도
           repeat: Infinity, // 무한 반복
