@@ -1,25 +1,41 @@
+import { useNavigate } from 'react-router-dom';
 import DdayCounter from './DDayCounter';
+import { motion } from 'framer-motion';
 
 export default function RecruitHeader() {
+  const navigate = useNavigate();
+
   return (
-    <section
+    <motion.section
+      initial={{
+        background:
+          'conic-gradient(from 0deg, var(--surface-surface-tertiary, #5C8CC2) 8%, var(--text-text-primary, #0D54A5) 36%, var(--surface-surface-secondary, #E4EDF7) 81%)'
+      }}
+      animate={{
+        background:
+          'conic-gradient(from 360deg, var(--surface-surface-tertiary, #5C8CC2) 8%, var(--text-text-primary, #0D54A5) 36%, var(--surface-surface-secondary, #E4EDF7) 81%)'
+      }}
+      transition={{
+        duration: 10,
+        repeat: Infinity,
+        ease: 'linear'
+      }}
       id="recruit-header"
-      className="blueBackground pt-[14.3rem] md:pt-[26.6rem] 2xl:pt-[14.3rem] pb-[9.6rem] w-screen md:grid grid-cols-2 gap-[1rem] bg-gradient-to-r from-surface-tertiary from-0% via-[#D3E8FF] via-27% to-text-primary to-90% text-text-invert font-d2"
+      className="w-full h-full flex flex-col justify-center items-center bg-conic from-surface-tertiary from-8% via-text-primary via-36% to-text-secondary to-81% text-text-invert font-d2"
     >
-      <div id="header-left" className="hidden md:grid grid-cols-2 gap-[1.2rem]">
-        <h1 className="col-start-2 text-[1.4rem] font-[700] leading-[140%]">
-          Apply Now!
-        </h1>
-      </div>
-      <div
-        id="header-right"
-        className="w-full px-[1.2rem] flex flex-col gap-[1.6rem]"
+      <h2 className="text-[1.4rem] font-[400] leading-[140%]">
+        1차 서류 마감까지
+      </h2>
+      <DdayCounter />
+      <button
+        className="cursor-pointer hidden md:block font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border hover:bg-text-primary hover:text-surface-primary"
+        onClick={() => navigate('/apply')}
       >
-        <h2 className="text-[1.4rem] font-[400] leading-[140%]">
-          1차 서류 마감까지
-        </h2>
-        <DdayCounter />
-      </div>
-    </section>
+        지원하기
+      </button>
+      <button className="block md:hidden font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border hover:bg-text-primary hover:text-surface-primary">
+        PC에서만 지원 가능합니다.
+      </button>
+    </motion.section>
   );
 }
