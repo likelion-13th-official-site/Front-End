@@ -1,7 +1,9 @@
 export default function ErrorPage() {
   return (
     <div className="font-d2 w-screen h-screen flex flex-col items-center justify-center bg-text-primary text-text-invert">
-      <h1 className="font-pp text-[38.4rem] leading-[1.1]">404</h1>
+      <h1 className="font-pp text-[25.4vw] max-2xl:text-[45vw] leading-[1.1]">
+        404
+      </h1>
       <h2 className="text-[1.4rem] text-center">
         Something went wrong.
         <br /> We can't find the page you're looking for.
