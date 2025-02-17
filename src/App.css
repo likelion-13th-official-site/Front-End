@@ -173,3 +173,26 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
+.horizontal_gradient {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-surface-tertiary) 0%,
+    var(--color-surface-secondary) 16.666666666666668%,
+    var(--color-surface-secondary) 16.666666666666664%,
+    var(--color-text-primary) 33.333333333333336%,
+    var(--color-surface-tertiary) 50%
+  );
+
+  background-size: 200% 200%;
+  animation: gradient-scroll 10s linear infinite;
+}
+
+@keyframes gradient-scroll {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
