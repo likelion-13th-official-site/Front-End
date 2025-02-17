@@ -112,7 +112,7 @@ const SunIcon = ({
         'group-hover:fill-text-invert fill-text-primary':
           !isMenuOpen &&
           (path === 'track' || path === 'projects' || path === 'apply'),
-        'group-hover:fill-text-invert  fill-text-primary 2xl:fill-text-invert  2xl:group-hover:fill-text-primary':
+        'fill-text-invert group-hover:fill-text-primary':
           !isMenuOpen && path === 'people'
       })}
     />
@@ -126,7 +126,7 @@ const SunIcon = ({
         'group-hover:fill-text-invert fill-text-primary':
           !isMenuOpen &&
           (path === 'track' || path === 'projects' || path === 'apply'),
-        'group-hover:fill-text-invert  fill-text-primary 2xl:fill-text-invert  2xl:group-hover:fill-text-primary':
+        'fill-text-invert  group-hover:fill-text-primary':
           !isMenuOpen && path === 'people'
       })}
     />
@@ -158,7 +158,7 @@ const MoonIcon = ({
           'group-hover:fill-text-invert fill-text-primary':
             !isMenuOpen &&
             (path === 'track' || path === 'projects' || path === 'apply'),
-          'group-hover:fill-text-invert  fill-text-primary 2xl:fill-text-invert  2xl:group-hover:fill-text-primary':
+          'fill-text-invert  group-hover:fill-text-primary':
             !isMenuOpen && path === 'people'
         })}
       />
