@@ -38,7 +38,7 @@ export default function FirstSection({
         className={`rightSection w-full text-text-primary font-d2  line-height-[1.4] text-[1.4rem] max-md:pl-0 ${currentCardinal ? '' : 'border-text-primary border-b-[1px]  border-t-[1px]'}`}
       >
         <div
-          className={`${currentCardinal ? '' : 'grid grid-cols-4 max-2xl:grid-cols-6 max-md:grid-cols-4'}`}
+          className={`${currentCardinal ? 'py-0' : 'grid grid-cols-4 max-2xl:grid-cols-6 max-md:grid-cols-4'}`}
         >
           {memberData.map((person, idx1) => (
             <div
