@@ -25,6 +25,19 @@ export enum Page {
   ROUND_ONE_RESULT,
   ROUND_TWO_RESULT
 }
+
+// export enum Path {
+//   친구추천,
+//   SNS,
+//   학교공지,
+//   기타
+// }
+
+// export enum Track {
+//   Backend,
+//   Frontend,
+//   Design
+// }
 export interface Application {
   name: string;
   email: string;
@@ -43,30 +56,37 @@ export interface Application {
   interviewTimes: number[];
 }
 
+export const initialApplication = {
+  name: '',
+  email: '',
+  password: '',
+  studentNum: '',
+  major: '',
+  phone: '',
+  path: '',
+  track: '',
+  githubLink: '',
+  portfolioLink: '',
+  answer1: '',
+  answer2: '',
+  answer3: '',
+  answer4: '',
+  interviewTimes: []
+};
+
 const ApplyPage = () => {
   const [currentPage, setCurrentPage] = useState(Page.HOME);
-  const [application, setApplication] = useState<Application>({
-    name: '',
-    email: 'mwlucas@sogang.ac.kr',
-    password: 'dfdfs@@@@d23',
-    studentNum: 'zz',
-    major: 'zz',
-    phone: '010-4355-8294',
-    path: 'SNS (인스타그램)',
-    track: 'Back-End',
-    githubLink: 'a.com',
-    portfolioLink: '',
-    answer1: 'sss',
-    answer2: 'fff',
-    answer3: 'ggg',
-    answer4: 'ddd',
-    interviewTimes: [1, 2, 3]
-  });
+  const [application, setApplication] =
+    useState<Application>(initialApplication);
   const [toast, setToast] = useState({ text: '', isRender: false });
   const [isEdit, setIsEdit] = useState(false);
   const nav = useNavigate();
 
   useEffect(() => {
+    if (sessionStorage.getItem('redirectToHome') === 'true') {
+      sessionStorage.removeItem('redirectToHome'); // 플래그 제거
+      handlePageChange(Page.HOME); // 새로고침 시 초기 페이지로 이동
+    }
     setCurrentPage(Number(localStorage.getItem('currentPage')));
     setIsEdit(localStorage.getItem('isEdit') === 'true');
   }, []);
@@ -79,6 +99,20 @@ const ApplyPage = () => {
     }
   }, [toast]);
 
+  useEffect(() => {
+    if (currentPage === Page.APPLY_SECOND || currentPage === Page.APPLY_THIRD) {
+      window.onbeforeunload = () => {
+        sessionStorage.setItem('redirectToHome', 'true'); // 새로고침 시 플래그 저장
+        return '이 페이지를 떠나시겠습니까? 변경사항이 저장되지 않을 수 있습니다.';
+      };
+    } else {
+      window.onbeforeunload = null; // 다른 페이지에서는 방지 해제
+    }
+    return () => {
+      window.onbeforeunload = null; // 컴포넌트가 언마운트되거나 currentPage가 변경될 때 제거
+    };
+  }, [currentPage]);
+
   const setEditStatus = (isEdit: boolean) => {
     setIsEdit(isEdit);
   };
@@ -90,7 +124,7 @@ const ApplyPage = () => {
   const handleHeaderBtnClick = (type: string) => {
     if (currentPage === Page.APPLY_SECOND || currentPage === Page.APPLY_THIRD) {
       const isConfirmed = window.confirm(
-        '입력한 내용을 저장하지 않을 경우 입력한 내용이 모두 초기화됩니다. 정말 진행하시겠습니까?'
+        '입력한 내용을 저장하지 않을 경우 모두 초기화됩니다. 정말 진행하시겠습니까?'
       );
       if (isConfirmed) {
         if (type === 'home') {
@@ -122,6 +156,10 @@ const ApplyPage = () => {
   const handlePageChange = (page: Page) => {
     setCurrentPage(page);
     localStorage.setItem('currentPage', page.toString());
+    window.scrollTo(0, 0);
+    if (page === Page.HOME) {
+      setApplication(initialApplication);
+    }
   };
 
   return (
@@ -186,10 +224,14 @@ const ApplyPage = () => {
               handlePageChange={handlePageChange}
               application={application}
               handleToastRender={handleToastRender}
+              isEdit={isEdit}
             />
           )}
           {currentPage === Page.APPLY_FOURTH && (
-            <ApplyFourth handlePageChange={handlePageChange} />
+            <ApplyFourth
+              handlePageChange={handlePageChange}
+              userName={application.name}
+            />
           )}
           {currentPage === Page.ROUND_ONE_RESULT && (
             <RoundOneResult handlePageChange={handlePageChange} />

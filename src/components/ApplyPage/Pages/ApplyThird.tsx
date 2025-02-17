@@ -10,6 +10,7 @@ interface ApplyThirdProps {
   handlePageChange: (page: Page) => void;
   application: Application;
   handleToastRender: (text: string) => void;
+  isEdit: boolean;
 }
 
 interface InputInfo {
@@ -97,7 +98,8 @@ const interviewProps = {
 const ApplyThird = ({
   handlePageChange,
   application,
-  handleToastRender
+  handleToastRender,
+  isEdit,
 }: ApplyThirdProps) => {
   const [applyInput, setApplyInput] = useState<ApplyInput>({
     track: { value: application.track, isValid: true },
@@ -122,10 +124,6 @@ const ApplyThird = ({
     });
     setIsInputFilled(isFilled);
   }, [applyInput]);
-
-  window.onbeforeunload = function () {
-    return '이 페이지를 떠나시겠습니까? 변경사항이 저장되지 않을 수 있습니다.';
-  };
 
   const IsValidInput = (): boolean => {
     let res: boolean = true;
@@ -171,8 +169,14 @@ const ApplyThird = ({
     // Object.keys(applyInput).map((key) => {
     //   body[key] = applyInput[key as keyof ApplyInput].value;
     // });
+
     try {
-      const res = await instance.post('/application', newBody);
+      let res;
+      if (isEdit === true) {
+        res = await instance.put('/application', newBody);
+      } else if (isEdit === false) {
+        res = await instance.post('/application', newBody);
+      }
       if (res?.data?.success) {
         handleToastRender(res.data.message);
         handlePageChange(Page.APPLY_FOURTH);
@@ -258,8 +262,8 @@ const ApplyThird = ({
           <option value="" disabled selected hidden>
             지원 분야
           </option>
-          <option>Front-End</option>
-          <option>Back-End</option>
+          <option>Backend</option>
+          <option>Frontend</option>
           <option>Design</option>
         </select>
       </div>
@@ -320,6 +324,7 @@ const ApplyThird = ({
         isError={!applyInput.githubLink.isValid}
         isExplanation={false}
         placeholder=""
+        value={applyInput.githubLink.value}
       ></FormBox>
       <FormBox
         name={'portfolioLink'}
@@ -329,6 +334,7 @@ const ApplyThird = ({
         isExplanation={true}
         explanation="pdf를 올린 구글 드라이브 링크나 본인 포트폴리오 웹사이트 링크를 첨부해주세요."
         placeholder=""
+        value={applyInput.portfolioLink.value}
       ></FormBox>
       <SquareBtn
         content="다음"

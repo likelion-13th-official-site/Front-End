@@ -79,10 +79,6 @@ const ApplySecond = ({
     setIsInputFilled(isFilled);
   }, [userInput]);
 
-  window.onbeforeunload = function () {
-    return '이 페이지를 떠나시겠습니까? 변경사항이 저장되지 않을 수 있습니다.';
-  };
-
   const IsValidInput = (): boolean => {
     let res: boolean = true;
     let isValid: boolean = true;
@@ -173,7 +169,7 @@ const ApplySecond = ({
           });
         }
       } catch (err: unknown) {
-        if (err instanceof AxiosError && err?.response?.status === 400) {
+        if (err instanceof AxiosError && err?.response?.status && err?.response?.status >= 400) {
           handleToastRender(err.response.data.message);
           setUserInput({
             ...userInput,
@@ -206,7 +202,7 @@ const ApplySecond = ({
           // });
         }
       } catch (err: unknown) {
-        if (err instanceof AxiosError && err?.response?.status === 400) {
+        if (err instanceof AxiosError && err?.response?.status && err?.response?.status >= 400) {
           handleToastRender(err.response.data.message);
           setUserInput({
             ...userInput,
@@ -288,7 +284,7 @@ const ApplySecond = ({
             name={'email'}
             handleChange={handleInput}
             isError={!userInput.email.isValid}
-            isExplanation={!userInput.email.value.endsWith('@sogang.ac.kr')}
+            isExplanation={!userInput.email.value.endsWith('@sogang.ac.kr') || isEdit}
             explanation={
               isEdit
                 ? '이메일은 수정이 불가능합니다'
@@ -371,9 +367,10 @@ const ApplySecond = ({
           <option value="" disabled selected hidden>
             모집 경로를 선택해주세요.
           </option>
-          <option>멋쟁이사자처럼 홈페이지</option>
-          <option>SNS (인스타그램)</option>
-          <option>지인</option>
+          <option>친구추천</option>
+          <option>SNS</option>
+          <option>학교공지</option>
+          <option>기타</option>
         </select>
       </div>
       <SquareBtn

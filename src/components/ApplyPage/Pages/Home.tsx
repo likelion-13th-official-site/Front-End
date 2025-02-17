@@ -59,6 +59,7 @@ const Home = ({
         const res = await instance.post('/application/view', body);
         if (res?.data?.success) {
           const { id, ...newData } = res.data.data;
+          newData.password = loginData.password;
           getApplicationData(newData);
           localStorage.setItem('isEdit', 'true');
           setEditStatus(true); // 지원서의 status를 edit로 설정
