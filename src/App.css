@@ -36,6 +36,7 @@ body {
   --breakpoint-4xl: 2000px;
   --font-d2: D2Coding;
   --font-pp: PP Lettra Mono;
+  --font-pp-italic: PP Lettra Mono Italic;
   --font-pretendard: Pretendard;
   --color-surface-primary: #ffffff;
   /* --color-surface-primary-dark: #232325; */
@@ -82,6 +83,14 @@ body {
 @font-face {
   font-family: 'PP Lettra Mono';
   src: url('./assets/font/pp-lettra-mono.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Lettra Mono Italic';
+  src: url('./assets/font/pp-lettra-mono-4.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
