@@ -1,7 +1,7 @@
 import FirstSection from '@/components/PeoplePage/FirstSection';
 import { cardinalList } from '@/components/PeoplePage/memberDB';
 import SecondSection from '@/components/PeoplePage/SecondSection';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function PeoplePage() {
@@ -9,20 +9,6 @@ export default function PeoplePage() {
   const onClickCardinal = (cardinal: number) => {
     setSelectedCardinal(cardinal);
   };
-
-  const [height, setHeight] = useState(window.innerHeight);
-  const [screenSize, setScreenSize] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setHeight(window.innerHeight);
-      setScreenSize(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <div className="blueBackground transition-all duration-300 ease-in-out w-screen h-full  ">
@@ -35,7 +21,7 @@ export default function PeoplePage() {
           ease: 'easeInOut' // 부드럽게 이동
         }}
         style={{
-          height: screenSize < 1100 ? '40rem' : '100vh',
+          height: window.innerWidth < 1100 ? '40rem' : '100vh',
           backgroundImage:
             'linear-gradient(90deg, var(--color-surface-tertiary), var(--color-surface-secondary), var(--color-text-primary), var(--color-text-secondary))', // 시작과 끝 색상을 동일하게
           backgroundSize: '300% 100%' // 배경을 길게 늘려서 부드럽게 반복
