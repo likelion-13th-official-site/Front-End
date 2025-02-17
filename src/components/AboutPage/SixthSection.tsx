@@ -5,7 +5,10 @@ const TOGGLE_PX = 700;
 export default function SixthSection() {
   const displayMonths = useResponsiveMonths(TOGGLE_PX);
   return (
-    <section className="w-full  flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]">
+    <section
+      data-aos="fade-up"
+      className="w-full flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]"
+    >
       {/* <div className="leftSection w-full h-full flex max-md:hidden gap-[1.2rem]">
         <div className="w-full"></div>
         <div className="timeline w-full leading-[1.4] text-[1.4rem]">
