@@ -12,6 +12,8 @@ interface FormBoxProps {
   inputType?: string;
   explanation?: string;
   title: string;
+  isDisabled?: boolean;
+  value?: string;
 }
 
 const FormBox = ({
@@ -22,7 +24,9 @@ const FormBox = ({
   isExplanation,
   placeholder,
   inputType,
-  explanation
+  explanation,
+  isDisabled,
+  value
 }: FormBoxProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   return (
@@ -47,6 +51,8 @@ const FormBox = ({
           }
           onChange={handleChange}
           name={name}
+          disabled={isDisabled}
+          value={value}
         ></input>
         {
           inputType === 'password' && (

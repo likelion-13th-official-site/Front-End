@@ -3,9 +3,10 @@ import SquareBtn from '../SquareBtn';
 
 interface ApplyFirstProps {
   handlePageChange: (page: Page) => void;
+  userName: string;
 }
 
-const ApplyFourth = ({ handlePageChange }: ApplyFirstProps) => {
+const ApplyFourth = ({ handlePageChange, userName }: ApplyFirstProps) => {
   const handleNextBtn = () => {
     //API call
     handlePageChange(Page.HOME);
@@ -36,7 +37,9 @@ const ApplyFourth = ({ handlePageChange }: ApplyFirstProps) => {
         </div>
       </div>
       <div className="flex flex-col gap-[0.4rem]">
-        <p className="font-bold">이선명 님, 지원서 저장이 완료되었습니다.</p>
+        <p className="font-bold">
+          {userName} 님, 지원서 저장이 완료되었습니다.
+        </p>
         <p>지원 페이지에서 지원서를 수정할 수 있습니다.</p>
       </div>
       <SquareBtn

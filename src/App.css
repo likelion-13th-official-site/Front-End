@@ -61,6 +61,54 @@ body {
   );
 
   --animate-spin-logo: spin 5s linear infinite;
+
+  --animation-scrolling1: scrolling1 10s linear infinite;
+  --animation-scrolling2: scrolling2 10s linear infinite;
+
+  --animate-toast-fadeInOut:
+    fadeIn 0.6s ease-out forwards, fadeOut 0.3s ease-in forwards 2s;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-0.5rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+  }
+}
+
+@keyframes scrolling1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrolling2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 @keyframes scrolling1 {
