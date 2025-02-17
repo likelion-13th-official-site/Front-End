@@ -63,6 +63,24 @@ body {
   --animate-spin-logo: spin 5s linear infinite;
 }
 
+@keyframes scrolling1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrolling2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 @font-face {
   font-family: 'D2Coding';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff')
