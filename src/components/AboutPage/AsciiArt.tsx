@@ -124,7 +124,7 @@ export default function AsciiArt() {
     }, 100);
 
     // Animation loop
-    const targetFPS = 100; // ✅ 프레임을 144FPS로 증가 (60FPS로 하고 싶으면 60으로 변경)
+    const targetFPS = 30; // ✅ 프레임을 144FPS로 증가 (60FPS로 하고 싶으면 60으로 변경)
     const frameInterval = 1000 / targetFPS; // ✅ 프레임 간격 조절
     let lastFrameTime = 0;
 
@@ -148,7 +148,7 @@ export default function AsciiArt() {
 
       effect.render(scene, camera);
     };
-    animate();
+    animate(0);
 
     return () => {
       window.removeEventListener('resize', onWindowResize);
