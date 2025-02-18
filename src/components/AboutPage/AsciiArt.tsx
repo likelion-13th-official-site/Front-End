@@ -124,19 +124,28 @@ export default function AsciiArt() {
     }, 100);
 
     // Animation loop
+    const targetFPS = 100; // ✅ 프레임을 144FPS로 증가 (60FPS로 하고 싶으면 60으로 변경)
+    const frameInterval = 1000 / targetFPS; // ✅ 프레임 간격 조절
+    let lastFrameTime = 0;
+
     const start = Date.now();
-    const animate = () => {
+    const animate = (time: number) => {
       requestAnimationFrame(animate);
+
+      if (time - lastFrameTime < frameInterval) return; // ✅ 프레임 제한 적용
+      lastFrameTime = time;
+
       const timer = Date.now() - start;
 
       if (svgGroupRef.current) {
-        const moveSpeed = 0.0001;
+        const moveSpeed = 0.0001; // ✅ 기존보다 빠르게 설정
         const maxX = -1300;
         const minX = 0;
 
         svgGroupRef.current.position.x =
           Math.sin(timer * moveSpeed) * (maxX - minX) - 3200;
       }
+
       effect.render(scene, camera);
     };
     animate();
