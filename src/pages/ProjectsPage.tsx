@@ -28,11 +28,11 @@ export default function ProjectsPage() {
     >
       <div
         id="tab-wrapper"
-        className="flex w-full md:grid grid-cols-2 gap-[2.4rem] max-w-[151.2rem]"
+        className="flex w-full md:grid grid-cols-2 gap-[6.4rem] max-w-[151.2rem]"
       >
         <ul
           id="tab-list"
-          className="md:pl-[1.2rem] flex gap-[1.2rem] text-[1.4rem] font-normal col-start-2"
+          className=" flex gap-[1.2rem] text-[1.4rem] font-normal col-start-2"
         >
           <span className="opacity-40">SHOW:</span>
           {tabList.map((tab, index) => (

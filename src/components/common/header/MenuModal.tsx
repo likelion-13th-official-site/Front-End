@@ -7,7 +7,8 @@ export default function MenuModal({ setIsMenuOpen }: MenuModalProps) {
     { name: 'About', link: '/' },
     { name: 'Tracks', link: '/tracks' },
     { name: 'People', link: '/people' },
-    { name: 'Projects', link: '/projects' }
+    { name: 'Projects', link: '/projects' },
+    { name: 'Recruit', link: '/recruit' }
   ];
 
   return (
@@ -16,7 +17,7 @@ export default function MenuModal({ setIsMenuOpen }: MenuModalProps) {
         {navItems.map((item) => (
           <li
             key={item.name}
-            className="border-b border-surface-primary text-[3.6rem] italic text-text-invert py-[1.8rem]"
+            className="border-b border-surface-primary text-[3.2rem] italic text-text-invert py-[1.8rem]"
           >
             <a href={`${item.link}`} onClick={() => setIsMenuOpen(false)}>
               {item.name}
