@@ -74,7 +74,7 @@ export default function ThemeButton({
             !isMenuOpen && (path === '' || path === 'recruit'),
           'hover:border-text-primary  hover:bg-text-primary':
             !isMenuOpen &&
-            (path === 'track' || path === 'projects' || path === 'apply'),
+            (path === 'tracks' || path === 'projects' || path === 'apply'),
           'hover:border-text-invert  hover:bg-text-invert':
             !isMenuOpen && path === 'people'
         }
@@ -111,7 +111,7 @@ const SunIcon = ({
           !isMenuOpen && (path === '' || path === 'recruit'),
         'group-hover:fill-text-invert fill-text-primary':
           !isMenuOpen &&
-          (path === 'track' || path === 'projects' || path === 'apply'),
+          (path === 'tracks' || path === 'projects' || path === 'apply'),
         'fill-text-invert group-hover:fill-text-primary':
           !isMenuOpen && path === 'people'
       })}
@@ -125,7 +125,7 @@ const SunIcon = ({
           !isMenuOpen && (path === '' || path === 'recruit'),
         'group-hover:fill-text-invert fill-text-primary':
           !isMenuOpen &&
-          (path === 'track' || path === 'projects' || path === 'apply'),
+          (path === 'tracks' || path === 'projects' || path === 'apply'),
         'fill-text-invert  group-hover:fill-text-primary':
           !isMenuOpen && path === 'people'
       })}
@@ -157,7 +157,7 @@ const MoonIcon = ({
             !isMenuOpen && (path === '' || path === 'recruit'),
           'group-hover:fill-text-invert fill-text-primary':
             !isMenuOpen &&
-            (path === 'track' || path === 'projects' || path === 'apply'),
+            (path === 'tracks' || path === 'projects' || path === 'apply'),
           'fill-text-invert  group-hover:fill-text-primary':
             !isMenuOpen && path === 'people'
         })}

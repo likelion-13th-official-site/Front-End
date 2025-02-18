@@ -30,6 +30,7 @@ html {
   scrollbar-gutter: stable;
   font-size: 62.5%;
   background-color: var(--color-surface-primary);
+  overflow-x: hidden;
 }
 
 body {
@@ -179,7 +180,7 @@ body {
 
 @font-face {
   font-family: 'PP Lettra Mono Italic';
-  src: url('./assets/font/pp-lettra-mono-4.woff') format('woff');
+  src: url('./assets/font/pp-lettra-mono-2.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

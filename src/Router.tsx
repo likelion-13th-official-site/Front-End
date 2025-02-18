@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         element: <AboutPage />
       },
       {
-        path: 'track/:type',
+        path: 'tracks',
         element: <TrackPage />
       },
       {
