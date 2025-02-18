@@ -20,6 +20,12 @@ const stackItems = [
         '마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어인 CSS를 학습합니다.'
     },
     {
+      imageName: 'JavaScript.svg',
+      name: 'JavaScript',
+      description:
+        '프론트엔드 개발에서 필수적인 Javascript를 학습하고, 동적인 웹사이트를 만들기 위한 핵심 개념을 익힙니다.'
+    },
+    {
       imageName: 'react.svg',
       name: 'React',
       description:

@@ -105,7 +105,7 @@ export const projectsData = [
       '정보를 얻지 못하는 외국인 학생들과 소통하고 싶은 한국 학생들을 위한 플랫폼',
     event: '데모데이',
     img: 'https://i.imgur.com/k4Ob5Fc.png',
-    link: 'https://github.com/Yammy-expedition/frontend'
+    link: 'https://unicon-one.vercel.app/'
   },
   {
     id: 7,
