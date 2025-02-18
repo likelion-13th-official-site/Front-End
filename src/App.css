@@ -13,10 +13,18 @@
 }
 
 body::-webkit-scrollbar {
-  display: none;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--color-text-primary);
+  border-radius: 15px;
+  box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.15);
 }
 
 html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   font-size: 62.5%;
   background-color: var(--color-surface-primary);
 }
