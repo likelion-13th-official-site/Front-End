@@ -1,7 +1,6 @@
 import StackItem from '../components/TrackPage/StackItem';
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import { motion } from 'framer-motion';
 const trackLetters = ['F', 'B', 'D'];
 const trackNames = ['Front-end', 'Back-end', 'Design'];
 
@@ -69,6 +68,9 @@ const TrackPage = () => {
   const [translateX, setTranslateX] = useState('');
 
   useEffect(() => {
+    if (searchParams.get('track') === null) {
+      setSearchParams({ track: 'front-end' });
+    }
     if (!tracks.includes(currentTrack)) {
       setSearchParams({ track: 'front-end' });
       setTranslateX('100vw');
@@ -95,8 +97,11 @@ const TrackPage = () => {
   return (
     <main className="h-screen">
       <div
-        style={{ transition: 'translate ease-out 1s' }}
-        className={`translate-x-[${translateX}] h-[110vh] flex overflow-x-hidden overflow-y-hidden gap-2`}
+        style={{
+          transform: `translateX(${translateX})`,
+          transition: 'transform ease-out 1s'
+        }}
+        className={`h-[110vh] flex overflow-x-hidden overflow-y-hidden gap-2`}
       >
         {stackItems.map((stackItem, index) => (
           <div
@@ -105,8 +110,11 @@ const TrackPage = () => {
           >
             <section className="absolute top-[5rem] md:left-[3.2rem] h-full w-full 2xl:w-screen flex items-center justify-center leading-none">
               <span
-                style={{ transition: 'opacity 1s' }}
-                className={`translate-x-[-8rem] md:translate-x-0 w-full text-[84.4rem] font-[300] font-pp-italic italic opacity-[${tracks.indexOf(currentTrack) === index ? 0.1 : 0}] md:opacity-[0.1]`}
+                style={{
+                  opacity: tracks.indexOf(currentTrack) === index ? 0.1 : 0,
+                  transition: 'opacity 1s'
+                }}
+                className={`translate-x-[-8rem] md:translate-x-0 w-full text-[84.4rem] font-[300] font-pp-italic italic md:opacity-[0.1]`}
               >
                 {trackLetters[index]}
               </span>
