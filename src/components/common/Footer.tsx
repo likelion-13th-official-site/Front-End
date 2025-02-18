@@ -63,11 +63,11 @@ export default function Footer() {
             <div id="footer-email" className="grid grid-cols-2 gap-[1.2rem]">
               <span>Email</span>
               <a
-                href="mailto:sogang@likelion.org"
+                href="mailto:likelionSG@gmail.com"
                 className="underline hover:text-text-secondary"
                 target="_blank"
               >
-                sogang@likelion.org
+                likelionSG@gmail.com
               </a>
             </div>
           </div>

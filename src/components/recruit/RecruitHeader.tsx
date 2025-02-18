@@ -33,7 +33,7 @@ export default function RecruitHeader() {
       >
         지원하기
       </button>
-      <button className="block md:hidden font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border hover:bg-text-primary hover:text-surface-primary">
+      <button className="block md:hidden font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border">
         PC에서만 지원 가능합니다.
       </button>
     </motion.section>

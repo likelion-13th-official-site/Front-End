@@ -23,7 +23,7 @@ export default function Header() {
     <header
       id="header"
       className={clsx(
-        'text-text-primary z-1001 absolute 2xl:fixed w-full font-pp px-[1.6rem] md:px-[3.2rem] flex gap-[2.4rem] justify-between transition-background duration-0',
+        'text-text-primary z-1001 absolute 2xl:fixed w-full font-pp px-[1.6rem] md:px-[3.2rem] flex gap-[6.4rem] justify-between transition-background duration-0',
         { fixed: isMenuOpen },
         {
           '2xl:bg-text-invert':
@@ -97,7 +97,7 @@ export default function Header() {
         )}
       >
         <nav id="header-right__nav" className="hidden md:block">
-          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] px-[1.2rem] py-[0] sm:py-[0.4rem] md:py-[0]">
+          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] py-[0] sm:py-[0.4rem] md:py-[0]">
             {navItems.map((item) => (
               <li key={item.name} className="text-[1.6rem] italic">
                 <Link to={`${item.link}`}>{item.name}</Link>
@@ -170,7 +170,7 @@ export default function Header() {
         )}
       >
         <nav id="header-right__nav" className="hidden md:block">
-          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] px-[1.2rem] py-[0] sm:py-[0.4rem] md:py-[0]">
+          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem]  py-[0] sm:py-[0.4rem] md:py-[0]">
             {navItems.map((item) => (
               <li key={item.name} className="text-[1.6rem] italic">
                 <Link to={`${item.link}`}>{item.name}</Link>
