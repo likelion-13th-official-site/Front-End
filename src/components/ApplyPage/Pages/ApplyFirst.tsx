@@ -1,6 +1,7 @@
 import { Page } from '@/pages/ApplyPage';
 import { useState } from 'react';
 import SquareBtn from '../SquareBtn';
+import { CheckmarkSharp } from 'react-ionicons';
 
 interface ApplyFirstProps {
   handlePageChange: (page: Page) => void;
@@ -34,20 +35,20 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
           안녕하세요! <strong>멋쟁이사자처럼 서강대학교</strong>
           입니다.
         </p>
-
+        <br />
         <p>
-          멋쟁이사자처럼은 코딩을 처음 배우는 사람들도 쉽게 웹 개발을 익히고,
-          창의적인 프로젝트를 함께 만들어가는 전국 대학 연합 IT 동아리입니다.
+          💻 멋쟁이사자처럼은 기획부터 디자인, 개발까지 함께하며 창의적인
+          프로젝트를 만들어가는 전국 최대 규모의 대학 연합 IT 동아리입니다.
         </p>
 
         <p>
-          "<strong>POSSIBILITY TO REALITY</strong>"라는 목표 아래,
-          멋쟁이사자처럼은 다양한 프로젝트와 실전 경험을 바탕으로{' '}
+          💻 "<strong>POSSIBILITY TO REALITY</strong>"라는 목표 아래, 디자이너와
+          개발자가 협업하여 실전 경험을 쌓고,&nbsp;
           <strong>함께 성장하는 환경</strong>을 제공합니다.
         </p>
 
         <p>
-          프로그래밍을 처음 접하는 분들도, 개발 경험이 있는 분들도 모두
+          💻 웹 개발을 처음 배우는 분들부터 경험이 있는 분들까지 모두
           환영합니다!
         </p>
         <br />
@@ -60,18 +61,43 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
         </p>
 
         <p>
-          💡 <strong>"코딩을 배워 나만의 포트폴리오를 만들고 싶다면?"</strong>
+          💡{' '}
+          <strong>
+            “디자인과 개발을 배우며, 나만의 포트폴리오를 만들고 싶다면?”
+          </strong>
         </p>
         <br />
         <p>
           지금 바로 <strong>멋쟁이사자처럼 서강대학교 13기</strong>에
-          도전하세요!
+          도전하세요! 🚀
         </p>
+        <br />
 
         <p>
-          아래 지원 안내 및 선발 일정을 참고하여{' '}
-          <strong>멋쟁이사자처럼과 함께할 준비</strong>를 해 주세요. 🚀
+          📌 서류 모집 기간: 2025.02.18 ~ 2025.03.06 23:59 <br />
+          🔗 지원 사이트 링크:{' '}
+          <a
+            href="https://www.likelionsg13.site/recruit"
+            className="border-b"
+            target="_blank"
+          >
+            https://www.likelionsg13.site/recruit
+          </a>{' '}
+          <br />
+          📌 더 자세한 안내 사항은 멋쟁이사자처럼 13기 홈페이지에서 확인할 수
+          있습니다. <br />
+          🔗 홈페이지 링크:{' '}
+          <a
+            href="https://www.likelionsg13.site"
+            className="border-b"
+            target="_blank"
+          >
+            https://www.likelionsg13.site
+          </a>
         </p>
+        <br />
+
+        <p>✨ 멋사와 함께 아이디어를 실현해 나갈 여러분을 기다립니다! ✨</p>
         <br />
         <p>
           <strong>1. 지원 안내</strong>
@@ -84,11 +110,17 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
           b. 지원서는 다음과 같은 구성으로 되어있습니다. 모든 사항을 빠짐없이
           작성 바랍니다.
         </p>
-        <p className="indent-[4rem]"> i. 안내 사항 동의</p>
-        <p className="indent-[4rem]"> ii. 인적사항 기입</p>
-        <p className="indent-[4rem]">
-          {' '}
-          iii. 자기소개서 제출 및 면접 가능 시간 선택
+        <p className="pl-[4rem] flex">
+          <p className="w-[2rem]"> i.</p>
+          <p>안내사항 동의</p>
+        </p>
+        <p className="pl-[4rem] flex">
+          <p className="w-[2rem]"> ii.</p>
+          <p>인적사항 기입</p>
+        </p>
+        <p className="pl-[4rem] flex">
+          <p className="w-[2rem]"> iii.</p>
+          <p>자기소개서 제출 및 면접 가능 시간 선택</p>
         </p>
         <br />
         <p>
@@ -109,15 +141,11 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
         <p>
           <strong>3. 선발 일정 안내</strong>
         </p>
-        <p className="indent-[2rem]">
-          a. 서류 지원 마감일 : 2025-02-18 ~ 2025-03-06
-        </p>
-        <p className="indent-[2rem]">
-          b. 서류 합격 발표일 : 2025-03-08 ~ 2025-03-09
-        </p>
-        <p className="indent-[2rem]">c. 면접 평가 : 2025-03-10 ~ 2025-03-12</p>
-        <p className="indent-[2rem]">d. 최종 합격 발표일 : 2025-03-14</p>
-        <p className="indent-[2rem]">e. OT : 2025-03-17</p>
+        <p className="indent-[2rem]">a. 서류 지원 : 2025.02.18 ~ 2025.03.06</p>
+        <p className="indent-[2rem]">b. 서류 합격 : 2025.03.08 ~ 2025.03.09</p>
+        <p className="indent-[2rem]">c. 면접 평가 : 2025.03.10 ~ 2025.03.12</p>
+        <p className="indent-[2rem]">d. 최종 합격 : 2025.03.14</p>
+        <p className="indent-[2rem]">e. OT : 2025.03.17</p>
         <br />
         <p>
           <strong>4. 공식 홈페이지, 인스타그램</strong>
@@ -138,28 +166,66 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
           <strong>5. 문의사항</strong>
         </p>
         <p className="indent-[2rem]">a. 대표 윤예은: 010-4126-8427</p>
-        <p className="indent-[2rem]">b. 인스타그램: @likelion_sogang</p>
+        <p className="indent-[2rem]">b. 인스타그램: @likelion_sg</p>
       </p>
       <div className="flex flex-col gap-[1.2rem]">
         <div className="flex justify-between items-center">
           <span>위 내용을 꼼꼼히 읽어보셨나요?</span>
-          <input
-            type="checkbox"
-            className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary   checked:border-text-primary checked:bg-text-primary checked:bg-[url('./assets/image/check_icon.svg')] checked:bg-no-repeat checked:bg-center"
-            onChange={() =>
-              setIsChecked({ ...isChecked, first: !isChecked.first })
-            }
-          ></input>
+          <div className="relative flex items-center">
+            <input
+              type="checkbox"
+              className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary  "
+              onChange={() =>
+                setIsChecked({ ...isChecked, first: !isChecked.first })
+              }
+            ></input>
+            {isChecked.first ? (
+              <div
+                className="text-text-invert absolute w-[1.6rem] h-[1.6rem] top-[50%] left-[50%] translate-[-50%] border-text-primary bg-text-primary  "
+                onClick={() =>
+                  setIsChecked({ ...isChecked, first: !isChecked.first })
+                }
+              >
+                <CheckmarkSharp
+                  color="currentColor"
+                  title=""
+                  height="1.6rem"
+                  width="1.6rem"
+                />
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
         <div className="flex justify-between items-center">
           <span>멋쟁이사자처럼 서강대학교의 모든 활동에 참여 가능한가요?</span>
-          <input
-            type="checkbox"
-            className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary   checked:border-text-primary checked:bg-text-primary checked:bg-[url('./assets/image/check_icon.svg')] checked:bg-no-repeat checked:bg-center"
-            onChange={() =>
-              setIsChecked({ ...isChecked, second: !isChecked.second })
-            }
-          ></input>
+          <div className="relative flex items-center">
+            <input
+              type="checkbox"
+              className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary  "
+              onChange={() =>
+                setIsChecked({ ...isChecked, second: !isChecked.second })
+              }
+            ></input>
+            {isChecked.second ? (
+              <div
+                className="text-text-invert absolute w-[1.6rem] h-[1.6rem] top-[50%] left-[50%] translate-[-50%] border-text-primary bg-text-primary  "
+                onClick={() =>
+                  setIsChecked({ ...isChecked, second: !isChecked.second })
+                }
+              >
+                <CheckmarkSharp
+                  color="currentColor"
+                  title=""
+                  height="1.6rem"
+                  width="1.6rem"
+                />
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </div>
 

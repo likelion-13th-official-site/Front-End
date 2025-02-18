@@ -18,6 +18,7 @@ const FindPWReset = ({
 }: FindPWEmailProps) => {
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(true);
+  const [isPending, setIsPending] = useState(false);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     let res = true;
@@ -29,7 +30,9 @@ const FindPWReset = ({
   };
 
   const handleRequestBtn = async () => {
+    if (isPending) return;
     try {
+      setIsPending(true);
       const body = { email: application.email, password: password };
       const res = await instance.post('/auth/reset-password', body);
       if (res?.data?.success) {
@@ -44,6 +47,8 @@ const FindPWReset = ({
       ) {
         handleToastRender(err.response.data.message);
       }
+    } finally {
+      setIsPending(false);
     }
   };
 
@@ -66,7 +71,9 @@ const FindPWReset = ({
       <SquareBtn
         content="완료"
         handleClick={handleRequestBtn}
-        status={password === '' ? 'disabled' : 'default'}
+        status={
+          password === '' ? 'disabled' : isPending ? 'disabled' : 'default'
+        }
       ></SquareBtn>
     </section>
   );

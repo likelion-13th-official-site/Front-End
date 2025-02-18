@@ -154,7 +154,11 @@ const ApplyPage = () => {
   };
 
   const handleToastRender = (text: string) => {
-    setToast({ text: text, isRender: true });
+    if (text === undefined || text === '' || text === null) {
+      setToast({ text: '오류가 발생했습니다.', isRender: true });
+    } else {
+      setToast({ text: text, isRender: true });
+    }
   };
 
   const handlePageChange = (page: Page) => {
@@ -185,7 +189,7 @@ const ApplyPage = () => {
               ></RoundBtn>
               {currentPage !== Page.HOME && (
                 <RoundBtn
-                  content="Apply Page"
+                  content="Apply Main"
                   handleClick={() => {
                     handleHeaderBtnClick('apply');
                   }}
