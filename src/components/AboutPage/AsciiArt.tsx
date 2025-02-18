@@ -220,7 +220,7 @@ export default function AsciiArt() {
         )}
       </span>
 
-      <div className="lottie-container [&_svg]:text-text-secondary [&_svg]:fill-current [&_svg]:stroke-current">
+      <div className="lottie-container [&_svg]:text-text-invert [&_svg]:fill-current [&_svg]:stroke-current">
         <Lottie
           rendererSettings={{
             preserveAspectRatio: 'xMidYMid slice',

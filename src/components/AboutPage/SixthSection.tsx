@@ -21,7 +21,7 @@ export default function SixthSection() {
           <div className="timeline leading-[1.4] text-[1.4rem]">
             <div className="font-[700] pb-[1.6rem]">일정</div>
             <div className="">
-              <div className=" flex font-d2 py-[0.4rem] text-text-primary font-[400] leading-[1.4] justify-between border-t-text-primary border-t-[1px]">
+              <div className=" flex font-d2 py-[0.4rem] text-text-primary font-[400] leading-[1.4] justify-between border-t-text-primary border-t-[1px] mb-[1.2rem]">
                 {displayMonths.map((month, idx) => {
                   return (
                     <div key={idx} className="font-[700]">
