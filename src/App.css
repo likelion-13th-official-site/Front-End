@@ -12,13 +12,26 @@
   word-break: keep-all;
 }
 
-body::-webkit-scrollbar {
+/* body::-webkit-scrollbar {
   width: 5px;
 }
 
 body::-webkit-scrollbar-thumb {
   background: var(--color-text-primary);
   border-radius: 15px;
+} */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-text-primary);
+  border-radius: 15px;
+}
+
+.people-scrollbar::-webkit-scrollbar {
+  width: 0px;
 }
 
 body::-webkit-scrollbar-track {
