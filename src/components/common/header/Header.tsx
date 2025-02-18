@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ThemeButton from './ThemeButton';
 import MenuPortal from '@/components/portal/MenuPortal';
 import MenuModal from './MenuModal';
 import clsx from 'clsx';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useDetectBlue from '@/hooks/header/useDetectBlue';
+import { s } from 'node_modules/framer-motion/dist/types.d-6pKw1mTI';
 
 const navItems = [
   { name: 'About', link: '/' },
@@ -15,19 +16,38 @@ const navItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const path = useLocation().pathname.split('/')[1];
   const isBlueBackground = useDetectBlue();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 4) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <header
       id="header"
+      style={{ transition: 'background-color ease-in 0.3s' }}
       className={clsx(
-        'text-text-primary z-1001 absolute 2xl:fixed w-full font-pp px-[1.6rem] md:px-[3.2rem] flex gap-[6.4rem] justify-between transition-background duration-0',
+        'text-text-primary z-1001 absolute 2xl:fixed w-full font-pp px-[1.6rem] md:px-[3.2rem] flex gap-[6.4rem] justify-between',
         { fixed: isMenuOpen },
         {
           '2xl:bg-text-invert':
-            (path === 'tracks' || path === 'projects') && !isMenuOpen
+            (path === 'tracks' || path === 'projects') &&
+            !isMenuOpen &&
+            isScrolled
         }
       )}
     >
@@ -37,7 +57,8 @@ export default function Header() {
         className={clsx(
           'h-full flex-1 items-center hidden 2xl:flex py-[1.2rem] ',
           {
-            'text-text-primary bg-text-invert': path === 'people',
+            'bg-text-invert': path === 'people' && isScrolled,
+            'text-text-primary ': path === 'people',
             'text-text-invert':
               path === '' || path === 'recruit' || path === 'credits'
           }
@@ -89,8 +110,8 @@ export default function Header() {
         className={clsx(
           'flex-1 items-start justify-end md:justify-between hidden 2xl:flex py-[1.2rem] ',
           {
-            'text-text-primary bg-text-invert h-full':
-              path === '' || path === 'recruit',
+            'bg-text-invert': path === '' || (path === 'recruit' && isScrolled),
+            'text-text-primary h-full': path === '' || path === 'recruit',
             'text-text-invert': path === 'people' || path === 'credits'
           }
         )}
