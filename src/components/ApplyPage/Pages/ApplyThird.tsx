@@ -5,6 +5,7 @@ import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
+import { CheckmarkSharp } from 'react-ionicons';
 
 interface ApplyThirdProps {
   handlePageChange: (page: Page) => void;
@@ -258,7 +259,7 @@ const ApplyThird = ({
         </div>
       </div>
       <p className="text-[1.2rem] opacity-[0.6] font-pretendard font-medium leading-normal">
-        *은 필수 제출 사항입니다.
+        * 은 필수 제출 사항입니다.
         <br /> 제출한 이후에도, 서류 마감 기한 전까지는 지원 페이지에서 수정이
         가능합니다.
         <br />
@@ -321,7 +322,7 @@ const ApplyThird = ({
                   </p>
 
                   <p className="grow-1 shrink-1 basis-0">{item.time}</p>
-                  <div className="w-[2rem] h-[2rem] flex justify-center items-center">
+                  {/* <div className="w-[2rem] h-[2rem] flex justify-center items-center">
                     <input
                       type="checkbox"
                       name="interview"
@@ -333,6 +334,28 @@ const ApplyThird = ({
                         item.index
                       )}
                     />
+                  </div> */}
+                  <div className="w-[2rem] h-[2rem] justify-center relative flex items-center">
+                    <input
+                      type="checkbox"
+                      className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary  "
+                      onChange={() => handleInterViewInput(item.index)}
+                    ></input>
+                    {applyInput.interviewTimes.value.includes(item.index) ? (
+                      <div
+                        className="text-text-invert absolute w-[1.6rem] h-[1.6rem] top-[50%] left-[50%] translate-[-50%] border-text-primary bg-text-primary  "
+                        onClick={() => handleInterViewInput(item.index)}
+                      >
+                        <CheckmarkSharp
+                          color="currentColor"
+                          title=""
+                          height="1.6rem"
+                          width="1.6rem"
+                        />
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </div>
                 </div>
               )
