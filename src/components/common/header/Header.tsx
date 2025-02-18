@@ -22,7 +22,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 4) {
+      if (window.scrollY > 5) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -109,7 +109,7 @@ export default function Header() {
         className={clsx(
           'flex-1 items-start justify-end md:justify-between hidden 2xl:flex py-[1.2rem] ',
           {
-            'bg-text-invert': path === '' || (path === 'recruit' && isScrolled),
+            'bg-text-invert': (path === '' || path === 'recruit') && isScrolled,
             'text-text-primary h-full': path === '' || path === 'recruit',
             'text-text-invert': path === 'people' || path === 'credits'
           }
