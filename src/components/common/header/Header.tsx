@@ -8,7 +8,7 @@ import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
   { name: 'About', link: '/' },
-  { name: 'Track', link: '/track/front-end' },
+  { name: 'Tracks', link: '/tracks' },
   { name: 'People', link: '/people' },
   { name: 'Projects', link: '/projects' }
 ];
@@ -27,7 +27,7 @@ export default function Header() {
         { fixed: isMenuOpen },
         {
           '2xl:bg-text-invert':
-            (path === 'track' || path === 'projects') && !isMenuOpen
+            (path === 'tracks' || path === 'projects') && !isMenuOpen
         }
       )}
     >
@@ -38,6 +38,7 @@ export default function Header() {
           'h-full flex-1 items-center hidden 2xl:flex py-[1.2rem] ',
           {
             'text-text-primary bg-text-invert': path === 'people',
+            'text-text-primary': path === '',
             'text-text-invert':
               path === '' || path === 'recruit' || path === 'credits'
           }
@@ -122,7 +123,7 @@ export default function Header() {
                   path === '' ||
                   path === 'recruit' ||
                   path === 'projects' ||
-                  path === 'track',
+                  path === 'tracks',
                 'hover:text-text-primary hover:bg-text-invert hover:border-text-invert':
                   path === 'people' || path === 'credits'
               }
@@ -139,7 +140,7 @@ export default function Header() {
                 'hover:text-text-primary hover:bg-text-invert':
                   path === 'credits' || path === '' || path === 'recruit',
                 'hover:text-text-invert hover:bg-text-primary':
-                  path === 'people' || path === 'track' || path === 'projects'
+                  path === 'people' || path === 'tracks' || path === 'projects'
               },
               {
                 'text-text-invert hover:border-text-invert': isMenuOpen
@@ -197,7 +198,7 @@ export default function Header() {
                   path === '' ||
                   path === 'recruit',
                 'hover:text-text-invert hover:bg-text-primary':
-                  path === 'track' || path === 'projects'
+                  path === 'tracks' || path === 'projects'
               }
             )}
           >
@@ -215,7 +216,7 @@ export default function Header() {
                   path === '' ||
                   path === 'recruit',
                 'hover:text-text-invert hover:bg-text-primary':
-                  path === 'track' || path === 'projects'
+                  path === 'tracks' || path === 'projects'
               },
               {
                 'text-text-invert hover:border-text-invert': isMenuOpen
