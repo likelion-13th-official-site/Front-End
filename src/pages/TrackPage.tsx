@@ -1,7 +1,6 @@
 import StackItem from '../components/TrackPage/StackItem';
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import { motion } from 'framer-motion';
 const trackLetters = ['F', 'B', 'D'];
 const trackNames = ['Front-end', 'Back-end', 'Design'];
 
