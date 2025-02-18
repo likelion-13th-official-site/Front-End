@@ -112,6 +112,7 @@ const ApplyThird = ({
     interviewTimes: { value: application.interviewTimes, isValid: true }
   });
   const [isInputFilled, setIsInputFilled] = useState(false);
+  const [isPending, setIsPending] = useState(false);
 
   useEffect(() => {
     let isFilled = true;
@@ -161,6 +162,7 @@ const ApplyThird = ({
   };
 
   const handleNextBtn = async () => {
+    if (isPending) return;
     if (!IsValidInput()) {
       handleToastRender('모든 항목을 올바르게 입력해주세요.');
       return;
@@ -177,6 +179,7 @@ const ApplyThird = ({
     // });
 
     try {
+      setIsPending(true);
       let res;
       if (isEdit === true) {
         res = await instance.put('/application', newBody);
@@ -195,6 +198,8 @@ const ApplyThird = ({
       ) {
         handleToastRender(err.response.data.message);
       }
+    } finally {
+      setIsPending(false);
     }
   };
 
