@@ -17,12 +17,15 @@ const FindPWAuth = ({
   application
 }: FindPWEmailProps) => {
   const [code, setCode] = useState('');
+  const [isPending, setIsPending] = useState(false);
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCode(e.target.value);
   };
 
   const handleRequestBtn = async () => {
+    if (isPending) return;
     try {
+      setIsPending(true);
       const body = { email: application.email, code: code };
       const res = await instance.post('/auth/verify-code', body);
       if (res?.data?.success) {
@@ -37,6 +40,8 @@ const FindPWAuth = ({
       ) {
         handleToastRender(err.response.data.message);
       }
+    } finally {
+      setIsPending(false);
     }
   };
 
@@ -62,7 +67,7 @@ const FindPWAuth = ({
       <SquareBtn
         content="다음"
         handleClick={handleRequestBtn}
-        status={code === '' ? 'disabled' : 'default'}
+        status={code === '' ? 'disabled' : isPending ? 'disabled' : 'default'}
       ></SquareBtn>
     </section>
   );

@@ -31,6 +31,7 @@ const Home = ({
     email: '',
     password: ''
   });
+  const [isPending, setIsPending] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,7 +64,9 @@ const Home = ({
 
   const handleRedirectBtn = async () => {
     if (roundNum === 'apply') {
+      if (isPending) return;
       try {
+        setIsPending(true);
         const body = { ...loginData };
         const res = await instance.post('/application/view', body);
         if (res?.data?.success) {
@@ -83,6 +86,8 @@ const Home = ({
         ) {
           handleToastRender(err.response.data.message);
         }
+      } finally {
+        setIsPending(false);
       }
     } else if (roundNum === 'one') {
       handlePageChange(Page.ROUND_ONE_RESULT);

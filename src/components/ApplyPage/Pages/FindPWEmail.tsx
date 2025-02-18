@@ -18,6 +18,7 @@ const FindPWEmail = ({
 }: FindPWEmailProps) => {
   const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(true);
+  const [isPending, setIsPending] = useState(false);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     // let res = true;
@@ -28,7 +29,9 @@ const FindPWEmail = ({
   };
 
   const handleRequestBtn = async () => {
+    if (isPending) return;
     try {
+      setIsPending(true);
       const body = { email: email };
       const res = await instance.post('/auth/send-code/reset', body);
       if (res?.data?.success) {
@@ -45,6 +48,8 @@ const FindPWEmail = ({
         handleToastRender(err.response.data.message);
         setIsValid(false);
       }
+    } finally {
+      setIsPending(false);
     }
   };
 
@@ -68,7 +73,7 @@ const FindPWEmail = ({
       <SquareBtn
         content="인증 요청"
         handleClick={handleRequestBtn}
-        status={email === '' ? 'disabled' : 'default'}
+        status={email === '' ? 'disabled' : isPending ? 'disabled' : 'default'}
       ></SquareBtn>
     </section>
   );
