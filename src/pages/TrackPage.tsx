@@ -103,7 +103,7 @@ const TrackPage = () => {
           </span>
         </section>
         <section className="col-start-2 w-full flex  h-screen justify-center items-center font-[D2Coding] text-[1.4rem] font-bold leading-[1.96rem]">
-          <div className=" flex justify-center w-full h-fit px-[6.4rem] md:px-[12.8rem] 2xl:pr-[13.2rem]">
+          <div className=" flex justify-center w-full h-fit px-[6.4rem] md:pr-[12.8rem] 2xl:pr-[13.2rem]">
             <div className=" w-full px-[1.2rem] flex flex-col gap-[1.6rem]">
               <p className="w-full">
                 {trackNames[trackType as keyof typeof trackNames]}
