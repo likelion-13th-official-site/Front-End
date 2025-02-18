@@ -45,7 +45,7 @@ const questionProps = [
   {
     name: 'answer2',
     description:
-      '3. 파트를 선택한 이유와 관련 경험을 해본 경험이 있는지 작성해주세요. 없다면!!!! 멋쟁이사자처럼에서 이 파트로 활동하면서 어떠한 성장을 희망하는지 작성해주세요. (500자 이내)'
+      '3. 파트를 선택한 이유와 관련 경험을 해본 경험이 있는지 작성해주세요. 경험이 없다면, 멋쟁이사자처럼에서 선택한 파트로 활동하면서 어떠한 성장을 희망하는지 작성해주세요. (500자 이내)'
   },
   {
     name: 'answer3',
@@ -328,7 +328,8 @@ const ApplyThird = ({
         title={'Github 링크 (선택)'}
         handleChange={handleInput}
         isError={!applyInput.githubLink.isValid}
-        isExplanation={false}
+        isExplanation={!applyInput.githubLink.isValid}
+        explanation="링크 주소는 255자 이내로 제한됩니다."
         placeholder=""
         value={applyInput.githubLink.value}
       ></FormBox>
@@ -338,7 +339,11 @@ const ApplyThird = ({
         handleChange={handleInput}
         isError={!applyInput.portfolioLink.isValid}
         isExplanation={true}
-        explanation="pdf를 올린 구글 드라이브 링크나 본인 포트폴리오 웹사이트 링크를 첨부해주세요."
+        explanation={
+          !applyInput.portfolioLink.isValid
+            ? '링크 주소는 1000자 이내로 제한됩니다.'
+            : 'pdf를 올린 구글 드라이브 링크나 본인 포트폴리오 웹사이트 링크를 첨부해주세요.'
+        }
         placeholder=""
         value={applyInput.portfolioLink.value}
       ></FormBox>
@@ -351,7 +356,7 @@ const ApplyThird = ({
         제출한 이후에도, 서류 마감 기한 전까지는 지원 페이지에서 수정이
         가능합니다.
         <br />
-        서류 마감 기한(2025/0/00 23:59)이 지나면, 지원서 수정 및 조회가
+        서류 마감 기한(2025/03/06 18:00)이 지나면, 지원서 수정 및 조회가
         불가능합니다.
       </p>
     </section>

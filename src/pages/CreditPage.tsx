@@ -76,5 +76,5 @@ type Makers = {
 const makers: Makers[] = [
   { part: 'DESIGN', names: ['이선명'] },
   { part: 'FRONT-END', names: ['김별', '김경우', '유민우'] },
-  { part: 'DESIGN', names: ['나현진', '박정주', '윤예은', '정파란'] }
+  { part: 'BACK-END', names: ['나현진', '박정주', '윤예은', '정파란'] }
 ];
