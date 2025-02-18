@@ -5,13 +5,13 @@ interface MenuModalProps {
 export default function MenuModal({ setIsMenuOpen }: MenuModalProps) {
   const navItems = [
     { name: 'About', link: '/' },
-    { name: 'Track', link: '/track/front-end' },
+    { name: 'Tracks', link: '/tracks' },
     { name: 'People', link: '/people' },
     { name: 'Projects', link: '/projects' }
   ];
 
   return (
-    <div className="blueBackground block md:hidden pl-[1.2rem] pr-[1.2rem] font-pp w-screen h-screen max-h-screen fixed top-0 left-0 bg-text-primary pt-[7.9rem]">
+    <div className="z-50 blueBackground block md:hidden pl-[1.2rem] pr-[1.2rem] font-pp w-screen h-screen max-h-screen fixed top-0 left-0 bg-text-primary pt-[7.9rem]">
       <ul className="border-t border-surface-primary">
         {navItems.map((item) => (
           <li

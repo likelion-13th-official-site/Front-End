@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 
 export default function LazyLoadingImage({
   src,
-  alt
+  alt,
+  idx
 }: {
+  idx: number;
   src: string;
   alt: string;
 }) {
@@ -29,7 +31,11 @@ export default function LazyLoadingImage({
   return (
     <>
       {isLoading ? (
-        <img className="blur-[5px] object-cover w-full" src={src} alt="" />
+        <img
+          className="blur-[5px] object-cover w-full h-[17rem]"
+          src={idx % 2 === 0 ? '/1.jpeg' : '/2.png'}
+          alt=""
+        />
       ) : (
         <img className="blur-[0px] object-cover w-full" src={src} alt={alt} />
       )}
