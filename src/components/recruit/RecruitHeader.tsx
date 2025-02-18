@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import DdayCounter from './DDayCounter';
 import { motion } from 'framer-motion';
+import Lottie from 'lottie-react';
+import ScrollDownLottie from '@/assets/lottie/scrolldown.json';
 
 export default function RecruitHeader() {
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ export default function RecruitHeader() {
         ease: 'linear'
       }}
       id="recruit-header"
-      className="w-full h-full flex flex-col justify-center items-center bg-conic from-surface-tertiary from-8% via-text-primary via-36% to-text-secondary to-81% text-text-invert font-d2"
+      className="relative w-full h-full flex flex-col justify-center items-center bg-conic from-surface-tertiary from-8% via-text-primary via-36% to-text-secondary to-81% text-text-invert font-d2"
     >
       <h2 className="text-[1.4rem] font-[400] leading-[140%]">
         1차 서류 마감까지
@@ -33,9 +35,20 @@ export default function RecruitHeader() {
       >
         지원하기
       </button>
-      <button className="block md:hidden font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border hover:bg-text-primary hover:text-surface-primary">
+      <button className="block md:hidden font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border">
         PC에서만 지원 가능합니다.
       </button>
+      <div className="lottie-container [&_svg]:text-text-invert [&_svg]:fill-current [&_svg]:stroke-current">
+        <Lottie
+          rendererSettings={{
+            preserveAspectRatio: 'xMidYMid slice',
+            progressiveLoad: true
+          }}
+          className="absolute bottom-0 left-[50vw] mx-auto transform -translate-x-1/2"
+          loop={true}
+          animationData={ScrollDownLottie}
+        />
+      </div>
     </motion.section>
   );
 }

@@ -4,17 +4,17 @@ const trackList = [
   {
     trackName: 'Front-end',
     description: '사용자와 상호작용하는 인터페이스를 시각화하여 구현합니다.',
-    link: '/track/front-end'
+    link: '/tracks?track=front-end'
   },
   {
     trackName: 'Back-end',
     description: '데이터 처리, 비즈니스 로직, 서버 관리 등을 담당합니다.',
-    link: '/track/back-end'
+    link: '/tracks?track=back-end'
   },
   {
     trackName: 'Design',
     description: '사용자의 관점에서 문제를 해결하는 서비스를 디자인합니다.',
-    link: '/track/design'
+    link: '/tracks?track=design'
   }
 ];
 

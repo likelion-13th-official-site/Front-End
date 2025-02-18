@@ -4,7 +4,10 @@ export default function CreditPage() {
   return (
     <main className="blueBackground main w-full h-screen flex pt-[12.8rem] max-md:block pb-[38.4rem] px-[3.2rem] gap-[6.4rem]  bg-text-primary text-text-invert">
       <section className="w-1/2 max-2xl:pt-[18.6rem] max-md:pt-0 max-md:w-full">
-        <LLSG style={{ height: 'auto' }} className="w-full " />
+        <LLSG
+          style={{ height: 'auto' }}
+          className="w-full first:fill-surface-tertiary"
+        />
       </section>
       <section className="w-1/2 max-md:w-full flex font-d2 text-[1.4rem] gap-[2.4rem] font-[400] max-2xl:pt-[18.6rem] max-md:pt-[5.4rem]">
         <div className="w-full">
@@ -76,5 +79,5 @@ type Makers = {
 const makers: Makers[] = [
   { part: 'DESIGN', names: ['이선명'] },
   { part: 'FRONT-END', names: ['김별', '김경우', '유민우'] },
-  { part: 'DESIGN', names: ['나현진', '박정주', '윤예은', '정파란'] }
+  { part: 'BACK-END', names: ['나현진', '박정주', '윤예은', '정파란'] }
 ];

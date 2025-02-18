@@ -5,18 +5,19 @@ interface MenuModalProps {
 export default function MenuModal({ setIsMenuOpen }: MenuModalProps) {
   const navItems = [
     { name: 'About', link: '/' },
-    { name: 'Track', link: '/track/front-end' },
+    { name: 'Tracks', link: '/tracks' },
     { name: 'People', link: '/people' },
-    { name: 'Projects', link: '/projects' }
+    { name: 'Projects', link: '/projects' },
+    { name: 'Recruit', link: '/recruit' }
   ];
 
   return (
-    <div className="blueBackground block md:hidden pl-[1.2rem] pr-[1.2rem] font-pp w-screen h-screen max-h-screen fixed top-0 left-0 bg-text-primary pt-[7.9rem]">
+    <div className="z-50 blueBackground block md:hidden pl-[1.2rem] pr-[1.2rem] font-pp w-screen h-screen max-h-screen fixed top-0 left-0 bg-text-primary pt-[7.9rem]">
       <ul className="border-t border-surface-primary">
         {navItems.map((item) => (
           <li
             key={item.name}
-            className="border-b border-surface-primary text-[3.6rem] italic text-text-invert py-[1.8rem]"
+            className="border-b border-surface-primary text-[3.2rem] italic text-text-invert py-[1.8rem]"
           >
             <a href={`${item.link}`} onClick={() => setIsMenuOpen(false)}>
               {item.name}

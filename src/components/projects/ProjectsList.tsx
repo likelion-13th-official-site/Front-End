@@ -44,7 +44,7 @@ export default function ProjectsList() {
           id="proj-box"
           key={idx}
           onClick={() => navigate(`/projects/${proj.id}`)}
-          className="group mt-[3.6rem] border-t border-text-primary pt-[0.8rem] flex flex-col md:flex-row justify-between gap-[2.4rem] cursor-pointer"
+          className="group mt-[3.6rem] border-t border-text-primary pt-[0.8rem] flex flex-col md:flex-row justify-between gap-[6.4rem] cursor-pointer"
         >
           <div
             id="proj-left"
@@ -64,12 +64,12 @@ export default function ProjectsList() {
           </div>
           <div
             id="proj-right"
-            className="flex-1 md:pl-[1.2rem] flex flex-col md:grid grid-cols-2 gap-[1.2rem]"
+            className="flex-1 flex flex-col md:grid grid-cols-2 gap-[1.2rem]"
           >
             <h4 className="text-[1.4rem] font-[400] leading-[140%]">
               {proj.event}
             </h4>
-            <LazyLoadingImage src={proj.img} alt={proj.title} />
+            <LazyLoadingImage idx={idx} src={proj.img} alt={proj.title} />
           </div>
         </div>
       ))}

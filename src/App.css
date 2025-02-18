@@ -13,12 +13,35 @@
 }
 
 body::-webkit-scrollbar {
-  display: none;
+  width: 5px;
+}
+
+@media (max-width: 1100px) {
+  body::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--color-text-primary);
+  border-radius: 15px;
+}
+
+.people-scrollbar::-webkit-scrollbar {
+  width: 0px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   font-size: 62.5%;
   background-color: var(--color-surface-primary);
+  overflow-x: hidden;
 }
 
 body {
@@ -189,7 +212,7 @@ body {
 
 @font-face {
   font-family: 'PP Lettra Mono Italic';
-  src: url('./assets/font/pp-lettra-mono-4.woff') format('woff');
+  src: url('./assets/font/pp-lettra-mono-2.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
