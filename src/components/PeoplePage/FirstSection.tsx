@@ -1,5 +1,4 @@
 import { cardinalList, MemberList } from './memberDB';
-import { motion } from 'framer-motion';
 
 interface FirstSectionProps {
   selectedCardinal: number;
