@@ -1,6 +1,7 @@
 import StackItem from '../components/TrackPage/StackItem';
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 const trackLetters = ['F', 'B', 'D'];
 const trackNames = ['Front-end', 'Back-end', 'Design'];
 
@@ -95,7 +96,12 @@ const TrackPage = () => {
   };
 
   return (
-    <main className="h-screen">
+    <motion.main
+      className="h-screen"
+      initial={{ y: 50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       <div
         style={{
           transform: `translateX(${translateX})`,
@@ -155,7 +161,7 @@ const TrackPage = () => {
           →
         </div>
       )}
-    </main>
+    </motion.main>
   );
 };
 
