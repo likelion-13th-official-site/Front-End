@@ -77,11 +77,9 @@ const TrackPage = () => {
       setTranslateX(translateList[tracks.indexOf(currentTrack)]);
     }
   }, [currentTrack, setSearchParams]);
-  console.log(currentTrack);
 
   const handleArrowClick = (dir: string) => {
     const currentIndex = tracks.indexOf(trackType);
-    console.log('current', currentIndex);
     const newIndex = dir === 'left' ? currentIndex - 1 : currentIndex + 1;
     if (newIndex === 0) {
       setTranslateX('100vw');
@@ -90,7 +88,6 @@ const TrackPage = () => {
     } else if (newIndex === 2) {
       setTranslateX('-100vw');
     }
-    console.log('new', newIndex);
 
     setSearchParams({ track: tracks[newIndex] });
   };
