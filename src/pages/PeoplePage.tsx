@@ -23,7 +23,7 @@ export default function PeoplePage() {
   }, []);
 
   return (
-    <div className="blueBackground transition-all duration-300 ease-in-out w-screen h-full  ">
+    <div className="blueBackground transition-all duration-300 ease-in-out w-screen h-full">
       <motion.div
         style={{
           height: screenSize < 1100 ? '40rem' : '100vh'
@@ -35,7 +35,7 @@ export default function PeoplePage() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="blueBackground w-[50%] pt-[12.8rem] px-[3.2rem] flex flex-col gap-[12.8rem] max-2xl:w-[100%] max-2xl:z-10 relative bg-text-invert max-2xl:pt-[3.2rem] max-2xl:px-[3.2rem] max-md:pt-[1.6rem] max-md:px-[1.6rem]"
+        className="blueBackground w-[50%] pt-[12.8rem] px-[3.2rem] flex flex-col gap-[12.8rem] max-2xl:w-[100%] max-2xl:z-10 relative max-2xl:pt-[3.2rem] max-2xl:px-[3.2rem] max-md:pt-[1.6rem] max-md:px-[1.6rem]"
       >
         <FirstSection
           selectedCardinal={selectedCardinal}
