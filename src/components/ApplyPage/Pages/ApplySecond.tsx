@@ -62,6 +62,7 @@ const ApplySecond = ({
     isAuth: false
   });
   const [isInputFilled, setIsInputFilled] = useState(false);
+  const [isPending, setIsPending] = useState(false);
 
   useEffect(() => {
     const viewApplication = async () => {};
@@ -160,8 +161,10 @@ const ApplySecond = ({
   };
 
   const handleEmailBtn = async (action: string) => {
+    if (isPending) return;
     if (action === 'isSent') {
       try {
+        setIsPending(true);
         const body = { email: userInput.email.value };
         const res = await instance.post('/auth/send-code/signup', body);
         if (res?.data?.success) {
@@ -184,18 +187,25 @@ const ApplySecond = ({
             email: { value: userInput.email.value, isValid: false }
           });
         }
+      } finally {
+        setIsPending(false);
       }
     }
 
     if (action === 'isAuth') {
       // setEmailState({ ...emailState, isAuth: true });
       // return;
-
-      if (isNaN(Number(userInput.emailAuth.value))) {
-        handleToastRender('인증번호는 숫자로만 입력해주세요.');
+      if (userInput.emailAuth.value === '') {
+        handleToastRender('인증번호를 입력해주세요.');
+        setUserInput({
+          ...userInput,
+          emailAuth: { value: userInput.emailAuth.value, isValid: false }
+        });
         return;
       }
       try {
+        setIsPending(true);
+
         const body = {
           email: userInput.email.value,
           code: userInput.emailAuth.value
@@ -221,6 +231,8 @@ const ApplySecond = ({
             emailAuth: { ...userInput.emailAuth, isValid: false }
           });
         }
+      } finally {
+        setIsPending(false);
       }
     }
   };
@@ -307,16 +319,14 @@ const ApplySecond = ({
           {userInput.email.value != '' && (
             <div className="w-[12.2rem]">
               <SquareBtn
-                content="인증번호 발송"
+                content={isPending ? '발송 중' : '인증번호 발송'}
                 handleClick={() => {
                   handleEmailBtn('isSent');
                 }}
                 status={
-                  isEdit
+                  isEdit || emailState.isAuth === true || isPending
                     ? 'disabled'
-                    : emailState.isAuth === true
-                      ? 'disabled'
-                      : 'default'
+                    : 'default'
                 }
               ></SquareBtn>
             </div>
