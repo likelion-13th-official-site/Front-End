@@ -69,7 +69,7 @@ export default function ProjectsList() {
             <h4 className="text-[1.4rem] font-[400] leading-[140%]">
               {proj.event}
             </h4>
-            <LazyLoadingImage src={proj.img} alt={proj.title} />
+            <LazyLoadingImage idx={idx} src={proj.img} alt={proj.title} />
           </div>
         </div>
       ))}
