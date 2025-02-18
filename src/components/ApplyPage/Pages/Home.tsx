@@ -4,6 +4,7 @@ import FormBox from '../FormBox';
 import { Application, Page } from '@/pages/ApplyPage';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 interface LoginData {
   email: string;
@@ -23,18 +24,26 @@ const Home = ({
   handleToastRender,
   setEditStatus
 }: HomeProps) => {
-  const [roundNum, setRoundNum] = useState<'apply' | 'one' | 'two'>('apply');
+  const [roundNum, setRoundNum] = useState<
+    'apply' | 'one' | 'two' | 'forbidden'
+  >('apply');
   const [loginData, setLoginData] = useState<LoginData>({
     email: '',
     password: ''
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const now = new Date();
+    const recruitDoneDate = new Date(now.getFullYear(), 2, 6, 18, 0, 0);
     const roundOneAnnounceDate = new Date(now.getFullYear(), 2, 8, 20, 0, 0);
     const roundTwoAnnounceDate = new Date(now.getFullYear(), 2, 14, 20, 0, 0);
-    if (now < roundOneAnnounceDate) setRoundNum('apply');
-    else if (now >= roundOneAnnounceDate && now < roundTwoAnnounceDate)
+    if (now < recruitDoneDate) setRoundNum('apply');
+    else if (now >= recruitDoneDate && now < roundOneAnnounceDate) {
+      setRoundNum('forbidden');
+      alert('현재는 지원 접수 기간이 아닙니다.');
+      navigate('/');
+    } else if (now >= roundOneAnnounceDate && now < roundTwoAnnounceDate)
       setRoundNum('one');
     else setRoundNum('two');
   }, []);

@@ -65,7 +65,7 @@ const TrackPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentTrack = searchParams.get('track') || 'front-end';
   const [trackType, setTrackType] = useState(currentTrack);
-  const [translateX, setTranslateX] = useState('');
+  const [translateX, setTranslateX] = useState('100vw');
 
   useEffect(() => {
     if (searchParams.get('track') === null) {
