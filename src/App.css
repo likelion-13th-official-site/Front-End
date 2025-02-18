@@ -12,20 +12,18 @@
   word-break: keep-all;
 }
 
-/* body::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 5px;
+}
+
+@media (max-width: 700px) {
+  body::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--color-text-primary);
-  border-radius: 15px;
-} */
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 5px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
   background: var(--color-text-primary);
   border-radius: 15px;
 }

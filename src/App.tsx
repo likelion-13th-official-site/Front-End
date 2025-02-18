@@ -1,7 +1,6 @@
 import './App.css';
-import { RouterProvider, useLocation } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import router from './Router';
-import { useEffect } from 'react';
 
 function App() {
   return (
