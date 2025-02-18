@@ -5,7 +5,6 @@ import MenuModal from './MenuModal';
 import clsx from 'clsx';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useDetectBlue from '@/hooks/header/useDetectBlue';
-import { s } from 'node_modules/framer-motion/dist/types.d-6pKw1mTI';
 
 const navItems = [
   { name: 'About', link: '/' },
