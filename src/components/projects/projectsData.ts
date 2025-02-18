@@ -14,7 +14,7 @@ export const projectsData = [
     short:
       '멋쟁이사자처럼 서강대학교 13기 운영진들이 직접 개발한 공식 사이트 입니다.',
     event: '공식 사이트 개발',
-    img: 'https://i.imgur.com/Jh07ffR.png',
+    img: 'https://i.imgur.com/bwtarfA.jpeg',
     link: 'https://www.likelionsg13.site/'
   },
   {

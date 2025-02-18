@@ -17,13 +17,13 @@ const trackNames = {
 const stackItems = {
   'front-end': [
     {
-      imageName: 'html.svg',
+      imageName: 'HTML5.svg',
       name: 'HTML',
       description:
         'HTML은 웹사이트 콘텐츠를 설명하는데 사용되는 마크업 언어입니다.'
     },
     {
-      imageName: 'css.svg',
+      imageName: 'CSS3.svg',
       name: 'CSS',
       description:
         '마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어인 CSS를 학습합니다.'
@@ -96,15 +96,15 @@ const TrackPage = () => {
 
   return (
     <>
-      <div className="relative w-full h-screen px-[1.6rem] md:px-[3.2rem] flex 2xl:grid grid-cols-2 gap-[2.4rem] overflow-hidden bg-text-invert text-text-primary">
-        <section className="absolute top-0 md:left-[3.2rem] w-screen 2xl:w-fit flex items-center justify-center leading-none">
-          <span className=" text-[84.4rem] font-[900] font-pp-italic italic opacity-[0.1]">
+      <div className="relative w-full h-screen  flex 2xl:grid grid-cols-2 gap-[2.4rem] bg-text-invert text-text-primary">
+        <section className="absolute top-[5rem] md:left-[3.2rem] h-full w-screen 2xl:w-screen flex items-center justify-center leading-none">
+          <span className="w-full text-[84.4rem] font-[300] font-pp-italic italic opacity-[0.1]">
             {trackLetters[trackType as keyof typeof trackLetters]}
           </span>
         </section>
         <section className="col-start-2 w-full flex  h-screen justify-center items-center font-[D2Coding] text-[1.4rem] font-bold leading-[1.96rem]">
-          <div className=" flex justify-center w-full h-fit px-[6.4rem] md:px-[12.8rem] 2xl:pr-[13.2rem]">
-            <div className=" w-full px-[1.2rem] flex flex-col gap-[1.6rem]">
+          <div className=" flex justify-center w-full h-fit 2xl:pr-[12.8rem]">
+            <div className=" w-full px-[6.4rem] md:px-[12.8rem] 2xl:px-[0rem] flex flex-col gap-[1.6rem]">
               <p className="w-full">
                 {trackNames[trackType as keyof typeof trackNames]}
               </p>
@@ -125,13 +125,13 @@ const TrackPage = () => {
         </section>
       </div>
       <div
-        className="absolute top-[50%] left-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary cursor-pointer font-pp"
+        className="absolute top-[50%] left-[1.2rem] text-[4.8rem] md:text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary cursor-pointer font-pp"
         onClick={() => handleArrowClick('left')}
       >
         ←
       </div>
       <div
-        className="absolute top-[50%] right-[1.2rem] text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary cursor-pointer font-pp"
+        className="absolute top-[50%] right-[1.2rem] text-[4.8rem] md:text-[9.6rem] leading-[13.4rem] translate-y-[-50%] text-text-primary cursor-pointer font-pp"
         onClick={() => handleArrowClick('right')}
       >
         →

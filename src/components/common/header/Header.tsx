@@ -23,10 +23,10 @@ export default function Header() {
     <header
       id="header"
       className={clsx(
-        'text-text-primary z-1001 absolute 2xl:fixed w-full  font-pp px-[1.2rem] flex gap-[2.4rem] justify-between transition-background duration-0',
+        'text-text-primary z-1001 absolute 2xl:fixed w-full font-pp px-[1.6rem] md:px-[3.2rem] flex gap-[2.4rem] justify-between transition-background duration-0',
         { fixed: isMenuOpen },
         {
-          'bg-text-invert':
+          '2xl:bg-text-invert':
             (path === 'track' || path === 'projects') && !isMenuOpen
         }
       )}
@@ -191,10 +191,13 @@ export default function Header() {
                 'hidden md:block': path !== 'recruit'
               },
               {
-                'hover:text-text-primary hover:bg-text-invert':
-                  path === 'credits' || path === '' || path === 'recruit',
+                'hover:text-text-primary hover:bg-text-invert hover:border-text-invert':
+                  path === 'people' ||
+                  path === 'credits' ||
+                  path === '' ||
+                  path === 'recruit',
                 'hover:text-text-invert hover:bg-text-primary':
-                  path === 'people' || path === 'track' || path === 'projects'
+                  path === 'track' || path === 'projects'
               }
             )}
           >
@@ -206,10 +209,13 @@ export default function Header() {
             className={clsx(
               'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
               {
-                'hover:text-text-primary hover:bg-text-invert':
-                  path === 'credits' || path === '' || path === 'recruit',
+                'hover:text-text-primary hover:bg-text-invert hover:border-text-invert':
+                  path === 'people' ||
+                  path === 'credits' ||
+                  path === '' ||
+                  path === 'recruit',
                 'hover:text-text-invert hover:bg-text-primary':
-                  path === 'people' || path === 'track' || path === 'projects'
+                  path === 'track' || path === 'projects'
               },
               {
                 'text-text-invert hover:border-text-invert': isMenuOpen
