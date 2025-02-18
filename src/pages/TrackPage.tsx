@@ -22,8 +22,7 @@ const stackItems = [
     {
       imageName: 'JavaScript.svg',
       name: 'JavaScript',
-      description:
-        '프론트엔드 개발에서 필수적인 Javascript를 학습하고, 동적인 웹사이트를 만들기 위한 핵심 개념을 익힙니다.'
+      description: '프론트엔드 개발에서 필수적인 Javascript를 학습합니다.'
     },
     {
       imageName: 'react.svg',
