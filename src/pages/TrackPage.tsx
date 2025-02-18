@@ -8,16 +8,10 @@ const trackNames = ['Front-end', 'Back-end', 'Design'];
 const stackItems = [
   [
     {
-      imageName: 'HTML5.svg',
-      name: 'HTML',
+      imageName: 'document.png',
+      name: 'HTML & CSS',
       description:
-        'HTML은 웹사이트 콘텐츠를 설명하는데 사용되는 마크업 언어입니다.'
-    },
-    {
-      imageName: 'CSS3.svg',
-      name: 'CSS',
-      description:
-        '마크업 언어가 실제 표시되는 방법을 기술하는 스타일 언어인 CSS를 학습합니다.'
+        '마크업 언어의 기본인 HTML과 스타일링 언어인 CSS를 활용하여 웹사이트를 디자인합니다.'
     },
     {
       imageName: 'JavaScript.svg',
