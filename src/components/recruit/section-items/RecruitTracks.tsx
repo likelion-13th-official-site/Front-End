@@ -58,7 +58,7 @@ export default function RecruitTracks() {
               <a
                 id="track-link"
                 href={track.link}
-                className="w-[5.6rem] h-fit font-pp text-[9.6rem] leading-[80%]"
+                className="w-[5.6rem] h-fit font-pp text-[9.6rem] leading-[80%] hover:animate-arrow-hover not-hover:animate-arrow-hover-done"
               >
                 ↗
               </a>

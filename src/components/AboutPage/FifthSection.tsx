@@ -56,7 +56,7 @@ export default function FifthSection() {
                       <div>{track.description}</div>
                       <Link
                         to={track.link}
-                        className="text-[9.6rem] font-[500] font-pp leading-[0.8] cursor-pointer max-md:text-[4.8rem]"
+                        className="text-[9.6rem] font-[500] font-pp leading-[0.8] cursor-pointer max-md:text-[4.8rem] hover:animate-arrow-hover not-hover:animate-arrow-hover-done "
                       >
                         ↗
                       </Link>
