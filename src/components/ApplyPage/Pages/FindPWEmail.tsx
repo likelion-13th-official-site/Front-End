@@ -66,14 +66,14 @@ const FindPWEmail = ({
         title={'EMAIL'}
         handleChange={handleInput}
         isError={!isValid}
-        isExplanation={!isValid}
-        explanation="이메일 형식이 잘못되었습니다."
+        isExplanation={false}
+        // explanation="이메일 형식이 잘못되었습니다."
         placeholder=""
       ></FormBox>
       <SquareBtn
-        content="인증 요청"
+        content={isPending ? '인증번호 발송 중' : '인증 요청'}
         handleClick={handleRequestBtn}
-        status={email === '' ? 'disabled' : isPending ? 'disabled' : 'default'}
+        status={email === '' || isPending ? 'disabled' : 'default'}
       ></SquareBtn>
     </section>
   );
