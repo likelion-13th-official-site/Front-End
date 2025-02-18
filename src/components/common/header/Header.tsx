@@ -38,7 +38,7 @@ export default function Header() {
           'h-full flex-1 items-center hidden 2xl:flex py-[1.2rem] ',
           {
             'text-text-primary bg-text-invert': path === 'people',
-            'text-text-primary': path === '',
+
             'text-text-invert':
               path === '' || path === 'recruit' || path === 'credits'
           }
