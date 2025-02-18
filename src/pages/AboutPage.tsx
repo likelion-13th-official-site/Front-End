@@ -27,7 +27,7 @@ export default function AboutPage() {
     <main className="main relative w-full flex items-center justify-center max-2xl:block ">
       <div
         style={{ height: screenSize < 1100 ? height : '100vh' }} // 🔹 1100px 이상에서도 높이 유지
-        className="w-[50%] text-[20rem] flex items-center justify-center fixed max-2xl:sticky top-0 left-0 h-full max-2xl:w-[100%] max-2xl:left-auto bg-gradient-to-r from-surface-tertiary from-0% via-surface-secondary via-27.5% to-text-primary to-90%"
+        className="w-[50%] text-[20rem] flex items-center justify-center fixed max-2xl:sticky top-0 left-0 h-full max-2xl:w-[100%] max-2xl:left-auto "
       >
         <AsciiArt />
       </div>

@@ -124,9 +124,17 @@ export default function AsciiArt() {
     }, 100);
 
     // Animation loop
+    const targetFPS = 30;
+    const frameInterval = 1000 / targetFPS;
+    let lastFrameTime = 0;
+
     const start = Date.now();
-    const animate = () => {
+    const animate = (time: number) => {
       requestAnimationFrame(animate);
+
+      if (time - lastFrameTime < frameInterval) return;
+      lastFrameTime = time;
+
       const timer = Date.now() - start;
 
       if (svgGroupRef.current) {
@@ -137,9 +145,10 @@ export default function AsciiArt() {
         svgGroupRef.current.position.x =
           Math.sin(timer * moveSpeed) * (maxX - minX) - 3200;
       }
+
       effect.render(scene, camera);
     };
-    animate();
+    animate(0);
 
     return () => {
       window.removeEventListener('resize', onWindowResize);
@@ -189,7 +198,7 @@ export default function AsciiArt() {
   }, []);
 
   return (
-    <div className="cursor-none overflow-hidden relative pt-[5.752rem] blueBackground w-full h-full bg-gradient-to-r from-surface-tertiary from-0% via-surface-secondary via-17% to-text-primary to-90%">
+    <div className="horizontal_gradient cursor-none overflow-hidden relative pt-[5.752rem] blueBackground w-full h-full">
       <div
         id="ascii_container"
         className="text-text-invert font-[900] cursor-pointer"
@@ -211,7 +220,7 @@ export default function AsciiArt() {
         )}
       </span>
 
-      <div className="lottie-container [&_svg]:text-text-secondary [&_svg]:fill-current [&_svg]:stroke-current">
+      <div className="lottie-container [&_svg]:text-text-invert [&_svg]:fill-current [&_svg]:stroke-current">
         <Lottie
           rendererSettings={{
             preserveAspectRatio: 'xMidYMid slice',
