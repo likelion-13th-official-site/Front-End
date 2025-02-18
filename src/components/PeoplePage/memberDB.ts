@@ -10,7 +10,7 @@ export const MemberList: Record<number, Member[] | string[]> = {
     {
       type: 'manager',
       job: 'BE',
-      names: ['윤예은', '나현진', '김현승', '정파란', '박정주']
+      names: ['윤예은', '나현진', '김현승', '정파란', '박정주', '김유이']
     },
     { type: 'manager', job: 'DE', names: ['이선명', '길민경', '김은홍'] }
   ],
