@@ -77,7 +77,8 @@ body {
 
   --animate-toast-fadeInOut:
     fadeIn 0.6s ease-out forwards, fadeOut 0.3s ease-in forwards 2s;
-
+  --animate-arrow-hover: arrowOut 0.6s ease-in-out forwards;
+  --animate-arrow-hover-done: arrowIn 0.3s ease-in-out forwards;
   --animate-gradient-move: gradient-move 10s linear infinite;
 }
 
@@ -105,6 +106,26 @@ body {
     transform: translateY(2rem);
   }
 }
+@keyframes arrowOut {
+  0% {
+    transform: translate(0rem, 0rem);
+  }
+  50% {
+    transform: translate(1rem, -1rem);
+  }
+  100% {
+    transform: translate(0.6rem, -0.6rem);
+  }
+}
+@keyframes arrowIn {
+  0% {
+    transform: translate(0.6rem, -0.6rem);
+  }
+  100% {
+    transform: translate(0rem, 0rem);
+  }
+}
+
 @keyframes gradient-move {
   0% {
     background-position: 0% 50%;

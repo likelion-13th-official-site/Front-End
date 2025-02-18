@@ -1,6 +1,7 @@
 import { Page } from '@/pages/ApplyPage';
 import { useState } from 'react';
 import SquareBtn from '../SquareBtn';
+import { CheckmarkSharp } from 'react-ionicons';
 
 interface ApplyFirstProps {
   handlePageChange: (page: Page) => void;
@@ -143,23 +144,61 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
       <div className="flex flex-col gap-[1.2rem]">
         <div className="flex justify-between items-center">
           <span>위 내용을 꼼꼼히 읽어보셨나요?</span>
-          <input
-            type="checkbox"
-            className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary   checked:border-text-primary checked:bg-text-primary checked:bg-[url('./assets/image/check_icon.svg')] checked:bg-no-repeat checked:bg-center"
-            onChange={() =>
-              setIsChecked({ ...isChecked, first: !isChecked.first })
-            }
-          ></input>
+          <div className="relative flex items-center">
+            <input
+              type="checkbox"
+              className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary  "
+              onChange={() =>
+                setIsChecked({ ...isChecked, first: !isChecked.first })
+              }
+            ></input>
+            {isChecked.first ? (
+              <div
+                className="text-text-invert absolute w-[1.6rem] h-[1.6rem] top-[50%] left-[50%] translate-[-50%] border-text-primary bg-text-primary  "
+                onClick={() =>
+                  setIsChecked({ ...isChecked, first: !isChecked.first })
+                }
+              >
+                <CheckmarkSharp
+                  color="currentColor"
+                  title=""
+                  height="1.6rem"
+                  width="1.6rem"
+                />
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
         <div className="flex justify-between items-center">
           <span>멋쟁이사자처럼 서강대학교의 모든 활동에 참여 가능한가요?</span>
-          <input
-            type="checkbox"
-            className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary   checked:border-text-primary checked:bg-text-primary checked:bg-[url('./assets/image/check_icon.svg')] checked:bg-no-repeat checked:bg-center"
-            onChange={() =>
-              setIsChecked({ ...isChecked, second: !isChecked.second })
-            }
-          ></input>
+          <div className="relative flex items-center">
+            <input
+              type="checkbox"
+              className="appearance-none w-[1.6rem] h-[1.6rem] border border-secondary hover:border-[2px] hover:border-text-primary  "
+              onChange={() =>
+                setIsChecked({ ...isChecked, second: !isChecked.second })
+              }
+            ></input>
+            {isChecked.second ? (
+              <div
+                className="text-text-invert absolute w-[1.6rem] h-[1.6rem] top-[50%] left-[50%] translate-[-50%] border-text-primary bg-text-primary  "
+                onClick={() =>
+                  setIsChecked({ ...isChecked, second: !isChecked.second })
+                }
+              >
+                <CheckmarkSharp
+                  color="currentColor"
+                  title=""
+                  height="1.6rem"
+                  width="1.6rem"
+                />
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </div>
 

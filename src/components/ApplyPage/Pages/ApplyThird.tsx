@@ -252,12 +252,23 @@ const ApplyThird = ({
           <span>지원서 저장</span>
         </div>
       </div>
+      <p className="text-[1.2rem] opacity-[0.6] font-pretendard font-medium leading-normal">
+        *은 필수 제출 사항입니다.
+        <br /> 제출한 이후에도, 서류 마감 기한 전까지는 지원 페이지에서 수정이
+        가능합니다.
+        <br />
+        서류 마감 기한(2025/03/06 18:00)이 지나면, 지원서 수정 및 조회가
+        불가능합니다.
+      </p>
       <div
         className={
           ' flex flex-col gap-[0.6rem] grow-1 shrink-1 basis-0 text-[1.4rem]'
         }
       >
-        <p className="text-primary">1. 지원 분야를 선택해 주세요.</p>
+        <p className="text-primary">
+          1. 지원 분야를 선택해 주세요.{' '}
+          <span className="text-status-negative">*</span>
+        </p>
         <select
           className="border-b border-b-text-primary font-pretendard p-2 py-[1.2rem] px-0 outline-none rounded-none"
           name="track"
@@ -289,7 +300,8 @@ const ApplyThird = ({
         }
       >
         <p className="text-text-primary">
-          면접 가능한 날짜와 시간을 모두 선택해주세요.
+          면접 가능한 날짜와 시간을 모두 선택해주세요.{' '}
+          <span className="text-status-negative">*</span>
         </p>
         {Object.keys(interviewProps).map((date) => (
           <div
@@ -352,13 +364,6 @@ const ApplyThird = ({
         handleClick={handleNextBtn}
         status={isInputFilled ? 'default' : 'disabled'}
       ></SquareBtn>
-      <p className="text-[1.2rem] opacity-[0.6] font-pretendard font-medium leading-normal">
-        제출한 이후에도, 서류 마감 기한 전까지는 지원 페이지에서 수정이
-        가능합니다.
-        <br />
-        서류 마감 기한(2025/03/06 18:00)이 지나면, 지원서 수정 및 조회가
-        불가능합니다.
-      </p>
     </section>
   );
 };
