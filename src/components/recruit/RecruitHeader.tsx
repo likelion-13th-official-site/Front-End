@@ -23,7 +23,7 @@ export default function RecruitHeader() {
         ease: 'linear'
       }}
       id="recruit-header"
-      className="relative w-full h-full flex flex-col justify-center items-center bg-conic from-surface-tertiary from-8% via-text-primary via-36% to-text-secondary to-81% text-text-invert font-d2"
+      className="max-2xl:sticky top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-conic from-surface-tertiary from-8% via-text-primary via-36% to-text-secondary to-81% text-text-invert font-d2"
     >
       <h2 className="text-[1.4rem] font-[400] leading-[140%]">
         1차 서류 마감까지
