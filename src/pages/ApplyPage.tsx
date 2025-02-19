@@ -87,11 +87,12 @@ const ApplyPage = () => {
       sessionStorage.removeItem('redirectToHome'); // 플래그 제거
       handlePageChange(Page.HOME); // 새로고침 시 초기 페이지로 이동
     }
-    setCurrentPage(Number(localStorage.getItem('currentPage')));
-    setIsEdit(localStorage.getItem('isEdit') === 'true');
+    // setCurrentPage(Number(localStorage.getItem('currentPage')));
+    // setIsEdit(localStorage.getItem('isEdit') === 'true');
     return () => {
-      localStorage.setItem('currentPage', Page.HOME.toString());
-      localStorage.setItem('isEdit', 'false');
+      // localStorage.setItem('currentPage', Page.HOME.toString());
+      // localStorage.setItem('isEdit', 'false');
+      // 🚨 로컬 스토리지 내 value 값을 유저가 임의로 변경하는 경우를 막기 위해 localStorage 저장 기능 삭제
     };
   }, []);
 
@@ -104,14 +105,10 @@ const ApplyPage = () => {
   }, [toast]);
 
   useEffect(() => {
-    if (currentPage === Page.APPLY_SECOND || currentPage === Page.APPLY_THIRD) {
-      window.onbeforeunload = () => {
-        sessionStorage.setItem('redirectToHome', 'true'); // 새로고침 시 플래그 저장
-        return '이 페이지를 떠나시겠습니까? 변경사항이 저장되지 않을 수 있습니다.';
-      };
-    } else {
-      window.onbeforeunload = null; // 다른 페이지에서는 방지 해제
-    }
+    window.onbeforeunload = () => {
+      sessionStorage.setItem('redirectToHome', 'true'); // 새로고침 시 플래그 저장
+      return '새로고침 시 지원 초기 페이지로 이동합니다.';
+    };
     return () => {
       window.onbeforeunload = null; // 컴포넌트가 언마운트되거나 currentPage가 변경될 때 제거
     };
@@ -126,22 +123,26 @@ const ApplyPage = () => {
   };
 
   const handleHeaderBtnClick = (type: string) => {
-    if (currentPage === Page.APPLY_SECOND || currentPage === Page.APPLY_THIRD) {
+    if (
+      currentPage === Page.APPLY_SECOND ||
+      currentPage === Page.APPLY_THIRD ||
+      currentPage === Page.FIND_PW_AUTH ||
+      currentPage === Page.FIND_PW_RESET
+    ) {
       const isConfirmed = window.confirm(
-        '입력한 내용을 저장하지 않을 경우 모두 초기화됩니다. 정말 진행하시겠습니까?'
+        '현재까지의 진행 상황이 모두 초기화됩니다.\n정말 진행하시겠습니까?'
       );
       if (isConfirmed) {
         if (type === 'home') {
-          localStorage.setItem('currentPage', Page.HOME.toString());
+          // localStorage.setItem('currentPage', Page.HOME.toString());
           nav('/');
         } else if (type === 'apply') {
           handlePageChange(Page.HOME);
         }
-      }
-      return;
+      } else return;
     }
     if (type === 'home') {
-      localStorage.setItem('currentPage', Page.HOME.toString());
+      // localStorage.setItem('currentPage', Page.HOME.toString());
       nav('/');
     } else if (type === 'apply') {
       handlePageChange(Page.HOME);
@@ -163,7 +164,7 @@ const ApplyPage = () => {
 
   const handlePageChange = (page: Page) => {
     setCurrentPage(page);
-    localStorage.setItem('currentPage', page.toString());
+    // localStorage.setItem('currentPage', page.toString());
     window.scrollTo(0, 0);
     if (page === Page.HOME) {
       setApplication(initialApplication);
