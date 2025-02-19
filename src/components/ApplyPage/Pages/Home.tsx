@@ -73,7 +73,7 @@ const Home = ({
           const { id, ...newData } = res.data.data;
           newData.password = loginData.password;
           getApplicationData(newData);
-          localStorage.setItem('isEdit', 'true');
+          // localStorage.setItem('isEdit', 'true');
           setEditStatus(true); // 지원서의 status를 edit로 설정
           setLoginData({ email: '', password: '' });
           handlePageChange(Page.APPLY_SECOND);
@@ -103,7 +103,7 @@ const Home = ({
 
   const handleCreateBtn = () => {
     setLoginData({ email: '', password: '' });
-    localStorage.setItem('isEdit', 'false');
+    // localStorage.setItem('isEdit', 'false');
     setEditStatus(false); // 지원서의 status를 create로 설정
     handlePageChange(Page.APPLY_FIRST);
   };
