@@ -32,7 +32,9 @@ export default function SixthSection() {
               </div>
               <div className="flex flex-col gap-[0.8rem]">
                 {annualActivityList.map((activity, idx) => {
-                  const color = activity.isOneTime ? 'white' : 'text-primary';
+                  const color = activity.isOneTime
+                    ? 'text-invert'
+                    : 'text-primary';
                   const isLastTwo = idx >= annualActivityList.length - 2;
 
                   if (isLastTwo)
