@@ -30,7 +30,7 @@ export default function RecruitPage() {
       {/* 🔹 두 번째 섹션 (스크롤 시 올라오는 컨텐츠) */}
       <div
         style={{ marginTop: screenSize < 1100 ? height : '' }}
-        className="w-full flex flex-col min-h-screen pt-[12.8rem] gap-[12.8rem] items-center col-start-2 relative bg-gray-100"
+        className="w-full flex flex-col min-h-screen pt-[12.8rem] gap-[12.8rem] items-center col-start-2 relative bg-text-invert"
       >
         <RecruitSection>
           <RecruitTracks />
