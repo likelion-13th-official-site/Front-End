@@ -17,7 +17,7 @@ export default function Footer() {
     <footer
       id="footer"
       className={clsx(
-        'font-d2 w-screen justify-center pb-[12.8rem]',
+        'font-d2 w-screen justify-center pb-[12.8rem] max-2xl:z-[500] bg-surface-primary',
         {
           'text-text-invert border-text-invert': path === 'credits',
           ' text-text-primary border-text-primary': path !== 'credits'
