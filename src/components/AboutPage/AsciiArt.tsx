@@ -198,7 +198,7 @@ export default function AsciiArt() {
   }, []);
 
   return (
-    <div className="horizontal_gradient cursor-none overflow-hidden relative pt-[5.752rem] blueBackground w-full h-full">
+    <div className="horizontal_gradient max-2xl:sticky top-0 left-0  max-2xl:w-[100%] max-2xl:left-auto cursor-none overflow-hidden relative pt-[5.752rem] blueBackground w-full h-full">
       <div
         id="ascii_container"
         className="text-text-invert font-[900] cursor-pointer"
