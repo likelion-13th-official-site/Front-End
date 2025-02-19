@@ -189,7 +189,7 @@ const ApplyPage = () => {
               ></RoundBtn>
               {currentPage !== Page.HOME && (
                 <RoundBtn
-                  content="Apply Page"
+                  content="Apply Main"
                   handleClick={() => {
                     handleHeaderBtnClick('apply');
                   }}

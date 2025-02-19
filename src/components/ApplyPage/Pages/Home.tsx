@@ -36,7 +36,7 @@ const Home = ({
 
   useEffect(() => {
     const now = new Date();
-    const recruitDoneDate = new Date(now.getFullYear(), 2, 6, 18, 0, 0);
+    const recruitDoneDate = new Date(now.getFullYear(), 2, 7, 0, 0, 0);
     const roundOneAnnounceDate = new Date(now.getFullYear(), 2, 8, 20, 0, 0);
     const roundTwoAnnounceDate = new Date(now.getFullYear(), 2, 14, 20, 0, 0);
     if (now < recruitDoneDate) setRoundNum('apply');
