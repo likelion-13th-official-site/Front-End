@@ -23,7 +23,7 @@ export default function RecruitPage() {
       className="flex flex-col 2xl:grid 2xl:grid-cols-2 w-full relative"
     >
       {/* 🔹 첫 번째 섹션 (고정 배너 역할) */}
-      <div className="w-[100vw] 2xl:w-[50vw] h-screen max-2xl:fixed top-0 left-0 flex items-center justify-center bg-white">
+      <div className="w-[100vw] 2xl:w-[50%] h-screen max-2xl:fixed 2xl:fixed top-0 left-0 flex items-center justify-center bg-white">
         <RecruitHeader />
       </div>
 
