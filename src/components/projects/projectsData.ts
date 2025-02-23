@@ -86,7 +86,7 @@ export const projectsData = [
     short:
       '모집 시작부터 결과 발표까지, 한 곳에서 간편하게. 이너조인으로 동아리 운영의 새로운 가능성을 경험하세요!',
     event: '데모데이',
-    img: 'https://i.imgur.com/rsswrKn.png',
+    img: 'https://i.imgur.com/lWaWeRN.png',
     link: null
   },
   {
