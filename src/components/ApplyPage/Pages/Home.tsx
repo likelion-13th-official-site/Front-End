@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
-import { Application, Page } from '@/pages/ApplyPage';
+import { Application, Page, Result } from '@/pages/ApplyPage';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -13,16 +13,18 @@ interface LoginData {
 
 interface HomeProps {
   handlePageChange: (page: Page) => void;
-  getApplicationData: (data: Application) => void;
+  setApplicationData: (data: Application) => void;
   handleToastRender: (text: string) => void;
   setEditStatus: (isEdit: boolean) => void;
+  setResultData: (data: Result) => void;
 }
 
 const Home = ({
   handlePageChange,
-  getApplicationData,
+  setApplicationData,
   handleToastRender,
-  setEditStatus
+  setEditStatus,
+  setResultData
 }: HomeProps) => {
   const [roundNum, setRoundNum] = useState<
     'apply' | 'one' | 'two' | 'forbidden'
@@ -36,8 +38,10 @@ const Home = ({
 
   useEffect(() => {
     const now = new Date();
-    const recruitDoneDate = new Date(now.getFullYear(), 2, 7, 0, 0, 0);
-    const roundOneAnnounceDate = new Date(now.getFullYear(), 2, 8, 20, 0, 0);
+    const recruitDoneDate = new Date(now.getFullYear(), 1, 7, 0, 0, 0);
+    // const recruitDoneDate = new Date(now.getFullYear(), 2, 7, 0, 0, 0);
+    const roundOneAnnounceDate = new Date(now.getFullYear(), 1, 22, 20, 0, 0);
+    // const roundOneAnnounceDate = new Date(now.getFullYear(), 2, 8, 20, 0, 0);
     const roundTwoAnnounceDate = new Date(now.getFullYear(), 2, 14, 20, 0, 0);
     if (now < recruitDoneDate) setRoundNum('apply');
     else if (now >= recruitDoneDate && now < roundOneAnnounceDate) {
@@ -72,7 +76,7 @@ const Home = ({
         if (res?.data?.success) {
           const { id, ...newData } = res.data.data;
           newData.password = loginData.password;
-          getApplicationData(newData);
+          setApplicationData(newData);
           // localStorage.setItem('isEdit', 'true');
           setEditStatus(true); // 지원서의 status를 edit로 설정
           setLoginData({ email: '', password: '' });
@@ -89,10 +93,32 @@ const Home = ({
       } finally {
         setIsPending(false);
       }
-    } else if (roundNum === 'one') {
-      handlePageChange(Page.ROUND_ONE_RESULT);
-    } else if (roundNum === 'two') {
-      handlePageChange(Page.ROUND_TWO_RESULT);
+    } else {
+      if (isPending) return;
+      try {
+        setIsPending(true);
+        const body = { ...loginData };
+        const endPoint =
+          roundNum === 'one' ? '/result/document' : '/result/final';
+        const res = await instance.post(endPoint, body);
+        if (res?.data?.success) {
+          setResultData(res.data.data);
+          setLoginData({ email: '', password: '' });
+          handlePageChange(
+            roundNum === 'one' ? Page.ROUND_ONE_RESULT : Page.ROUND_TWO_RESULT
+          );
+        }
+      } catch (err: unknown) {
+        if (
+          err instanceof AxiosError &&
+          err?.response?.status &&
+          err?.response?.status >= 400
+        ) {
+          handleToastRender(err.response.data.message);
+        }
+      } finally {
+        setIsPending(false);
+      }
     }
   };
 

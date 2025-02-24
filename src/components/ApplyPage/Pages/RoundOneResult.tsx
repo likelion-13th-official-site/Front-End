@@ -1,16 +1,13 @@
-import { Page } from '@/pages/ApplyPage';
+import { Page, Result } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
-import { useState } from 'react';
 
-interface RoundTwoResultProps {
+interface RoundOneResultProps {
   handlePageChange: (page: Page) => void;
+  result: Result;
 }
 
-const RoundOneResult = ({ handlePageChange }: RoundTwoResultProps) => {
-  const [isPass, setIsPass] = useState(false);
-  setIsPass(true);
+const RoundOneResult = ({ handlePageChange, result }: RoundOneResultProps) => {
   const handleNextBtn = () => {
-    //API call
     handlePageChange(Page.HOME);
   };
 
@@ -18,12 +15,12 @@ const RoundOneResult = ({ handlePageChange }: RoundTwoResultProps) => {
     <section className="flex flex-col gap-[4.8rem] text-[1.4rem]  ">
       <div className="flex flex-col gap-[2.4rem]">
         <p className="font-bold">
-          {isPass
-            ? '축하합니다, 이선명 님. 멋쟁이사자처럼 서강대학교 13기 1차 서류 전형에 합격하셨습니다.'
-            : '멋쟁이사자처럼 서강대학교에서 이선명 님의 1차 서류 결과를 안내 드립니다.'}
+          {result.status === '서류합격'
+            ? `축하합니다, ${result.name} 님. 멋쟁이사자처럼 서강대학교 13기 1차 서류 전형에 합격하셨습니다.`
+            : `멋쟁이사자처럼 서강대학교에서 ${result.name} 님의 1차 서류 결과를 안내 드립니다.`}
         </p>
         <p className="font-bold p-[1.2rem] border border-text-primary font-pretendard leading-[2.1rem]">
-          {isPass ? (
+          {result.status === '서류합격' ? (
             <>
               안녕하세요, 멋쟁이사자처럼 서강대학교 13기 운영진입니다.
               <br />

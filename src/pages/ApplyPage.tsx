@@ -74,10 +74,19 @@ export const initialApplication = {
   interviewTimes: []
 };
 
+export interface Result {
+  name: string;
+  status: string;
+  track?: string;
+  interviewStartTime?: string;
+  interviewEndTime?: string;
+}
+
 const ApplyPage = () => {
   const [currentPage, setCurrentPage] = useState(Page.HOME);
   const [application, setApplication] =
     useState<Application>(initialApplication);
+  const [result, setResult] = useState<Result>({ name: '', status: '' });
   const [toast, setToast] = useState({ text: '', isRender: false });
   const [isEdit, setIsEdit] = useState(false);
   const nav = useNavigate();
@@ -118,8 +127,12 @@ const ApplyPage = () => {
     setIsEdit(isEdit);
   };
 
-  const getApplicationData = (data: Application) => {
+  const setApplicationData = (data: Application) => {
     setApplication(data);
+  };
+
+  const setResultData = (data: Result) => {
+    setResult(data);
   };
 
   const handleHeaderBtnClick = (type: string) => {
@@ -202,7 +215,8 @@ const ApplyPage = () => {
           {currentPage === Page.HOME && (
             <Home
               handlePageChange={handlePageChange}
-              getApplicationData={getApplicationData}
+              setApplicationData={setApplicationData}
+              setResultData={setResultData}
               handleToastRender={handleToastRender}
               setEditStatus={setEditStatus}
             />
@@ -211,7 +225,7 @@ const ApplyPage = () => {
             <FindPWEmail
               handlePageChange={handlePageChange}
               handleToastRender={handleToastRender}
-              getApplicationData={getApplicationData}
+              setApplicationData={setApplicationData}
             />
           )}
           {currentPage === Page.FIND_PW_AUTH && (
@@ -255,10 +269,16 @@ const ApplyPage = () => {
             />
           )}
           {currentPage === Page.ROUND_ONE_RESULT && (
-            <RoundOneResult handlePageChange={handlePageChange} />
+            <RoundOneResult
+              handlePageChange={handlePageChange}
+              result={result}
+            />
           )}
           {currentPage === Page.ROUND_TWO_RESULT && (
-            <RoundTwoResult handlePageChange={handlePageChange} />
+            <RoundTwoResult
+              handlePageChange={handlePageChange}
+              result={result}
+            />
           )}
         </div>
       </div>

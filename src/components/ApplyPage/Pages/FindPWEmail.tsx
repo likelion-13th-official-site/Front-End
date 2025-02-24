@@ -8,13 +8,13 @@ import { AxiosError } from 'axios';
 interface FindPWEmailProps {
   handlePageChange: (page: Page) => void;
   handleToastRender: (text: string) => void;
-  getApplicationData: (data: Application) => void;
+  setApplicationData: (data: Application) => void;
 }
 
 const FindPWEmail = ({
   handlePageChange,
   handleToastRender,
-  getApplicationData
+  setApplicationData
 }: FindPWEmailProps) => {
   const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(true);
@@ -36,7 +36,7 @@ const FindPWEmail = ({
       const res = await instance.post('/auth/send-code/reset', body);
       if (res?.data?.success) {
         handleToastRender(res.data.message);
-        getApplicationData({ ...initialApplication, email: email });
+        setApplicationData({ ...initialApplication, email: email });
         handlePageChange(Page.FIND_PW_AUTH);
       }
     } catch (err: unknown) {
