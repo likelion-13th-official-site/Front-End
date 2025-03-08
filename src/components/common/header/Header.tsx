@@ -129,10 +129,10 @@ export default function Header() {
           className="flex gap-[0.8rem] align-center"
         >
           <button
-            onClick={() => navigate('/recruit')}
+            onClick={() => navigate('/apply')}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
+              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2',
               {
                 'hidden md:hidden': path === 'recruit',
                 'hidden md:block': path !== 'recruit'
@@ -148,13 +148,13 @@ export default function Header() {
               }
             )}
           >
-            Apply Now →
+            서류결과 조회 →
           </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
+              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2',
               {
                 'hover:text-text-primary hover:bg-text-invert':
                   path === 'credits' || path === '' || path === 'recruit',
@@ -202,7 +202,7 @@ export default function Header() {
           className="flex gap-[0.8rem] align-center"
         >
           <button
-            onClick={() => navigate('/recruit')}
+            onClick={() => navigate('/apply')}
             id="header-right__apply"
             className={clsx(
               'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
@@ -221,7 +221,7 @@ export default function Header() {
               }
             )}
           >
-            Apply Now →
+            서류결과 조회 →
           </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}

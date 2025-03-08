@@ -59,7 +59,7 @@ export default function DdayCounter({
   return (
     <div
       id="dday-counter"
-      className="text-[9.6rem] font-[500] leading-[140%] font-pp"
+      className="text-[9.6rem] font-[500] leading-[140%] font-pp max-md:text-[5.8rem] max-md:pt-[2rem] max-md:pb-[2rem]"
     >
       {dayDiff > 0 && <h3>D-{dayDiff}</h3>}
       {dayDiff === 0 && timeLeft && (

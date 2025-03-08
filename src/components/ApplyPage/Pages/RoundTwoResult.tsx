@@ -1,16 +1,13 @@
-import { Page } from '@/pages/ApplyPage';
+import { Page, Result } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
-import { useState } from 'react';
 
 interface RoundTwoResultProps {
   handlePageChange: (page: Page) => void;
+  result: Result;
 }
 
-const RoundTwoResult = ({ handlePageChange }: RoundTwoResultProps) => {
-  const [isPass, setIsPass] = useState(true);
-  setIsPass(true);
+const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
   const handleNextBtn = () => {
-    //API call
     handlePageChange(Page.HOME);
   };
 
@@ -18,12 +15,12 @@ const RoundTwoResult = ({ handlePageChange }: RoundTwoResultProps) => {
     <section className="flex flex-col gap-[4.8rem] text-[1.4rem]  ">
       <div className="flex flex-col gap-[2.4rem]">
         <p className="font-bold">
-          {isPass
-            ? '이선명 님, 멋쟁이사자처럼 서강대학교 13기 최종 합격을 축하드려요!'
-            : '멋쟁이사자처럼 서강대학교에서 이선명 님의 최종 결과를 안내 드립니다.'}
+          {result.status === '최종합격'
+            ? `${result.name} 님, 멋쟁이사자처럼 서강대학교 13기 최종 합격을 축하드려요!`
+            : `멋쟁이사자처럼 서강대학교에서 ${result.name} 님의 최종 결과를 안내 드립니다.`}
         </p>
         <p className="font-bold p-[1.2rem] border border-text-primary font-pretendard leading-[2.1rem]">
-          {isPass ? (
+          {result.status === '최종합격' ? (
             <>
               안녕하세요, 멋쟁이사자처럼 서강대학교 13기 운영진입니다.
               <br />
