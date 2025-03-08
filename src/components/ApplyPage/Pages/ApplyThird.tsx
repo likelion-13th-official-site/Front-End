@@ -382,7 +382,7 @@ const ApplyThird = ({
         explanation={
           !applyInput.portfolioLink.isValid
             ? '링크 주소는 1000자 이내로 제한됩니다.'
-            : 'pdf를 올린 구글 드라이브 링크나 본인 포트폴리오 웹사이트 링크를 첨부해주세요.'
+            : '포트폴리오는 선택사항이며, 서류 점수에 영향을 미치지 않습니다.'
         }
         placeholder=""
         value={applyInput.portfolioLink.value}
@@ -397,3 +397,4 @@ const ApplyThird = ({
 };
 
 export default ApplyThird;
+//
