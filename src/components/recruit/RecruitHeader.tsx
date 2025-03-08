@@ -42,7 +42,7 @@ export default function RecruitHeader() {
         </button>
       )}
       <button className="block md:hidden font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border">
-        PC에서만 열람 가능합니다.
+        PC에서 서류결과 조회가 가능합니다.
       </button>
       <div className="lottie-container [&_svg]:text-text-invert [&_svg]:fill-current [&_svg]:stroke-current">
         <Lottie
