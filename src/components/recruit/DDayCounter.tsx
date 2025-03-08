@@ -15,7 +15,7 @@ export default function DdayCounter({
 
   const dDayCountFunc = () => {
     const now = new Date();
-    const dueDate = new Date('2025-03-06T23:59:59+09:00');
+    const dueDate = new Date('2025-03-05T23:59:59+09:00');
     // const dueDate = new Date('2025-02-26T23:59:59+09:00');
 
     const timeDiff = dueDate.getTime() - now.getTime();
