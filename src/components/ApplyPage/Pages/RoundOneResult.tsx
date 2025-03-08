@@ -69,7 +69,8 @@ const RoundOneResult = ({ handlePageChange, result }: RoundOneResultProps) => {
               </strong>
               <br />
               <br />
-              <strong>면접 유의사항</strong>
+              <br />
+              <strong>📍면접 유의사항</strong>
               <br />
               <br />
               1. 면접 시간 <strong>15분 이전</strong>에 대기 부탁드립니다.
@@ -94,7 +95,9 @@ const RoundOneResult = ({ handlePageChange, result }: RoundOneResultProps) => {
               후 모든 영상 자료는 폐기됩니다.
               <br />
               <br />
-              <strong>문의사항</strong>
+              <br />
+              <strong>📍문의사항</strong>
+              <br />
               <br />
               1. 대표 윤예은: 010-4126-8427
               <br />
