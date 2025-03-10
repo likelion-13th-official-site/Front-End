@@ -10,25 +10,76 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
   const handleNextBtn = () => {
     handlePageChange(Page.HOME);
   };
+  result.status = '최종합격';
 
   return (
     <section className="flex flex-col gap-[4.8rem] text-[1.4rem]  ">
       <div className="flex flex-col gap-[2.4rem]">
         <p className="font-bold">
           {result.status === '최종합격'
-            ? `${result.name} 님, 멋쟁이사자처럼 서강대학교 13기 최종 합격을 축하드려요!`
-            : `멋쟁이사자처럼 서강대학교에서 ${result.name} 님의 최종 결과를 안내 드립니다.`}
+            ? `${result.name}님, 멋쟁이사자처럼 서강대학교 13기 최종 합격을 축하드려요!🎉`
+            : `멋쟁이사자처럼 서강대학교에서 ${result.name}님의 최종 결과를 안내 드립니다.`}
         </p>
-        <p className="font-bold p-[1.2rem] border border-text-primary font-pretendard leading-[2.1rem]">
+        <p className="p-[1.2rem] border border-text-primary font-pretendard leading-[2.1rem]">
           {result.status === '최종합격' ? (
             <>
               안녕하세요, 멋쟁이사자처럼 서강대학교 13기 운영진입니다.
               <br />
+              13기 멋쟁이사자처럼 서강대학교 {result.track} 파트
+              <strong> 최종 합격</strong>을 축하드립니다.
               <br />
-              멋쟁이사자처럼 서강대학교 13기 최종 합격을 축하드립니다!
+              13기 아기사자 활동을 시작하기에 앞서 첫 번째 공지사항을
+              전달드립니다.
               <br />
               <br />
-              이후 관련 내용...
+              📌 <strong>정규 세션 시간</strong>
+              <br />• 매주 <strong>월요일 / 목요일 19:00~21:00</strong>
+              <br />
+              <br />
+              📌 <strong>오리엔테이션 일정</strong>
+              <br />• <strong>날짜</strong>: 3월 17일 (월요일)
+              <br />• <strong>시간</strong>: 19:00
+              <br />• <strong>장소</strong>: 마포 프론트원 - 공덕 ICT COC
+              <br />
+              <br />
+              📌 <strong>강의 자료 및 과제 업로드</strong>
+              <br />• Notion과 Github을 사용합니다.
+              <br />• Notion에 가입해주시고, Notion에 가입한 이메일을 아래{' '}
+              <strong>구글폼</strong>에 기재하여 제출해주세요.
+              <br />
+              <br />
+              📌 <strong>회비 안내</strong>
+              <br />• 멋쟁이사자처럼 서강대학교는 <strong>회칙 제 11조</strong>
+              에 따라 본회의 유지 및 운영에 필요한 경비 <strong>6만원</strong>을
+              회비로 정하고 있습니다.
+              <br />• <strong>13기 총무 계좌</strong>:
+              <br />
+              <p className="pl-[2rem]">
+                ‣ <strong>계좌번호</strong>: 3333329268292
+                <br />‣ <strong>은행</strong>: 카카오뱅크
+                <br />‣ <strong>예금주</strong>: 박정주
+              </p>
+              <br />
+              📌 <strong>회원 정보 수합</strong>
+              <br />
+              • 멋쟁이사자처럼 13기 회원 정보를 수합합니다.
+              <br />• 추가로{' '}
+              <strong>회비 입금 내역, 이후 일정 참가 여부</strong> 등에 대한
+              정보를 아래 <strong>구글폼</strong>에 입력해주시면 감사하겠습니다.
+              <br />• <strong>제출 마감</strong>: 3월 15일 (토) 오후 11:59까지
+              <br />
+              • <strong>구글폼 링크</strong>:{' '}
+              <a href="" target="_blank" className="underline">
+                ???
+              </a>
+              <br />
+              <br />
+              다시 한 번 <strong>멋쟁이사자처럼 서강대학교 아기사자</strong>가
+              되신 것을 축하드리며, 앞으로 여러분과 함께 하게 될 수많은 시간을
+              기대하고 있겠습니다!
+              <br />
+              <br />
+              🐯 <strong>POSSIBILITY TO REALITY</strong> 🐯
             </>
           ) : (
             <>
