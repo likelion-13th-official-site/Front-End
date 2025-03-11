@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@jridgewell/source-map": "^0.3.6",
-    "@react-three/drei": "^9.121.5",
+    "@lottiefiles/dotlottie-react": "^0.13.2",
+    "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.17.14",
     "@react-three/postprocessing": "^2.19.1",
     "@tailwindcss/vite": "^4.0.4",

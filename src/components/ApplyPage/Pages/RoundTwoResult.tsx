@@ -1,5 +1,9 @@
 import { Page, Result } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 interface RoundTwoResultProps {
   handlePageChange: (page: Page) => void;
@@ -7,13 +11,93 @@ interface RoundTwoResultProps {
 }
 
 const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
+  const [renderAnimation, setRenderAnimation] = useState(true);
+  const threeContainerRef = useRef<HTMLDivElement>(null);
+  const gltfRef = useRef<THREE.Object3D | null>(null); // 3D 모델을 저장할 ref
+  const animationFrameRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.z = 10;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    threeContainerRef.current?.appendChild(renderer.domElement);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 150); // 전체적인 밝기
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 200);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    const loader = new GLTFLoader();
+    loader.load(
+      '/logo3d.gltf',
+      function (gltf) {
+        const model = gltf.scene;
+        model.position.set(0, 0, -10);
+        model.rotateY((Math.PI / 180) * 90);
+        model.scale.set(1.5, 1.5, 1.5); // 크기 조절
+        scene.add(model);
+        gltfRef.current = scene;
+        animate();
+      },
+      undefined,
+      function (error) {
+        console.error(error);
+      }
+    );
+
+    function animate() {
+      // console.log('cnt: ', cnt);
+
+      if (!gltfRef.current) return;
+      if (gltfRef.current) {
+        // if (gltfRef.current.position.y <= 10) {
+        //   gltfRef.current.position.y += 0.3;
+        // }
+        gltfRef.current.rotation.y += (Math.PI / 180) * 3;
+      }
+      renderer.render(scene, camera);
+      animationFrameRef.current = requestAnimationFrame(animate);
+    }
+
+    // renderer.setAnimationLoop( animate );
+
+    const timer = setTimeout(() => {
+      setRenderAnimation(false);
+      if (threeContainerRef.current) {
+        threeContainerRef.current.innerHTML = ''; // Three.js DOM 제거
+      }
+      renderer.dispose(); // ✅ 메모리 정리
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current); // 애니메이션 프레임 취소
+      }
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current); // 애니메이션 프레임 취소
+      }
+    };
+  }, []);
+
   const handleNextBtn = () => {
     handlePageChange(Page.HOME);
   };
   result.status = '최종합격';
 
   return (
-    <section className="flex flex-col gap-[4.8rem] text-[1.4rem]  ">
+    <section className="flex flex-col gap-[4.8rem] text-[1.4rem] relative">
       <div className="flex flex-col gap-[2.4rem]">
         <p className="font-bold">
           {result.status === '최종합격'
@@ -67,8 +151,7 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
               <strong>회비 입금 내역, 이후 일정 참가 여부</strong> 등에 대한
               정보를 아래 <strong>구글폼</strong>에 입력해주시면 감사하겠습니다.
               <br />• <strong>제출 마감</strong>: 3월 15일 (토) 오후 11:59까지
-              <br />
-              • <strong>구글폼 링크</strong>:{' '}
+              <br />• <strong>구글폼 링크</strong>:{' '}
               <a href="" target="_blank" className="underline">
                 ???
               </a>
@@ -112,6 +195,19 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
         handleClick={handleNextBtn}
         status="default"
       ></SquareBtn>
+      {renderAnimation && (
+        <>
+          <DotLottieReact
+            className="fixed left-[-50vw] top-0 w-[200vw] h-[100vh] z-1"
+            src="/confetti.lottie"
+            autoplay
+          />
+          <div
+            ref={threeContainerRef}
+            className="fixed left-0 top-0 w-screen h-screen transition: animate-logo-fadeInOut z-2"
+          />
+        </>
+      )}
     </section>
   );
 };
