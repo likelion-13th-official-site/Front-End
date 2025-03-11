@@ -31,11 +31,11 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
 
     threeContainerRef.current?.appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 50); // 전체적인 밝기
-    scene.add(ambientLight);
+    // const ambientLight = new THREE.AmbientLight(0xffffff, 500); // 전체적인 밝기
+    // scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 500);
-    directionalLight.position.set(5, 5, 5);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 50);
+    directionalLight.position.set(0, 0, 10);
     scene.add(directionalLight);
 
     const loader = new GLTFLoader();
@@ -59,7 +59,7 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
     function animate() {
       if (!gltfRef.current) return;
       if (gltfRef.current) {
-        gltfRef.current.rotation.y += (Math.PI / 180) * 6;
+        gltfRef.current.rotation.y += (Math.PI / 180) * 3;
       }
       renderer.render(scene, camera);
       animationFrameRef.current = requestAnimationFrame(animate);
@@ -191,7 +191,7 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
       {renderAnimation && (
         <>
           <DotLottieReact
-            className="fixed left-[-50vw] top-0 w-[200vw] h-[100vh] z-1"
+            className="fixed left-0 top-0 w-[100vw] h-[100vh] z-1"
             src="/confetti.lottie"
             autoplay
           />
