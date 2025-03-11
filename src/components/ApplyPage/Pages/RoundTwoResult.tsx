@@ -43,7 +43,7 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
       '/logo3d.gltf',
       function (gltf) {
         const model = gltf.scene;
-        model.position.set(0, 0, -10);
+        model.position.set(0, 0, -12);
         model.rotateY((Math.PI / 180) * 90);
         model.scale.set(1.5, 1.5, 1.5); // 크기 조절
         scene.add(model);
@@ -57,20 +57,13 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
     );
 
     function animate() {
-      // console.log('cnt: ', cnt);
-
       if (!gltfRef.current) return;
       if (gltfRef.current) {
-        // if (gltfRef.current.position.y <= 10) {
-        //   gltfRef.current.position.y += 0.3;
-        // }
         gltfRef.current.rotation.y += (Math.PI / 180) * 3;
       }
       renderer.render(scene, camera);
       animationFrameRef.current = requestAnimationFrame(animate);
     }
-
-    // renderer.setAnimationLoop( animate );
 
     const timer = setTimeout(() => {
       setRenderAnimation(false);
