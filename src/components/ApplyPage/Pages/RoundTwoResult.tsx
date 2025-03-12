@@ -35,8 +35,8 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
 
     threeContainerRef.current?.appendChild(renderer.domElement);
 
-    // const ambientLight = new THREE.AmbientLight(0xffffff, 500); // 전체적인 밝기
-    // scene.add(ambientLight);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 100); // 전체적인 밝기
+    scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
     directionalLight.position.set(0, 0, 10);
@@ -54,7 +54,8 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
         scene.rotation.y -= (Math.PI / 180) * 30;
 
         gltfRef.current = scene;
-        animate();
+        // animate(0);
+        requestAnimationFrame(animate);
       },
       undefined,
       function (error) {
@@ -62,14 +63,22 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
       }
     );
 
-    function animate() {
-      console.log('animate');
+    let lastRenderTime = 0;
+    const frameRate = 30; // 30FPS로 제한
+    const frameInterval = 1000 / frameRate;
 
+    function animate(currentTime: number) {
       if (!gltfRef.current) return;
       if (gltfRef.current) {
         gltfRef.current.rotation.y += (Math.PI / 180) * 1;
       }
-      renderer.render(scene, camera);
+      if (currentTime - lastRenderTime >= frameInterval) {
+        lastRenderTime = currentTime;
+        renderer.render(scene, camera);
+        // console.log(currentTime);
+      }
+      // console.log('render');
+      // renderer.render(scene, camera);
       animationFrameRef.current = requestAnimationFrame(animate);
     }
 
