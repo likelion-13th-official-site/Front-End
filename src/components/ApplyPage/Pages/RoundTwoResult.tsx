@@ -35,11 +35,12 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
 
     threeContainerRef.current?.appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 100); // 전체적인 밝기
-    scene.add(ambientLight);
+    // const ambientLight = new THREE.AmbientLight(0xffffff, 100); // 전체적인 밝기
+    // scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
     directionalLight.position.set(0, 0, 10);
+    directionalLight.castShadow = false;
     scene.add(directionalLight);
 
     const loader = new GLTFLoader();
