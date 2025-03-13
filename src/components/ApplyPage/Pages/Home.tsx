@@ -46,9 +46,13 @@ const Home = ({
       setRoundNum('forbidden');
       alert('현재는 지원 접수 기간이 아닙니다.');
       navigate('/');
-    } else if (now >= roundOneAnnounceDate && now < roundTwoAnnounceDate)
-      setRoundNum('one');
-    else setRoundNum('two');
+      return;
+    } else if (now >= roundOneAnnounceDate && now < roundTwoAnnounceDate) {
+      setRoundNum('forbidden');
+      alert('서류 결과 확인 기간이 지났습니다.');
+      navigate('/');
+      return;
+    } else setRoundNum('two');
   }, []);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -151,7 +155,7 @@ const Home = ({
             ? '이미 작성하던 지원서가 있으시다면,'
             : roundNum === 'one'
               ? '1차 결과 확인하기'
-              : '2차 결과 확인하기'}
+              : '최종 결과 확인하기'}
         </p>
         <FormBox
           name={'EMAIL'}

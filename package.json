@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@jridgewell/source-map": "^0.3.6",
-    "@react-three/drei": "^9.121.5",
+    "@lottiefiles/dotlottie-react": "^0.13.2",
+    "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.17.14",
     "@react-three/postprocessing": "^2.19.1",
     "@tailwindcss/vite": "^4.0.4",
@@ -23,6 +24,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.2",
     "install": "^0.13.0",
+    "js-confetti": "^0.12.0",
     "lenis": "^1.1.20",
     "lottie-react": "^2.4.1",
     "motion": "^12.4.2",

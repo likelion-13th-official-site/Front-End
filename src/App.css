@@ -88,6 +88,8 @@ body {
 
   --animate-toast-fadeInOut:
     fadeIn 0.6s ease-out forwards, fadeOut 0.3s ease-in forwards 2s;
+  --animate-logo-fadeInOut:
+    logoFadeIn 0.8s ease-out forwards, logoFadeOut 0.8s ease-in forwards 2.4s;
   --animate-arrow-hover: arrowOut 0.6s ease-in-out forwards;
   --animate-arrow-hover-done: arrowIn 0.3s ease-in-out forwards;
   --animate-gradient-move: gradient-move 10s linear infinite;
@@ -107,6 +109,7 @@ body {
     transform: translateY(0rem);
   }
 }
+
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -117,6 +120,32 @@ body {
     transform: translateY(2rem);
   }
 }
+
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  /* 75% {
+    opacity: 0;
+    transform: translateY(8rem);
+  } */
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+@keyframes logoFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+}
+
 @keyframes arrowOut {
   0% {
     transform: translate(0rem, 0rem);
