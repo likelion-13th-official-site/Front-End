@@ -1,7 +1,6 @@
 import { Page, Result } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
-import { useEffect, useState } from 'react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { useEffect } from 'react';
 import JSConfetti from 'js-confetti';
 
 interface RoundTwoResultProps {
@@ -11,26 +10,29 @@ interface RoundTwoResultProps {
 
 const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
   // result.status = '최종합격';
-  const [renderAnimation, setRenderAnimation] = useState(
-    result.status === '최종합격'
-  );
-
   useEffect(() => {
     if (result.status === '최종합격') {
-      const jsConfetti = new JSConfetti();
-      jsConfetti.addConfetti({
+      const lion = new JSConfetti();
+      lion.addConfetti({
         emojis: ['🦁'],
         emojiSize: 100,
         confettiNumber: 40
       });
+      const confetti = new JSConfetti();
+      confetti.addConfetti({
+        confettiNumber: 200,
+        confettiRadius: 6,
+        confettiColors: [
+          '#5ba9e5',
+          '#e5d05b',
+          '#e55e5b',
+          '#f6c569',
+          '#4e98f5',
+          '#92cd61',
+          '#b27be7'
+        ]
+      });
     }
-    const timer = setTimeout(() => {
-      setRenderAnimation(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(timer);
-    };
   }, []);
 
   const handleNextBtn = () => {
@@ -84,7 +86,7 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
                 <br />‣ <strong>은행</strong>: 카카오뱅크
                 <br />‣ <strong>예금주</strong>: 박정주
               </p>
-              • <strong>회비 납부 마감: </strong> xx월 xx일 (x) 오후 11:59까지
+              • <strong>회비 납부 마감: </strong> 3월 15일 (토) 오후 11:59까지
               <br />
               <br />
               📌 <strong>회원 정보 수합</strong>
@@ -95,8 +97,12 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
               정보를 아래 <strong>구글폼</strong>에 입력해주시면 감사하겠습니다.
               <br />• <strong>제출 마감</strong>: 3월 15일 (토) 오후 11:59까지
               <br />• <strong>구글폼 링크</strong>:{' '}
-              <a href="" target="_blank" className="underline">
-                ???
+              <a
+                href="https://docs.google.com/forms/d/17z_Wj_CkSTyp5TXfxnbLXtPXIRbcfoZOYyxcXmedf0Q/edit"
+                target="_blank"
+                className="underline"
+              >
+                https://docs.google.com/forms/d/17z_Wj_CkSTyp5TXfxnbLXtPXIRbcfoZOYyxcXmedf0Q/edit
               </a>
               <br />
               <br />
@@ -138,13 +144,6 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
         handleClick={handleNextBtn}
         status="default"
       ></SquareBtn>
-      {renderAnimation && (
-        <DotLottieReact
-          className="fixed left-[-10vw] top-[-10vh] w-[120vw] h-[120vh] z-1"
-          src="/confetti.lottie"
-          autoplay
-        />
-      )}
     </section>
   );
 };
