@@ -27,11 +27,11 @@ export default function RecruitHeader() {
       id="recruit-header"
       className="max-2xl:sticky top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-conic from-surface-tertiary from-8% via-text-primary via-36% to-text-secondary to-81% text-text-invert font-d2"
     >
-      <h2 className="text-[1.4rem] font-[400] leading-[140%]">
+      {/* <h2 className="text-[1.4rem] font-[400] leading-[140%]">
         {isDeadlineOver
           ? '서류 지원 기간이 마감되었습니다'
           : '1차 서류 마감까지'}
-      </h2>
+      </h2> */}
       <DdayCounter dayDiff={dayDiff} setDayDiff={setDayDiff} />
       {isDeadlineOver ? null : (
         <button
@@ -42,7 +42,7 @@ export default function RecruitHeader() {
         </button>
       )}
       <button className="block md:hidden font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border">
-        PC에서 서류결과 조회가 가능합니다.
+        서류 결과 확인 기간이 아닙니다.
       </button>
       <div className="lottie-container [&_svg]:text-text-invert [&_svg]:fill-current [&_svg]:stroke-current">
         <Lottie

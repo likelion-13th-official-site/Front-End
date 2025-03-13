@@ -134,7 +134,7 @@ export default function Header() {
             className={clsx(
               'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2',
               {
-                'hidden md:block': path !== 'rrrr'
+                hidden: path !== 'rrrr'
                 // 'hidden md:hidden': path === 'recruit',
                 // 'hidden md:block': path !== 'recruit'
               },
@@ -208,7 +208,7 @@ export default function Header() {
             className={clsx(
               'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
               {
-                'hidden md:block': path !== 'rrrr'
+                hidden: path !== 'rrrr'
                 // 'hidden md:hidden': path === 'recruit',
                 // 'hidden md:block': path !== 'recruit'
               },
