@@ -1,9 +1,8 @@
 import { Page, Result } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
+import { useEffect, useState } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import { useEffect, useRef, useState } from 'react';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import JSConfetti from 'js-confetti';
 
 interface RoundTwoResultProps {
   handlePageChange: (page: Page) => void;
@@ -11,101 +10,32 @@ interface RoundTwoResultProps {
 }
 
 const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
-  const [renderAnimation, setRenderAnimation] = useState(true);
-  const threeContainerRef = useRef<HTMLDivElement>(null);
-  const gltfRef = useRef<THREE.Object3D | null>(null); // 3D 모델을 저장할 ref
-  const animationFrameRef = useRef<number | null>(null);
+  // result.status = '최종합격';
+  const [renderAnimation, setRenderAnimation] = useState(
+    result.status === '최종합격'
+  );
 
   useEffect(() => {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.z = 10;
-
-    const renderer = new THREE.WebGLRenderer({
-      antialias: false,
-      alpha: true,
-      powerPreference: 'high-performance'
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    threeContainerRef.current?.appendChild(renderer.domElement);
-
-    // const ambientLight = new THREE.AmbientLight(0xffffff, 100); // 전체적인 밝기
-    // scene.add(ambientLight);
-
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 10);
-    directionalLight.position.set(0, 0, 10);
-    directionalLight.castShadow = false;
-    scene.add(directionalLight);
-
-    const loader = new GLTFLoader();
-    loader.load(
-      '/logo3d.gltf',
-      function (gltf) {
-        const model = gltf.scene;
-        model.position.set(0, 0, -12);
-        model.rotateY((Math.PI / 180) * 90);
-        model.scale.set(1.5, 1.5, 1.5); // 크기 조절
-        scene.add(model);
-        scene.rotation.y -= (Math.PI / 180) * 30;
-
-        gltfRef.current = scene;
-        // animate(0);
-        requestAnimationFrame(animate);
-      },
-      undefined,
-      function (error) {
-        console.error(error);
-      }
-    );
-
-    let lastRenderTime = 0;
-    const frameRate = 30; // 30FPS로 제한
-    const frameInterval = 1000 / frameRate;
-
-    function animate(currentTime: number) {
-      if (!gltfRef.current) return;
-      if (gltfRef.current) {
-        gltfRef.current.rotation.y += (Math.PI / 180) * 1;
-      }
-      if (currentTime - lastRenderTime >= frameInterval) {
-        lastRenderTime = currentTime;
-        renderer.render(scene, camera);
-        // console.log(currentTime);
-      }
-      // console.log('render');
-      // renderer.render(scene, camera);
-      animationFrameRef.current = requestAnimationFrame(animate);
+    if (result.status === '최종합격') {
+      const jsConfetti = new JSConfetti();
+      jsConfetti.addConfetti({
+        emojis: ['🦁'],
+        emojiSize: 100,
+        confettiNumber: 40
+      });
     }
-
     const timer = setTimeout(() => {
       setRenderAnimation(false);
-      if (threeContainerRef.current) {
-        threeContainerRef.current.innerHTML = ''; // Three.js DOM 제거
-      }
-      renderer.dispose(); // ✅ 메모리 정리
-      if (animationFrameRef.current !== null) {
-        cancelAnimationFrame(animationFrameRef.current); // 애니메이션 프레임 취소
-      }
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearTimeout(timer);
-      if (animationFrameRef.current !== null) {
-        cancelAnimationFrame(animationFrameRef.current); // 애니메이션 프레임 취소
-      }
     };
   }, []);
 
   const handleNextBtn = () => {
     handlePageChange(Page.HOME);
   };
-  result.status = '최종합격';
 
   return (
     <section className="flex flex-col gap-[4.8rem] text-[1.4rem] relative">
@@ -134,7 +64,7 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
               📌 <strong>오리엔테이션 일정</strong>
               <br />• <strong>날짜</strong>: 3월 17일 (월요일)
               <br />• <strong>시간</strong>: 19:00
-              <br />• <strong>장소</strong>: 마포 프론트원 - 공덕 ICT COC
+              <br />• <strong>장소</strong>: 마포 프론트원 6층 - 공덕 ICT COC
               <br />
               <br />
               📌 <strong>강의 자료 및 과제 업로드</strong>
@@ -154,6 +84,8 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
                 <br />‣ <strong>은행</strong>: 카카오뱅크
                 <br />‣ <strong>예금주</strong>: 박정주
               </p>
+              • <strong>회비 납부 마감: </strong> xx월 xx일 (x) 오후 11:59까지
+              <br />
               <br />
               📌 <strong>회원 정보 수합</strong>
               <br />
@@ -173,7 +105,7 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
               기대하고 있겠습니다!
               <br />
               <br />
-              🐯 <strong>POSSIBILITY TO REALITY</strong> 🐯
+              🦁 <strong>POSSIBILITY TO REALITY</strong> 🦁
             </>
           ) : (
             <>
@@ -207,17 +139,11 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
         status="default"
       ></SquareBtn>
       {renderAnimation && (
-        <>
-          <DotLottieReact
-            className="fixed left-0 top-0 w-[100vw] h-[100vh] z-1"
-            src="/confetti.lottie"
-            autoplay
-          />
-          <div
-            ref={threeContainerRef}
-            className="fixed left-0 top-0 w-screen h-screen transition: animate-logo-fadeInOut z-2"
-          />
-        </>
+        <DotLottieReact
+          className="fixed left-[-10vw] top-[-10vh] w-[120vw] h-[120vh] z-1"
+          src="/confetti.lottie"
+          autoplay
+        />
       )}
     </section>
   );

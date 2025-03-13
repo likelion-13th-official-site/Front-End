@@ -83,7 +83,7 @@ export interface Result {
 }
 
 const ApplyPage = () => {
-  const [currentPage, setCurrentPage] = useState(Page.ROUND_TWO_RESULT);
+  const [currentPage, setCurrentPage] = useState(Page.HOME);
   const [application, setApplication] =
     useState<Application>(initialApplication);
   const [result, setResult] = useState<Result>({ name: '', status: '' });
