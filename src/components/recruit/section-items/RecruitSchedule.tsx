@@ -2,7 +2,7 @@ const scheduleList = [
   { detail: '1차 서류 접수', date: '2025.02.17 ~ 03.06' },
   { detail: '1차 서류 결과 발표', date: '2025.03.08' },
   { detail: '2차 면접', date: '2025.03.10 ~ 03.12' },
-  { detail: '최종 합격자 발표', date: '2025.03.15' },
+  { detail: '최종 합격자 발표', date: '2025.03.14' },
   { detail: 'OT', date: '2025.03.17' }
 ];
 
