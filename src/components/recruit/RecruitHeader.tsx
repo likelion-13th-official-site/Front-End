@@ -42,7 +42,7 @@ export default function RecruitHeader() {
         </button>
       )}
       <button className="block md:hidden font-d2 px-[2.4rem] py-[0.8rem] rounded-[2rem] text-[1.4rem] font-[400] leading-[140%] border-none bg-text-invert text-text-primary border">
-        {new Date() <= new Date(2025, 2, 14, 17, 0, 0)
+        {new Date() <= new Date(2025, 2, 14, 16, 50, 0)
           ? '서류 결과 확인 기간이 아닙니다.'
           : '최종 결과는 PC에서만 확인 가능합니다.'}
       </button>
