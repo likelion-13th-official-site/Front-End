@@ -40,7 +40,7 @@ const Home = ({
     const now = new Date();
     const recruitDoneDate = new Date(now.getFullYear(), 2, 7, 0, 0, 0);
     const roundOneAnnounceDate = new Date(now.getFullYear(), 2, 8, 12, 0, 0);
-    const roundTwoAnnounceDate = new Date(now.getFullYear(), 2, 14, 20, 0, 0);
+    const roundTwoAnnounceDate = new Date(now.getFullYear(), 2, 14, 17, 0, 0);
     if (now < recruitDoneDate) setRoundNum('apply');
     else if (now >= recruitDoneDate && now < roundOneAnnounceDate) {
       setRoundNum('forbidden');
