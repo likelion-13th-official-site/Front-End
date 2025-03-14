@@ -132,9 +132,10 @@ export default function Header() {
             onClick={() => navigate('/apply')}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2',
+              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2 hidden md:block',
               {
-                hidden: new Date() <= new Date(2025, 2, 14, 16, 50, 0)
+                // hidden: new Date() <= new Date(2025, 2, 14, 16, 50, 0),
+                // 'md:hidden': path !== 'rrrr'
                 // hidden: path !== 'rrrr'
                 // 'hidden md:hidden': path === 'recruit',
                 // 'hidden md:block': path !== 'recruit'
@@ -156,7 +157,7 @@ export default function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2',
+              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2 ',
               {
                 'hover:text-text-primary hover:bg-text-invert':
                   path === 'credits' || path === '' || path === 'recruit',
@@ -207,9 +208,10 @@ export default function Header() {
             onClick={() => navigate('/apply')}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
+              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 hidden md:block',
               {
-                hidden: new Date() <= new Date(2025, 2, 14, 16, 50, 0)
+                // hidden: new Date() <= new Date(2025, 2, 14, 16, 50, 0),
+                // 'md:hidden': path !== 'rrrr'
                 // hidden: path !== 'rrrr'
                 // 'hidden md:hidden': path === 'recruit',
                 // 'hidden md:block': path !== 'recruit'
@@ -231,7 +233,7 @@ export default function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
+              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 ',
               {
                 'hover:text-text-primary hover:bg-text-invert hover:border-text-invert':
                   path === 'people' ||
