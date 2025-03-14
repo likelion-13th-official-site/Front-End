@@ -4,34 +4,44 @@ import RecruitQualifications from '@/components/recruit/section-items/RecruitQua
 import RecruitSchedule from '@/components/recruit/section-items/RecruitSchedule';
 import RecruitSection from '@/components/recruit/RecruitSection';
 import RecruitTracks from '@/components/recruit/section-items/RecruitTracks';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 export default function RecruitPage() {
-  const navigate = useNavigate();
-
+  const [height, setHeight] = useState(window.innerHeight);
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setHeight(window.innerHeight);
+      setScreenSize(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
-    <main id="recruit-main bg-surface-primary">
-      <RecruitHeader />
-      <button
-        className="cursor-pointer hidden md:block w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border-y border-text-primary hover:bg-text-primary hover:text-surface-primary"
-        onClick={() => navigate('/apply')}
+    <main
+      id="recruit-main"
+      className="flex flex-col 2xl:grid 2xl:grid-cols-2 w-full relative"
+    >
+      {/* 🔹 첫 번째 섹션 (고정 배너 역할) */}
+      <div className="w-[100vw] 2xl:w-[50%] h-screen max-2xl:fixed 2xl:fixed top-0 left-0 flex items-center justify-center bg-white">
+        <RecruitHeader />
+      </div>
+
+      {/* 🔹 두 번째 섹션 (스크롤 시 올라오는 컨텐츠) */}
+      <div
+        style={{ marginTop: screenSize < 1100 ? height : '' }}
+        className="w-full flex flex-col min-h-screen pt-[12.8rem] gap-[12.8rem] items-center col-start-2 relative bg-text-invert"
       >
-        지원하기
-      </button>
-      <button className="block md:hidden w-screen h-[10rem] font-d2 text-[2rem] font-[700] leading-[140%] text-text-primary border-y border-text-primary">
-        PC에서만 지원 가능합니다.
-      </button>
-      <div className="w-screen flex flex-col items-center">
-        <RecruitSection title="Tracks">
+        <RecruitSection>
           <RecruitTracks />
         </RecruitSection>
-        <RecruitSection title="Schedule">
+        <RecruitSection>
           <RecruitSchedule />
         </RecruitSection>
-        <RecruitSection title="Qualifications">
+        <RecruitSection>
           <RecruitQualifications />
         </RecruitSection>
-        <RecruitSection title="FAQ">
+        <RecruitSection>
           <RecruitFAQ />
         </RecruitSection>
       </div>

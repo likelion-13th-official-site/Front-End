@@ -1,9 +1,9 @@
 import { Activity } from '@/types/activity';
-import image1 from '@/assets/image/AboutPage/activity/image1.jpg';
-import image2 from '@/assets/image/AboutPage/activity/image2.png';
-import image3 from '@/assets/image/AboutPage/activity/image3.jpg';
-import image4 from '@/assets/image/AboutPage/activity/image4.png';
-import image5 from '@/assets/image/AboutPage/activity/image5.jpg';
+import image1 from '@/assets/image/AboutPage/activity/image1.webp';
+import image2 from '@/assets/image/AboutPage/activity/image2.webp';
+import image3 from '@/assets/image/AboutPage/activity/image3.webp';
+import image4 from '@/assets/image/AboutPage/activity/image4.webp';
+import image5 from '@/assets/image/AboutPage/activity/image5.webp';
 
 export const activityList: Activity[] = [
   {
@@ -22,7 +22,7 @@ export const activityList: Activity[] = [
     image: image3,
     name: '전국 연합 해커톤',
     description:
-      '1000명 이상이 참여하는 전국 단위 해커톤에 참가형 팀원들과 진행한 프로젝트를 제출하고 발표하는 멋쟁이사자처럼 대학의 최대 이벤트입니다.'
+      '1000명 이상이 참여하는 전국 단위 해커톤에 참가해 팀원들과 진행한 프로젝트를 제출하고 발표하는 멋쟁이사자처럼 대학의 최대 이벤트입니다.'
   },
   {
     image: image4,

@@ -1,21 +1,56 @@
-import { Page } from '@/pages/ApplyPage';
+import { Application, initialApplication, Page } from '@/pages/ApplyPage';
 import React, { useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
+import { instance } from '@/api/instance';
+import { AxiosError } from 'axios';
 
 interface FindPWEmailProps {
   handlePageChange: (page: Page) => void;
+  handleToastRender: (text: string) => void;
+  setApplicationData: (data: Application) => void;
 }
 
-const FindPWEmail = ({ handlePageChange }: FindPWEmailProps) => {
+const FindPWEmail = ({
+  handlePageChange,
+  handleToastRender,
+  setApplicationData
+}: FindPWEmailProps) => {
   const [email, setEmail] = useState('');
+  const [isValid, setIsValid] = useState(true);
+  const [isPending, setIsPending] = useState(false);
+
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // let res = true;
+    // res = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value);
+    // setIsValid(res);
+    setIsValid(true);
     setEmail(e.target.value);
   };
 
-  const handleRequestBtn = () => {
-    //API call
-    handlePageChange(Page.FIND_PW_AUTH);
+  const handleRequestBtn = async () => {
+    if (isPending) return;
+    try {
+      setIsPending(true);
+      const body = { email: email };
+      const res = await instance.post('/auth/send-code/reset', body);
+      if (res?.data?.success) {
+        handleToastRender(res.data.message);
+        setApplicationData({ ...initialApplication, email: email });
+        handlePageChange(Page.FIND_PW_AUTH);
+      }
+    } catch (err: unknown) {
+      if (
+        err instanceof AxiosError &&
+        err?.response?.status &&
+        err?.response?.status >= 400
+      ) {
+        handleToastRender(err.response.data.message);
+        setIsValid(false);
+      }
+    } finally {
+      setIsPending(false);
+    }
   };
 
   return (
@@ -30,14 +65,15 @@ const FindPWEmail = ({ handlePageChange }: FindPWEmailProps) => {
         name={'EMAIL'}
         title={'EMAIL'}
         handleChange={handleInput}
-        isError={false}
+        isError={!isValid}
         isExplanation={false}
+        // explanation="이메일 형식이 잘못되었습니다."
         placeholder=""
       ></FormBox>
       <SquareBtn
-        content="인증 요청"
+        content={isPending ? '인증번호 발송 중' : '인증 요청'}
         handleClick={handleRequestBtn}
-        status={email === '' ? 'disabled' : 'default'}
+        status={email === '' || isPending ? 'disabled' : 'default'}
       ></SquareBtn>
     </section>
   );

@@ -3,27 +3,28 @@ const trackList = [
     initial: 'F',
     name: 'Front-end',
     desc: '사용자와 상호작용하는 인터페이스를 시각화하여 구현합니다.',
-    link: '/tracks/front-end'
+    link: '/tracks?track=front-end'
   },
   {
     initial: 'B',
     name: 'Back-end',
     desc: '데이터 처리, 비즈니스 로직, 서버 관리 등을 담당합니다.',
-    link: '/tracks/back-end'
+    link: '/tracks?track=back-end'
   },
   {
     initial: 'D',
     name: 'Design',
     desc: '사용자의 관점에서 문제를 해결하는 서비스를 디자인합니다.',
-    link: '/tracks/front-end'
+    link: '/tracks?track=design'
   }
 ];
 
 export default function RecruitTracks() {
   return (
     <div
+      data-aos="fade-up"
       id="tracks-section"
-      className="w-full md:pl-[1.2rem] flex flex-col gap-[1.6rem]"
+      className="w-full flex flex-col gap-[1.6rem]"
     >
       <h1 className="text-[1.4rem] font-[900] leading-[140%]">모집 트랙</h1>
       <div
@@ -57,7 +58,7 @@ export default function RecruitTracks() {
               <a
                 id="track-link"
                 href={track.link}
-                className="w-[5.6rem] h-fit font-pp text-[9.6rem] leading-[80%]"
+                className="w-[5.6rem] h-fit font-pp text-[9.6rem] leading-[80%] hover:animate-arrow-hover not-hover:animate-arrow-hover-done"
               >
                 ↗
               </a>

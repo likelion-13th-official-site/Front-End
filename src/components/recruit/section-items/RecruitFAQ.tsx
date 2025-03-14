@@ -9,25 +9,26 @@ const faqList = [
   {
     question: '어떤 것을 배우나요?',
     answer:
-      '프론트엔드, 백엔드, 데이터베이스, 네트워크, 알고리즘 등의 기초 지식부터 시작하여, 실제 프로젝트를 진행하며 협업하는 방법, 협업 도구 사용법, 코드 리뷰 등을 배울 수 있습니다.'
+      '프론트엔드, 백엔드, 디자인 트랙으로 나뉘어 각 트랙별로 다양한 기술을 배울 수 있습니다. 자세한 내용은 Tracks 페이지를 참고해주세요.'
   },
   {
     question: '프로그래밍과 개발을 잘 모르는데 괜찮나요?',
     answer:
-      '네, 괜찮습니다. 프로그래밍과 개발을 잘 모르는 것을 전제로 진행되며, 프로그래밍을 처음 배우는 사람들을 위한 교육 커리큘럼이 준비되어 있습니다.'
+      '네, 괜찮습니다. Lion Sprint를 진행하며 웹개발 기초부터 배워나갈 수 있습니다!'
   },
   {
     question: '면접은 어떤 방식으로 진행되나요?',
     answer:
-      '서류 전형을 통과한 지원자에게는 온라인 코딩 테스트를 진행하며, 코딩 테스트를 통과한 지원자에게는 면접을 진행합니다.'
+      '서류 전형을 통과한 지원자를 대상으로 면접이 진행되며, 서류 지원 시에 면접 가능한 시간을 선택할 수 있습니다.'
   },
   {
     question: '1년 내내 참가해야 하나요?',
-    answer: '아니요, 1학기 또는 2학기 중 하나만 참가하셔도 됩니다.'
+    answer:
+      '네, 1년 동안 필수 활동인 아이디어톤, 중앙해커톤, 데모데이에 참석해야만 수료가 가능합니다.'
   },
   {
     question: '2학기에도 모집하나요?',
-    answer: '네, 2학기에도 모집을 진행합니다.'
+    answer: '아니요, 1학기에만 모집합니다.'
   }
 ];
 
@@ -76,8 +77,9 @@ export default function RecruitFAQ() {
 
   return (
     <div
+      data-aos="fade-up"
       id="faq-section"
-      className="w-full md:pl-[1.2rem] flex flex-col gap-[1.6rem]"
+      className="w-full flex flex-col gap-[1.6rem]"
     >
       <h1 className="text-[1.4rem] font-[900] leading-[140%]">
         자주 묻는 질문
@@ -100,7 +102,9 @@ export default function RecruitFAQ() {
                 onClick={() => handleCheck(idx)}
               />
               <div className="group w-full flex justify-between items-center cursor-pointer text-[1.4rem] font-[900] leading-[140%]">
-                <span>{faq.question}</span>
+                <span>
+                  {idx + 1}. {faq.question}
+                </span>
                 {/* <span className="">{checkedList[idx] ? '-' : '+'}</span> */}
                 <span>
                   <motion.svg
@@ -130,7 +134,7 @@ export default function RecruitFAQ() {
               <AnimatePresence>
                 {checkedList[idx] && (
                   <motion.div
-                    className="pt-[0.4rem] text-[1.4rem] font-[400] leading-[140%] overflow-hidden"
+                    className="pt-[0.4rem] text-[1.4rem] font-[400] leading-[140%] overflow-hidden text-text-secondary"
                     initial={{ maxHeight: 0 }}
                     animate={{ maxHeight: '20rem' }}
                     exit={{ maxHeight: 0 }}

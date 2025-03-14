@@ -1,24 +1,27 @@
 import useResponsiveMonths from '@/hooks/AboutPage/useResponsiveMonths';
 
-const TOGGLE_PX = 1000;
+const TOGGLE_PX = 700;
 
 export default function SixthSection() {
   const displayMonths = useResponsiveMonths(TOGGLE_PX);
   return (
-    <section className="w-full max-w-[151.2rem] px-[1.2rem] py-[9.6rem] flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]">
-      <div className="leftSection w-full h-full flex max-md:hidden gap-[1.2rem]">
+    <section
+      data-aos="fade-up"
+      className="w-full flex font-d2 text-[1.4rem] text-text-primary gap-[2.4rem] font-[400]"
+    >
+      {/* <div className="leftSection w-full h-full flex max-md:hidden gap-[1.2rem]">
         <div className="w-full"></div>
         <div className="timeline w-full leading-[1.4] text-[1.4rem]">
           <div className="pb-[1.3rem] font-[700]">Timeline</div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="rightSection w-full pl-[1.2rem] max-md:pl-0">
+      <div className="rightSection w-full ">
         <div>
           <div className="timeline leading-[1.4] text-[1.4rem]">
             <div className="font-[700] pb-[1.6rem]">일정</div>
             <div className="">
-              <div className=" flex font-d2 py-[0.4rem] text-text-primary font-[400] leading-[1.4] justify-between border-t-text-primary border-t-[1px]">
+              <div className=" flex font-d2 py-[0.4rem] text-text-primary font-[400] leading-[1.4] justify-between border-t-text-primary border-t-[1px] mb-[1.2rem]">
                 {displayMonths.map((month, idx) => {
                   return (
                     <div key={idx} className="font-[700]">
@@ -29,7 +32,9 @@ export default function SixthSection() {
               </div>
               <div className="flex flex-col gap-[0.8rem]">
                 {annualActivityList.map((activity, idx) => {
-                  const color = activity.isOneTime ? 'white' : 'text-primary';
+                  const color = activity.isOneTime
+                    ? 'text-invert'
+                    : 'text-primary';
                   const isLastTwo = idx >= annualActivityList.length - 2;
 
                   if (isLastTwo)

@@ -9,6 +9,8 @@ interface InputOnlyBoxProps {
   placeholder?: string;
   inputType?: string;
   explanation?: string;
+  isDisabled?: boolean;
+  value?: string;
 }
 
 const InputOnlyBox = ({
@@ -17,7 +19,9 @@ const InputOnlyBox = ({
   isError,
   isExplanation,
   placeholder,
-  explanation
+  explanation,
+  isDisabled,
+  value
 }: InputOnlyBoxProps) => {
   return (
     <div
@@ -31,11 +35,14 @@ const InputOnlyBox = ({
           {
             'border-status-negative text-status-negative': isError,
             'border-text-primary text-text-primary': !isError
-          }
+          },
+          { 'text-text-secondary': isDisabled }
         )}
         placeholder={placeholder}
         onChange={handleChange}
         name={name}
+        disabled={isDisabled}
+        value={value}
       ></input>
 
       {isExplanation && (

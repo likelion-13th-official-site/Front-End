@@ -8,9 +8,9 @@ export default function ProjectsDetailPage() {
   return (
     <main
       id="projects-detail -main"
-      className="flex justify-center w-[screen] px-[1.2rem] py-[9.6rem] font-d2 text-text-primary"
+      className="flex justify-center w-[screen] px-[1.6rem] md:px-[3.2rem] py-[9.6rem] md:pt-[26.6rem] 2xl:pt-[14.3rem] font-d2 text-text-primary"
     >
-      <section className="max-w-[151.2rem] flex flex-col md:grid grid-cols-2 gap-[2.4rem]">
+      <section className="max-w-[151.2rem] flex flex-col md:grid grid-cols-2 gap-[6.4rem]">
         <img
           src={project?.img}
           alt={project?.title}
@@ -51,7 +51,7 @@ export default function ProjectsDetailPage() {
               <div className="w-full grid grid-cols-2 py-[0.8rem] border-b">
                 <span className="font-[900]">LINK</span>
                 <a
-                  className="underline hover:text-text-secondary w-fit"
+                  className="underline hover:text-text-secondary w-full overflow-hidden overflow-ellipsis"
                   href={project.link}
                   target="_blank"
                 >

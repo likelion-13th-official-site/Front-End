@@ -1,36 +1,67 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ThemeButton from './ThemeButton';
 import MenuPortal from '@/components/portal/MenuPortal';
 import MenuModal from './MenuModal';
 import clsx from 'clsx';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useDetectBlue from '@/hooks/header/useDetectBlue';
 
 const navItems = [
   { name: 'About', link: '/' },
-  { name: 'Tracks', link: '/track' },
+  { name: 'Tracks', link: '/tracks' },
   { name: 'People', link: '/people' },
   { name: 'Projects', link: '/projects' }
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+  const path = useLocation().pathname.split('/')[1];
   const isBlueBackground = useDetectBlue();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 5) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <header
       id="header"
+      style={{ transition: 'background-color ease-in 0.3s' }}
       className={clsx(
-        'z-1001 absolute 2xl:fixed w-full max-w-[151.2rem] font-pp px-[1.2rem] py-[1.2rem] flex gap-[2.4rem] justify-between text-text-primary',
-        { fixed: isMenuOpen }
+        'text-text-primary z-1001 absolute 2xl:fixed w-full font-pp px-[1.6rem] md:px-[3.2rem] flex gap-[6.4rem] justify-between',
+        { fixed: isMenuOpen },
+        {
+          '2xl:bg-text-invert':
+            (path === 'tracks' || path === 'projects') &&
+            !isMenuOpen &&
+            isScrolled
+        }
       )}
     >
+      {/* 2xl 이상 */}
       <div
         id="header-left"
-        className={clsx('h-full flex flex-1 items-center', {
-          'text-text-invert': isBlueBackground
-        })}
+        className={clsx(
+          'h-full flex-1 items-center hidden 2xl:flex py-[1.2rem] ',
+          {
+            'bg-text-invert': path === 'people' && isScrolled,
+            'text-text-primary ': path === 'people',
+            'text-text-invert':
+              path === '' || path === 'recruit' || path === 'credits'
+          }
+        )}
       >
         <Link
           to="/"
@@ -45,17 +76,47 @@ export default function Header() {
           <sup>13</sup>
         </Link>
       </div>
+      {/* 2xl 이하 */}
+      <div
+        id="header-left"
+        className={clsx(
+          'h-full flex-1 items-center flex 2xl:hidden py-[1.2rem] ',
+          {
+            'text-text-invert':
+              path === '' ||
+              path === 'recruit' ||
+              path === 'people' ||
+              path === 'credits'
+          }
+        )}
+      >
+        <Link
+          to="/"
+          id="header-left__logo"
+          className={clsx(
+            'text-[1.6rem] w-fit flex items-center cursor-pointer',
+            { 'text-text-invert': isMenuOpen }
+          )}
+        >
+          <span>Likelion</span>
+          <i className="italic">Sogang</i>
+          <sup>13</sup>
+        </Link>
+      </div>
+      {/* 2xl 이상 */}
       <div
         id="header-right"
         className={clsx(
-          'flex flex-1 items-start justify-end md:justify-between',
+          'flex-1 items-start justify-end md:justify-between hidden 2xl:flex py-[1.2rem] ',
           {
-            'text-text-invert': isBlueBackground
+            'bg-text-invert': (path === '' || path === 'recruit') && isScrolled,
+            'text-text-primary h-full': path === '' || path === 'recruit',
+            'text-text-invert': path === 'people' || path === 'credits'
           }
         )}
       >
         <nav id="header-right__nav" className="hidden md:block">
-          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] px-[1.2rem] py-[0] sm:py-[0.4rem] md:py-[0]">
+          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem] py-[0] sm:py-[0.4rem] md:py-[0]">
             {navItems.map((item) => (
               <li key={item.name} className="text-[1.6rem] italic">
                 <Link to={`${item.link}`}>{item.name}</Link>
@@ -68,26 +129,119 @@ export default function Header() {
           className="flex gap-[0.8rem] align-center"
         >
           <button
-            onClick={() => navigate('/recruit')}
+            onClick={() => navigate('/apply')}
             id="header-right__apply"
             className={clsx(
-              'cursor-pointer hidden md:block flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
-              isBlueBackground
-                ? 'border-text-invert text-text-invert hover:border-text-invert hover:bg-text-invert hover:text-text-primary'
-                : 'hover:border-text-primary hover:bg-text-primary hover:text-text-invert'
+              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2',
+              {
+                hidden: path !== 'rrrr'
+                // 'hidden md:hidden': path === 'recruit',
+                // 'hidden md:block': path !== 'recruit'
+              },
+              {
+                'hover:text-text-invert hover:bg-text-primary':
+                  path === '' ||
+                  path === 'recruit' ||
+                  path === 'projects' ||
+                  path === 'tracks',
+                'hover:text-text-primary hover:bg-text-invert hover:border-text-invert':
+                  path === 'people' || path === 'credits'
+              }
             )}
           >
-            Apply Now →
+            서류결과 조회 →
+          </button>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            id="header-right__apply"
+            className={clsx(
+              'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1 font-d2 md:font-d2',
+              {
+                'hover:text-text-primary hover:bg-text-invert':
+                  path === 'credits' || path === '' || path === 'recruit',
+                'hover:text-text-invert hover:bg-text-primary':
+                  path === 'people' || path === 'tracks' || path === 'projects'
+              },
+              {
+                'text-text-invert hover:border-text-invert': isMenuOpen
+              }
+            )}
+          >
+            Menu
+          </button>
+          <ThemeButton
+            isBlueBackground={isBlueBackground}
+            isMenuOpen={isMenuOpen}
+          />
+        </div>
+      </div>
+      {/* 2xl 이하 */}
+      <div
+        id="header-right"
+        className={clsx(
+          'flex-1 items-start justify-end md:justify-between flex 2xl:hidden py-[1.2rem] ',
+          {
+            'text-text-invert':
+              path === 'recruit' ||
+              path === '' ||
+              path === 'people' ||
+              path === 'credits'
+          }
+        )}
+      >
+        <nav id="header-right__nav" className="hidden md:block">
+          <ul className="flex flex-row max-2xl:flex-col gap-[1.8rem]  py-[0] sm:py-[0.4rem] md:py-[0]">
+            {navItems.map((item) => (
+              <li key={item.name} className="text-[1.6rem] italic">
+                <Link to={`${item.link}`}>{item.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div
+          id="header-right__buttons"
+          className="flex gap-[0.8rem] align-center"
+        >
+          <button
+            onClick={() => navigate('/apply')}
+            id="header-right__apply"
+            className={clsx(
+              'cursor-pointer flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
+              {
+                hidden: path !== 'rrrr'
+                // 'hidden md:hidden': path === 'recruit',
+                // 'hidden md:block': path !== 'recruit'
+              },
+              {
+                'hover:text-text-primary hover:bg-text-invert hover:border-text-invert':
+                  path === 'people' ||
+                  path === 'credits' ||
+                  path === '' ||
+                  path === 'recruit',
+                'hover:text-text-invert hover:bg-text-primary':
+                  path === 'tracks' || path === 'projects'
+              }
+            )}
+          >
+            서류결과 조회 →
           </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             id="header-right__apply"
             className={clsx(
               'cursor-pointer block md:hidden flex-shrink-0 rounded-[3.2rem] px-[1.2rem] py-[0.4rem] border border-primary-normal text-[1.6rem] italic leading-1',
-              isBlueBackground
-                ? 'border-text-invert text-text-invert hover:border-text-invert hover:bg-text-invert hover:text-text-primary'
-                : 'hover:border-text-primary hover:bg-text-primary hover:text-text-invert',
-              isMenuOpen && ' text-text-invert hover:!border-text-invert'
+              {
+                'hover:text-text-primary hover:bg-text-invert hover:border-text-invert':
+                  path === 'people' ||
+                  path === 'credits' ||
+                  path === '' ||
+                  path === 'recruit',
+                'hover:text-text-invert hover:bg-text-primary':
+                  path === 'tracks' || path === 'projects'
+              },
+              {
+                'text-text-invert hover:border-text-invert': isMenuOpen
+              }
             )}
           >
             Menu
