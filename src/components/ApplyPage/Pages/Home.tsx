@@ -50,7 +50,7 @@ const Home = ({
     } else if (now >= roundOneAnnounceDate && now < roundTwoAnnounceDate) {
       setRoundNum('forbidden');
       alert('서류 결과 확인 기간이 지났습니다.');
-      navigate('/');
+      // navigate('/');
       return;
     } else setRoundNum('two');
   }, []);
