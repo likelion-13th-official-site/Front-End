@@ -11,7 +11,7 @@ interface RoundTwoResultProps {
 const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
   // result.status = '최종합격';
   useEffect(() => {
-    if (result.status === '최종합격') {
+    if (result.status !== '최종합격') {
       const lion = new JSConfetti();
       lion.addConfetti({
         emojis: ['🦁'],
@@ -48,7 +48,7 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
             : `멋쟁이사자처럼 서강대학교에서 ${result.name}님의 최종 결과를 안내 드립니다.`}
         </p>
         <p className="p-[1.2rem] border border-text-primary font-pretendard leading-[2.1rem]">
-          {result.status === '최종합격' ? (
+          {result.status !== '최종합격' ? (
             <>
               안녕하세요, 멋쟁이사자처럼 서강대학교 13기 운영진입니다.
               <br />
