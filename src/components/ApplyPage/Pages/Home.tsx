@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
-import { Application, Page, Result } from '@/pages/ApplyPage';
+import { Application, Result } from '@/pages/ApplyPage';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ interface LoginData {
 }
 
 interface HomeProps {
-  handlePageChange: (page: Page) => void;
+  // handlePageChange: (page: Page) => void;
   setApplicationData: (data: Application) => void;
   handleToastRender: (text: string) => void;
   setEditStatus: (isEdit: boolean) => void;
@@ -20,7 +20,7 @@ interface HomeProps {
 }
 
 const Home = ({
-  handlePageChange,
+  // handlePageChange,
   setApplicationData,
   handleToastRender,
   setEditStatus,
@@ -36,24 +36,24 @@ const Home = ({
   const [isPending, setIsPending] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const now = new Date();
-    const recruitDoneDate = new Date(now.getFullYear(), 2, 7, 0, 0, 0);
-    const roundOneAnnounceDate = new Date(now.getFullYear(), 2, 8, 12, 0, 0);
-    const roundTwoAnnounceDate = new Date(now.getFullYear(), 2, 14, 16, 50, 0);
-    if (now < recruitDoneDate) setRoundNum('apply');
-    else if (now >= recruitDoneDate && now < roundOneAnnounceDate) {
-      setRoundNum('forbidden');
-      alert('현재는 지원 접수 기간이 아닙니다.');
-      navigate('/');
-      return;
-    } else if (now >= roundOneAnnounceDate && now < roundTwoAnnounceDate) {
-      setRoundNum('forbidden');
-      alert('서류 결과 확인 기간이 지났습니다.');
-      // navigate('/');
-      return;
-    } else setRoundNum('two');
-  }, []);
+  // useEffect(() => {
+  //   const now = new Date();
+  //   const recruitDoneDate = new Date(now.getFullYear(), 2, 7, 0, 0, 0);
+  //   const roundOneAnnounceDate = new Date(now.getFullYear(), 2, 8, 12, 0, 0);
+  //   const roundTwoAnnounceDate = new Date(now.getFullYear(), 2, 14, 16, 50, 0);
+  //   if (now < recruitDoneDate) setRoundNum('apply');
+  //   else if (now >= recruitDoneDate && now < roundOneAnnounceDate) {
+  //     setRoundNum('forbidden');
+  //     alert('현재는 지원 접수 기간이 아닙니다.');
+  //     navigate('/');
+  //     return;
+  //   } else if (now >= roundOneAnnounceDate && now < roundTwoAnnounceDate) {
+  //     setRoundNum('forbidden');
+  //     alert('서류 결과 확인 기간이 지났습니다.');
+  //     // navigate('/');
+  //     return;
+  //   } else setRoundNum('two');
+  // }, []);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
@@ -82,7 +82,8 @@ const Home = ({
           // localStorage.setItem('isEdit', 'true');
           setEditStatus(true); // 지원서의 status를 edit로 설정
           setLoginData({ email: '', password: '' });
-          handlePageChange(Page.APPLY_SECOND);
+          // handlePageChange(Page.APPLY_SECOND);
+          navigate('/apply/apply-second');
         }
       } catch (err: unknown) {
         if (
@@ -106,9 +107,14 @@ const Home = ({
         if (res?.data?.success) {
           setResultData(res.data.data);
           setLoginData({ email: '', password: '' });
-          handlePageChange(
-            roundNum === 'one' ? Page.ROUND_ONE_RESULT : Page.ROUND_TWO_RESULT
-          );
+          // handlePageChange(
+          //   roundNum === 'one' ? Page.ROUND_ONE_RESULT : Page.ROUND_TWO_RESULT
+          // );
+          const link =
+            roundNum === 'one'
+              ? '/apply/round-one-result'
+              : '/apply/round-two-result';
+          navigate(link);
         }
       } catch (err: unknown) {
         if (
@@ -126,14 +132,17 @@ const Home = ({
 
   const handleFindPWBtn = () => {
     setLoginData({ email: '', password: '' });
-    handlePageChange(Page.FIND_PW_EMAIL);
+    // handlePageChange(Page.FIND_PW_EMAIL);
+    navigate('/apply/find-pw-email');
   };
 
   const handleCreateBtn = () => {
     setLoginData({ email: '', password: '' });
     // localStorage.setItem('isEdit', 'false');
     setEditStatus(false); // 지원서의 status를 create로 설정
-    handlePageChange(Page.APPLY_FIRST);
+    navigate('/apply/apply-fourth', {
+      state: { message: '안녕하세요!' }
+    });
   };
 
   return (

@@ -1,21 +1,21 @@
-import { Application, initialApplication, Page } from '@/pages/ApplyPage';
+import { Application, initialApplication } from '@/pages/ApplyPage';
 import React, { useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 interface FindPWEmailProps {
-  handlePageChange: (page: Page) => void;
   handleToastRender: (text: string) => void;
   setApplicationData: (data: Application) => void;
 }
 
 const FindPWEmail = ({
-  handlePageChange,
   handleToastRender,
   setApplicationData
 }: FindPWEmailProps) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [isValid, setIsValid] = useState(true);
   const [isPending, setIsPending] = useState(false);
@@ -37,7 +37,7 @@ const FindPWEmail = ({
       if (res?.data?.success) {
         handleToastRender(res.data.message);
         setApplicationData({ ...initialApplication, email: email });
-        handlePageChange(Page.FIND_PW_AUTH);
+        navigate('/apply/find-pw-auth');
       }
     } catch (err: unknown) {
       if (

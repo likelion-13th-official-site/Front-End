@@ -1,21 +1,21 @@
-import { Application, Page } from '@/pages/ApplyPage';
+import { Application } from '@/pages/ApplyPage';
 import React, { useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 interface FindPWEmailProps {
-  handlePageChange: (page: Page) => void;
   handleToastRender: (text: string) => void;
   application: Application;
 }
 
 const FindPWReset = ({
-  handlePageChange,
   handleToastRender,
   application
 }: FindPWEmailProps) => {
+  const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(true);
   const [isPending, setIsPending] = useState(false);
@@ -37,7 +37,7 @@ const FindPWReset = ({
       const res = await instance.post('/auth/reset-password', body);
       if (res?.data?.success) {
         handleToastRender(res.data.message);
-        handlePageChange(Page.HOME);
+        navigate('/apply/home');
       }
     } catch (err: unknown) {
       if (

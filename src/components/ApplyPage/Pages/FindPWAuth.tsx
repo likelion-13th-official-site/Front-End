@@ -1,21 +1,21 @@
-import { Application, Page } from '@/pages/ApplyPage';
+import { Application } from '@/pages/ApplyPage';
 import React, { useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 interface FindPWEmailProps {
-  handlePageChange: (page: Page) => void;
   handleToastRender: (text: string) => void;
   application: Application;
 }
 
 const FindPWAuth = ({
-  handlePageChange,
   handleToastRender,
   application
 }: FindPWEmailProps) => {
+  const navigate = useNavigate();
   const [code, setCode] = useState('');
   const [isPending, setIsPending] = useState(false);
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,7 +30,7 @@ const FindPWAuth = ({
       const res = await instance.post('/auth/verify-code', body);
       if (res?.data?.success) {
         handleToastRender(res.data.message);
-        handlePageChange(Page.FIND_PW_RESET);
+        navigate('/apply/find-pw-reset');
       }
     } catch (err: unknown) {
       if (

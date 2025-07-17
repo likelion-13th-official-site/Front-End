@@ -1,8 +1,9 @@
-import { Page, Result } from '@/pages/ApplyPage';
+import { Result } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
+import { useNavigate } from 'react-router-dom';
 
 interface RoundOneResultProps {
-  handlePageChange: (page: Page) => void;
+  // handlePageChange: (page: Page) => void;
   result: Result;
 }
 
@@ -16,9 +17,10 @@ const formatDate = (dateTimeStr: string | undefined) => {
   }
 };
 
-const RoundOneResult = ({ handlePageChange, result }: RoundOneResultProps) => {
+const RoundOneResult = ({ result }: RoundOneResultProps) => {
+  const navigate = useNavigate();
   const handleNextBtn = () => {
-    handlePageChange(Page.HOME);
+    navigate('/apply/home');
   };
 
   return (

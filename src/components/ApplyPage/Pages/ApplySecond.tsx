@@ -1,12 +1,13 @@
-import { Application, Page } from '@/pages/ApplyPage';
+import { Application } from '@/pages/ApplyPage';
 import React, { useEffect, useState } from 'react';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
 import InputOnlyBox from '../InputOnlyBox';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 interface ApplySecondProps {
-  handlePageChange: (page: Page) => void;
+  // handlePageChange: (page: Page) => void;
   saveApplicationData: (data: Record<string, string>) => void;
   handleToastRender: (text: string) => void;
   application: Application;
@@ -41,7 +42,7 @@ export interface UserInputString {
 }
 
 const ApplySecond = ({
-  handlePageChange,
+  // handlePageChange,
   saveApplicationData,
   handleToastRender,
   isEdit,
@@ -63,6 +64,8 @@ const ApplySecond = ({
   });
   const [isInputFilled, setIsInputFilled] = useState(false);
   const [isPending, setIsPending] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const viewApplication = async () => {};
@@ -136,7 +139,7 @@ const ApplySecond = ({
       newInput[key] = userInput[key as keyof UserInput].value;
     });
     saveApplicationData(newInput);
-    handlePageChange(Page.APPLY_THIRD);
+    navigate('/apply/apply-third');
   };
 
   const handleInput = (

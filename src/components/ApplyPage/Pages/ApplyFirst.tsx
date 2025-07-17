@@ -1,26 +1,26 @@
-import { Page } from '@/pages/ApplyPage';
-import { useState } from 'react';
-import SquareBtn from '../SquareBtn';
-import { CheckmarkSharp } from 'react-ionicons';
+// import { Page } from "@/pages/ApplyPage";
+import { useState } from "react";
+import SquareBtn from "../SquareBtn";
+import { CheckmarkSharp } from "react-ionicons";
 
-interface ApplyFirstProps {
-  handlePageChange: (page: Page) => void;
-}
+// interface ApplyFirstProps {
+//   // handlePageChange: (page: Page) => void;
+// }
 
 interface IsChecked {
   first: boolean;
   second: boolean;
 }
 
-const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
+const ApplyFirst = () => {
   const [isChecked, setIsChecked] = useState<IsChecked>({
     first: false,
-    second: false
+    second: false,
   });
 
   const handleNextBtn = () => {
     //API call
-    handlePageChange(Page.APPLY_SECOND);
+    // handlePageChange(Page.APPLY_SECOND);
   };
 
   return (
@@ -61,7 +61,7 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
         </p>
 
         <p>
-          💡{' '}
+          💡{" "}
           <strong>
             “디자인과 개발을 배우며, 나만의 포트폴리오를 만들고 싶다면?”
           </strong>
@@ -75,18 +75,18 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
 
         <p>
           📌 서류 모집 기간: 2025.02.18 ~ 2025.03.06 23:59 <br />
-          🔗 지원 사이트 링크:{' '}
+          🔗 지원 사이트 링크:{" "}
           <a
             href="https://www.likelionsg13.site/recruit"
             className="border-b"
             target="_blank"
           >
             https://www.likelionsg13.site/recruit
-          </a>{' '}
+          </a>{" "}
           <br />
           📌 더 자세한 안내 사항은 멋쟁이사자처럼 13기 홈페이지에서 확인할 수
           있습니다. <br />
-          🔗 홈페이지 링크:{' '}
+          🔗 홈페이지 링크:{" "}
           <a
             href="https://www.likelionsg13.site"
             className="border-b"
@@ -234,8 +234,8 @@ const ApplyFirst = ({ handlePageChange }: ApplyFirstProps) => {
         handleClick={handleNextBtn}
         status={
           isChecked.first === true && isChecked.second === true
-            ? 'default'
-            : 'disabled'
+            ? "default"
+            : "disabled"
         }
       ></SquareBtn>
     </section>

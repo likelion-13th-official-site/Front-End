@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import TextBox from '../TextBox';
-import { Application, Page } from '@/pages/ApplyPage';
+import { Application } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
 import FormBox from '../FormBox';
 import { instance } from '@/api/instance';
 import { AxiosError } from 'axios';
 import { CheckmarkSharp } from 'react-ionicons';
+import { useNavigate } from 'react-router-dom';
 
 interface ApplyThirdProps {
-  handlePageChange: (page: Page) => void;
+  // handlePageChange: (page: Page) => void;
   application: Application;
   handleToastRender: (text: string) => void;
   isEdit: boolean;
@@ -97,7 +98,7 @@ const interviewProps = {
 };
 
 const ApplyThird = ({
-  handlePageChange,
+  // handlePageChange,
   application,
   handleToastRender,
   isEdit
@@ -114,6 +115,8 @@ const ApplyThird = ({
   });
   const [isInputFilled, setIsInputFilled] = useState(false);
   const [isPending, setIsPending] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     let isFilled = true;
@@ -189,7 +192,7 @@ const ApplyThird = ({
       }
       if (res?.data?.success) {
         handleToastRender(res.data.message);
-        handlePageChange(Page.APPLY_FOURTH);
+        navigate('/apply/apply-fourth');
       }
     } catch (err: unknown) {
       if (

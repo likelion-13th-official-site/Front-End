@@ -1,14 +1,15 @@
-import { Page, Result } from '@/pages/ApplyPage';
+import { Result } from '@/pages/ApplyPage';
 import SquareBtn from '../SquareBtn';
 import { useEffect } from 'react';
 import JSConfetti from 'js-confetti';
+import { useNavigate } from 'react-router-dom';
 
 interface RoundTwoResultProps {
-  handlePageChange: (page: Page) => void;
+  // handlePageChange: (page: Page) => void;
   result: Result;
 }
 
-const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
+const RoundTwoResult = ({ result }: RoundTwoResultProps) => {
   // result.status = '최종합격';
   useEffect(() => {
     if (result.status !== '최종합격') {
@@ -35,8 +36,9 @@ const RoundTwoResult = ({ handlePageChange, result }: RoundTwoResultProps) => {
     }
   }, []);
 
+  const navigate = useNavigate();
   const handleNextBtn = () => {
-    handlePageChange(Page.HOME);
+    navigate('/apply/home');
   };
 
   return (

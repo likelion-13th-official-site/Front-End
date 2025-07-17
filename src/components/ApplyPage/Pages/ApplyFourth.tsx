@@ -1,15 +1,25 @@
-import { Page } from '@/pages/ApplyPage';
+import { useEffect } from 'react';
 import SquareBtn from '../SquareBtn';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-interface ApplyFirstProps {
-  handlePageChange: (page: Page) => void;
+interface ApplyFourthProps {
   userName: string;
 }
 
-const ApplyFourth = ({ handlePageChange, userName }: ApplyFirstProps) => {
+const ApplyFourth = ({ userName }: ApplyFourthProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { message } = location.state || {};
+
+  useEffect(() => {
+    if (!message) {
+      navigate('/apply'); // 홈으로 돌려보냄
+    }
+  }, []);
+
   const handleNextBtn = () => {
     //API call
-    handlePageChange(Page.HOME);
+    navigate('/apply/home');
   };
 
   return (

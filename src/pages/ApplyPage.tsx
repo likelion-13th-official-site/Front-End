@@ -1,43 +1,20 @@
-import ApplyFirst from '@/components/ApplyPage/Pages/ApplyFirst';
-import ApplySecond from '@/components/ApplyPage/Pages/ApplySecond';
-import ApplyThird from '@/components/ApplyPage/Pages/ApplyThird';
-import FindPWAuth from '@/components/ApplyPage/Pages/FindPWAuth';
-import FindPWEmail from '@/components/ApplyPage/Pages/FindPWEmail';
-import FindPWReset from '@/components/ApplyPage/Pages/FindPWReset';
-import Home from '@/components/ApplyPage/Pages/Home';
-import ApplyFourth from '@/components/ApplyPage/Pages/ApplyFourth';
-import RoundBtn from '@/components/ApplyPage/RoundBtn';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, Routes, Route, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+import Home from '../components/ApplyPage/Pages/Home';
+import FindPWEmail from '../components/ApplyPage/Pages/FindPWEmail';
+import FindPWAuth from '../components/ApplyPage/Pages/FindPWAuth';
+import FindPWReset from '../components/ApplyPage/Pages/FindPWReset';
+import ApplyFirst from '../components/ApplyPage/Pages/ApplyFirst';
+import ApplySecond from '../components/ApplyPage/Pages/ApplySecond';
+import ApplyThird from '../components/ApplyPage/Pages/ApplyThird';
+import ApplyFourth from '../components/ApplyPage/Pages/ApplyFourth';
+import RoundOneResult from '../components/ApplyPage/Pages/RoundOneResult';
+import RoundTwoResult from '../components/ApplyPage/Pages/RoundTwoResult';
+
+import RoundBtn from '../components/ApplyPage/RoundBtn';
 import ThemeButton from '@/components/common/header/ThemeButton';
-import RoundOneResult from '@/components/ApplyPage/Pages/RoundOneResult';
-import RoundTwoResult from '@/components/ApplyPage/Pages/RoundTwoResult';
 
-export enum Page {
-  HOME,
-  FIND_PW_EMAIL,
-  FIND_PW_AUTH,
-  FIND_PW_RESET,
-  APPLY_FIRST,
-  APPLY_SECOND,
-  APPLY_THIRD,
-  APPLY_FOURTH,
-  ROUND_ONE_RESULT,
-  ROUND_TWO_RESULT
-}
-
-// export enum Path {
-//   친구추천,
-//   SNS,
-//   학교공지,
-//   기타
-// }
-
-// export enum Track {
-//   Backend,
-//   Frontend,
-//   Design
-// }
 export interface Application {
   name: string;
   email: string;
@@ -56,7 +33,7 @@ export interface Application {
   interviewTimes: number[];
 }
 
-export const initialApplication = {
+export const initialApplication: Application = {
   name: '',
   email: '',
   password: '',
@@ -83,7 +60,6 @@ export interface Result {
 }
 
 const ApplyPage = () => {
-  const [currentPage, setCurrentPage] = useState(Page.HOME);
   const [application, setApplication] =
     useState<Application>(initialApplication);
   const [result, setResult] = useState<Result>({ name: '', status: '' });
@@ -91,98 +67,36 @@ const ApplyPage = () => {
   const [isEdit, setIsEdit] = useState(false);
   const nav = useNavigate();
 
-  useEffect(() => {
-    if (sessionStorage.getItem('redirectToHome') === 'true') {
-      sessionStorage.removeItem('redirectToHome'); // 플래그 제거
-      handlePageChange(Page.HOME); // 새로고침 시 초기 페이지로 이동
-    }
-    // setCurrentPage(Number(localStorage.getItem('currentPage')));
-    // setIsEdit(localStorage.getItem('isEdit') === 'true');
-    return () => {
-      // localStorage.setItem('currentPage', Page.HOME.toString());
-      // localStorage.setItem('isEdit', 'false');
-      // 🚨 로컬 스토리지 내 value 값을 유저가 임의로 변경하는 경우를 막기 위해 localStorage 저장 기능 삭제
-    };
-  }, []);
+  const handleToastRender = (text: string) => {
+    setToast({ text: text || '오류가 발생했습니다.', isRender: true });
+  };
 
   useEffect(() => {
-    if (toast.isRender == true) {
-      setTimeout(() => {
+    if (toast.isRender) {
+      const timer = setTimeout(() => {
         setToast({ ...toast, isRender: false });
       }, 3000);
+      return () => clearTimeout(timer);
     }
   }, [toast]);
 
-  useEffect(() => {
-    window.onbeforeunload = () => {
-      sessionStorage.setItem('redirectToHome', 'true'); // 새로고침 시 플래그 저장
-      return '새로고침 시 지원 초기 페이지로 이동합니다.';
-    };
-    return () => {
-      window.onbeforeunload = null; // 컴포넌트가 언마운트되거나 currentPage가 변경될 때 제거
-    };
-  }, [currentPage]);
+  const handleHeaderBtnClick = (to: string) => {
+    const confirmReset = window.confirm(
+      '현재까지의 진행 상황이 모두 초기화됩니다.\n정말 진행하시겠습니까?'
+    );
+    if (!confirmReset) return;
 
-  const setEditStatus = (isEdit: boolean) => {
-    setIsEdit(isEdit);
+    nav(to);
+    setApplication(initialApplication);
   };
 
-  const setApplicationData = (data: Application) => {
-    setApplication(data);
-  };
 
-  const setResultData = (data: Result) => {
-    setResult(data);
-  };
-
-  const handleHeaderBtnClick = (type: string) => {
-    if (
-      currentPage === Page.APPLY_SECOND ||
-      currentPage === Page.APPLY_THIRD ||
-      currentPage === Page.FIND_PW_AUTH ||
-      currentPage === Page.FIND_PW_RESET
-    ) {
-      const isConfirmed = window.confirm(
-        '현재까지의 진행 상황이 모두 초기화됩니다.\n정말 진행하시겠습니까?'
-      );
-      if (isConfirmed) {
-        if (type === 'home') {
-          // localStorage.setItem('currentPage', Page.HOME.toString());
-          nav('/');
-        } else if (type === 'apply') {
-          handlePageChange(Page.HOME);
-        }
-      } else return;
-    }
-    if (type === 'home') {
-      // localStorage.setItem('currentPage', Page.HOME.toString());
-      nav('/');
-    } else if (type === 'apply') {
-      handlePageChange(Page.HOME);
-    }
-  };
-
-  const saveApplicationData = (data: Record<string, string>) => {
-    const { emailAuth, ...newApplication } = data;
-    setApplication({ ...application, ...newApplication });
-  };
-
-  const handleToastRender = (text: string) => {
-    if (text === undefined || text === '' || text === null) {
-      setToast({ text: '오류가 발생했습니다.', isRender: true });
-    } else {
-      setToast({ text: text, isRender: true });
-    }
-  };
-
-  const handlePageChange = (page: Page) => {
-    setCurrentPage(page);
-    // localStorage.setItem('currentPage', page.toString());
-    window.scrollTo(0, 0);
-    if (page === Page.HOME) {
-      setApplication(initialApplication);
-    }
-  };
+  const saveApplicationData = (data: Application | Record<string, string>) => {
+  setApplication((prev) => ({
+    ...prev,
+    ...data
+  }));
+};
 
   return (
     <div className="relative">
@@ -195,93 +109,75 @@ const ApplyPage = () => {
               <span className="italic">Recruiting</span>
             </p>
             <div className="flex gap-[0.8rem]">
-              <RoundBtn
-                content="Home"
-                handleClick={() => {
-                  handleHeaderBtnClick('home');
-                }}
-              ></RoundBtn>
-              {currentPage !== Page.HOME && (
-                <RoundBtn
-                  content="Apply Main"
-                  handleClick={() => {
-                    handleHeaderBtnClick('apply');
-                  }}
-                ></RoundBtn>
-              )}
+              <RoundBtn content="Home" handleClick={() => nav('/')} />
+              <RoundBtn content="Apply Main" handleClick={() => handleHeaderBtnClick('/apply')} />
               <ThemeButton isBlueBackground={false} />
             </div>
           </section>
-          {currentPage === Page.HOME && (
-            <Home
-              handlePageChange={handlePageChange}
-              setApplicationData={setApplicationData}
-              setResultData={setResultData}
-              handleToastRender={handleToastRender}
-              setEditStatus={setEditStatus}
-            />
-          )}
-          {currentPage === Page.FIND_PW_EMAIL && (
-            <FindPWEmail
-              handlePageChange={handlePageChange}
-              handleToastRender={handleToastRender}
-              setApplicationData={setApplicationData}
-            />
-          )}
-          {currentPage === Page.FIND_PW_AUTH && (
-            <FindPWAuth
-              handlePageChange={handlePageChange}
-              handleToastRender={handleToastRender}
-              application={application}
-            />
-          )}
-          {currentPage === Page.FIND_PW_RESET && (
-            <FindPWReset
-              handlePageChange={handlePageChange}
-              handleToastRender={handleToastRender}
-              application={application}
-            />
-          )}
-          {currentPage === Page.APPLY_FIRST && (
-            <ApplyFirst handlePageChange={handlePageChange} />
-          )}
-          {currentPage === Page.APPLY_SECOND && (
-            <ApplySecond
-              handlePageChange={handlePageChange}
-              saveApplicationData={saveApplicationData}
-              handleToastRender={handleToastRender}
-              application={application}
-              isEdit={isEdit}
-            />
-          )}
-          {currentPage === Page.APPLY_THIRD && (
-            <ApplyThird
-              handlePageChange={handlePageChange}
-              application={application}
-              handleToastRender={handleToastRender}
-              isEdit={isEdit}
-            />
-          )}
-          {currentPage === Page.APPLY_FOURTH && (
-            <ApplyFourth
-              handlePageChange={handlePageChange}
-              userName={application.name}
-            />
-          )}
-          {currentPage === Page.ROUND_ONE_RESULT && (
-            <RoundOneResult
-              handlePageChange={handlePageChange}
-              result={result}
-            />
-          )}
-          {currentPage === Page.ROUND_TWO_RESULT && (
-            <RoundTwoResult
-              handlePageChange={handlePageChange}
-              result={result}
-            />
-          )}
+
+          {/* 👇 하위 페이지 라우팅 */}
+          <Routes>
+            <Route path="/" element={
+              <Home
+                setApplicationData={setApplication}
+                setResultData={setResult}
+                handleToastRender={handleToastRender}
+                setEditStatus={setIsEdit}
+              />
+            } />
+            <Route path="/find-pw-email" element={
+              <FindPWEmail
+                handleToastRender={handleToastRender}
+                setApplicationData={setApplication}
+              />
+            } />
+            <Route path="/find-pw-auth" element={
+              <FindPWAuth
+                handleToastRender={handleToastRender}
+                application={application}
+              />
+            } />
+            <Route path="/find-pw-reset" element={
+              <FindPWReset
+                handleToastRender={handleToastRender}
+                application={application}
+              />
+            } />
+            <Route path="/apply-first" element={<ApplyFirst />} />
+            <Route path="/apply-second" element={
+              <ApplySecond
+                saveApplicationData={saveApplicationData}
+                handleToastRender={handleToastRender}
+                application={application}
+                isEdit={isEdit}
+              />
+            } />
+            <Route path="/apply-third" element={
+              <ApplyThird
+                application={application}
+                handleToastRender={handleToastRender}
+                isEdit={isEdit}
+              />
+            } />
+            <Route path="/apply-fourth" element={
+              <ApplyFourth
+                userName={application.name}
+              />
+            } />
+            <Route path="/round-one-result" element={
+              <RoundOneResult
+                result={result}
+              />
+            } />
+            <Route path="/round-two-result" element={
+              <RoundTwoResult
+                result={result}
+              />
+            } />
+          </Routes>
         </div>
       </div>
+
       {toast.isRender && (
         <div className="fixed font-d2 py-[1.2rem] px-[3.6rem] bg-text-primary text-surface-primary left-[50%] bottom-[10%] translate-x-[-50%] animate-toast-fadeInOut">
           {toast.text}
